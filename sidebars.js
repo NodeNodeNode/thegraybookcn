@@ -46,9 +46,65 @@ module.exports = {
           "label": "节点浏览器"
         },
         {
+          "type": "category",
+          "label": "通道浏览器",
+          "items": [
+            {
+              "type": "doc",
+              "id": "reference/hde/presets",
+              "label": "预设与过渡"
+            },
+            {
+              "type": "doc",
+              "id": "reference/hde/bindings",
+              "label": "绑定"
+            }
+          ],
+          "link": {
+            "type": "doc",
+            "id": "reference/hde/the_channelbrowser"
+          }
+        },
+        {
+          "type": "doc",
+          "id": "reference/hde/finders",
+          "label": "查找"
+        },
+        {
+          "type": "category",
+          "label": "调试",
+          "items": [
+            {
+              "type": "doc",
+              "id": "reference/hde/debugging-buildresult",
+              "label": "构建结果"
+            },
+            {
+              "type": "doc",
+              "id": "reference/hde/debugging-apphealth",
+              "label": "应用健康"
+            },
+            {
+              "type": "doc",
+              "id": "reference/hde/debugging-log",
+              "label": "日志"
+            }
+          ]
+        },
+        {
           "type": "doc",
           "id": "reference/hde/extensions",
           "label": "扩展"
+        },
+        {
+          "type": "doc",
+          "id": "reference/hde/documentation",
+          "label": "文档窗口"
+        },
+        {
+          "type": "doc",
+          "id": "reference/hde/solution-explorer",
+          "label": "方案浏览器"
         },
         {
           "type": "doc",
@@ -65,7 +121,11 @@ module.exports = {
           "id": "reference/hde/findinghelp",
           "label": "寻求帮助"
         }
-      ]
+      ],
+      "link": {
+        "type": "doc",
+        "id": "reference/hde/gui"
+      }
     },
     {
       "type": "category",
