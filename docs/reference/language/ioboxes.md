@@ -14,7 +14,7 @@ IOBox 是 “Input/Output boxes”（输入输出盒子）的简称。你可以�
 ![](https://thegraybook.vvvv.org/images/language/ioboxes-8e444.png)
 各种不同数据类型的 IOBox
 
-通常的做法是：从某个节点的输入或输出*针脚（Pin）*上引出一条*连线（Link）*，然后按鼠标中键（或者 `Alt` `+` 左键单击）创建出对应的 IOBox。另一种做法是在*草图（Patch）*的空白处双击右键，在弹出的节点浏览器里选一个。
+通常的做法是：从某个节点的输入或输出 *Pin*（针脚）上引出一条 *Link*（连线），然后按鼠标中键（或者 `Alt` `+` 左键单击）创建出对应的 IOBox。另一种做法是在 *Patch*（草图）的空白处双击右键，在弹出的节点浏览器里选一个。
 
 ![](https://thegraybook.vvvv.org/images/language/ioboxes-fb5fa.png)
 双击右键后从节点浏览器中选择 IOBox

@@ -9,7 +9,7 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/language/patch-explorer.html)
 
-*Patch Explorer（草图浏览器）*能让你快速看清一个草图里有哪些元素，还可以在这里设置草图的名字和类型，以及随类型而变的其他参数。
+*Patch Explorer*（草图浏览器）能让你快速看清一个草图里有哪些元素，还可以在这里设置草图的名字和类型，以及随类型而变的其他参数。
 
 ## Showing and Hiding the Explorer / 显示与隐藏 {#showing-and-hiding-the-explorer}
 

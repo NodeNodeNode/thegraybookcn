@@ -9,11 +9,11 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/language/properties.html)
 
-数据类型可以用*Property（参数）*来存放数据。想看一个数据类型有哪些参数，用[草图浏览器](patch-explorer.md)。
+数据类型可以用 *Property*（参数）来存放数据。想看一个数据类型有哪些参数，用[草图浏览器](patch-explorer.md)。
 
 *（上游此处待补图：草图浏览器里列出的参数）*
 
-增删参数都可以在[草图浏览器](patch-explorer.md)里做，不过要*添加*参数的话，通常直接建*Pad（数据板）*就行了。
+增删参数都可以在[草图浏览器](patch-explorer.md)里做，不过要*添加*参数的话，通常直接建 *Pad*（数据板）就行了。
 
 如果你是从文本编程过来的，可以把参数理解成「变量」—— 但有个重要区别：**每个运算器里只能对它写入一次。**
 

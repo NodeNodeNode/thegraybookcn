@@ -34,7 +34,7 @@ Splicer 让你在连续的迭代中依次取到 Spread 里连续的 slice。开�
 
 *（上游此处待补图：一个 Spread 经由 splicer 连进循环）*
 
-多个 Spread 可以经由各自的 splicer 进入同一个循环。这时如果是 **ForEach** 循环，迭代次数由所有进来的 Spread 中 **slice 数最少**的那个决定。
+多个 Spread 可以经由各自的 splicer 进入同一个循环。这时如果是 **ForEach** 循环，迭代次数由所有进来的 Spread 中**slice 数最少**的那个决定。
 
 *（上游此处待补图：ForEach 循环分别收到 20 个和 15 个 slice 的 Spread，于是执行 15 次）*
 

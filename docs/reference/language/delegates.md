@@ -15,7 +15,7 @@ Delegate 没有名字，这在这里是个优点 —— 只要签名对得上，
 
 Delegate 可以有零到多个输入，零个或一个输出。这也是它「签名」（或者说「形状」）的一部分。它是 .NET 的标准特性。
 
-在定义那一侧，输入叫**参数（parameters）**；在调用那一侧，传进去的值通常叫**实参（arguments）**。
+在定义那一侧，输入叫 *parameters*（参数）；在调用那一侧，传进去的值通常叫 *arguments*（实参）。
 
 ## Defining a delegate / 定义 Delegate {#defining-a-delegate}
 

@@ -9,7 +9,7 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/language/links.html)
 
-*Link（连线）*是*针脚（Pin）*之间的连接，数据顺着它从一个节点流向另一个节点。连线分三种：
+*Link*（连线）是 *Pin*（针脚）之间的连接，数据顺着它从一个节点流向另一个节点。连线分三种：
 
 *（上游此处待补图：普通连线、引用连线、Delegate 连线）*
 
