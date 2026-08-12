@@ -105,6 +105,66 @@ module.exports = {
           "type": "doc",
           "id": "reference/language/properties",
           "label": "参数"
+        },
+        {
+          "type": "doc",
+          "id": "reference/language/execution-order",
+          "label": "执行顺序"
+        },
+        {
+          "type": "doc",
+          "id": "reference/language/categories",
+          "label": "目录"
+        },
+        {
+          "type": "doc",
+          "id": "reference/language/conditions",
+          "label": "条件"
+        },
+        {
+          "type": "doc",
+          "id": "reference/language/loops",
+          "label": "循环"
+        },
+        {
+          "type": "doc",
+          "id": "reference/language/cache",
+          "label": "Cache 区块"
+        },
+        {
+          "type": "doc",
+          "id": "reference/language/exception-handling",
+          "label": "异常处理"
+        },
+        {
+          "type": "doc",
+          "id": "reference/language/enumerations",
+          "label": "枚举"
+        },
+        {
+          "type": "doc",
+          "id": "reference/language/delegates",
+          "label": "Delegate"
+        },
+        {
+          "type": "doc",
+          "id": "reference/language/frames",
+          "label": "边框"
+        },
+        {
+          "type": "doc",
+          "id": "reference/language/groups",
+          "label": "group patch"
+        },
+        {
+          "type": "doc",
+          "id": "reference/language/compilation",
+          "label": "编译"
+        },
+        {
+          "type": "doc",
+          "id": "reference/language/namings",
+          "label": "命名约定"
         }
       ],
       "link": {
