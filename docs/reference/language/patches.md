@@ -9,7 +9,7 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/language/patches.html)
 
-*Patch（草图）*是一块画布，上面放着[节点](nodes.md)、[连线（英文）](https://thegraybook.vvvv.org/reference/language/links.html)以及其他 VL 语言元素。一个 VL 文档可以包含很多草图。草图主要分两大类：
+*Patch（草图）*是一块画布，上面放着[节点](nodes.md)、[连线](links.md)以及其他 VL 语言元素。一个 VL 文档可以包含很多草图。草图主要分两大类：
 
 * 类型草图（Datatype Patches）
 * 定义草图（Definition Patches）
@@ -53,7 +53,7 @@ VL.CoreLib.vl 的 Definitions 草图的一部分
 * Interface
 * Forward
 
-Process、Record 和 Class 草图可以有[参数（英文）](https://thegraybook.vvvv.org/reference/language/properties.html)和[成员运算器](operations.md#member-operations)。Interface 和 Forward 比较特殊，见下文。
+Process、Record 和 Class 草图可以有[参数](properties.md)和[成员运算器](operations.md#member-operations)。Interface 和 Forward 比较特殊，见下文。
 
 每个类型草图，在定义草图里都有一个对应的类型定义元素。
 

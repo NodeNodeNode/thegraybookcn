@@ -249,13 +249,9 @@ html[data-theme='dark'] {
   color: var(--ink);
 }
 
-/* 未翻译板块跳的是上游英文站。原站用颜色深浅编码「主推 vs 次要」，但那一档
-   对比度只有 3.45，这里改用一个外链角标 —— 既达标又更明确。标签里本来也带「（英文）」。 */
-.navbar__link.gb-en-link::after {
-  content: '↗';
-  margin-left: 0.25em;
-  color: var(--grey-500);
-}
+/* 未翻译板块跳的是上游英文站。不需要自己画角标 —— Docusaurus 的
+   NavbarNavLink 已经为外链渲染了 IconExternalLink，再加一个就是两个箭头。
+   「这是外链」由那个图标表示，「内容是英文」由标签里的「（英文）」表示。 */
 
 /* ── 侧边栏：pin 方块代替背景高亮 ─────────────────────
    8px 实心方块是原站的签名图形，呼应 vvvv 的节点与引脚。 */

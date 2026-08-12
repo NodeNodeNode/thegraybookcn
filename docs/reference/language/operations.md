@@ -13,7 +13,7 @@ last_synced: '2026-08-12'
 译者注：Operation 可以译成「运算器」「操作器」等等，都不算完美。这里采用「运算器」，全书统一。 <!-- gb-ignore T1 这一句在讨论候选译名本身，不是在使用它 -->
 :::
 
-*Operation（运算器）*定义一段简单的功能：它接收输入，做点什么，然后返回结果。运算器**不能持有状态** —— 也就是说，它没法把数据保存到下一次调用。数据要存在[参数（英文）](https://thegraybook.vvvv.org/reference/language/properties.html)里。
+*Operation（运算器）*定义一段简单的功能：它接收输入，做点什么，然后返回结果。运算器**不能持有状态** —— 也就是说，它没法把数据保存到下一次调用。数据要存在[参数](properties.md)里。
 
 ## Definition vs. Application / 定义和应用 {#definition-vs-application}
 

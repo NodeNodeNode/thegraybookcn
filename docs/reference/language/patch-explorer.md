@@ -24,7 +24,7 @@ last_synced: '2026-08-12'
 ![](https://thegraybook.vvvv.org/images/hde/application-patch-explorer.png)
 
 - 不能指定名字
-- 列出这个草图的全部[参数（英文）](https://thegraybook.vvvv.org/reference/language/properties.html)，可以增删
+- 列出这个草图的全部[参数](properties.md)，可以增删
 - 列出嵌套在里面的元素，比如[类型草图定义](patches.md#datatype-patches)和[静态运算器定义](operations.md#creating-a-static-operation)
 
 ## Definition Patch Explorer / Definitions 草图 {#definition-patch-explorer}
@@ -45,7 +45,7 @@ last_synced: '2026-08-12'
 - 仅 Record／Class：可以指定一个 [Aspect（英文）](https://thegraybook.vvvv.org/reference/extending/aspects.html)
 - 可以指定这个数据类型能否有 Generic 的输入／输出
 - 仅 Record／Class：列出全部 Interface，可以增删
-- 列出这个类型的全部[参数（英文）](https://thegraybook.vvvv.org/reference/language/properties.html)，可以增加、重命名、删除
+- 列出这个类型的全部[参数](properties.md)，可以增加、重命名、删除
 - 列出这个类型的全部[成员运算器](operations.md#member-operations)，可以增加、重命名、删除
   - 每个运算器的[签名](operations.md#operation-signature)都可以在这里显示和调整
 - 可以配置 [Process](patches.md#process) 定义

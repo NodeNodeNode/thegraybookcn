@@ -66,10 +66,13 @@ terms:
 
   - en: pad
     zh: 数据板
-    status: provisional
+    status: decided
     first_use: true
-    note: 现有译文用「数据板」但只有 3 处，样本量小，后续 Language 章可推翻。
-    decided_at: 2026-08-11
+    note: >-
+      原先只有 3 处样本，暂定为「数据板」。翻 properties 页时它出现 47 次
+      （那是它的主场页），读下来「数据板」站得住 —— 它确实是草图里存放数据的一块板子，
+      与 IOBox 本质相同。2026-08-12 转为已定。
+    decided_at: 2026-08-12
 
   - en: region
     zh: 区块

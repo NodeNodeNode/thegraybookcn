@@ -88,6 +88,11 @@ module.exports = {
         },
         {
           "type": "doc",
+          "id": "reference/language/links",
+          "label": "连线"
+        },
+        {
+          "type": "doc",
           "id": "reference/language/ioboxes",
           "label": "IOBoxes"
         },
@@ -95,6 +100,11 @@ module.exports = {
           "type": "doc",
           "id": "reference/language/operations",
           "label": "运算器"
+        },
+        {
+          "type": "doc",
+          "id": "reference/language/properties",
+          "label": "参数"
         }
       ],
       "link": {
