@@ -8,7 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {load} from 'js-yaml';
-import {ROOT, DOCS, listMarkdown, proseOnly} from './lib/md.mjs';
+import {ROOT, DOCS, listMarkdown, proseOnly, suppressionsOf} from './lib/md.mjs';
 
 const {terms} = load(fs.readFileSync(path.join(ROOT, 'translation/terms.yml'), 'utf8'));
 const files = process.argv.slice(2).length
@@ -26,35 +26,23 @@ const wordRe = (s, flags) =>
     ? new RegExp(`(?<![A-Za-z0-9])${escapeRe(s)}(?![A-Za-z0-9])`, flags)
     : new RegExp(escapeRe(s), flags);
 
-/**
- * 抑制注释：`<!-- gb-ignore T1 这里的 class 指其他语言的通用概念 -->`
- * 写在违规行的上一行或同一行，可选跟检查码（省略则抑制该行全部）。
- * 理由是必填的 —— 没有理由的抑制半年后没人知道能不能删。
- */
-function suppressions(rawLines) {
-  const map = new Map(); // line(1-based) -> Set(codes) | 'all'
-  rawLines.forEach((text, i) => {
-    const m = /<!--\s*gb-ignore(?:\s+([A-Z]\d(?:\s*,\s*[A-Z]\d)*))?\s+(\S.*?)\s*-->/.exec(text);
-    if (!m) return;
-    const codes = m[1] ? new Set(m[1].split(/\s*,\s*/)) : 'all';
-    const stripped = text.replace(/<!--[\s\S]*?-->/, '').trim();
-    // 注释独占一行 → 作用于下一行；跟在正文后面 → 作用于本行
-    map.set(stripped === '' ? i + 2 : i + 1, codes);
-  });
-  return map;
-}
-
 for (const rel of files) {
   const abs = path.join(DOCS, rel);
   if (!fs.existsSync(abs)) continue;
   const raw = fs.readFileSync(abs, 'utf8');
-  const prose = proseOnly(raw);
+  // 双语标题 `## English / 中文` 的英文半边是设计如此，不该按中文正文的规则去查。
+  // 只保留 “ / ” 之后的中文部分参与检查。
+  const prose = linesOf(proseOnly(raw))
+    .map((line) => {
+      const h = /^(#{1,6}[ \t]+)(.*)$/.exec(line);
+      if (!h) return line;
+      const slash = h[2].lastIndexOf(' / ');
+      if (slash === -1) return line;
+      return ' '.repeat(h[1].length + slash + 3) + h[2].slice(slash + 3);
+    })
+    .join('\n');
   const lines = linesOf(prose);
-  const suppressed = suppressions(linesOf(raw));
-  const isSuppressed = (line, code) => {
-    const s = suppressed.get(line);
-    return s === 'all' || (s instanceof Set && s.has(code));
-  };
+  const isSuppressed = suppressionsOf(raw);
   report = (level, code, file, line, msg) => {
     if (!isSuppressed(line, code)) findings.push({level, code, file, line, msg});
   };
@@ -91,7 +79,13 @@ for (const rel of files) {
 
     // 3. 该译却裸用了英文原词
     if (t.forbid_bare_en) {
-      const re = wordRe(t.en, 'gi');
+      // 后面紧跟另一个大写开头的词时跳过：那是专有名称的一部分（如界面上的
+      // 「Patch Explorer」），不是该译却没译。这类专名在后续章节会大量出现，
+      // 逐处抑制不现实，规则本身要认得出来。
+      const re = new RegExp(
+        `(?<![A-Za-z0-9])${escapeRe(t.en)}(?![A-Za-z0-9])(?![ \\t][A-Z])`,
+        'gi',
+      );
       lines.forEach((text, i) => {
         // 首次出现的双语并列形式 *Patch（草图）* 是合法的，跳过
         if (/\*[^*]*（[^）]*）\*/.test(text)) return;

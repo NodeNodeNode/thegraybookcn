@@ -7,7 +7,7 @@
 // 默认 dry-run，加 --apply 才真的改。
 import fs from 'node:fs';
 import path from 'node:path';
-import {DOCS, listMarkdown, proseOnly, normalizeEol} from './lib/md.mjs';
+import {DOCS, listMarkdown, proseOnly, normalizeEol, suppressionsOf} from './lib/md.mjs';
 
 const APPLY = process.argv.includes('--apply');
 
@@ -36,12 +36,17 @@ for (const rel of listMarkdown(DOCS)) {
   const abs = path.join(DOCS, rel);
   const raw = normalizeEol(fs.readFileSync(abs, 'utf8'));
   const prose = proseOnly(raw); // 与 raw 等长
+  const suppressed = suppressionsOf(raw);
   const edits = [];
 
   for (const [re, to, desc] of RULES) {
     re.lastIndex = 0;
     for (const m of prose.matchAll(re)) {
       if (m[0] === to) continue; // 已经是正确写法
+      // 必须尊重与检查器同一套抑制注释：有些句子是在讨论某个禁用译法本身，
+      // 盲目替换会把「A 可以译成 A、B 等等」改成同义反复。
+      const line = raw.slice(0, m.index).split('\n').length;
+      if (suppressed(line, 'T1')) continue;
       edits.push({start: m.index, end: m.index + m[0].length, from: m[0], to, desc});
     }
   }

@@ -157,6 +157,10 @@ export function maskUrlsAndTags(input) {
     // HTML 注释。必须先于标签处理：<!-- --> 不以字母开头，标签正则抓不到它，
     // 而注释里常写理由（含术语原词），漏掉会让检查器把自己的抑制注释也报出来。
     .replace(/<!--[\s\S]*?-->/g, blankKeepLines)
+    // 显式标题 id `{#the-node-browser}`。这是钉给上游的机器标识，必须保持小写，
+    // 不是正文。不屏蔽的话，检查器会按术语大小写去查它，而 gb:fix-terms
+    // 更会直接改写锚点 —— 那会静默破坏全站深链。
+    .replace(/\{#[^}]*\}/g, blank)
     // [文字](地址 "标题") → 只保留「文字」
     .replace(/(!?\[[^\]]*\])\(([^)]*)\)/g, (_, keep, url) => keep + blank('(' + url + ')'))
     // 参考式链接定义 [id]: https://…
@@ -169,6 +173,31 @@ export function maskUrlsAndTags(input) {
 
 /** 正文清洗全套：去 frontmatter、代码、链接地址、HTML 标签 */
 export const proseOnly = (src) => maskUrlsAndTags(maskCode(maskFrontmatter(src)));
+
+/**
+ * 解析抑制注释：`<!-- gb-ignore T1 理由 -->`
+ * 注释独占一行则作用于下一行，跟在正文后面则作用于本行；省略检查码则抑制该行全部。
+ *
+ * 检查器与修复器必须共用这一份实现 —— 各写一份的话，修复器迟早会去改
+ * 检查器已经放过的地方（比如某句正在讨论某个禁用译法本身）。
+ * 返回 (line, code) => boolean，line 从 1 起。
+ */
+export function suppressionsOf(raw) {
+  const map = new Map();
+  normalizeEol(raw)
+    .split('\n')
+    .forEach((text, i) => {
+      const m = /<!--\s*gb-ignore(?:\s+([A-Z]\d(?:\s*,\s*[A-Z]\d)*))?\s+(\S.*?)\s*-->/.exec(text);
+      if (!m) return;
+      const codes = m[1] ? new Set(m[1].split(/\s*,\s*/)) : 'all';
+      const stripped = text.replace(/<!--[\s\S]*?-->/, '').trim();
+      map.set(stripped === '' ? i + 2 : i + 1, codes);
+    });
+  return (line, code) => {
+    const s = map.get(line);
+    return s === 'all' || (s instanceof Set && s.has(code));
+  };
+}
 
 /** 拆 target 为 {filePath, anchor} */
 export function splitTarget(target) {
