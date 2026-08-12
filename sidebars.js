@@ -42,6 +42,11 @@ module.exports = {
         },
         {
           "type": "doc",
+          "id": "reference/hde/packman",
+          "label": "包管理器"
+        },
+        {
+          "type": "doc",
           "id": "reference/hde/the_nodebrowser",
           "label": "节点浏览器"
         },
@@ -112,6 +117,11 @@ module.exports = {
         },
         {
           "type": "doc",
+          "id": "reference/hde/exporting",
+          "label": "导出应用"
+        },
+        {
+          "type": "doc",
           "id": "reference/hde/documentation",
           "label": "文档窗口"
         },
@@ -134,6 +144,11 @@ module.exports = {
           "type": "doc",
           "id": "reference/hde/findinghelp",
           "label": "寻求帮助"
+        },
+        {
+          "type": "doc",
+          "id": "reference/hde/keyboard-shortcuts",
+          "label": "快捷键"
         },
         {
           "type": "doc",

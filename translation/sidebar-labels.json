@@ -37,6 +37,9 @@
   "reference/hde/documentation.md": "文档窗口",
   "reference/hde/solution-explorer.md": "方案浏览器",
   "reference/hde/managing-nugets.md": "管理 NuGet",
+  "reference/hde/packman.md": "包管理器",
+  "reference/hde/exporting.md": "导出应用",
+  "reference/hde/keyboard-shortcuts.md": "快捷键",
   "reference/hde/showandtell.md": "分享作品",
   "reference/hde/commandline-arguments.md": "命令行参数",
 
