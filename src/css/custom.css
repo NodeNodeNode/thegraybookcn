@@ -1,27 +1,444 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * 灰皮书中文站样式。
+ *
+ * 设计语言取自 nodenodenode.net（RED 自己的站）：纸灰底 + 近黑墨 + 一个孤立的信号蓝，
+ * 零圆角零阴影，8px 间距刻度，1px 硬线。版式结构则照上游官网的文档站形态。
+ *
+ * 原站没有暗色模式，暗色是以亮色为基准推导的「反相纸」—— 保持灰阶关系，不跳纯黑纯白。
  */
 
-/* You can override the default Infima variables here. */
+/* 像素字体自托管。SIL OFL 1.1，署名见页脚。
+   只用于界面元素（导航、侧边栏、按钮、标签），不用于文档正文标题：
+   这是 12px 点阵设计的字体，只在 12 的整数倍字号下才不糊，而正文标题层级容不下这个约束。 */
+@font-face {
+  font-family: 'Fusion Pixel 12';
+  src: url('/fonts/fusion-pixel-12-subset.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --ifm-color-primary: #0081d1;
-  --ifm-color-primary-dark: #0074bc;
-  --ifm-color-primary-darker: #006eb2;
-  --ifm-color-primary-darkest: #005a92;
-  --ifm-color-primary-light: #008ee6;
-  --ifm-color-primary-lighter: #0094f0;
-  --ifm-color-primary-lightest: #11a4ff;
+  /* ── 原站色板，角色见注释 ───────────────────────────── */
+  --ink: #0e0f10; /* 正文 / 边框 / 标题 */
+  --grey-700: #3a3d40; /* 次级正文 */
+  --grey-500: #6d7175; /* 三级元信息（对比度仅 3.45，只给装饰性文字） */
+  --grey-400: #8f9295; /* 软边框 / 纹理线 */
+  --grey-200: #cfcfcf; /* 卡片 / 侧边栏背景（比页面更暗，反常规，是这套设计的特征） */
+  --grey-100: #dcdcdc; /* 空态 / 最淡分隔 */
+  --paper: #d8d8d8; /* 页面背景，纸灰而非白 */
+  --white: #efefef; /* 强调背景 / 主按钮文字 */
+  --signal: #1f3fd1; /* 唯一的彩色 */
+  --signal-dim: #16309f;
+
+  --line: 1px solid var(--ink);
+  --line-soft: 1px solid var(--grey-400);
+
+  /* ── 8px 间距刻度 ─────────────────────────────────── */
+  --s1: 8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 32px;
+  --s6: 48px;
+  --s8: 64px;
+  --s12: 96px;
+
+  /* ── 12px 字号刻度（像素字体的天然网格） ──────────────── */
+  --px-1: 12px;
+  --px-2: 24px;
+  --px-3: 36px;
+
+  --font-pixel: 'Fusion Pixel 12', ui-monospace, monospace;
+  --font-body: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Noto Sans SC', 'Source Han Sans SC', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* ── Infima 覆盖：颜色 ─────────────────────────────── */
+  --ifm-background-color: var(--paper);
+  --ifm-background-surface-color: var(--grey-200);
+  --ifm-color-content: var(--ink);
+  /* 次级文字用 grey-700 而非原站的 grey-500：后者在纸灰底上只有 3.45:1，
+     落地页短标签尚可，文档站正文量大得多，必须提到 7.67:1 */
+  --ifm-color-content-secondary: var(--grey-700);
+  --ifm-heading-color: var(--ink);
+
+  --ifm-color-emphasis-0: var(--white);
+  --ifm-color-emphasis-100: var(--grey-100);
+  --ifm-color-emphasis-200: var(--grey-200);
+  --ifm-color-emphasis-300: var(--grey-400);
+  --ifm-color-emphasis-400: var(--grey-400);
+  --ifm-color-emphasis-500: var(--grey-500);
+  --ifm-color-emphasis-600: var(--grey-500);
+  --ifm-color-emphasis-700: var(--grey-700);
+  --ifm-color-emphasis-800: var(--grey-700);
+  --ifm-color-emphasis-900: var(--ink);
+  --ifm-color-emphasis-1000: var(--ink);
+
+  --ifm-color-primary: var(--signal);
+  --ifm-color-primary-dark: #1c38bb;
+  --ifm-color-primary-darker: #1a35b0;
+  --ifm-color-primary-darkest: #152b8e;
+  --ifm-color-primary-light: #2f4ee0;
+  --ifm-color-primary-lighter: #3a57e2;
+  --ifm-color-primary-lightest: #6d83e9;
+
+  /* 链接与正文同色，靠下划线区分；hover 才上蓝。这是原站的做法 */
+  --ifm-link-color: var(--ink);
+  --ifm-link-hover-color: var(--signal);
+  --ifm-link-decoration: underline;
+  --ifm-link-hover-decoration: underline;
+
+  --ifm-toc-border-color: var(--grey-400);
+  --ifm-hr-background-color: var(--grey-400);
+  --ifm-hr-height: 1px;
+  --ifm-blockquote-border-color: var(--grey-400);
+  --ifm-table-border-color: var(--grey-400);
+  --ifm-table-border-width: 1px;
+  --ifm-table-stripe-background: transparent;
+  --ifm-hover-overlay: var(--grey-200);
+  --ifm-scrollbar-track-background-color: var(--grey-200);
+  --ifm-scrollbar-thumb-background-color: var(--grey-400);
+  --ifm-scrollbar-thumb-hover-background-color: var(--grey-500);
+
+  --ifm-code-background: var(--grey-100);
+  --ifm-pre-background: var(--grey-100);
+  --docusaurus-highlighted-code-line-bg: var(--grey-200);
+
+  /* ── Infima 覆盖：排版 ─────────────────────────────── */
+  --ifm-font-family-base: var(--font-body);
+  --ifm-font-family-monospace: var(--font-mono);
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.5;
+  --ifm-h1-font-size: 2.25rem;
+  --ifm-h2-font-size: 1.5rem;
+  --ifm-h3-font-size: 1.125rem;
+  --ifm-h4-font-size: 1rem;
+  --ifm-heading-line-height: 1.3333;
+  --ifm-heading-margin-top: var(--s6);
+  --ifm-heading-margin-bottom: var(--s2);
+  --ifm-paragraph-margin-bottom: var(--s2);
+
+  /* ── Infima 覆盖：尺寸与形状 ───────────────────────── */
+  --ifm-container-width: 1088px;
+  --ifm-container-width-xl: 1088px;
+  --ifm-spacing-horizontal: var(--s3);
+  --ifm-spacing-vertical: var(--s3);
+  --ifm-global-radius: 0;
+  --ifm-global-shadow-lw: none;
+  --ifm-global-shadow-md: none;
+  --ifm-global-shadow-tl: none;
+
+  /* 80ms linear，不是 ease —— 那种即时反馈的手感来自这里 */
+  --ifm-transition-fast: 80ms;
+  --ifm-transition-slow: 80ms;
+  --ifm-transition-timing-default: linear;
+
+  /* ── 导航栏：48px 薄条，无阴影，只靠 1px 黑线分隔 ────── */
+  --ifm-navbar-height: 48px;
+  --ifm-navbar-background-color: var(--paper);
+  --ifm-navbar-shadow: none;
+  /* 原站导航用 grey-500，但那在纸灰底上只有 3.45:1，而这里是 12px 小字。
+     提到 grey-700（7.67:1）达 AA，同时仍比正文安静，保住「导航退后」的设计意图。 */
+  --ifm-navbar-link-color: var(--grey-700);
+  --ifm-navbar-link-hover-color: var(--signal);
+  --ifm-navbar-padding-vertical: 0;
+
+  --ifm-footer-background-color: var(--grey-200);
+  --ifm-footer-color: var(--grey-700);
+  --ifm-footer-link-color: var(--grey-700);
+  --ifm-footer-link-hover-color: var(--signal);
+  --ifm-footer-title-color: var(--ink);
+  --ifm-footer-padding-vertical: var(--s6);
+
+  --ifm-menu-color: var(--grey-700);
+  --ifm-menu-color-active: var(--signal);
+  --ifm-menu-color-background-active: transparent;
+  --ifm-menu-color-background-hover: var(--grey-100);
+  --ifm-menu-link-padding-vertical: var(--s1);
+  --ifm-menu-link-padding-horizontal: var(--s2);
+
+  --ifm-toc-link-color: var(--grey-700);
+  --ifm-breadcrumb-item-background-active: var(--grey-200);
+  --ifm-breadcrumb-color-active: var(--ink);
+  --ifm-breadcrumb-separator-size-multiplier: 1;
 }
 
-.docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.1);
+/* ── 暗色：反相纸 ─────────────────────────────────────
+   不是纯黑，是把纸灰关系整体压到深灰档，保持原有的灰阶层次。
+   信号蓝必须提亮 —— #1f3fd1 在深底上只有约 2.5:1，不可直接用。 */
+html[data-theme='dark'] {
+  --ink: #d8d8d8;
+  --grey-700: #a8abae;
+  --grey-500: #8b8e91;
+  --grey-400: #55585b;
+  --grey-200: #202225;
+  --grey-100: #26282b;
+  --paper: #16171a;
+  --white: #2b2d30;
+  --signal: #8fa2f0;
+  --signal-dim: #6d83e9;
+
+  --ifm-color-primary: var(--signal);
+  --ifm-color-primary-dark: #7590ed;
+  --ifm-color-primary-darker: #6d83e9;
+  --ifm-color-primary-darkest: #5570e5;
+  --ifm-color-primary-light: #a9b7f3;
+  --ifm-color-primary-lighter: #b6c2f5;
+  --ifm-color-primary-lightest: #cdd5f8;
+
+  --ifm-background-color: var(--paper);
+  --ifm-background-surface-color: var(--grey-200);
+  --ifm-color-content: var(--ink);
+  --ifm-color-content-secondary: var(--grey-700);
+  --ifm-heading-color: var(--ink);
+  --ifm-link-color: var(--ink);
+  --ifm-link-hover-color: var(--signal);
+  --ifm-navbar-background-color: var(--paper);
+  --ifm-navbar-link-color: var(--grey-500);
+  --ifm-footer-background-color: var(--grey-200);
+  --ifm-code-background: var(--grey-100);
+  --ifm-pre-background: var(--grey-100);
+  --docusaurus-highlighted-code-line-bg: var(--grey-200);
+}
+
+/* ── 全局硬禁圆角与阴影 ────────────────────────────────
+   原站就是这么干的。Infima 默认在导航栏、卡片、代码块、提示框、搜索框、
+   标签页上到处是圆角和阴影，逐个覆盖必定漏，这一行最省事。
+   日后若需圆形元素（头像、开关），单独反覆盖。 */
+*,
+*::before,
+*::after {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* ── 像素字体：只给界面元素 ────────────────────────────
+   必须关抗锯齿，否则点阵字会被平滑成糊的。字号锁在 12 的整数倍。
+   刻意不含提示框标题 —— 子集里缺「警」「危」「险」三字。 */
+.navbar__link,
+.navbar__brand,
+.menu__link,
+.menu__caret,
+.table-of-contents__link,
+.breadcrumbs__link,
+.pagination-nav__label,
+.button,
+.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link,
+.gb-label {
+  font-family: var(--font-pixel);
+  font-size: var(--px-1);
+  line-height: 1.3333;
+  letter-spacing: 0;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  font-smooth: never;
+}
+
+/* 侧边栏一级分类稍大一档，仍是 12 的倍数 */
+.theme-doc-sidebar-menu > .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
+  font-size: var(--px-1);
+  color: var(--ink);
+}
+
+/* ── 导航栏 ──────────────────────────────────────── */
+.navbar {
+  border-bottom: var(--line);
+}
+
+.navbar__link--active {
+  color: var(--ink);
+}
+
+/* 未翻译板块跳的是上游英文站。原站用颜色深浅编码「主推 vs 次要」，但那一档
+   对比度只有 3.45，这里改用一个外链角标 —— 既达标又更明确。标签里本来也带「（英文）」。 */
+.navbar__link.gb-en-link::after {
+  content: '↗';
+  margin-left: 0.25em;
+  color: var(--grey-500);
+}
+
+/* ── 侧边栏：pin 方块代替背景高亮 ─────────────────────
+   8px 实心方块是原站的签名图形，呼应 vvvv 的节点与引脚。 */
+.menu__link {
+  position: relative;
+}
+
+.menu__link--active:not(.menu__link--sublist)::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: var(--s1);
+  height: var(--s1);
+  margin-top: calc(var(--s1) / -2);
+  background: var(--signal);
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  padding-left: calc(var(--s2) + var(--s1));
+  font-weight: 400;
+}
+
+/* 层级缩进挂在一条 1px 竖线上，像挂在主干上的分支 */
+.menu__list .menu__list {
+  border-left: var(--line-soft);
+  margin-left: var(--s2);
+  padding-left: 0;
+}
+
+/* 展开标记换成 + / −（U+2212 减号，不是连字符） */
+.menu__link--sublist-caret::after,
+.menu__caret::before {
+  background: none !important;
+  content: '+';
+  font-family: var(--font-pixel);
+  font-size: var(--px-1);
+  line-height: 1;
+  color: var(--grey-500);
+  width: var(--s2);
+  height: auto;
+  transform: none !important;
+  text-align: center;
+}
+
+.menu__list-item--collapsed .menu__link--sublist-caret::after,
+.menu__list-item--collapsed .menu__caret::before {
+  content: '+';
+}
+
+.menu__list-item:not(.menu__list-item--collapsed) .menu__link--sublist-caret::after,
+.menu__list-item:not(.menu__list-item--collapsed) .menu__caret::before {
+  content: '−';
+}
+
+.theme-doc-sidebar-container {
+  border-right: var(--line) !important;
+}
+
+/* ── 右侧页内目录 ───────────────────────────────────── */
+.table-of-contents {
+  border-left: var(--line-soft);
+}
+
+.table-of-contents__link--active {
+  color: var(--signal);
+}
+
+/* ── 正文 ───────────────────────────────────────────
+   图片一律 1px 黑边框、直角、无阴影、无 hover 效果 */
+.markdown img {
+  border: var(--line);
   display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
+  max-width: 100%;
+  height: auto;
 }
 
-html[data-theme='dark'] .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.3);
+.markdown a {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+/* 项目符号换成 pin 方块 */
+.markdown ul:not(.contains-task-list) {
+  list-style: none;
+  padding-left: var(--s3);
+}
+
+.markdown ul:not(.contains-task-list) > li {
+  position: relative;
+}
+
+.markdown ul:not(.contains-task-list) > li::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--s3) * -1);
+  top: 0.55em;
+  width: var(--s1);
+  height: var(--s1);
+  background: var(--ink);
+}
+
+/* 提示框：整块淡色底 + 左侧 pin 方块，无圆角无图标背景 */
+.theme-admonition {
+  border: var(--line-soft);
+  background: var(--grey-100);
+}
+
+/* ── 代码 ───────────────────────────────────────────── */
+.markdown pre,
+.markdown code {
+  border: var(--line-soft);
+}
+
+.markdown pre code {
+  border: none;
+}
+
+/* ── 表格 ───────────────────────────────────────────── */
+.markdown table thead tr {
+  border-bottom: var(--line);
+}
+
+.markdown table th,
+.markdown table td {
+  border: var(--line-soft);
+}
+
+/* ── 键盘按键 ────────────────────────────────────────
+   上游正文里有大量 <kbd> 和 <span class="keyseq">（组合键），
+   它们的样式在上游的 DocFX 自定义模板里，我们没有，必须自己实现。
+   注意：上游那套用 prefers-color-scheme 做暗色适配，手动切主题时不跟随，
+   而且只作用于 kbd.adaptive —— 我们用 [data-theme] 做对，不要向它看齐。 */
+.keyseq {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.keyseq kbd:first-child {
+  margin-left: 0;
+}
+
+.keyseq kbd:last-child {
+  margin-right: 0;
+}
+
+kbd {
+  display: inline-block;
+  margin: 0 0.15em;
+  padding: 0.3em 0.4em;
+  border: var(--line);
+  background-color: var(--white);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  line-height: 1;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* ── 分页与面包屑 ───────────────────────────────────── */
+.pagination-nav__link {
+  border: var(--line);
+}
+
+.breadcrumbs__item--active .breadcrumbs__link {
+  background: var(--grey-200);
+  color: var(--ink);
+}
+
+/* ── 焦点可见性 ─────────────────────────────────────── */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
+/* ── 减少动效 ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

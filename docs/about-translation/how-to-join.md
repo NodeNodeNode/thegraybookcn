@@ -1,6 +1,6 @@
 ---
 title: 如何加入
-sidebar_position: 1
+origin: cn
 ---
 
 当然翻译的过程往往就是信息丢失的过程，很难很精确地传递原本的意思。

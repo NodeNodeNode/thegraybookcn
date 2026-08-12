@@ -1,6 +1,6 @@
 ---
 title: 协作规范
-sidebar_position: 2
+origin: cn
 ---
 
 ## 专有名词

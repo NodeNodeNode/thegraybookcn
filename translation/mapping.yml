@@ -1,0 +1,139 @@
+# 本地译文 ↔ 上游页面 的对应账本
+#
+# 用途有二：
+#   1. Phase 1 迁移的输入 —— 告诉 gb:migrate 每个现有文件该搬到哪个 1:1 路径
+#   2. 长期的审校台账 —— review 状态记在这里，不进 frontmatter
+#      （frontmatter 白名单要保持干净，审校状态也不该发布到站点）
+#
+# 字段
+#   source        上游文件路径，同步主键
+#   from          迁移前的本地路径（相对 docs/），迁移完成后可留作历史记录
+#   completeness  翻译完整度，来自与上游篇幅的对比估算
+#                   translated 基本完整（≥80%）
+#                   partial    只译了一部分
+#                   stub       只有 frontmatter，正文为空
+#   review        todo | drafted | reviewed | locked
+#   reviewed_at   审校通过时的 commit sha，之后该文件若再被改动即自动标记需复审
+#   note          需要人工注意的事项
+
+entries:
+  # ── 开发环境 hde ────────────────────────────────────────────────
+  - source: reference/hde/project_structure.md
+    from: develop-environment/project-structure.md
+    completeness: translated
+    review: todo
+    note: 上游本页只有一张图，中文侧同等完整
+
+  - source: reference/hde/settings.md
+    from: develop-environment/settings.md
+    completeness: translated
+    review: todo
+
+  - source: reference/hde/themes.md
+    from: develop-environment/theme.md
+    completeness: translated
+    review: todo
+
+  - source: reference/hde/extensions.md
+    from: develop-environment/extensions.md
+    completeness: translated
+    review: todo
+    note: 含方括号占位符 [其他Nuget一样的方式安装]、[创建编辑环境扩展]，渲染成裸括号
+
+  - source: reference/hde/findinghelp.md
+    from: develop-environment/finding-browser.md
+    completeness: translated
+    review: todo
+    note: 原文件名把 finding-help 和 help-browser 揉成了不存在的词，迁移后消失
+
+  - source: reference/hde/navigating_a_project.md
+    from: develop-environment/vavigation-a-project.md
+    completeness: partial
+    review: todo
+    note: 尾部整节 Forward Dependencies 是英文原文未译；「以来」应为「依赖」
+
+  - source: reference/hde/the_nodebrowser.md
+    from: develop-environment/the-nodebrower.md
+    completeness: partial
+    review: todo
+    note: 第 44 行残留一句英文原文（上一行已是同句中译）；「阵脚」应为「针脚」
+
+  - source: reference/hde/overview.md
+    from: develop-environment/index.md
+    completeness: partial
+    review: todo
+    note: 只有一句话加一张图，上游 177 词
+
+  # ── 语言 language ──────────────────────────────────────────────
+  - source: reference/language/language.md
+    from: language/index.md
+    completeness: partial
+    review: todo
+    note: 只译了 Summary 一节
+
+  - source: reference/language/nodes.md
+    from: language/nodes.md
+    completeness: translated
+    review: todo
+    note: 末尾有译者原创的「个人笔记」（黑胶唱片/磁带比喻 Record 与 Class），迁移时必须保留
+
+  - source: reference/language/patches.md
+    from: language/patches.md
+    completeness: partial
+    review: todo
+
+  - source: reference/language/operations.md
+    from: language/operations.md
+    completeness: partial
+    review: todo
+    note: 含译者对「运算器」译名的 :::note 论证，必须保留
+
+  - source: reference/language/ioboxes.md
+    from: language/iobox.md
+    completeness: partial
+    review: todo
+    note: 两处空的 [] 是丢失的图片占位；正文断在空标题「## 设置IOBox」下
+
+  # ── 扩展 extending ─────────────────────────────────────────────
+  - source: reference/extending/overview.md
+    from: extending-vvvv/index.md
+    completeness: partial
+    review: todo
+    note: 方括号占位符 [使用.NET Library]、[使用C#来编写节点] 写成链接文本但没给 URL
+
+  - source: reference/extending/editor-extensions.md
+    from: extending-vvvv/creating-editor-extentions.md
+    completeness: partial
+    review: todo
+    note: 含 [there is a image] 占位和「（未完待续...）」
+
+  - source: reference/extending/writing-nodes.md
+    from: extending-vvvv/writing-nodes-using-csharp.md
+    completeness: partial
+    review: todo
+    note: 上游最长页之一（2570 词），中文侧只有开头；缺口最大的单页
+
+  # ── 开始 getting-started ───────────────────────────────────────
+  - source: reference/getting-started/overview.md
+    from: getting-started/index.md
+    completeness: translated
+    review: todo
+    note: 含本地化改写；章节表格里承诺了 Library 和 Best Practice 两章但尚未创建
+
+  - source: reference/getting-started/cc/introduction-for-creative-coders.md
+    from: getting-started/introduction-for-creative-coders.md
+    completeness: partial
+    review: todo
+
+# 以下 4 个原本是纯空壳（只有 frontmatter，正文 0 字符），线上就是四个能点进去的
+# 空白页。Phase 1 已删除 —— 侧边栏只显示已翻译页面，删掉比留着空壳诚实，
+# gb:status 也会如实把它们算进「未翻译」。翻译时按普通新页面处理即可。
+#   reference/getting-started/dotnet/introduction-for-dotnet-programmers.md
+#   reference/getting-started/dotnet/concepts.md          （原 title「C# 观念」疑为「概念」之误）
+#   reference/getting-started/beta/introduction-for-vvvv-beta-users.md
+#                                   （原 title 写成「写给vvvv-gamma用户」，与上游矛盾，应为 beta）
+#   reference/getting-started/beta/user-interface.md
+
+# 中文站原创内容，不对应任何上游文件，同步脚本跳过
+originCn:
+  - intro.md
