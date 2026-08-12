@@ -388,8 +388,63 @@ module.exports = {
       "items": [
         {
           "type": "doc",
+          "id": "reference/extending/using-net-libraries",
+          "label": "使用 .NET 库"
+        },
+        {
+          "type": "doc",
+          "id": "reference/extending/code-editors",
+          "label": "选一个代码编辑器"
+        },
+        {
+          "type": "doc",
           "id": "reference/extending/writing-nodes",
           "label": "使用 C# 编写节点"
+        },
+        {
+          "type": "doc",
+          "id": "reference/extending/custom-regions",
+          "label": "自定义区块"
+        },
+        {
+          "type": "doc",
+          "id": "reference/extending/contributing",
+          "label": "为已有节点库贡献"
+        },
+        {
+          "type": "doc",
+          "id": "reference/extending/creating",
+          "label": "创建新节点库"
+        },
+        {
+          "type": "doc",
+          "id": "reference/extending/forwarding",
+          "label": "转发 .NET 库"
+        },
+        {
+          "type": "doc",
+          "id": "reference/extending/node-factories",
+          "label": "节点工厂"
+        },
+        {
+          "type": "doc",
+          "id": "reference/extending/aspects",
+          "label": "Aspect"
+        },
+        {
+          "type": "doc",
+          "id": "reference/extending/design-guidelines",
+          "label": "设计指南"
+        },
+        {
+          "type": "doc",
+          "id": "reference/extending/providing-help",
+          "label": "提供帮助文档"
+        },
+        {
+          "type": "doc",
+          "id": "reference/extending/publishing",
+          "label": "发布 NuGet"
         },
         {
           "type": "doc",

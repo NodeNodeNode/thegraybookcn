@@ -22,7 +22,7 @@ last_synced: '2026-08-11'
 
 Record nodes 和 Class nodes 分别是他们所属的记录和类运算的一部分。数据类型的名字将会以比较小的单词显示在节点名字的下方。
 
-## Process Nodes / 过程节点
+## Process Nodes / 过程节点 {#process-nodes}
 
 一个 process node （过程节点） 代表一个 patch （草图） 的实例。之所以叫“Process”是因为它可以被理解为像一台持续运转的小机器，它被创建之后就可以在一帧到下一帧之间存储自己的状态。
 

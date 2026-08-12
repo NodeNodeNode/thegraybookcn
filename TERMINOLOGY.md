@@ -7,7 +7,7 @@
 翻译时不需要通读本表 —— `gb:termcard` 会针对当前页面生成一份不超过 30 条的术语卡。
 本表用于查阅与审校。
 
-共 47 条，其中待拍板 2 条。
+共 57 条，其中待拍板 2 条。
 
 > **开工前需拍板**：`applet`、`shader`
 > 这些词 `status` 为 `open`，检查器会对它们的使用报 warn。
@@ -59,5 +59,15 @@
 | `data sink` | 数据汇点 | 已拍板 | 首次出现用双语并列 | 与 data source 成对，取信号处理里 source/sink 的标准中译「源／汇」。 「汇点」比「接收端」短且不会与网络语境的「接收方」混淆。 单说 sink 时译「汇点」，正文里凡是与 source 并举处一律用全称「数据汇点」。 2026-08-12 翻 mut2 / lo_0_dataHubs 时定 —— 这两页正是定义这一对词的地方。 |
 | `reference` | 引用 | 已拍板 | 首次出现用双语并列 | 指向内存中某个位置的引用，与不可变数据相对。不要译成「参考」， 也不要与 hyperlink 的「链接」或 link 的「连线」混淆。 |
 | `builder` | 构建器 | 已拍板 | 首次出现用双语并列 | Builder 模式的标准中译。刻意不用「构造器」—— 那个词在 .NET 语境里 已经被 constructor 占了，两者在同一本书里撞车会很难拆。 类型名 SpreadBuilder 保留英文原样，正文泛指时用「构建器」。 |
+| `aspect` | （保留 Aspect / Aspects / aspect / aspects） | 保留英文 | — | 保留英文。两个现成的中译都会撞车：「切面」是 AOP 的 aspect，和这里 「标记节点面向哪类用户」完全是两回事；「特性」在 .NET 语境里已被 Attribute 占了，而本章正好同时在讲 .NET。Aspect 的取值本身 （Advanced / Internal / Experimental / Obsolete / Adaptive） 是 VL 里的目录名，必须原样保留 —— 词保留英文，读者反而对得上界面。 大小写放宽到四种：标题式与句中式上游都在用。 |
+| `adaptive` | 自适应 | 已拍板 | — | 指 VL 的 adaptive 节点体系（每个类型都能实现同一个节点签名）。 注意目录名 `Advanced`、`Math.Adaptive` 这类是界面上的字面值，保留英文。 |
+| `node factory` | 节点工厂 | 已拍板 | 首次出现用双语并列 | — |
+| `package repository` | 包仓库 | 已拍板 | — | 沿用 compilation.md 已有的译法。`--package-repositories` 是命令行参数， 保留英文原样。「源码包仓库」= source package-repository，同一套词。 |
+| `wrapper` | 包装器 | 已拍板 | 首次出现用双语并列 | 动词 wrap 译「包装」。指把第三方 .NET 库裹成 VL 友好形态的那一层。 |
+| `border control point` | 边界控制点 | 已拍板 | 首次出现用双语并列 | 区块边框上那些让数据进出的控制点。上游正文里大量简写为 BCP， 译文首次出现给出全称并标注 BCP，之后沿用 BCP —— 一页里出现几十次， 全写中文会把句子压垮。 |
+| `patch inlay` | 内嵌草图 | 已拍板 | 首次出现用双语并列 | IRegion API 里指区块内部那张由用户打的草图。不译「嵌片」—— 它首先是一张草图， 「内嵌」说的是它的位置。与 region patch 是同一个东西的两种叫法。 |
+| `callback` | 回调 | 已拍板 | 首次出现用双语并列 | — |
+| `help flag` | 帮助标记 | 已拍板 | 首次出现用双语并列 | 不用「帮助旗标」—— 界面上它就是一个小标记，不是旗子。 |
+| `Observable` | （保留 Observable / Observables） | 保留英文 | — | Rx 的核心概念，与 VL 的响应式体系直接对应。保留英文，已有译文即如此。 |
 | `applet` | — | **待拍板** | — | — |
 | `shader` | — | **待拍板** | 仅限 reference/libraries/ | Libraries/3D 章的术语体系，等翻到那章再统一扩表。 |

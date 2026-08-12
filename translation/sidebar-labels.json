@@ -96,6 +96,17 @@
   "reference/libraries/3d/texturefx.md": "TextureFX",
   "reference/libraries/3d/geometry.md": "多边形",
   "reference/extending/overview.md": "扩展 vvvv",
+  "reference/extending/using-net-libraries.md": "使用 .NET 库",
+  "reference/extending/code-editors.md": "选一个代码编辑器",
+  "reference/extending/custom-regions.md": "自定义区块",
+  "reference/extending/contributing.md": "为已有节点库贡献",
+  "reference/extending/creating.md": "创建新节点库",
+  "reference/extending/forwarding.md": "转发 .NET 库",
+  "reference/extending/node-factories.md": "节点工厂",
+  "reference/extending/aspects.md": "Aspect",
+  "reference/extending/design-guidelines.md": "设计指南",
+  "reference/extending/providing-help.md": "提供帮助文档",
+  "reference/extending/publishing.md": "发布 NuGet",
   "reference/extending/editor-extensions.md": "创建编辑器扩展",
   "reference/extending/writing-nodes.md": "使用 C# 编写节点"
 }

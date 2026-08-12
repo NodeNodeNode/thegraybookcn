@@ -49,7 +49,9 @@ for (const {t, n} of hits) {
   if (t.status === 'open') continue;
   const zh = t.status === 'keep-en' ? `保留 ${(t.case ?? [t.en]).join(' / ')}` : t.zh;
   const rules = [
-    t.first_use ? '首次出现用 *English（中文）*' : null,
+    // 中文必须在标记外：`*English（中文）*` 的收尾星号前是全角「）」、后面接汉字，
+    // 不构成 right-flanking，CommonMark 根本不闭合，页面上会漏出裸星号。详见 §5。
+    t.first_use ? '首次出现用 *English*（中文）' : null,
     t.forbid?.length ? `禁用 ${t.forbid.join('、')}` : null,
     t.forbid_bare_en ? '不得裸用英文' : null,
   ].filter(Boolean);

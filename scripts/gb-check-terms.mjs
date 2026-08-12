@@ -97,8 +97,9 @@ for (const rel of files) {
         'gi',
       );
       lines.forEach((text, i) => {
-        // 首次出现的双语并列形式 *Patch（草图）* 是合法的，跳过
-        if (/\*[^*]*（[^）]*）\*/.test(text)) return;
+        // 首次出现的双语并列形式是合法的，跳过。两种形式都要认：
+        // 现行的 *Patch*（草图），以及 §5 改版前留下的 *Patch（草图）*。
+        if (/\*[^*]+\*（[^）]*）|\*[^*]*（[^）]*）\*/.test(text)) return;
         if (re.test(text)) {
           report('warn', 'T3', rel, i + 1, `中文语境裸用了英文「${t.en}」→ 应译为「${t.zh}」`);
         }

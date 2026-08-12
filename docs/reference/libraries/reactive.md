@@ -45,8 +45,8 @@ last_synced: '2026-08-12'
 
 生成你自己的事件源同样简单：
 
-![Different ways to create observable event sources](https://thegraybook.vvvv.org/images/libraries/vl-libraries-reactive-waysToCreateObservableSources.PNG "Different ways to create observable event sources")
-*创建 observable 事件源的不同方法*
+![创建 Observable 事件源的不同方法](https://thegraybook.vvvv.org/images/libraries/vl-libraries-reactive-waysToCreateObservableSources.PNG "Different ways to create observable event sources")
+*创建 Observable 事件源的不同方法*
 
 :::note
 只使用 `Record` 类型的数据作为事件数据，因为它们是线程安全的。
