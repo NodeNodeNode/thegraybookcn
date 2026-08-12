@@ -6,6 +6,19 @@
   ],
 
   "reference/": "参考手册",
+
+  "introduction/language.md": "这门语言",
+  "introduction/looking-at-things.md": "看待事物",
+  "introduction/more-on-data.md": "再谈数据",
+  "introduction/lo_3_defAndUse.md": "定义与使用",
+  "introduction/lo_5_Runtime.md": "运行中的系统",
+  "introduction/lo_7_catAndVers.md": "目录与版本",
+  "introduction/lo_8_docAndscope.md": "文档、依赖与作用域",
+  "introduction/lo_9__basictypes.md": "基本节点与数据类型",
+  "introduction/lo_9_1_text.md": "文本",
+  "introduction/lo_9_2_Spreads.md": "Spread 与其他集合",
+  "introduction/subtypes.md": "子类型",
+
   "introduction/": "概念讲解",
   "changelog/": "版本变更",
   "roadmap/": "路线图",

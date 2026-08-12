@@ -8,10 +8,10 @@
   },
   {
     "key": "explanations",
-    "label": "概念讲解（英文）",
-    "type": "link",
-    "href": "https://thegraybook.vvvv.org/introduction/language.html",
-    "docCount": 0
+    "label": "概念讲解",
+    "type": "docSidebar",
+    "sidebarId": "explanations",
+    "docCount": 10
   },
   {
     "key": "changelog",

@@ -402,5 +402,73 @@ module.exports = {
         "id": "reference/extending/overview"
       }
     }
+  ],
+  "explanations": [
+    {
+      "type": "doc",
+      "id": "introduction/language",
+      "label": "这门语言"
+    },
+    {
+      "type": "category",
+      "label": "看待事物",
+      "items": [
+        {
+          "type": "doc",
+          "id": "introduction/lo_3_defAndUse",
+          "label": "定义与使用"
+        },
+        {
+          "type": "doc",
+          "id": "introduction/lo_5_Runtime",
+          "label": "运行中的系统"
+        },
+        {
+          "type": "doc",
+          "id": "introduction/lo_7_catAndVers",
+          "label": "目录与版本"
+        },
+        {
+          "type": "doc",
+          "id": "introduction/lo_8_docAndscope",
+          "label": "文档、依赖与作用域"
+        },
+        {
+          "type": "category",
+          "label": "基本节点与数据类型",
+          "items": [
+            {
+              "type": "doc",
+              "id": "introduction/lo_9_1_text",
+              "label": "文本"
+            },
+            {
+              "type": "doc",
+              "id": "introduction/lo_9_2_Spreads",
+              "label": "Spread 与其他集合"
+            }
+          ],
+          "link": {
+            "type": "doc",
+            "id": "introduction/lo_9__basictypes"
+          }
+        }
+      ],
+      "link": {
+        "type": "doc",
+        "id": "introduction/looking-at-things"
+      }
+    },
+    {
+      "type": "category",
+      "label": "再谈数据",
+      "items": [
+        {
+          "type": "doc",
+          "id": "introduction/subtypes",
+          "label": "子类型"
+        }
+      ]
+    }
   ]
 };

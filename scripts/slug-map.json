@@ -28,7 +28,8 @@
     "reference/best-practice/overview.md": "best-practice/",
     "reference/extending/overview.md": "extending/",
     "changelog/index.md": "changelog/",
-    "roadmap/index.md": "roadmap/"
+    "roadmap/index.md": "roadmap/",
+    "introduction/language.md": "explanations/"
   },
   "fileOverrides": {
     "reference/hde/the_nodebrowser.md": "develop-environment/the-node-browser",
@@ -48,8 +49,6 @@
     "reference/getting-started/beta/user-interface.md": "getting-started/beta-user-interface",
     "reference/getting-started/beta/vl-templates.md": "getting-started/beta-vl-templates",
     "index.md": "book",
-
-    "introduction/language.md": "explanations/the-language",
     "introduction/looking-at-things.md": "explanations/looking-at-things",
     "introduction/lo_0_dataHubs.md": "explanations/data-and-data-hubs",
     "introduction/lo_1_data.md": "explanations/data-and-data-types",
