@@ -4,6 +4,10 @@
 # Production
 /build
 
+# 上游工作副本（部分克隆，仅用于 diff 与结构比对，绝不入库）
+/.upstream
+/.upstream-status.json
+
 # Generated files
 .docusaurus
 .cache-loader

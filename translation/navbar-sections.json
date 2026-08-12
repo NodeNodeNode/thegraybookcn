@@ -1,0 +1,30 @@
+[
+  {
+    "key": "reference",
+    "label": "参考手册",
+    "type": "docSidebar",
+    "sidebarId": "reference",
+    "docCount": 25
+  },
+  {
+    "key": "explanations",
+    "label": "概念讲解（英文）",
+    "type": "link",
+    "href": "https://thegraybook.vvvv.org/introduction/language.html",
+    "docCount": 0
+  },
+  {
+    "key": "changelog",
+    "label": "版本变更（英文）",
+    "type": "link",
+    "href": "https://thegraybook.vvvv.org/changelog/7.x.html",
+    "docCount": 0
+  },
+  {
+    "key": "roadmap",
+    "label": "路线图（英文）",
+    "type": "link",
+    "href": "https://thegraybook.vvvv.org/roadmap/planned.html",
+    "docCount": 0
+  }
+]

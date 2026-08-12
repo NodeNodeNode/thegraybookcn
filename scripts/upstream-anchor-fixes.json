@@ -1,0 +1,98 @@
+{
+  "_readme": [
+    "上游自己写错的锚点。这些链接在 thegraybook.vvvv.org 线上就是坏的（已逐个核对线上 HTML 的真实 heading id）。",
+    "gb:import 在生成骨架时按此表改写链接目标；check-anchors 用它判定门槛是否通过。",
+    "confidence=certain 表示目标文件里存在唯一且明显对应的标题；inferred 表示按语义推断，需人工复核。",
+    "上游修好之后，对应条目从表里删掉即可。"
+  ],
+  "fixes": [
+    {
+      "from": "reference/extending/forwarding.md",
+      "target": "../libraries/referencing.md#Files",
+      "fixed": "../libraries/referencing.md#files",
+      "reason": "锚点大小写错误，真实 id 为小写 files",
+      "confidence": "certain"
+    },
+    {
+      "from": "reference/language/frames.md",
+      "target": "../hde/keyboard-shortcuts.md#Frames",
+      "fixed": "../hde/keyboard-shortcuts.md#frames",
+      "reason": "锚点大小写错误",
+      "confidence": "certain"
+    },
+    {
+      "from": "reference/getting-started/dotnet/keywords.md",
+      "target": "#switch-",
+      "fixed": "#switch",
+      "reason": "标题 `### switch ` 尾部有空格，作者以为会生成 switch- ，但 Markdig 会 trim；线上真实 id 是 switch",
+      "confidence": "certain"
+    },
+    {
+      "from": "reference/getting-started/dotnet/keywords.md",
+      "target": "#try-",
+      "fixed": "#try",
+      "reason": "同上，标题尾部空格",
+      "confidence": "certain"
+    },
+    {
+      "from": "reference/getting-started/dotnet/keywords.md",
+      "target": "#while-",
+      "fixed": "#while",
+      "reason": "同上，标题尾部空格",
+      "confidence": "certain"
+    },
+    {
+      "from": "reference/getting-started/dotnet/keywords.md",
+      "target": "#if-",
+      "fixed": "#if",
+      "reason": "同上，标题尾部空格",
+      "confidence": "certain"
+    },
+    {
+      "from": "reference/getting-started/dotnet/keywords.md",
+      "target": "../../language/patches.md#datatype-patch",
+      "fixed": "../../language/patches.md#datatype-patches",
+      "reason": "目标标题是复数 Datatype Patches",
+      "confidence": "certain"
+    },
+    {
+      "from": "reference/getting-started/dotnet/keywords.md",
+      "target": "../../language/groups.md#category",
+      "fixed": "../../language/groups.md",
+      "reason": "groups.md 只有一个 h1 Groups，没有 Category 小节；去掉锚点指向整页",
+      "confidence": "inferred"
+    },
+    {
+      "from": "reference/getting-started/dotnet/introduction-for-dotnet-programmers.md",
+      "target": "../overview.md#tutorials",
+      "fixed": "../../../index.md#tutorials",
+      "reason": "overview.md 没有 Tutorials 小节，根 index.md 才有；上游写错了路径",
+      "confidence": "inferred"
+    },
+    {
+      "from": "reference/getting-started/overview.md",
+      "target": "../../index.md#online-courses",
+      "fixed": "../../index.md#courses",
+      "reason": "根 index.md 的标题是 Courses，不是 Online Courses",
+      "confidence": "certain"
+    },
+    {
+      "from": "reference/hde/extensions.md",
+      "target": "../libraries/referencing.md#manage-nugets",
+      "fixed": "../libraries/referencing.md#nugets",
+      "reason": "referencing.md 里对应小节是 NuGets",
+      "confidence": "certain"
+    },
+    {
+      "from": "reference/libraries/3d/texturefx.md",
+      "target": "shaders.md#includes",
+      "fixed": "shaders.md#includes-and-static-calls",
+      "reason": "shaders.md 里对应小节是 Includes and Static Calls",
+      "confidence": "certain"
+    }
+  ],
+  "docfxTabs": {
+    "_note": "DocFX 的选项卡语法 `# [标签](#tab/tabid-N)`，不是标题也不是锚点。整个上游只有这一个文件用到，gb:import 需转成 Docusaurus 的 Tabs 组件（该页要改成 .mdx）。",
+    "files": ["introduction/lo_0_dataHubs.md"]
+  }
+}

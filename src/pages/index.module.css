@@ -1,37 +1,256 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * 首页。设计语言与 nodenodenode.net 一致：纸灰底、1px 硬线、零圆角、
+ * 8px 方块作节点标记、贯穿区块的竖向接线、45° 网点纹理。
  */
 
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
+.page {
+  max-width: var(--ifm-container-width);
+  margin: 0 auto;
+  padding-inline: var(--s3);
+}
+
+/* ── Hero ────────────────────────────────────────────
+   45° 斜线抖动纹理模拟 1-bit 半调，上盖一层 160° 的实色→透明渐变，
+   让纹理只在右下角露出来。纯 CSS，零图片开销。 */
+.hero {
   position: relative;
-  overflow: hidden;
-  background-color: #4d4d4d;
+  padding: var(--s12) 0 var(--s8);
+  border-bottom: var(--line);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--grey-400) 0 1px,
+    transparent 1px 10px
+  );
 }
 
-@media screen and (max-width: 966px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    160deg,
+    var(--paper) 0%,
+    var(--paper) 72%,
+    transparent 100%
+  );
 }
 
-.buttons {
+.heroInner {
+  position: relative;
+  max-width: var(--ifm-container-width);
+  margin: 0 auto;
+  padding-inline: var(--s3);
+}
+
+.heroTitle {
+  font-family: var(--font-pixel);
+  font-size: var(--px-3);
+  line-height: 1.3333;
+  letter-spacing: 0;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  color: var(--ink);
+  margin: 0;
+}
+
+.heroIntro {
+  max-width: 56ch;
+  margin-top: var(--s3);
+  color: var(--grey-700);
+}
+
+/* hero 底部引出的一小段竖线，接到下面的区块主干上 */
+.heroWire {
+  position: absolute;
+  bottom: 0;
+  left: var(--s3);
+  width: 1px;
+  height: var(--s6);
+  background: var(--grey-400);
+}
+
+/* ── 区块 ────────────────────────────────────────── */
+.section {
+  position: relative;
+  padding: var(--s8) 0;
+}
+
+/* 贯穿整个区块高度的 1px 主干线，内容挂靠其上 */
+.section::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  left: var(--s3);
+  width: 1px;
+  background: var(--grey-400);
+}
+
+/* 区块头：方块 + 两位编号 + 自动伸缩的横线 + 英文小写标签 */
+.sectionWire {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: var(--s2);
+  margin-left: var(--s3);
+  transform: translateX(-4px);
 }
 
-.ol{
-  list-style-type:none;
+.pin {
+  width: var(--s1);
+  height: var(--s1);
+  background: var(--ink);
+  flex: none;
 }
 
-.description{
-  max-width: 500px;
+.sectionNum,
+.sectionLatin {
+  font-family: var(--font-pixel);
+  font-size: var(--px-1);
+  line-height: 1.3333;
+  letter-spacing: 0;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  color: var(--grey-700);
 }
 
-.cardImage{
-  width: 800px;
-  height: 100px;
+.sectionLatin {
+  text-transform: uppercase;
+}
+
+.sectionRule {
+  flex: 1;
+  height: 1px;
+  background: var(--grey-400);
+}
+
+.sectionTitle {
+  font-family: var(--font-pixel);
+  font-size: var(--px-2);
+  line-height: 1.3333;
+  letter-spacing: 0;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  color: var(--ink);
+  margin: var(--s3) 0 0 calc(var(--s3) + var(--s3));
+}
+
+.sectionBody {
+  margin-left: calc(var(--s3) + var(--s3));
+  margin-top: var(--s3);
+}
+
+/* ── 板块入口列表 ────────────────────────────────── */
+.entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.entry {
+  border-top: 1px solid var(--grey-100);
+}
+
+.entry:last-child {
+  border-bottom: 1px solid var(--grey-100);
+}
+
+.entryLink {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  padding: var(--s2) 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.entryLink:hover {
+  color: var(--signal);
+  text-decoration: none;
+}
+
+.entryLink:hover .pin {
+  background: var(--signal);
+}
+
+.entryTitle {
+  font-family: var(--font-pixel);
+  font-size: var(--px-1);
+  letter-spacing: 0;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  text-decoration: underline;
+  text-decoration-color: var(--grey-400);
+  text-underline-offset: 4px;
+}
+
+.entryLink:hover .entryTitle {
+  text-decoration-color: var(--signal);
+}
+
+.entryNote {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--grey-700);
+  max-width: 64ch;
+}
+
+.entryCount {
+  margin-left: auto;
+  font-family: var(--font-pixel);
+  font-size: var(--px-1);
+  letter-spacing: 0;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  color: var(--grey-500);
+  flex: none;
+}
+
+/* ── 资源列表 ────────────────────────────────────── */
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.links li {
+  border-top: 1px solid var(--grey-100);
+}
+
+.links li:last-child {
+  border-bottom: 1px solid var(--grey-100);
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s2) 0;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: var(--signal);
+}
+
+.links a:hover .pin {
+  background: var(--signal);
+}
+
+@media (width <= 720px) {
+  .hero {
+    padding: var(--s6) 0;
+  }
+
+  .section {
+    padding: var(--s6) 0;
+  }
+
+  .sectionTitle,
+  .sectionBody {
+    margin-left: calc(var(--s3) + var(--s2));
+  }
 }

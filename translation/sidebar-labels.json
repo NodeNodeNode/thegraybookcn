@@ -1,0 +1,48 @@
+{
+  "_readme": [
+    "侧边栏条目的中文标签。key 是上游文件路径（纯分组标题则是英文标签原文）。",
+    "gb:gen-sidebar 重新生成 sidebars.js 时会读这里，人工翻译不会被覆盖。",
+    "缺失的条目会 fallback 成英文并在生成时报出来。"
+  ],
+
+  "reference/": "参考手册",
+  "introduction/": "概念讲解",
+  "changelog/": "版本变更",
+  "roadmap/": "路线图",
+
+  "reference/getting-started/overview.md": "开始",
+  "reference/getting-started/cc/introduction-for-creative-coders.md": "写给 creative coders",
+  "reference/getting-started/beta/introduction-for-vvvv-beta-users.md": "写给 vvvv beta 用户",
+  "reference/getting-started/beta/user-interface.md": "用户界面",
+  "reference/getting-started/dotnet/introduction-for-dotnet-programmers.md": "写给 .NET 开发者",
+  "reference/getting-started/dotnet/concepts.md": "C# 概念",
+
+  "reference/hde/gui.md": "开发环境",
+  "reference/hde/overview.md": "概览",
+  "reference/hde/project_structure.md": "文件结构",
+  "reference/hde/navigating_a_project.md": "文件导航",
+  "reference/hde/the_nodebrowser.md": "节点浏览器",
+  "reference/hde/extensions.md": "扩展",
+  "reference/hde/settings.md": "设置",
+  "reference/hde/themes.md": "主题",
+  "reference/hde/findinghelp.md": "寻求帮助",
+
+  "reference/language/language.md": "编程语言",
+  "reference/language/patches.md": "草图",
+  "reference/language/nodes.md": "节点",
+  "reference/language/ioboxes.md": "IOBoxes",
+  "reference/language/operations.md": "运算器",
+
+  "reference/libraries/overview.md": "节点库",
+  "The Core Library": "核心库",
+  "reference/libraries/reactive.md": "响应式",
+  "reference/libraries/graphics-3d.md": "3D 图形",
+  "reference/libraries/3d/rendering.md": "渲染",
+  "reference/libraries/3d/shaders.md": "着色器",
+  "reference/libraries/3d/texturefx.md": "TextureFX",
+  "reference/libraries/3d/geometry.md": "多边形",
+
+  "reference/extending/overview.md": "扩展 vvvv",
+  "reference/extending/editor-extensions.md": "创建编辑器扩展",
+  "reference/extending/writing-nodes.md": "使用 C# 编写节点"
+}
