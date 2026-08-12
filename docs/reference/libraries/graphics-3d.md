@@ -19,7 +19,7 @@ vvvv 的 3d 渲染引擎 VL.Stride 基于[Stride 3d](https://www.stride3d.net/) 
 
 总的来说，[Stride文档](https://doc.stride3d.net/latest/en/)将会对你理解这些关键性的内容帮助很大。
 
-## 主题
+## 主题 {#topics}
 - 渲染
 - 模型和多边形网格
 - 透明
@@ -28,7 +28,7 @@ vvvv 的 3d 渲染引擎 VL.Stride 基于[Stride 3d](https://www.stride3d.net/) 
 - 编写着色器
 - 多边形
 
-## 其他周边的库
+## 其他周边的库 {#additional-libraries}
 - VL.Fuse
 - VL.CEF
 - VL.IO.PLY
@@ -38,6 +38,6 @@ vvvv 的 3d 渲染引擎 VL.Stride 基于[Stride 3d](https://www.stride3d.net/) 
 - VL.OpenEXR
 - VL.Boids-GPU
 
-## 好用的工具
+## 好用的工具 {#useful-tools}
 - [Stride 着色器浏览器](https://github.com/tebjan/Stride.ShaderExplorer)
 - [各种材质编辑器](https://discourse.vvvv.org/t/open-source-material-editor-material-creation-resource-list/19185)

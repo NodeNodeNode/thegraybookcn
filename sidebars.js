@@ -336,13 +336,38 @@ module.exports = {
       "label": "节点库",
       "items": [
         {
+          "type": "doc",
+          "id": "reference/libraries/referencing",
+          "label": "引用节点库"
+        },
+        {
           "type": "category",
           "label": "核心库",
           "items": [
             {
               "type": "doc",
+              "id": "reference/libraries/collections",
+              "label": "集合"
+            },
+            {
+              "type": "doc",
               "id": "reference/libraries/reactive",
               "label": "响应式"
+            },
+            {
+              "type": "doc",
+              "id": "reference/libraries/serialization",
+              "label": "序列化"
+            },
+            {
+              "type": "doc",
+              "id": "reference/libraries/json",
+              "label": "JSON"
+            },
+            {
+              "type": "doc",
+              "id": "reference/libraries/xml",
+              "label": "XML"
             }
           ]
         },
@@ -357,8 +382,18 @@ module.exports = {
             },
             {
               "type": "doc",
+              "id": "reference/libraries/3d/models",
+              "label": "模型与网格"
+            },
+            {
+              "type": "doc",
               "id": "reference/libraries/3d/geometry",
               "label": "多边形"
+            },
+            {
+              "type": "doc",
+              "id": "reference/libraries/3d/transparency",
+              "label": "透明"
             },
             {
               "type": "doc",
@@ -369,12 +404,37 @@ module.exports = {
               "type": "doc",
               "id": "reference/libraries/3d/texturefx",
               "label": "TextureFX"
+            },
+            {
+              "type": "doc",
+              "id": "reference/libraries/3d/editing-shaders",
+              "label": "编辑着色器"
+            },
+            {
+              "type": "doc",
+              "id": "reference/libraries/3d/virtual-reality",
+              "label": "虚拟现实"
+            },
+            {
+              "type": "doc",
+              "id": "reference/libraries/3d/graphics-cards",
+              "label": "显卡"
+            },
+            {
+              "type": "doc",
+              "id": "reference/libraries/3d/gpu-debugging",
+              "label": "GPU 调试"
             }
           ],
           "link": {
             "type": "doc",
             "id": "reference/libraries/graphics-3d"
           }
+        },
+        {
+          "type": "doc",
+          "id": "reference/libraries/on-demand",
+          "label": "按需开发"
         }
       ],
       "link": {

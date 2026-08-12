@@ -3,52 +3,61 @@ title: Reactive / 响应式编程
 slug: /libraries/reactive
 source_path: reference/libraries/reactive.md
 source_blob: afa4a1309fd589d12d6fb1751c2a3a6bbddee599
-status: partial
+status: translated
 last_synced: '2026-08-12'
 ---
 
-`Reactive` 提供了处理异步事件、后台计算的工具，甚至允许你构建自己的 `mainloop` 并在不同 CPU 核心上运行。
+[源文档地址](https://thegraybook.vvvv.org/reference/libraries/reactive.html)
 
-## 事件处理
+Reactive 这个目录给了你处理异步事件、后台计算的工具，甚至让你能搭出自己的主循环、跑在另一个 CPU 核心上。
 
-用于处理事件的节点是 `Reactive` 分类下的 `ForEach` 区块。这个区块允许你在其中放置任何节点，并能记住两个事件之间的任何数据。同时还有一个包含 `Keep` 的版本，可以使用布尔输出过滤事件。这个区块与用于 Spread 的 `ForEach` 非常相似，区别在于输入输出是跟随时间的事件值而不是 Spread 中的 Slice。
+## 处理事件 {#processing-events}
 
-![Refresh web data every 30 seconds in the background and pass the result on to the mainloop](https://thegraybook.vvvv.org/images/libraries/vl-libraries-reactive-refreshEvery30secInBackground.PNG "Refresh web data every 30 seconds in the background and pass the result on to the mainloop")
-*后台每30秒获取一次 web 数据，并将结果传递给 `mainloop`*
+处理事件时首选的节点，是 *Reactive* 目录下的 *ForEach 区块*。这个区块允许你在里面放任何节点，也能在两次事件之间记住数据。还有一个 *Keep* 版本，可以用一个布尔输出把事件过滤掉。这个区块与用于 Spread 的 ForEach 区块非常相似，区别只在于它的输入输出是随时间到来的事件值，而不是 Spread 里的 slice。
 
-## 切换或合并事件源
+![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-reactive-refreshEvery30secInBackground.PNG)
+在后台每 30 秒刷新一次网络数据，并把结果传给主循环
 
-![Switching or merging midi events](https://thegraybook.vvvv.org/images/libraries/vl-libraries-reactive-switchingAndMerging.PNG "Switching or merging midi events")
-*切换或合并 midi 事件*
+### 切换或合并事件源 {#switching-or-merging-event-sources}
 
-## 筛选
+![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-reactive-switchingAndMerging.PNG)
+切换或合并 midi 事件
 
-可以使用 `OfType` 或者 `Where` 进行筛选
+### 过滤 {#filtering}
 
-![Only get TouchDown events from a combined event stream](https://thegraybook.vvvv.org/images/libraries/vl-libraries-reactive-onlyGetTouchDown.PNG "Only get TouchDown events from a combined event stream")
-*其他节点包括* `Skip` `Delay` `Delay(Selector)` `Scan` `Switch` ...
+用 *OfType* 或 *Where* 也可以做过滤：
 
-## 接收事件
+![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-reactive-onlyGetTouchDown.PNG)
+从合并后的事件流里只取 TouchDown 事件
 
-当你想脱离 `observable` 世界并将事件的值传递给 `mainloop` 时，可以使用以下三种节点：
+其他节点还包括
 
-- `HoldLatest`：总是返回最新的数据
-- `Sampler`：返回上一帧后所有的事件值，可为空
-- `S+H`：与 `Sampler` 一样，但总是返回相同的值，直到下一个事件发生
+* Skip
+* Delay
+* Delay (Selector)
+* Scan
+* Switch……
 
-这些行为有一些微小的差异，根据你的需求选择：
+## 接收事件 {#receiving-events}
 
-![Three ways to get event values to the mainloop](https://thegraybook.vvvv.org/images/libraries/vl-libraries-reactive-3waysToGetEventValuesToMainloop.PNG "Three ways to get event values to the mainloop")
-*三种将事件值传递给 mainloop 的方法*
+如果你想离开 Observable 的世界、把事件值传给主循环，用下面这 3 个节点之一：
 
-## 创建事件
+* HoldLatest：总是返回最新的值
+* Sampler：返回自上一帧以来的所有事件值，可能为空
+* S+H：与 *Sampler* 相同，但会一直返回同样的值，直到下一个事件到来
 
-生成你自己的事件源同样简单：
+它们的行为各有一点不同，看你需要哪种：
 
-![创建 Observable 事件源的不同方法](https://thegraybook.vvvv.org/images/libraries/vl-libraries-reactive-waysToCreateObservableSources.PNG "Different ways to create observable event sources")
-*创建 Observable 事件源的不同方法*
+![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-reactive-3waysToGetEventValuesToMainloop.PNG)
+把事件值传给主循环的三种方式
+
+## 创建事件 {#creating-events}
+
+生成你自己的事件源同样容易：
+
+![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-reactive-waysToCreateObservableSources.PNG)
+创建 Observable 事件源的不同方式
 
 :::note
-只使用 `Record` 类型的数据作为事件数据，因为它们是线程安全的。
-如果你发送任何 `Class` 类的数据，请确认你完全明白你正在操作的事情！
+只发送 Record 类型的值作为事件数据，因为它们是线程安全的。如果你要发送任何 Class 类型的值，请确保你非常清楚自己在做什么！
 :::

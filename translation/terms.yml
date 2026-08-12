@@ -429,13 +429,34 @@ terms:
     note: Rx 的核心概念，与 VL 的响应式体系直接对应。保留英文，已有译文即如此。
     decided_at: 2026-08-12
 
-  # ── 尚未在任何译文里出现，但上游高频，翻到时需先拍板 ──────────────
-  - en: applet
-    status: open
-    decided_at: null
+  # ── 节点库章 ──────────────────────────────────────────────────
+  - en: mesh
+    zh: 网格
+    status: decided
+    note: >-
+      3D 图形里的标准中译。Stride 的类型名 `Mesh`、`MeshDraw`、`MeshEntity` 等
+      在正文里保留英文并加反引号 —— 那是界面和代码里的字面名字，与泛指的「网格」分开。
+    decided_at: 2026-08-12
 
+  - en: slice
+    status: keep-en
+    case: [slice, slices, Slice, Slices]
+    note: >-
+      保留英文，与 spread 同理 —— Spread 里的一项就叫 slice，这是 vvvv 社区口语。
+      按仓库既有事实定：现有译文 16 处全是裸用英文，0 处「切片」。
+      大小写放宽到四种：句中行文用小写（loops.md 全篇如此），
+      作为类型名或节点名的一部分时（GetSlice、Slice 类型）才大写。
+    decided_at: 2026-08-12
+
+
+  # applet 曾列在这里等拍板，但全上游和全部译文里一处都没有 —— 是当初凭空列的。
+  # 已删除：一个没人用的 open 词条只会让「待拍板」计数永远不归零，稀释信号。
   - en: shader
-    status: open
-    note: Libraries/3D 章的术语体系，等翻到那章再统一扩表。
-    scope: reference/libraries/
-    decided_at: null
+    zh: 着色器
+    status: decided
+    first_use: true
+    note: >-
+      按仓库既有事实定，不是新拍：现有译文 42 处「着色器」对 17 处裸用，
+      而裸用的多是 `shaders` 文件夹名、SDSL、ShaderFX 这类专名。
+      刻意不设 forbid_bare_en —— 那些专名必须保留原样。
+    decided_at: 2026-08-12
