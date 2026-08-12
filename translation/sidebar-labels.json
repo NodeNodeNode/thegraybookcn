@@ -16,6 +16,13 @@
   "reference/getting-started/beta/user-interface.md": "用户界面",
   "reference/getting-started/dotnet/introduction-for-dotnet-programmers.md": "写给 .NET 开发者",
   "reference/getting-started/dotnet/concepts.md": "C# 概念",
+  "reference/getting-started/dotnet/keywords.md": "C# 关键字",
+  "reference/getting-started/dotnet/contextual-keywords.md": "C# 上下文关键字",
+  "reference/getting-started/beta/documentstructure.md": "文档结构",
+  "reference/getting-started/beta/language.md": "语言差异",
+  "reference/getting-started/beta/evaluation.md": "求值",
+  "reference/getting-started/beta/nodes.md": "节点差异",
+  "reference/getting-started/beta/vl-templates.md": "VL 模板",
 
   "reference/hde/gui.md": "开发环境",
   "reference/hde/overview.md": "概览",

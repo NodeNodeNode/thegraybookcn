@@ -14,6 +14,71 @@ module.exports = {
           "type": "doc",
           "id": "reference/getting-started/cc/introduction-for-creative-coders",
           "label": "写给 creative coders"
+        },
+        {
+          "type": "category",
+          "label": "写给 vvvv beta 用户",
+          "items": [
+            {
+              "type": "doc",
+              "id": "reference/getting-started/beta/user-interface",
+              "label": "用户界面"
+            },
+            {
+              "type": "doc",
+              "id": "reference/getting-started/beta/documentstructure",
+              "label": "文档结构"
+            },
+            {
+              "type": "doc",
+              "id": "reference/getting-started/beta/language",
+              "label": "语言差异"
+            },
+            {
+              "type": "doc",
+              "id": "reference/getting-started/beta/evaluation",
+              "label": "求值"
+            },
+            {
+              "type": "doc",
+              "id": "reference/getting-started/beta/nodes",
+              "label": "节点差异"
+            },
+            {
+              "type": "doc",
+              "id": "reference/getting-started/beta/vl-templates",
+              "label": "VL 模板"
+            }
+          ],
+          "link": {
+            "type": "doc",
+            "id": "reference/getting-started/beta/introduction-for-vvvv-beta-users"
+          }
+        },
+        {
+          "type": "category",
+          "label": "写给 .NET 开发者",
+          "items": [
+            {
+              "type": "doc",
+              "id": "reference/getting-started/dotnet/concepts",
+              "label": "C# 概念"
+            },
+            {
+              "type": "doc",
+              "id": "reference/getting-started/dotnet/keywords",
+              "label": "C# 关键字"
+            },
+            {
+              "type": "doc",
+              "id": "reference/getting-started/dotnet/contextual-keywords",
+              "label": "C# 上下文关键字"
+            }
+          ],
+          "link": {
+            "type": "doc",
+            "id": "reference/getting-started/dotnet/introduction-for-dotnet-programmers"
+          }
         }
       ],
       "link": {
