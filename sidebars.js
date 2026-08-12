@@ -415,13 +415,38 @@ module.exports = {
       "items": [
         {
           "type": "doc",
+          "id": "introduction/lo_0_dataHubs",
+          "label": "数据与数据枢纽"
+        },
+        {
+          "type": "doc",
+          "id": "introduction/lo_1_data",
+          "label": "数据与数据类型"
+        },
+        {
+          "type": "doc",
+          "id": "introduction/lo_2_dataflow",
+          "label": "数据流"
+        },
+        {
+          "type": "doc",
           "id": "introduction/lo_3_defAndUse",
           "label": "定义与使用"
         },
         {
           "type": "doc",
+          "id": "introduction/lo_4_lookingAtNodes",
+          "label": "节点"
+        },
+        {
+          "type": "doc",
           "id": "introduction/lo_5_Runtime",
           "label": "运行中的系统"
+        },
+        {
+          "type": "doc",
+          "id": "introduction/lo_6_regions",
+          "label": "区块"
         },
         {
           "type": "doc",
@@ -437,6 +462,11 @@ module.exports = {
           "type": "category",
           "label": "基本节点与数据类型",
           "items": [
+            {
+              "type": "doc",
+              "id": "introduction/lo_9_0_numericValues",
+              "label": "数值"
+            },
             {
               "type": "doc",
               "id": "introduction/lo_9_1_text",
@@ -463,6 +493,26 @@ module.exports = {
       "type": "category",
       "label": "再谈数据",
       "items": [
+        {
+          "type": "doc",
+          "id": "introduction/mut",
+          "label": "数据与可变性"
+        },
+        {
+          "type": "doc",
+          "id": "introduction/mut2",
+          "label": "数据流与可变性"
+        },
+        {
+          "type": "doc",
+          "id": "introduction/mut3",
+          "label": "检测变化"
+        },
+        {
+          "type": "doc",
+          "id": "introduction/mut4",
+          "label": "不可变数据的构建器"
+        },
         {
           "type": "doc",
           "id": "introduction/subtypes",

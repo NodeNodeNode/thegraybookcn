@@ -1,0 +1,70 @@
+---
+title: Data and Data Hubs / 数据与数据枢纽
+slug: /explanations/data-and-data-hubs
+source_path: introduction/lo_0_dataHubs.md
+source_blob: c43ef3ad7af4a5c8a3d40213f400944823b9af51
+status: translated
+last_synced: '2026-08-12'
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+[源文档地址](https://thegraybook.vvvv.org/introduction/lo_0_dataHubs.html)
+
+<p style={{textAlign: 'center'}}>
+<img src="https://thegraybook.vvvv.org/images/introduction/small.bmp" width="150" title="small data" />
+<img src="https://thegraybook.vvvv.org/images/introduction/big.bmp" width="150" title="big data" />
+<img src="https://thegraybook.vvvv.org/images/introduction/BrentSpiner1.png" width="150" title="Mr. Data" />
+</p>
+
+数据无处不在。而编程差不多就是在跟数据打交道。
+
+编程，是在为机器写一份说明书，告诉它将来该怎么处理可能到来的数据。而在这样一个快速原型系统里，你手边往往还有真实的当前数据，随时可以这儿看看、那儿看看。
+
+<Tabs>
+<TabItem value="hover" label="悬停查看数据" default>
+
+![](https://thegraybook.vvvv.org/images/introduction/data_pin_inspect_hover.png)
+把鼠标悬停在数据枢纽上查看数据
+
+</TabItem>
+<TabItem value="editor" label="切换数据视图／编辑器">
+
+![](https://thegraybook.vvvv.org/images/introduction/data_pin_inspect_editor.gif)
+切换到编辑器视图查看数据
+
+</TabItem>
+</Tabs>
+
+:::tip
+数据枢纽里的白点表示这一个的数据类型是被显式指定过的（这个例子里是 `Spread<Vector2>`）。
+:::
+
+不过，你正在搭的这个程序，通常要操心的是**将来**程序运行时可能到来的**任何数据**。
+
+所以你会一直在琢磨这些事：
+
+* 接受数据、用数据做计算
+* 从数据中提取特征
+* 过滤数据、产出新的数据
+* 把数据反馈回去、把数据存起来
+* 把数据可视化、把数据发出去
+* 查看当前手头有的数据
+* 描述「在任意一个时刻，对那时手上的数据该做什么」
+* 从具体的数据里抽象出来，更多地以「可能的数据类型」来思考
+
+最后这一条见[数据与数据类型](/explanations/data-and-data-types)。
+
+:::note[译者注]
+上游此处指向 `data.md`，但上游仓库里并没有这个文件，这条链接是断的。这里改为指向本章的《数据与数据类型》—— 从上下文看，那正是它想指的内容。
+:::
+
+眼下我们先往下走，顺手立几个词：数据枢纽、数据源、数据汇点。
+
+*data hub*（数据枢纽）就是你能连上去的那个东西。它要么是一个*data source*（数据源）<img src="https://thegraybook.vvvv.org/images/introduction/data_pin_source.png" className="inline-icon" alt="数据源" />，要么是一个*data sink*（数据汇点）<img src="https://thegraybook.vvvv.org/images/introduction/data_pin_sink.png" className="inline-icon" alt="数据汇点" />。数据源能给你数据拿去用；数据汇点则巴不得你给它点数据。两者都可以连线。
+
+其实呢，数据流编程主要就是在把数据源连到数据汇点上。这里的想法是：数据从数据源流进数据汇点。
+
+![](https://thegraybook.vvvv.org/images/introduction/data_pin_connect.gif)
+数据源被连到一个类型匹配的数据汇点上

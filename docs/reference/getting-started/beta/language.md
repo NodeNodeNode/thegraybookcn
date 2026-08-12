@@ -98,7 +98,7 @@ VL 里这件事定义得更清楚，有几点需要理解：
 
 ## Bin Size {#bin-size}
 
-Bin Size 是 vvvv beta 为了绕开「没有多维 Spread」而想出的办法：给一个 spread 过的针脚配一个 Bin Size 针脚，你就能指定节点该如何解读这个 spread 的各个 bin。既然 VL 的 Spread 可以嵌套 Spread，Bin Size 这个概念就不再需要了。
+Bin Size 是 vvvv beta 为了绕开「没有多维 Spread」而想出的办法：给一个 Spread 过的针脚配一个 Bin Size 针脚，你就能指定节点该如何解读这个 Spread 的各个 bin。既然 VL 的 Spread 可以嵌套 Spread，Bin Size 这个概念就不再需要了。
 
 ## Framedelay {#framedelay}
 

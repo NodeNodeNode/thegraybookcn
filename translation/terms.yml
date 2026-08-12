@@ -298,17 +298,58 @@ terms:
       这是为解开撞词而做的调整，翻译时务必按语境分清。
     decided_at: 2026-08-12
 
+  # ── 数据流的基本词汇 ──────────────────────────────────────────
+  - en: data hub
+    zh: 数据枢纽
+    status: decided
+    first_use: true
+    note: >-
+      上游在 lo_0_dataHubs 里专门造了这个词，用来统称针脚这类「可以连上去的地方」，
+      再往下分成 data source 和 data sink 两种。译「数据枢纽」。
+      注意它是上位概念：正文说「针脚」时不要替换成「数据枢纽」，反之亦然。
+    decided_at: 2026-08-12
+
+  - en: data source
+    zh: 数据源
+    status: decided
+    first_use: true
+    note: >-
+      与 data sink 成对。这一对是数据流的地基词，几乎每页都要用，所以先于
+      Language 章拍板。单说 source 时也译「数据源」—— 但「源文档」「源码」这类
+      与数据流无关的 source 不受本条约束，按语境正常译。
+    decided_at: 2026-08-12
+
+  - en: data sink
+    zh: 数据汇点
+    status: decided
+    first_use: true
+    note: >-
+      与 data source 成对，取信号处理里 source/sink 的标准中译「源／汇」。
+      「汇点」比「接收端」短且不会与网络语境的「接收方」混淆。
+      单说 sink 时译「汇点」，正文里凡是与 source 并举处一律用全称「数据汇点」。
+      2026-08-12 翻 mut2 / lo_0_dataHubs 时定 —— 这两页正是定义这一对词的地方。
+    decided_at: 2026-08-12
+
+  - en: reference
+    zh: 引用
+    status: decided
+    first_use: true
+    note: >-
+      指向内存中某个位置的引用，与不可变数据相对。不要译成「参考」，
+      也不要与 hyperlink 的「链接」或 link 的「连线」混淆。
+    decided_at: 2026-08-12
+
+  - en: builder
+    zh: 构建器
+    status: decided
+    first_use: true
+    note: >-
+      Builder 模式的标准中译。刻意不用「构造器」—— 那个词在 .NET 语境里
+      已经被 constructor 占了，两者在同一本书里撞车会很难拆。
+      类型名 SpreadBuilder 保留英文原样，正文泛指时用「构建器」。
+    decided_at: 2026-08-12
+
   # ── 尚未在任何译文里出现，但上游高频，翻到时需先拍板 ──────────────
-  - en: sink
-    status: open
-    note: Language 章 execution-order 等页会用到。
-    decided_at: null
-
-  - en: source
-    status: open
-    note: 与 sink 成对，一起定。
-    decided_at: null
-
   - en: applet
     status: open
     decided_at: null

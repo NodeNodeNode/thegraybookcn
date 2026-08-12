@@ -22,13 +22,18 @@ const label = (item) => {
   return item.label;
 };
 
-// 必须确认是文件：目录链接如 `reference/` 也能通过 existsSync，
-// 那会让「参考手册」被当成一个文档条目。
-const docExists = (rel) => {
-  if (!/\.mdx?$/.test(rel)) return false;
-  const abs = path.join(DOCS, rel);
-  return fs.existsSync(abs) && fs.statSync(abs).isFile();
+// 上游路径一律是 .md，但译文可能是 .mdx —— 需要 Tabs 之类组件的页面只能是 .mdx。
+// 这里按两种扩展名依次找，否则那些页会被当成「未翻译」而降级成英文外链。
+const resolveDoc = (rel) => {
+  if (!/\.mdx?$/.test(rel)) return null; // 目录链接如 `reference/` 也能通过 existsSync
+  const stem = rel.replace(/\.mdx?$/, '');
+  for (const ext of ['.md', '.mdx']) {
+    const abs = path.join(DOCS, stem + ext);
+    if (fs.existsSync(abs) && fs.statSync(abs).isFile()) return stem;
+  }
+  return null;
 };
+const docExists = (rel) => resolveDoc(rel) !== null;
 const docId = (rel) => rel.replace(/\.mdx?$/, '');
 const upstreamUrl = (rel) => `https://thegraybook.vvvv.org/${rel.replace(/\.md$/, '.html')}`;
 

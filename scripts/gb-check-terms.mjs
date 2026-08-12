@@ -8,6 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {load} from 'js-yaml';
+import {micromark} from 'micromark';
 import {
   ROOT,
   DOCS,
@@ -125,43 +126,46 @@ for (const rel of files) {
   //
   // 这个坑与「全角括号内外不加空格」的排版约定天然互斥，只靠人眼绝对防不住：
   // 它不报错、不断链、构建照过，只是安静地把标记漏出来。
-  const isSpace = (c) => c === '' || /\s/.test(c);
-  const isPunct = (c) => c !== '' && /[\p{P}\p{S}]/u.test(c);
-  // flanking 判定看的是相邻字符的「性质」，所以不能用 proseOnly 那份 —— 它把行内代码
-  // 换成了空格，会让 `` `mainloop`* `` 这种本来正常的写法被误判成「收尾符前是空白」。
-  // 这里另做一份：围栏代码整行清空，行内代码替换成等长的字母（保住「非空白非标点」这个性质）。
+  // 判定方式：直接问 micromark，也就是 Docusaurus 自己用的那个解析器。渲染完还剩下
+  // 星号，就是真的漏出来了 —— 没有比这更直接的证据。
+  //
+  // 曾经这里是手写的 flanking 判定，结果把 `**写回 *Pad*（数据板）**` 这种正确的
+  // 嵌套报成了 error：CommonMark 的定界符配对是带栈的，`**` 里套 `*` 时，手写正则
+  // 会把内层的开标记当成外层的收标记。手写规则去追一个带栈的算法是追不上的。
+  //
+  // 屏蔽方式仍不能用 proseOnly：它把行内代码换成空格，会改变相邻字符的性质。
+  // 这里围栏代码整行清空，行内代码换成等长字母（保住「非空白非标点」这个性质，
+  // 同时也吃掉代码里本来就有的星号）。
   const flankLines = maskCode(maskFrontmatter(normalizeEol(raw)))
     .split('\n')
     .map((line, i) =>
       /^\s*$/.test(line)
         ? line
-        : normalizeEol(raw).split('\n')[i].replace(/`[^`\n]*`/g, (m) => 'x'.repeat(m.length)),
+        : normalizeEol(raw)
+            .split('\n')
+            [i].replace(/(`+)(?:(?!\1)[^\n])*\1/g, (m) => 'x'.repeat(m.length)),
     );
   flankLines.forEach((rawLine, i) => {
-    // 先抹掉行首的列表项目符号，否则 `* *String*：默认` 里的项目符号会被
-    // 当成开标记，和后面那个 `*` 配成一对，产生误报。
-    const text = rawLine.replace(/^(\s*)[*+-](\s)/, '$1 $2');
-    for (const m of text.matchAll(/(\*{1,2})([^*\n]+?)\1/g)) {
-      // 开标记必须 left-flanking：后面不能是空白。不满足就根本不是一次强调尝试。
-      const openNext = m[2][0] ?? '';
-      const openPrev = text[m.index - 1] ?? '';
-      const leftFlanking =
-        !isSpace(openNext) && (!isPunct(openNext) || isSpace(openPrev) || isPunct(openPrev));
-      if (!leftFlanking) continue;
-
-      const prev = m[2].slice(-1);
-      const next = text[m.index + m[0].length] ?? '';
-      const rightFlanking = !isSpace(prev) && (!isPunct(prev) || isSpace(next) || isPunct(next));
-      if (!rightFlanking) {
-        report(
-          'error',
-          'E1',
-          rel,
-          i + 1,
-          `强调标记闭合失败，页面会显示裸星号：${m[0]}${next}` +
-            `（收尾符前是「${prev}」后是「${next}」）→ 把中文移到标记外，写成 *English*（中文）`,
-        );
-      }
+    if (!rawLine.includes('*')) return;
+    // 行首的列表项目符号和引用标记不是强调标记，逐行送检时必须先摘掉，
+    // 否则 `* *String*：默认` 的项目符号会被当成一个待闭合的开标记。
+    const text = rawLine
+      .replace(/^\s*>+\s?/, '')
+      .replace(/^(\s*)([*+-]|\d+\.)(\s)/, '$1$3')
+      // 转义星号 `\*` 渲染成的就是一个字面星号，它永远不参与配对 —— 不换掉的话
+      // 它会被当成「漏出来的」而误报。换成同为标点的 `\-`，相邻符号的属性不变。
+      .replace(/\\\*/g, '\\-');
+    if (!text.includes('*')) return;
+    const leftover = (micromark(text).match(/\*/g) ?? []).length;
+    if (leftover) {
+      report(
+        'error',
+        'E1',
+        rel,
+        i + 1,
+        `强调标记没有闭合，页面会显示 ${leftover} 个裸星号：${text.trim().slice(0, 50)}…` +
+          ` → 把中文移到标记外，写成 *English*（中文）`,
+      );
     }
   });
 }

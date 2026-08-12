@@ -448,3 +448,13 @@ button:focus-visible {
     animation-duration: 0.01ms !important;
   }
 }
+
+/* 行内小图标。上游用 <img style="height: 1.5rem"> 内联针脚图标（22×16），
+   基线对齐会让它浮在文字上方。这里统一按字号缩放并压回基线。 */
+.inline-icon {
+  height: 1.15em;
+  width: auto;
+  display: inline;
+  vertical-align: -0.18em;
+  margin: 0 0.2em;
+}

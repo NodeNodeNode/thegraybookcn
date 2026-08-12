@@ -44,6 +44,7 @@ last_synced: '2026-08-12'
 
 [C# 参考](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/checked) · {not-supported}
 
+<!-- gb-ignore T1 这是 C# 关键字本身，小写是它的正确写法，不是 VL 的 Class -->
 ### class {#class}
 
 [C# 参考](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/class) · 见[类型草图](../../language/patches.md#datatype-patches)。
@@ -64,6 +65,7 @@ last_synced: '2026-08-12'
 
 [C# 参考](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/default) · 见 [switch](#switch)。
 
+<!-- gb-ignore T1 这是 C# 关键字本身，小写是它的正确写法，不是 VL 的 Delegate -->
 ### delegate {#delegate}
 
 [C# 参考](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types) · 见 [Delegate](../../language/delegates.md)。

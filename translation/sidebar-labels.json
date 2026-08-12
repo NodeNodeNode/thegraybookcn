@@ -4,25 +4,31 @@
     "gb:gen-sidebar 重新生成 sidebars.js 时会读这里，人工翻译不会被覆盖。",
     "缺失的条目会 fallback 成英文并在生成时报出来。"
   ],
-
   "reference/": "参考手册",
-
   "introduction/language.md": "这门语言",
   "introduction/looking-at-things.md": "看待事物",
   "introduction/more-on-data.md": "再谈数据",
+  "introduction/lo_0_dataHubs.md": "数据与数据枢纽",
+  "introduction/lo_1_data.md": "数据与数据类型",
+  "introduction/lo_2_dataflow.md": "数据流",
   "introduction/lo_3_defAndUse.md": "定义与使用",
+  "introduction/lo_4_lookingAtNodes.md": "节点",
+  "introduction/lo_6_regions.md": "区块",
   "introduction/lo_5_Runtime.md": "运行中的系统",
   "introduction/lo_7_catAndVers.md": "目录与版本",
   "introduction/lo_8_docAndscope.md": "文档、依赖与作用域",
   "introduction/lo_9__basictypes.md": "基本节点与数据类型",
   "introduction/lo_9_1_text.md": "文本",
+  "introduction/lo_9_0_numericValues.md": "数值",
   "introduction/lo_9_2_Spreads.md": "Spread 与其他集合",
   "introduction/subtypes.md": "子类型",
-
+  "introduction/mut.md": "数据与可变性",
+  "introduction/mut2.md": "数据流与可变性",
+  "introduction/mut3.md": "检测变化",
+  "introduction/mut4.md": "不可变数据的构建器",
   "introduction/": "概念讲解",
   "changelog/": "版本变更",
   "roadmap/": "路线图",
-
   "reference/getting-started/overview.md": "开始",
   "reference/getting-started/cc/introduction-for-creative-coders.md": "写给 creative coders",
   "reference/getting-started/beta/introduction-for-vvvv-beta-users.md": "写给 vvvv beta 用户",
@@ -36,7 +42,6 @@
   "reference/getting-started/beta/evaluation.md": "求值",
   "reference/getting-started/beta/nodes.md": "节点差异",
   "reference/getting-started/beta/vl-templates.md": "VL 模板",
-
   "reference/hde/gui.md": "开发环境",
   "reference/hde/overview.md": "概览",
   "reference/hde/project_structure.md": "文件结构",
@@ -62,7 +67,6 @@
   "reference/hde/keyboard-shortcuts.md": "快捷键",
   "reference/hde/showandtell.md": "分享作品",
   "reference/hde/commandline-arguments.md": "命令行参数",
-
   "reference/language/language.md": "编程语言",
   "reference/language/patches.md": "草图",
   "reference/language/patch-explorer.md": "草图浏览器",
@@ -83,7 +87,6 @@
   "reference/language/nodes.md": "节点",
   "reference/language/ioboxes.md": "IOBoxes",
   "reference/language/operations.md": "运算器",
-
   "reference/libraries/overview.md": "节点库",
   "The Core Library": "核心库",
   "reference/libraries/reactive.md": "响应式",
@@ -92,7 +95,6 @@
   "reference/libraries/3d/shaders.md": "着色器",
   "reference/libraries/3d/texturefx.md": "TextureFX",
   "reference/libraries/3d/geometry.md": "多边形",
-
   "reference/extending/overview.md": "扩展 vvvv",
   "reference/extending/editor-extensions.md": "创建编辑器扩展",
   "reference/extending/writing-nodes.md": "使用 C# 编写节点"

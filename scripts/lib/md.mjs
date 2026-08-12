@@ -56,7 +56,10 @@ export function maskCode(input) {
   let out = src.replace(/^([ \t]*)(```|~~~)[^\n]*\n[\s\S]*?^[ \t]*\2[^\n]*$/gm, (block) =>
     block.replace(/[^\n]/g, ' '),
   );
-  out = out.replace(/`[^`\n]*`/g, (m) => ' '.repeat(m.length));
+  // 行内代码。必须认多重反引号：``ShadowCaster*`` 这种写法（正文里要显示反引号或星号时
+  // 唯一的办法）用单反引号的正则去匹配，会把开头那对 `` 当成一个空代码段吃掉，
+  // 结果中间的内容整个漏进正文 —— 于是代码里的星号和术语都会被当成正文来检查。
+  out = out.replace(/(`+)(?:(?!\1)[^\n])*\1/g, (m) => ' '.repeat(m.length));
   return out;
 }
 

@@ -28,7 +28,7 @@ AppData\Local\vvvv\gamma\nugets
 
 ## Commandline / 命令行 {#commandline}
 
-打开一个命令行，你可以在里面运行 [nuget 命令](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference)。
+打开一个命令行，你可以在里面运行 [NuGet CLI 命令](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference)。
 
 ### Installing the latest version of a NuGet / 安装最新版 {#installing-the-latest-version-of-a-nuget}
 
@@ -64,7 +64,7 @@ vvvv 永远会加载它找到的最新版 NuGet。所以如果你想降级到某
 
 ### Troubleshooting / 排查 {#troubleshooting}
 
-如果 `nuget install` 报错说这个 nuget 不存在，但你确定它存在、名字也没拼错，那有小概率是你的 [NuGet.Config](https://learn.microsoft.com/en-us/nuget/reference/nuget-config-file) 文件坏了。它在这里：
+如果 `nuget install` 报错说这个 NuGet 不存在，但你确定它存在、名字也没拼错，那有小概率是你的 [NuGet.Config](https://learn.microsoft.com/en-us/nuget/reference/nuget-config-file) 文件坏了。它在这里：
 
 ```
 C:\Users\..\AppData\Roaming\NuGet

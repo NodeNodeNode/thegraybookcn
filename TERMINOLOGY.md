@@ -7,9 +7,9 @@
 翻译时不需要通读本表 —— `gb:termcard` 会针对当前页面生成一份不超过 30 条的术语卡。
 本表用于查阅与审校。
 
-共 44 条，其中待拍板 4 条。
+共 47 条，其中待拍板 2 条。
 
-> **开工前需拍板**：`sink`、`source`、`applet`、`shader`
+> **开工前需拍板**：`applet`、`shader`
 > 这些词 `status` 为 `open`，检查器会对它们的使用报 warn。
 
 | 英文 | 中文 | 状态 | 规则 | 说明 |
@@ -54,7 +54,10 @@
 | `group patch` | （保留 group patch / group patches / Group patch / Group Patch） | 保留英文 | — | 保留英文。2026-08-12 由 RED 拍板。 大小写放宽到四种：上游自己就不一致（groups.md 用 Group patch，patches.md 用 group patch），而作为并列的类型名（与 Document Patch / Datatype Patch 同列）时 标题式大写才是对的。句中行文用小写。 |
 | `property` | 参数 | 已拍板 | — | 沿用现有译文的「参数」。注意与下面的 option 区分：过去两者都被译成「参数」， 是全书最容易混淆的一处。property 是数据类型上定义的可读写成员，option 是界面选项。 |
 | `option` | 选项 | 已拍板 | — | 界面上的选项，译「选项」不译「参数」—— 后者留给 property。 这是为解开撞词而做的调整，翻译时务必按语境分清。 |
-| `sink` | — | **待拍板** | — | Language 章 execution-order 等页会用到。 |
-| `source` | — | **待拍板** | — | 与 sink 成对，一起定。 |
+| `data hub` | 数据枢纽 | 已拍板 | 首次出现用双语并列 | 上游在 lo_0_dataHubs 里专门造了这个词，用来统称针脚这类「可以连上去的地方」， 再往下分成 data source 和 data sink 两种。译「数据枢纽」。 注意它是上位概念：正文说「针脚」时不要替换成「数据枢纽」，反之亦然。 |
+| `data source` | 数据源 | 已拍板 | 首次出现用双语并列 | 与 data sink 成对。这一对是数据流的地基词，几乎每页都要用，所以先于 Language 章拍板。单说 source 时也译「数据源」—— 但「源文档」「源码」这类 与数据流无关的 source 不受本条约束，按语境正常译。 |
+| `data sink` | 数据汇点 | 已拍板 | 首次出现用双语并列 | 与 data source 成对，取信号处理里 source/sink 的标准中译「源／汇」。 「汇点」比「接收端」短且不会与网络语境的「接收方」混淆。 单说 sink 时译「汇点」，正文里凡是与 source 并举处一律用全称「数据汇点」。 2026-08-12 翻 mut2 / lo_0_dataHubs 时定 —— 这两页正是定义这一对词的地方。 |
+| `reference` | 引用 | 已拍板 | 首次出现用双语并列 | 指向内存中某个位置的引用，与不可变数据相对。不要译成「参考」， 也不要与 hyperlink 的「链接」或 link 的「连线」混淆。 |
+| `builder` | 构建器 | 已拍板 | 首次出现用双语并列 | Builder 模式的标准中译。刻意不用「构造器」—— 那个词在 .NET 语境里 已经被 constructor 占了，两者在同一本书里撞车会很难拆。 类型名 SpreadBuilder 保留英文原样，正文泛指时用「构建器」。 |
 | `applet` | — | **待拍板** | — | — |
 | `shader` | — | **待拍板** | 仅限 reference/libraries/ | Libraries/3D 章的术语体系，等翻到那章再统一扩表。 |

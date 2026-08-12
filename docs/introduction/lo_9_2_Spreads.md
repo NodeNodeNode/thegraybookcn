@@ -25,9 +25,9 @@ Spread 提供了不少操作，其中一部分以运算器区块的形式提供�
 
 ## SpreadBuilder {#spreadbuilder}
 
-有个叫 SpreadBuilder 的东西，提供了更高效的方式来构造 Spread。**SpreadBuilder 是可变的**，只应该用在「需要对一个 Spread 连续做很多次改动」的地方。如果你确定自己已经到了做性能优化的阶段，用 ToBuilder 节点把 Spread 转成 builder，做完再用 ToSpread 转回普通的 Spread。
+有个叫 SpreadBuilder 的东西，提供了更高效的方式来构造 Spread。**SpreadBuilder 是可变的**，只应该用在「需要对一个 Spread 连续做很多次改动」的地方。如果你确定自己已经到了做性能优化的阶段，用 ToBuilder 节点把 Spread 转成*builder*（构建器），做完再用 ToSpread 转回普通的 Spread。
 
-我们建议你**只在局部使用 SpreadBuilder** —— 用它把 Spread 造出来，然后传递造好的那个 Spread，别把 builder 本身传来传去。哪怕你需要把结果存起来以后用，也请存 Spread 而不是 builder。这会让你在理解一张草图时轻松很多。
+我们建议你**只在局部使用 SpreadBuilder** —— 用它把 Spread 造出来，然后传递造好的那个 Spread，别把构建器本身传来传去。哪怕你需要把结果存起来以后用，也请存 Spread 而不是构建器。这会让你在理解一张草图时轻松很多。
 
 ## HashSet {#hashset}
 
