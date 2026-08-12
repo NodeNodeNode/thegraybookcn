@@ -159,6 +159,15 @@ terms:
     status: decided
     decided_at: 2026-08-11
 
+  - en: patch explorer
+    zh: 草图浏览器
+    status: decided
+    note: >-
+      与已定的 node browser=节点浏览器 平行。它是编辑器里的一个面板，
+      正文用中文，指菜单项或界面标签时保留 `Patch Explorer`。
+      2026-08-12 翻 patch-explorer 页时定。
+    decided_at: 2026-08-12
+
   - en: help browser
     zh: 帮助面板
     status: decided

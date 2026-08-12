@@ -78,6 +78,11 @@ module.exports = {
         },
         {
           "type": "doc",
+          "id": "reference/language/patch-explorer",
+          "label": "草图浏览器"
+        },
+        {
+          "type": "doc",
           "id": "reference/language/nodes",
           "label": "节点"
         },

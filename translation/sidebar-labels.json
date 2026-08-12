@@ -29,6 +29,7 @@
 
   "reference/language/language.md": "编程语言",
   "reference/language/patches.md": "草图",
+  "reference/language/patch-explorer.md": "草图浏览器",
   "reference/language/nodes.md": "节点",
   "reference/language/ioboxes.md": "IOBoxes",
   "reference/language/operations.md": "运算器",

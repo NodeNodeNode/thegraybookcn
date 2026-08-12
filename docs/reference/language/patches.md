@@ -45,7 +45,7 @@ VL.CoreLib.vl 的 Definitions 草图的一部分
 
 ## Datatype Patches / 类型草图 {#datatype-patches}
 
-类型草图有好几种，可以在 [Patch Explorer（英文）](https://thegraybook.vvvv.org/reference/language/patch-explorer.html)里切换：
+类型草图有好几种，可以在 [草图浏览器](patch-explorer.md)里切换：
 
 * Process
 * Record
@@ -72,7 +72,7 @@ Process、Record 和 Class 草图可以有[参数（英文）](https://thegraybo
 
 最常见的类型草图就是 Process。它保存着[过程节点](nodes.md)的定义 —— 也就是说，它的生命周期绑定在某个节点的存在上。
 
-Process 的成员运算器既可以直接属于这个 Process，也可以不属于。用 Patch Explorer 可以逐个决定。多个运算器的执行顺序也在那里配置，上下拖动即可。
+Process 的成员运算器既可以直接属于这个 Process，也可以不属于。用草图浏览器可以逐个决定。多个运算器的执行顺序也在那里配置，上下拖动即可。
 
 文档的 Application 草图是一种特殊的 Process 草图：
 
@@ -94,7 +94,7 @@ Process 的成员运算器既可以直接属于这个 Process，也可以不属�
 
 Record 在任何时刻都是一份固定不变的数据快照 —— 这个性质让它特别适合 VL 这样的数据流编程语言。
 
-Record 也可以顺带定义一个 Process，方法是在 Patch Explorer 里打开 Process 开关。
+Record 也可以顺带定义一个 Process，方法是在草图浏览器里打开 Process 开关。
 
 ### Class {#class}
 
@@ -102,7 +102,7 @@ Record 也可以顺带定义一个 Process，方法是在 Patch Explorer 里打�
 
 **任何修改 Class 类型的节点，改的都是原来那个实例。** 不管操作它的节点在链路上有多靠后，被改的始终是最初那个实例。所以在连线上、从针脚传到针脚的，并不是数据本身，而只是指向原实例的一个引用。
 
-Class 同样可以顺带定义一个 Process，方法也是在 Patch Explorer 里打开 Process 开关。
+Class 同样可以顺带定义一个 Process，方法也是在草图浏览器里打开 Process 开关。
 
 ### Interface {#interface}
 

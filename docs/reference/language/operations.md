@@ -36,13 +36,13 @@ VL 里有两种运算器：
 - 灰色：Update 运算器
 - 深红色：Dispose 运算器
 
-其余颜色都是从调色板里随机取的，本身没有任何含义，只用来表示「这些带颜色的元素属于同一个运算器」。想知道某个颜色对应哪个运算器，可以用 [Patch Explorer（英文）](https://thegraybook.vvvv.org/reference/language/patch-explorer.html)，或者把鼠标悬停在针脚上，从提示框里找到运算器的名字。
+其余颜色都是从调色板里随机取的，本身没有任何含义，只用来表示「这些带颜色的元素属于同一个运算器」。想知道某个颜色对应哪个运算器，可以用 [草图浏览器](patch-explorer.md)，或者把鼠标悬停在针脚上，从提示框里找到运算器的名字。
 
 *（上游此处待补图：一个成员运算器的定义，以及它作为节点的应用）*
 
 ### Creating a Member Operation / 创建成员运算器 {#creating-a-member-operation}
 
-成员运算器有两种创建方式：通过 [Patch Explorer（英文）](https://thegraybook.vvvv.org/reference/language/patch-explorer.html)，或者在指派（assignment）的过程中 —— 你可以选择指派给一个新的运算器，然后当场给它起名，创建和指派一步完成。
+成员运算器有两种创建方式：通过 [草图浏览器](patch-explorer.md)，或者在指派（assignment）的过程中 —— 你可以选择指派给一个新的运算器，然后当场给它起名，创建和指派一步完成。
 
 ### Assigning Nodes, Inputs/Outputs and Links to operations / 把节点、输入输出和连线指派给运算器 {#assigning-nodes-inputsoutputs-and-links-to-operations}
 
@@ -139,10 +139,10 @@ VL 里有两种运算器：
 
 运算器的签名决定了它的输入和输出在对应节点上的排列顺序。
 
-静态运算器的签名可以直接在运算器定义的区块上打开。成员运算器的签名则要通过 Patch Explorer 访问。
+静态运算器的签名可以直接在运算器定义的区块上打开。成员运算器的签名则要通过草图浏览器访问。
 
 ![](https://thegraybook.vvvv.org/images/language/member-operation-signature.png)
-*在 [Patch Explorer（英文）](https://thegraybook.vvvv.org/reference/language/patch-explorer.html) 中，成员运算器 “Update” 的已锁定签名*
+*在 [草图浏览器](patch-explorer.md) 中，成员运算器 “Update” 的已锁定签名*
 
 ![](https://thegraybook.vvvv.org/images/language/static-operation-signature.png)
 *静态运算器 “Confine” 的未锁定签名*
