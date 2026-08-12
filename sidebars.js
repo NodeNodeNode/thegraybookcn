@@ -89,12 +89,26 @@ module.exports = {
               "id": "reference/hde/debugging-log",
               "label": "日志"
             }
-          ]
+          ],
+          "link": {
+            "type": "doc",
+            "id": "reference/hde/debugging"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/extensions",
           "label": "扩展"
+        },
+        {
+          "type": "doc",
+          "id": "reference/hde/managing-nugets",
+          "label": "管理 NuGet"
+        },
+        {
+          "type": "doc",
+          "id": "reference/hde/showandtell",
+          "label": "分享作品"
         },
         {
           "type": "doc",
@@ -120,6 +134,11 @@ module.exports = {
           "type": "doc",
           "id": "reference/hde/findinghelp",
           "label": "寻求帮助"
+        },
+        {
+          "type": "doc",
+          "id": "reference/hde/commandline-arguments",
+          "label": "命令行参数"
         }
       ],
       "link": {

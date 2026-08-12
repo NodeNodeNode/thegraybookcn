@@ -36,6 +36,9 @@
   "reference/hde/debugging-log.md": "日志",
   "reference/hde/documentation.md": "文档窗口",
   "reference/hde/solution-explorer.md": "方案浏览器",
+  "reference/hde/managing-nugets.md": "管理 NuGet",
+  "reference/hde/showandtell.md": "分享作品",
+  "reference/hde/commandline-arguments.md": "命令行参数",
 
   "reference/language/language.md": "编程语言",
   "reference/language/patches.md": "草图",
