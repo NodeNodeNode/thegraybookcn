@@ -35,7 +35,7 @@ TextureFX 是一套规范，规定了那些基于 GPU／着色器做纹理运算
 
 ## 可继承的基础着色器 {#base-shaders-to-inherit-from}
 
-有一批着色器，你可以从中[继承](/libraries/3d/shaders#inheritance)有用的功能。允许多重继承！
+有一批着色器，可以从中[继承](/libraries/3d/shaders#inheritance)有用的功能。多重继承也行！
 
 * 随 Stride 发布的：用 [Shader Explorer](https://github.com/tebjan/Stride.ShaderExplorer) 来浏览可继承的着色器（还需要装上 [Stride](https://stride3d.net/download/)）
 * 随 VL.Stride 发布的：去这个位置翻 .sdsl 文件：`C:\Program Files\vvvv\vvvv_gamma_...\lib\packs\VL.Stride.Runtime...\stride\Assets\Effects`
@@ -48,7 +48,7 @@ TextureFX 是一套规范，规定了那些基于 GPU／着色器做纹理运算
 
 #### FilterBase {#filterbase}
 
-派生自 TextureFX。让你能实现 `Filter()` 函数 —— 它带一个参数，也就是输入纹理的颜色：
+派生自 TextureFX，用来实现 `Filter()` 函数 —— 参数是输入纹理的颜色：
 
 ```c
 shader MyFx_TextureFX : FilterBase
@@ -67,7 +67,7 @@ shader MyFx_TextureFX : FilterBase
 
 #### MixerBase {#mixerbase}
 
-派生自 TextureFX。让你能实现 `Mix()` 函数 —— 它带的参数是两个输入纹理的颜色，外加一个混合系数：
+派生自 TextureFX，用来实现 `Mix()` 函数 —— 参数是两张输入纹理的颜色，外加一个混合系数：
 
 ```c
 shader Mix_TextureFX : MixerBase

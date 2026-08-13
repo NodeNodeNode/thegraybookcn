@@ -4,95 +4,98 @@ slug: /libraries/3d/rendering
 source_path: reference/libraries/3d/rendering.md
 source_blob: 74ce12f4d70981a95f9de6708fa2171ac09519ff
 status: translated
-last_synced: '2026-08-12'
+last_synced: '2026-08-13'
 ---
 
-VL.Stride 提供了两种渲染的工作流程：
-- **高阶渲染**：你将使用模型，灯光，材质，贴图等等（实体-组件-系统）
-- **底层渲染**：你将直接使用绘制调用（draw call），管线状态，GPU资源等等
+VL.Stride 提供两套渲染工作流：
 
-如果你之前常使用游戏引擎，那你已经很熟悉高阶渲染流程了。如果你从vvvv beta而来，而且你已经已经熟悉DX9/DX11，那你已经很熟悉底层渲染流程了。
+* **高层**：跟模型、灯光、材质、纹理打交道（实体－组件－系统）
+* **底层**：直接跟绘制调用、管线状态、GPU 资源打交道
 
-这两种工作流程可以组合起来没有任何缺点，并且都可以渲染到纹理或输出窗口中。你也可以为两者编写着色器。
+用过游戏引擎的话，你走的就是高层这套。从 vvvv beta 过来、做过 DX9／DX11 的话，你走的是底层这套。
 
-## 高阶渲染（场景）
+两套工作流可以混着用，没有任何代价，而且都能渲染到纹理或者输出窗口，也都能写着色器。
 
-通常被理解为实体-组件-系统（ECS）的结构流程。下面的图例展示包含实体的场景的树状图。
+## 高层（场景图）{#high-level-scene-graph}
+
+也就是常说的实体－组件－系统（ECS）。场景图是一棵树，树上是一个个装着实体的场景。
 
 ![](https://thegraybook.vvvv.org/images/libraries/3d/stride_ecs.svg)
+*场景图的数据结构*
 
-每一个实体（Entity）都带有一个组件的序列，组件定义了实体的行为以及功能。任何一个实体也可以包含一个子实体的序列。
+每个实体带一串组件，组件定义这个实体的行为和功能。实体也可以带一串子实体。
 
 ![](https://thegraybook.vvvv.org/images/libraries/3d/stride_entity.svg)
+*实体的数据结构*
 
-每一个实体都含有一个``TransformComponent``。子实体则会将自己的位移与父实体的位置相乘。
+每个实体都有一个 `TransformComponent`。子实体会把自己的变换乘到父实体的变换上。
 
-建立这样一个场景，你可以使用在``[Stride]``目录里的``Group``或者``Group(Spectral)``节点。该节点在技术上只是将输入的实体变成一个子实体。
+搭场景图用 `[Stride]` 目录下的 `Group` 或 `Group (Spectral)` 节点。Group 节点技术上就是一个实体，只不过把输入的那些实体设成了自己的子实体。
 
-### 根节点
+### 根节点 {#root-nodes}
 
-``SceneWindow``和``SceneTexture``这两个节点都能搭建出一个场景系统。把``RootScene``节点连接上任何一个，你就可以从这里开始搭建你的场景。
+`SceneWindow` 和 `SceneTexture` 都会把场景系统搭起来。往其中任何一个上连一个 `RootScene`，就可以从这儿开始搭场景图了。
 
-参考帮助草图：``Overview Scene Graph Basics``,``Overview Scene Graph Advanced``,以及``Work with Children``。
+参考这几份帮助草图：`Overview Scene Graph Basics`、`Overview Scene Graph Advanced`、`Work with Children`。
 
-### 摄像机
+### 摄像机 {#camera}
 
-``SceneWindow``节点内部集成了一个默认的摄像机，用户可以用鼠标来控制这个相机，在场景查看。如果在Camera的针脚上连接上别的Camera的节点，默认的摄像机将会被覆盖掉。
+`SceneWindow` 节点自带一个默认摄像机，可以用鼠标在场景里四处看。往 *Camera* 输入针脚上连一个摄像机，就把默认的覆盖掉了。
 
-如果要建立你自己的摄像机，你可以使用Entity节点并连接一个``CameraComponent``节点，或者使用一个``Camera``节点（就包括了上述提到的两个节点）来实现。帮助文档中有一些关于相机的例子可以参考。
+要自己搭摄像机，可以用 Entity 节点连一个 `CameraComponent`，或者直接用 `Camera` 节点 —— 它把这两样合在一起了。帮助面板里有摄像机专门的一节，附了好几份帮助草图。
 
-### 模型
+### 模型 {#models}
 
-查看 模型与多边形网格
+见[模型与网格](/libraries/3d/models)。
 
-### 灯光
+### 灯光 {#lights}
 
-一个灯光的组件可以连接到任何实体节点上，这样灯光就会使用该实体的位移信息。帮助文档中专门介绍灯光的部分，其中有很多例子。
+灯光组件可以挂到任何实体上，挂上之后就用这个实体的变换作为灯光的变换。帮助面板里有灯光专门的一节，帮助草图很多。
 
-同时也请查看：[Stride Lights and Shadows doc](https://doc.stride3d.net/latest/en/manual/graphics/lights-and-shadows/index.html)
+另见：[Stride 灯光与阴影文档（英文）](https://doc.stride3d.net/latest/en/manual/graphics/lights-and-shadows/index.html)
 
-### 后期效果
+## 后期效果 {#post-effects}
 
-Stride的渲染管线提供很多实时的后期效果你可以添加到3D场景中。例如环境光遮蔽（ambient occlusion）效果，高光效果（Bloom），以及其他基于空间或者图片的效果。
+Stride 的渲染管线带一批后期处理效果，可以加到渲染好的 3D 场景上，比如环境光遮蔽、Bloom，以及其他屏幕空间或基于图像的效果。
 
-在帮助文档中有``PostFX``的章节，其中有很多的帮助文档。
+帮助面板里有 `PostFX` 一节，帮助草图很多。
 
-同时也请查看：[Stride Post Effects doc](https://doc.stride3d.net/latest/en/manual/graphics/post-effects/index.html)
+另见：[Stride 后期效果文档（英文）](https://doc.stride3d.net/latest/en/manual/graphics/post-effects/index.html)
 
-## 底层渲染（自定义渲染）
+## 底层（自定义渲染）{#low-level-custom-rendering}
 
-此工作流程允许你直接使用图形API来管理你自己的绘制调用。当然这会需要付出更多的努力，因为你需要了解包括着Shaders（着色器），buffers（缓冲区），pipeline states（管线状态）以及其他的图形API的特性。
+这套工作流让你直接用图形 API 管自己的绘制调用。用起来更费劲，因为你得懂着色器、缓冲区、管线状态这些图形 API 的东西。
 
-在这个过程中，主要的数据类型是``IRenderer``。该接口可以通过将其连接到渲染接收器（render sink）来参与渲染。例如``MeshRenderer``或者是``QuadRenderer``节点，就是这个接口是实际应用。
+主要的数据类型是 `IRenderer`。实现这个接口，再把它连到一个渲染汇点上，就参与到渲染里了。`MeshRenderer`、`QuadRenderer` 这些就是这个接口的实现。
 
-你可以通过在目录``[Stride.Rendering]``中的``Group``以及``Group (Spectral)``来组织和安排你的绘制请求。这些个组节点也是``IRenderer``的实现，他们将输入给他的绘制请求传递到渲染器中。
+绘制调用的顺序用 `[Stride.Rendering]` 目录下的 `Group` 和 `Group (Spectral)` 节点来安排。这些 Group 节点也是 `IRenderer` 的实现，会把绘制调用传给连在输入上的那些渲染器。
 
-### 渲染接收器（Renderer sinks）
+### 渲染汇点 {#renderer-sinks}
 
-有好几种渲染接收器你可以连接一个``IRenderer``。根据具体的使用场景和使用阶段的不同，你可以选择不同接收器。
+`IRenderer` 可以连到好几种汇点上。具体连哪个，取决于用途和你想在哪个时机渲染。
 
-### ``RenderEntity``
+#### `RenderEntity` {#renderentity}
 
-可以参与场景渲染流程，该节点需要放置在场景渲染的结构中。它可以连接``IRenderer``到``SceneWindow``或者``SceneTexture``中。它还有一个设置可以用来指定需要参与的场景的渲染阶段。
+要参与场景渲染，把这个节点放进场景图里 —— 它会把 `SceneWindow` 或 `SceneTexture` 的绘制调用传给连上的 `IRenderer`。它还有个设置，用来指定场景的渲染阶段：
 
-- ``BeforeScene``：非图像渲染，可以用于为场景准备缓冲区或者纹理
-- ``Opaque``（不透明渲染阶段）： 正常的3d渲染阶段
-- ``Transparent``：透明渲染阶段，在Opaque之后
-- ``AfterScene``：后场景阶段，可以用来绘制最终的渲染对象
-- ``ShadowCaster*``: 这些阶段可以用来渲染阴影贴图
+* `BeforeScene`：非图形的阶段，适合给场景准备缓冲区或纹理
+* `Opaque`：常规的 3D 渲染阶段
+* `Transparent`：透明阶段，在 Opaque 之后
+* `AfterScene`：场景之后，可以用来往最终的渲染目标上画东西
+* `ShadowCaster*`：这几个阶段用来渲染阴影贴图
 
-### ``RenderTexture``
+#### `RenderTexture` {#rendertexture}
 
-将物体渲染进可以定义尺寸和格式的纹理中。用来渲染一些帮助纹理，比如遮罩，文字，或者其他一些之后应用在场景中的基础的图形。
+把东西渲染进一张指定了尺寸和格式的纹理。适合渲染辅助纹理，比如遮罩、文字，或者其他之后要在场景里用到的基础图形。
 
-### ``RenderWindow``
+#### `RenderWindow` {#renderwindow}
 
-无需高阶渲染流程的搭建，直接渲染进显示窗口。用于显示全屏尺寸的纹理或者合成最后的输出结果。
+不搭高层场景，直接把东西渲染进窗口。适合显示一张全屏纹理，或者合成程序的最终输出。
 
-### ``RendererScheduler``
+#### `RendererScheduler` {#rendererscheduler}
 
-一个非常底层的节点，它可以在没有渲染接受器的情况下就安排一个绘制请求。比如，它可以用在当TextureFX节点需要渲染进一张纹理的时候。
+非常底层的节点，不经过汇点就安排一次绘制调用。比如 [TextureFX](/libraries/3d/texturefx) 节点往纹理里渲染时用的就是它。
 
-如果存在多个``RendererScheduler``的情况下，那么他们在更新循环中被执行的顺序，也就是他们在渲染过程中被绘制的顺序。
+如果有不止一个 `RendererScheduler`，那么它们在更新循环里被调用的顺序，就是渲染时被调用的顺序。
 
-更多的细节，同样可以参看[Stride底层API文档](https://doc.stride3d.net/latest/en/manual/graphics/low-level-api/index.html)以及[Direct3D 11的编程指导](https://docs.microsoft.com/en-us/windows/win32/direct3d11/dx-graphics-overviews)。
+更多细节另见：[Stride 底层 API 文档（英文）](https://doc.stride3d.net/latest/en/manual/graphics/low-level-api/index.html)、[Direct3D 11 编程指南（英文）](https://docs.microsoft.com/en-us/windows/win32/direct3d11/dx-graphics-overviews)

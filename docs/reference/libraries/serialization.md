@@ -52,7 +52,7 @@ last_synced: '2026-08-12'
 
 ### 自定义序列化 {#custom-serialization}
 
-下面这些节点让你能搭出数据结构：
+下面这些节点用来搭数据结构：
 
 * XElement (Join) [XML]
 * XAttribute (Join) [XML]
@@ -73,7 +73,7 @@ last_synced: '2026-08-12'
 
 ### 自定义反序列化 {#custom-deserialization}
 
-下面这些节点让你能从磁盘读取 JSON 或 XML 文件：
+下面这些节点用来从磁盘读 JSON 或 XML 文件：
 
 * FileReader (JSON) [IO]
 * FileReader (XML) [IO]

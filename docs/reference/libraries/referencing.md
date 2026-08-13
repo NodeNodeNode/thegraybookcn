@@ -76,7 +76,7 @@ vvvv.exe
 
 #### 移除或替换文件 {#removing-or-replacing-files}
 
-右键点一条文件引用可以移除或替换它。注意你也可以用右键连续选中多个文件，然后一次性对它们全部执行 “Remove”。
+右键点一条文件引用，可以移除或替换。也可以用右键连着选中多个文件，一次性全部 `Remove`。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-Dependencies-File-Remove.png)
 移除文件

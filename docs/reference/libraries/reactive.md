@@ -9,11 +9,11 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/libraries/reactive.html)
 
-Reactive 这个目录给了你处理异步事件、后台计算的工具，甚至让你能搭出自己的主循环、跑在另一个 CPU 核心上。
+Reactive 这个目录提供处理异步事件和后台计算的工具，你甚至可以搭出自己的主循环，跑在另一个 CPU 核心上。
 
 ## 处理事件 {#processing-events}
 
-处理事件时首选的节点，是 *Reactive* 目录下的 *ForEach 区块*。这个区块允许你在里面放任何节点，也能在两次事件之间记住数据。还有一个 *Keep* 版本，可以用一个布尔输出把事件过滤掉。这个区块与用于 Spread 的 ForEach 区块非常相似，区别只在于它的输入输出是随时间到来的事件值，而不是 Spread 里的 slice。
+处理事件时首选的节点，是 *Reactive* 目录下的 *ForEach 区块*。区块里可以放任何节点，两次事件之间的数据也记得住。还有一个 *Keep* 版本，可以用一个布尔输出把事件过滤掉。这个区块与用于 Spread 的 ForEach 区块非常相似，区别只在于它的输入输出是随时间到来的事件值，而不是 Spread 里的 slice。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-reactive-refreshEvery30secInBackground.PNG)
 在后台每 30 秒刷新一次网络数据，并把结果传给主循环

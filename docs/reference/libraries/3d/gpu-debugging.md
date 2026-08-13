@@ -12,13 +12,13 @@ last_synced: '2026-08-12'
 本文讲 vvvv 里做 GPU 调试的两个主要选择。你可以用：
 
 * **Stride Profiler**：vvvv 内置的一个简单的实时工具，能快速看清性能和资源占用情况。
-* **RenderDoc**：一个更细致的逐帧调试工具，让你能查看 GPU 调用、抓取帧、深入分析着色器 —— 只是不能实时进行。
+* **RenderDoc**：更细致的逐帧调试工具，可以查看 GPU 调用、抓取帧、深入分析着色器 —— 只是没法实时。
 
 两个工具都能帮你找出性能瓶颈和问题，看你需要多细。它们也可以配合着用。
 
 ## 用 Stride Profiler 做性能分析 {#performance-profiling-with-the-stride-profiler}
 
-[**Stride Profiler**（英文）](https://doc.stride3d.net/4.2/en/manual/troubleshooting/profiling.html)是 vvvv 内置的工具，让你能快速地实时评估性能。它给出一份概览：草图的哪些部分吃掉了最多资源。
+[**Stride Profiler**（英文）](https://doc.stride3d.net/4.2/en/manual/troubleshooting/profiling.html)是 vvvv 内置的工具，用来实时地快速评估性能，给出一份概览：草图的哪些部分最吃资源。
 
 要打开 Stride Profiler，在任意 Stride 窗口里按 **F3**。左上角会出现一小块文字显示，显示**当前帧率**（FPS）。
 
@@ -47,7 +47,7 @@ Stride Profiler 特别适合快速找出草图里哪些部分性能开销最高�
 
 ## 用 RenderDoc 做细致调试 {#detailed-debugging-with-renderdoc}
 
-想做更深入的 GPU 调试，可以用 **RenderDoc**。这个工具让你能抓取单独的帧，查看 GPU 调用、着色器，以及其他在 Stride Profiler 里实时看不到的渲染细节。
+想更深入地调 GPU，用 **RenderDoc**。它能抓下单独一帧，查看 GPU 调用、着色器，以及其他在 Stride Profiler 里实时看不到的渲染细节。
 
 ### 前置条件 {#prerequisites}
 
@@ -107,7 +107,7 @@ vvvv 带着 `--renderdoc` 标志跑起来之后，打开任意一份引用了 **
 
 ## 用 RenderDoc 做性能分析 {#performance-profiling-with-renderdoc}
 
-RenderDoc 也提供性能计数器，帮你评估特定帧的 GPU 性能指标。这些计数器让你更深入地看清哪些 GPU 调用最吃性能。
+RenderDoc 也提供性能计数器，用来评估某一帧的 GPU 性能指标，看清哪些 GPU 调用最吃性能。
 
 ### 1. 打开性能计数器查看器 {#1-enabling-the-performance-counter-viewer}
 
