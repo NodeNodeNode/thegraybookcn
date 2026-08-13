@@ -13,7 +13,7 @@ last_synced: '2026-08-12'
 译者注：Operation 全书保留英文不译。曾译作「运算器」，但那在中文里是 ALU（算术逻辑单元）的标准译名，且「-器」是设备后缀，而 Operation 是一段可调用的逻辑。与 Spread、Delegate、Generic 等同一处理。 <!-- gb-ignore T1 这一句在讨论译名本身，不是在使用它 -->
 :::
 
-Operation 定义一段简单的功能：它接收输入，做点什么，然后返回结果。Operation **不能持有状态** —— 也就是说，它没法把数据保存到下一次调用。数据要存在[参数](properties.md)里。
+Operation 定义一段简单的功能：接收输入，做点什么，返回结果。Operation **不能持有状态** —— 数据留不到下一次调用，得存在[参数](properties.md)里。
 
 ## Definition vs. Application / 定义和应用 {#definition-vs-application}
 
@@ -64,7 +64,7 @@ VL 里有两种 Operation：
 
 ### The Dispose Operation / Dispose Operation {#the-dispose-operation}
 
-如果你想清掉一个运行时动态创建出来的对象，通常做法就是确保不再持有对它的引用，比如把它从列表里移除。但要小心：**如果这个对象是可释放的（disposable），你必须在丢掉最后一个引用之前调用它的 `Dispose` Operation。**
+想清掉一个运行时动态创建的对象，通常的做法是不再持有引用 —— 比如从列表里移除。但要小心：**如果这个对象是可释放的（disposable），你必须在丢掉最后一个引用之前调用它的 `Dispose` Operation。**
 
 那怎么知道一个对象是不是可释放的？目前只能靠试：把 Dispose [IDisposable] 节点连到你这个对象的*实例*上，如果这条连接被允许，就说明它是可释放的，需要你手动调用 `Dispose`。
 
@@ -125,7 +125,7 @@ Operation 定义里的输入和输出，会在对应的节点上呈现为针脚�
 
 作为节点的作者，你可以决定某些针脚默认不显示。理由通常是：这个针脚只在特殊场合才有意义，节点的常规用法用不到它。
 
-把针脚的可见性设成 `Optional` 时，节点的使用者可以从节点的设置菜单里把它显示出来。如果设成 `Hidden`，使用者就无法使用它了。
+针脚可见性设成 `Optional`，使用者可以从节点的设置菜单里把这个针脚显示出来；设成 `Hidden`，使用者就用不了。
 
 ### Pin groups / Pin Group {#pin-groups}
 
@@ -147,7 +147,7 @@ Operation 的签名决定了它的输入和输出在对应节点上的排列顺�
 ![](https://thegraybook.vvvv.org/images/language/static-operation-signature.png)
 *静态 Operation “Confine” 的未锁定签名*
 
-签名默认是**锁定**的，这意味着针脚的顺序由它们在草图里从左到右的位置决定。想手动管理签名，就得点那个锁的图标把它**解锁**。解锁之后，你可以用拖拽来排列针脚。
+签名默认**锁定**，也就是针脚顺序由它们在草图里从左到右的位置决定。想手动管理，点那个锁图标**解锁** —— 之后就能拖拽排列了。
 
 [Connect To Signature（英文）](https://thegraybook.vvvv.org/reference/extending/forwarding.html#connect-to-signature)这个功能只在锁定的签名上生效 —— 那种情况下系统才完全掌控针脚的存在与顺序。
 

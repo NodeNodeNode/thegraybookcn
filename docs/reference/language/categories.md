@@ -9,11 +9,11 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/language/categories.html)
 
-VL 里的目录，相当于其他编程语言里的「命名空间」。你用它来组织自己的节点库。
+VL 里的目录相当于其他编程语言的「命名空间」，用来组织自己的节点库。
 
 ## A documents category / 文档的目录 {#a-documents-category}
 
-每个 VL 文档都开启一个目录，可以在它的 Definitions 草图里定义。
+每个 VL 文档都开启一个目录，在该文档的 Definitions 草图里定义。
 
 ![](https://thegraybook.vvvv.org/images/language/07_DocPatch.png)
 把 “Voo” 指定为文档的目录
@@ -22,7 +22,7 @@ VL 里的目录，相当于其他编程语言里的「命名空间」。你用�
 
 在[Definitions 草图](patches.md#definitions-patch)里，通过节点浏览器选 “Category” 就能添加目录元素，用来搭出一套目录结构、把节点库的不同部分装进去。
 
-目录的名字会**追加**到它所在的上级草图的目录后面。这样你就能搭出任意层级的目录，然后在节点浏览器里看到它。多级目录用点号书写，比如 *MyCat1.MyCat2*。
+目录名会**追加**到上级草图的目录后面，于是你能搭出任意层级、并在节点浏览器里看到。多级目录用点号书写，比如 *MyCat1.MyCat2*。
 
 ![](https://thegraybook.vvvv.org/images/language/03_CategoryOutside.PNG)
 从外面看目录草图
@@ -32,7 +32,7 @@ VL 里的目录，相当于其他编程语言里的「命名空间」。你用�
 
 ## Full Category / 完整目录 {#full-category}
 
-Full Category 和普通目录类似，区别在于它**不会**把自己追加到上级目录后面，而是另起一个根目录。
+Full Category 与普通目录类似，区别是**不**追加到上级目录后面，而是另起一个根目录。
 
 ![](https://thegraybook.vvvv.org/images/language/05_FullCategoryOutside.PNG)
 从外面看目录草图

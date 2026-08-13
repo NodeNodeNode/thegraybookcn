@@ -4,58 +4,111 @@ slug: /language/nodes
 source_path: reference/language/nodes.md
 source_blob: d48be22f836484b445456ec46abc5f5c007f5422
 status: translated
-last_synced: '2026-08-11'
+last_synced: '2026-08-13'
 ---
 
-在 patch 中，节点就是主要的创建模块。有不同的节点类型：
+[源文档地址](https://thegraybook.vvvv.org/reference/language/nodes.html)
 
-- Static Operation node / 静态 Operation 节点
-- process node / 过程节点
-- Record node
-- Class node
+节点是草图的主要构件。顶上是输入针脚，底下是输出针脚 —— 针脚就是那些能让节点通过[连线](links.md)接起来的枢纽。
 
-## Operation Nodes / Operation 节点
+节点也被称作某个节点定义的「应用」。
 
-Operation 节点蕴含着简单的运算。
+## 节点名 {#node-name}
 
-把静态 Operation 节点从其他运算节点中区分开来是很有帮助的。他们看起来很简单，他们也不会带有状态等等。他们不会在连续的调用中储存任何数据。
+一个节点的名字由这几部分组成：
 
-Record nodes 和 Class nodes 分别是他们所属的记录和类运算的一部分。数据类型的名字将会以比较小的单词显示在节点名字的下方。
+* 显示名
+* 可选的版本
+* 目录（可以理解成命名空间）
 
-## Process Nodes / 过程节点 {#process-nodes}
+把鼠标停在节点上看提示框，会显示完整的名字：
 
-一个 process node （过程节点） 代表一个 patch （草图） 的实例。之所以叫“Process”是因为它可以被理解为像一台持续运转的小机器，它被创建之后就可以在一帧到下一帧之间存储自己的状态。
+![](https://thegraybook.vvvv.org/images/language/nodename.png)
+目录 “Primitive.String” 里、版本为 “Count” 的 “Split” 节点
 
-同时请查看 Datatype Patch
+## 节点的类型 {#types-of-nodes}
 
-任何带有小箭头标志的节点意味着在它的背后有一个完整的 patch （草图）。你可以双击节点打开那个草图，也可以右键 `> Open` 打开。
+节点分几种：
 
-## Pin group
+*（上游此处待补图：过程节点、静态 Operation 节点、Record Operation 节点、Class Operation 节点）*
 
-Spread 类型的针脚可以改为被叫做 Pin Group 的方式，对于这样的节点你可以通过按下 `CTRL` `+` 和 `CTRL` `-` 来增加和减少针脚（就像 Group 和 Cons一样）。如果想要实现这一点，你需要对于input输入修改它的设置。通过  `context-menu > Configure` 来打开 Configure Menu ，然后点击将 pin Group 的选项打开。
+### 过程节点 {#process-nodes}
 
-![pin group](https://thegraybook.vvvv.org/images/language/PinGroup.png)
+一个过程节点代表一张草图的一个实例。
 
-## Apply pin
+叫「过程」是因为可以把它想成一台小机器：第一次执行时先跑一遍初始化（`Create` Operation），之后循环执行它的一个或多个 Operation，并在帧与帧之间维持内部状态。过程节点通常至少有一个 `Update` Operation，但不止于此。
 
-如果一个节点它的第一个输入和第一个输出设为相同的数据类型，你可以通过 `context-menu > Configure` 给这个节点设置一个 Apply 针脚。如果 apply 被设置为 false，那么这个 Operation 就会被略过，输入数值将会原封不动地被输出出来。
+过程节点长得有辨识度：针脚背后的横条颜色更深，看上去更「重」—— 这是在暗示它持有状态，也就是会在连续两次执行之间存下数据。
+
+定义过程节点的更多内容，见[类型草图](patches.md#process)。
+
+### 静态 Operation 节点 {#static-operation-nodes}
+
+Operation 节点代表单个 Operation。
+
+它们比过程节点看起来轻：针脚背后没有横条。这表示它们不在状态上工作，也就是不会在连续两次执行之间存下任何数据。
+
+#### Apply 输入 {#apply-input}
+
+若一个静态 Operation 节点的第一个输入和第一个输出是同一个数据类型，就可以通过 `context-menu > Configure` 给它加一个 *Apply* 针脚。
+
+Apply 输入默认为 true。关掉之后这个 Operation 会被绕过，输入原样从输出返回。
+
+这本质上是「用 [If 区块](conditions.md#the-if-region)把节点围起来」的快捷写法。
+
+### Record Operation 节点 {#record-operation-nodes}
+
+Record Operation 节点属于某个 Record，并在这个 Record 上工作。它们在视觉上更高一些，因为节点名下方还用小号字显示所属的数据类型名。
+
+它们有一个可选的「状态输出」针脚，这个针脚在视觉上**不**与对应的「状态输入」相连 —— 意思是出去的永远是一个全新的对象，从进来的那个克隆并修改而来。
+
+### Class Operation 节点 {#class-operation-nodes}
+
+Class Operation 节点属于某个 Class，并在这个 Class 上工作。它们在视觉上同样更高，节点名下方也用小号字显示所属的数据类型名。
+
+它们总是带一个「状态输出」针脚，而且这个针脚在视觉上**与**对应的「状态输入」相连 —— 意思是进去和出来的是同一个对象，只是被改动过。
+
+## 节点上的可选针脚 {#optional-pins-on-nodes}
+
+节点可以带默认不显示的针脚。右键点节点、按 Configure，会弹出一个小检查器，在那里显示或隐藏可选针脚。
+
+## 针脚组 {#pin-groups}
+
+有些节点带针脚组，可以改变针脚的数量。
+
+带针脚组的节点例如：Group、Cons、+。
+
+一个节点通常只有一个输入或一个输出针脚组，这种情况下按 <span class="keyseq"><kbd>CTRL</kbd><kbd>+</kbd></span> 增加针脚、<span class="keyseq"><kbd>CTRL</kbd><kbd>-</kbd></span> 减少针脚。
+
+节点上有多个针脚组时的快捷键，见[针脚组快捷键（英文）](https://thegraybook.vvvv.org/reference/hde/keyboard-shortcuts.html#pin-groups)。
+
+![](https://thegraybook.vvvv.org/images/language/PinGroup.png)
+
+## 导航到节点的定义 {#navigating-to-a-nodes-definition}
+
+若一个节点由草图定义，在它上面 `右键 -> Open` 就能到那份定义。凡是带小箭头图标的节点，背后都有一张草图 —— 或者在同一个文档里，或者在作为文件依赖被直接引用的文档里。这类草图中键点一下就能快速打开。
+
+*（上游此处待补图：背后带草图的节点）*
+
+另见[设置](../hde/settings.md)里的 “Middleclick navigates to definition”：打开它之后，即使草图不在同一个文档、也不在被引用的文档里，中键也能导航过去。
+
+若一个节点由 SDSL 着色器代码定义，打开的会是相应的代码编辑器，见[编辑着色器](../libraries/3d/editing-shaders.md)。
+
+由 C# 代码定义的节点没法查看。
 
 ---
 
-## 个人笔记
+:::note[译者补充]
+这一节不在上游原文里，是中文版译者留下的笔记，帮助理解 Record 与 Class 的区别。
 
-### Record vs Class
+Record 和 Class 都比静态 Operation 更进一步：你可以参与定义节点的生命周期，也可以定义更复杂的多个 Operation。所以定义完一个 Record 之后再去实例化它，找到的不是一个节点，而是一整个目录、里面一堆节点。
 
-Record 和 Class 是更加复杂的 Operation 节点，它们比静态运算节点更进一步，让你可以参与定义这个节点的生命周期，定义更加复杂的多个操作等等。这也就是为什么当我们完成对一个 Record 的定义之后，在实例化这个 Record 的时候，并不是使用一个节点，而是找到了一个目录，里面有一堆节点。通过使用这些节点就可以完成更精细化地操作，对于生命周期等等的操作。
+两者的差别在于**不可变**与**可变**：
 
-当然 Record 和 Class 之间也是有差别的，即两者分别是 immutable（不可更改方式）和 mutable（可更改方式）的。
+* **Record** 是不可变的。在数据流上工作时，每次改动都会先拷贝一份再改。
+* **Class** 是可变的。它直接在原数据上改。
 
-- Record
-    当使用 Record 对数据流进行操作的时候，因为它是使用 immutable 的方式，它都会对数据做一次拷贝再操作。
+有点像**黑胶唱片**和**磁带**的区别。想改黑胶上的内容（比如调换两首歌的顺序），没什么好办法 —— 它是物理的，只能重新压一张。磁带就可以直接抹掉重录。所以以黑胶为介质，每改一次都得拿一张新的空白盘来拷贝；以磁带为介质，从头到尾可以是同一盘。
 
-- Class
-    当使用 Class 对数据流进行操作的时候，因为它是使用 mutable 的方式的，它会对源数据直接进行操作。
-
-就有点像**黑胶唱片**与**磁带**的区别。当我们想要修改黑胶唱片的数据的数据的时候（比如调整两首歌的顺序），我们没有什么好办法，因为它们是物理的，我们只能重新拷贝一份。但是对于磁带就可以直接抹去重新录制一遍。可以看出每次对数据做修改的时候，以黑胶唱片作为媒介的话，我们得每次都重新拿一张新的空白黑胶来拷贝，而拿磁带作为媒介的话，从头到尾都可以是同一盘磁带。
-
-在日常使用中，因为 Class 操作的方式会更改数据源，因而对于数据流方式编程的话，就有更多犯错误的可能性（比如不知道在何处更改了数据之类的），所以大多数情况就使用 Record 就行。当 Record 无法满足的情况下再考虑 Class 会比较好。
+日常使用中，Class 会改动数据源，在数据流式编程里更容易出错（比如不知道数据在哪儿被改了），所以多数情况用 Record 就够；Record 满足不了时再考虑 Class。
+:::

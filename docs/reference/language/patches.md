@@ -70,14 +70,14 @@ Process、Record 和 Class 草图可以有[参数](properties.md)和[成员 Oper
 
 ### Process {#process}
 
-最常见的类型草图就是 Process。它保存着[过程节点](nodes.md)的定义 —— 也就是说，它的生命周期绑定在某个节点的存在上。
+最常见的类型草图是 Process，保存着[过程节点](nodes.md)的定义 —— 生命周期绑定在某个节点的存在上。
 
 Process 的成员 Operation 既可以直接属于这个 Process，也可以不属于。用草图浏览器可以逐个决定。多个 Operation 的执行顺序也在那里配置，上下拖动即可。
 
 文档的 Application 草图是一种特殊的 Process 草图：
 
 * 它有 Create 和 Update Operation，但不允许你再添加别的 Operation
-* 它不能被实例化成节点，但只要它所在的文档被直接打开、或作为别的文档的依赖被打开，它的一个*实例*就在运行了
+* 没法实例化成节点，但只要所在的文档被直接打开、或作为别的文档的依赖被打开，就有一个*实例*在跑了
 
 ### Record {#record}
 
@@ -88,7 +88,7 @@ Process 的成员 Operation 既可以直接属于这个 Process，也可以不�
 - 调用它的 `Create` Operation 创建出一个实例
 - 这个实例被存进某个集合里
 - `Update`（或者你自己定义的其他 Operation）被反复调用、或者偶尔调用，每次返回一个**新的**实例，替换掉原来那个，再存回集合
-- 想把它清掉时，把实例从集合里移除。如果这个 Record 持有非托管资源，移除之前还必须调用它的 `Dispose` Operation
+- 要清掉时，把实例从集合里移除。若这个 Record 持有非托管资源，移除前还得先调 `Dispose` Operation
 
 任何修改 Record 类型的节点，本质上都是复制一份（把改动应用上去）然后返回一个新实例。所以**被修改过的 Record 必须写回 Pad**，改动才能活到下一帧。
 

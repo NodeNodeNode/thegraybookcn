@@ -9,7 +9,7 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/language/ioboxes.html)
 
-IOBox 是 “Input/Output boxes”（输入输出盒子）的简称。你可以用它把固定的数值*输入*到程序里，也可以用它把数值*输出*出来，用于调试或者显示。
+IOBox 是 “Input/Output boxes”（输入输出盒子）的简称：既可以把固定的数值*输入*到程序里，也可以把数值*输出*出来，用于调试或显示。
 
 ![](https://thegraybook.vvvv.org/images/language/ioboxes-8e444.png)
 各种不同数据类型的 IOBox
@@ -119,7 +119,7 @@ IOBox 是 “Input/Output boxes”（输入输出盒子）的简称。你可以�
 路径 IOBox 用来输入文件名或目录。注意它默认总是假设你要选的是文件。
 
 :::note
-路径 IOBox 会尽可能存成相对路径，但它不会把这件事告诉你。少数情况下你确实想指定一个绝对路径，这就会造成困惑：IOBox 和它的提示框上显示的是你输入的绝对路径，内部存的却是相对路径。所以如果你真的需要绝对路径，请改用字符串 IOBox，后面接一个 ToPath [IO] 节点。
+路径 IOBox 会尽可能存成相对路径，却不会告诉你这件事。少数情况下你确实想指定绝对路径，这就容易犯迷糊：IOBox 和提示框上显示的是你输入的绝对路径，内部存的却是相对路径。所以如果你真的需要绝对路径，请改用字符串 IOBox，后面接一个 ToPath [IO] 节点。
 :::
 
 * 右键单击，打开选择文件的对话框

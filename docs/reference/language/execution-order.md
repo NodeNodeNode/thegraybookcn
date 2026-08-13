@@ -9,15 +9,15 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/language/execution-order.html)
 
-大多数情况下节点的执行顺序是一目了然的：从上到下，按它们之间连线连接的次序来。
+多数时候执行顺序一目了然：从上到下，按连线的次序走。
 
 ## No link dependency / 没有连线依赖时 {#no-link-dependency}
 
-但也有些时候，节点之间**没有**能表达执行顺序的连线依赖。这可能没问题，也可能有问题，取决于你在做什么。下面是几种会出问题的情形，以及怎么解决：
+但有时节点之间**没有**能表达执行顺序的连线依赖。这可能没事，也可能出事，看你在做什么。下面是几种会出事的情形和解法：
 
 ### Multiple writes to mutable data / 对可变数据的多次写入 {#multiple-writes-to-mutable-data}
 
-在一帧里对一个可变数据类型写入（也就是修改）多次时，执行顺序通常是要紧的。下图这个例子里，Value 被读了出来，但这一帧读到的是不是 “1.00” 其实**没有定义** —— 它也可能是 “0.00”，因为根本没有指定顺序。连线上那个「黄袜子」警告说的就是这件事。
+一帧里对同一个可变数据类型写入（也就是修改）多次时，执行顺序通常要紧。下图读出了 Value，但这一帧读到的是不是 “1.00”**并无定义** —— 也可能是 “0.00”，因为根本没指定顺序。连线上那只「黄袜子」警告的就是这件事。
 
 ![](https://thegraybook.vvvv.org/images/language/mutable-undefined-order.png)
 
@@ -27,27 +27,27 @@ last_synced: '2026-08-12'
 
 ### Nodes with no connection in the patch / 草图里没有连接的节点 {#nodes-with-no-connection-in-the-patch}
 
-如果你想在同一帧里先把数据写进文件、再读出来，就必须确保写在读之前发生。像下面这样天真的接法并不能保证这一点，所以它可能碰巧能用，也可能不能：
+想在同一帧里先把数据写进文件、再读出来，就必须保证写在读之前。下面这种天真的接法保证不了，所以可能碰巧能用，也可能不能：
 
 ![](https://thegraybook.vvvv.org/images/language/writer-reader-undefined.png)
 
-要在这种情形下给节点之间建立连线，可以用 `Do` 区块。这个区块本身什么都不做，但它允许你给它加输入和输出 —— 你就能用这些针脚来指定执行顺序。
+这种情形下要在节点之间建立依赖，用 `Do` 区块。它本身什么都不做，但可以加输入和输出 —— 拿这些针脚来指定执行顺序。
 
 ![](https://thegraybook.vvvv.org/images/language/writer-reader-defined.png)
 
 ### Nodes without any pins / 完全没有针脚的节点 {#nodes-without-any-pins}
 
-有些节点一个针脚都没有。这类节点通常是用来全局初始化某个节点库的状态的，那就必须让它们先于其他一切执行。这种时候同样可以用 `Do` 区块来搭出执行顺序：
+有些节点一个针脚都没有。这类节点通常负责全局初始化某个节点库的状态，必须抢在其他一切之前执行。同样用 `Do` 区块来搭出顺序：
 
 ![](https://thegraybook.vvvv.org/images/language/nodes-without-pins.png)
 
 ## Circular graphs / 环形图 {#circular-graphs}
 
-当你想连出一个环形的连接时，VL 会阻止你。如果你在连接时按住 `Space` 强行连上，会看到这样的报错：
+想连出一个环时，VL 会拦住你。按住 `Space` 强行连上，会看到这样的报错：
 
 ![](https://thegraybook.vvvv.org/images/language/cyclic-graph-error.png)
 
-想想就明白：如果 VL 允许你这么干，它永远不知道该从哪里开始执行。所以在这种情形下，你需要想清楚 —— 把上一帧算出来的值存在哪里，然后在下一帧取用。
+想想就明白：真放行了，VL 永远不知道该从哪儿开始执行。所以这种情形下你得想清楚 —— 上一帧算出来的值存在哪里，下一帧再取用。
 
 解决办法是引入一个[参数](properties.md)，用 Pad 在这一帧写入、在下一帧读出：
 

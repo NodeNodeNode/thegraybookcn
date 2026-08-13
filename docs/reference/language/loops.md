@@ -38,15 +38,15 @@ Splicer 让你在连续的迭代中依次取到 Spread 里连续的 slice。开�
 
 *（上游此处待补图：ForEach 循环分别收到 20 个和 15 个 slice 的 Spread，于是执行 15 次）*
 
-如果是 **Repeat** 循环，迭代次数由 Iteration Count 决定，经由 splicer 进来的 Spread 有多少 slice 它不管。当迭代次数大于某个 Spread 的 slice 数时，会用循环的 index 对该 Spread 的 slice 数取模，反复取用它的 slice。
+**Repeat** 循环的迭代次数由 Iteration Count 决定，不管经由 splicer 进来的 Spread 有多少 slice。当迭代次数大于某个 Spread 的 slice 数时，会用循环的 index 对该 Spread 的 slice 数取模，反复取用它的 slice。
 
 *（上游此处待补图：Repeat 循环的 Iteration Count 设为 5，分别收到 2 个和 3 个 slice 的 Spread，于是执行 5 次）*
 
-Splicer 默认没有名字。有时候给它起个名字会让草图更清楚，双击它右边的区域即可输入。
+Splicer 默认没有名字。起个名字有时能让草图更清楚 —— 双击右边的区域就能输入。
 
 ### Accumulator {#accumulator}
 
-Accumulator 让你在循环的各次迭代之间传递数据。它先在区块外面被初始化，之后每次迭代都能读取和修改它，改完再传给下一次迭代。最终的值可以从 accumulator 的输出取到。
+Accumulator 用来在循环的各次迭代之间传递数据：先在区块外面初始化，之后每次迭代都能读取和修改，改完传给下一次。最终的值从 accumulator 的输出取。
 
 所以你可以把 accumulator 理解成：一个在循环外面声明、然后在每次迭代里被修改的变量。
 
@@ -74,7 +74,7 @@ Accumulator 默认也没有名字。为了区分同一个循环里的多个 accu
 
 ### Break {#break}
 
-把它设为 true，就能在还没到迭代次数时随时跳出循环。注意：**触发跳出的那一次迭代仍然会完整执行完**，所以向外的 splicer 会把它的结果算进去，accumulator 也会被这次迭代修改。
+设为 true，就能在没跑够迭代次数时提前跳出循环。注意：**触发跳出的那一次迭代仍会完整执行完**，所以向外的 splicer 会把这一次的结果算进去，accumulator 也会被这一次改到。
 
 想知道循环是正常跑完的还是被 break 打断的，可以检测 *Break* 输出。
 
