@@ -24,7 +24,9 @@
     "serve:lan": "docusaurus serve --host 0.0.0.0 --no-open",
     "gb:termcard": "node scripts/gb-termcard.mjs",
     "gb:diff": "node scripts/gb-diff.mjs",
-    "gb:touch": "node scripts/gb-touch.mjs"
+    "gb:touch": "node scripts/gb-touch.mjs",
+    "gb:check-rewrite": "node scripts/gb-check-rewrite.mjs",
+    "gb:prose-smell": "node scripts/gb-prose-smell.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",

@@ -92,6 +92,8 @@ npm run gb:touch <路径> # 跟进完之后回填账本
 | `gb:fix-terms` | 按术语表批量修正存量译文（只改正文区域） |
 | `gb:terms-doc` | 从 `terms.yml` 生成 `TERMINOLOGY.md` |
 | `gb:check-anchors` | 锚点门槛 |
+| `gb:check-rewrite` | 润色时断言只改了散文，没动结构 |
+| `gb:prose-smell` | 翻译腔嫌疑定位（只提示，不进门槛） |
 | `gb:gen-sidebar` | 从上游 `toc.md` 生成 `sidebars.js` |
 | `gb:migrate` | 结构迁移（一次性，默认 dry-run） |
 
