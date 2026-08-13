@@ -5,6 +5,8 @@
 
 术语查 [`translation/terms.yml`](translation/terms.yml)，那是唯一真源。本文只管文风与排版。
 
+这些规则**为什么长这样**、以及哪些坑已经踩过（比如 §5 那条约定背后的 CommonMark flanking 陷阱），见 [`ARCHITECTURE.md`](ARCHITECTURE.md)。
+
 ---
 
 ## 1. 语气与人称
