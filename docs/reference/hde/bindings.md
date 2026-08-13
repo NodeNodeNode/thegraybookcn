@@ -9,7 +9,7 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/hde/bindings.html)
 
-绑定提供了一种统一的方式，把程序里的 [Public Channel](the_channelbrowser.md) 暴露出去、让它们与外部世界交互。可以把它理解成通往 RCP、OSCQuery、OSC、Midi、Redis 等等的便捷通道。
+绑定用一套统一的办法，把程序里的 [Public Channel](the_channelbrowser.md) 暴露给外部世界、与之交互。可以把它当成通往 RCP、OSCQuery、OSC、Midi、Redis 等等的便捷通道。
 
 ![](https://thegraybook.vvvv.org/images/reference/hde/binding-columns.png)
 由各自的节点建立起来的 MIDI、OSC、OSCQuery 和 Redis 绑定列

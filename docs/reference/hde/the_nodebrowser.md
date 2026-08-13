@@ -3,98 +3,149 @@ title: The Node Browser / 节点浏览器
 slug: /develop-environment/the-node-browser
 source_path: reference/hde/the_nodebrowser.md
 source_blob: d00a894acbdffec5d105bac13f368f06f5211858
-status: partial
-last_synced: '2026-08-11'
+status: translated
+last_synced: '2026-08-13'
 ---
 
-在草图的任何一个地方双击鼠标左键，你都可可以打开节点浏览器。你将会看到：
+在草图上任意位置左键双击打开节点浏览器，你会看到：
 
-- vl语言的功能节点（Node，Input，IOBox...）
-- 一系列的基础级别的节点目录（2D，3D，Animation...）
-- 一系列的可以使用的NuGets（VL）
+* 语言基元（Node、Input、IOBox……）
+* 顶层节点分类的列表（2D、3D、Animation……）
+* 可用 NuGet 的列表（VL）
 
-![](https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Nodebrowser.png)
+<img src="https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Nodebrowser.png" height="460" />
 
-你也可以这样打开节点浏览器：
+还有这几种方式也能调出节点浏览器：
 
-- 当你从一个节点引出一个连线同时双击左键，你可以打开节点浏览器创造你所要的节点
-- 在一个已经存在的连线上双击可以直接选择创建一个节点，并直接插入这个连线中
-- 在一个已经存在的节点上双击也可以引出节点浏览器，选择节点来替换这个节点
+* 拉线的过程中左键双击，创建一个直接连上这根线的节点
+* 在一根已有的连线上左键双击，往这根线上插入一个节点
+* 在一个已有的节点上左键双击，替换掉它
 
-## 过滤节点
+## 过滤节点 {#filtering-nodes}
 
-在左侧的圆形图标可以帮助你快速的包涵或者剔除某一组的节点。用鼠标悬停在上面你可以查看到每个圆圈所代表的节点组别，然后可以来开关它们：
-- Include high level nodes 包含高层节点 (the standard set)
-- Include potential future nodes 包含未来可能引入的测试的节点(Experimental)
-- Include low level nodes 包含底层节点 (Advanced)
-- Include obsolete, old nodes (Obsolete) 包含过时的老版本的节点
+左侧那几个圆圈是过滤器，用来快速纳入或排除某一组节点。鼠标悬停可以看到各自的用途，点击开关：
 
-![](https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Filter1.png)
+- 纳入高层节点（标准集）
+- 纳入未来可能加入的节点（Experimental）
+- 纳入底层节点（Advanced）
+- 纳入已废弃的老节点（Obsolete）
 
-在底部的两个圆圈也是两个节点过滤选项：
-- Include internal nodes (those that are only visible inside this document) 包含内部节点（仅在这个文档中可见的节点）
-- Include external nodes (from referenced .dlls and NuGets) 包含引入的节点（从依赖的.dlls的文件以及NuGets里来的节点）
+<img src="https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Filter1.png" />
+
+底部两个圆圈是另外两个过滤器：
+
+- 纳入内部节点（只在本文档内可见的那些）
+- 纳入外部节点（来自引用的 .dll 和 NuGet）
 
 ![](https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Filter2.png)
 
-## 找到节点
+如果某个圆圈里有个点，说明按当前搜索词，打开这个过滤器还能多列出一些节点。
 
-有不同的方式来定位节点：
-- 通过目录
-- 通过标签
+这些过滤器的默认值可以在[设置](/develop-environment/settings)的 “Advanced” 一节里改。
 
-在两种情况下你都还可以通过查看节点图标来获得更多信息：
+## 找到节点 {#finding-nodes}
 
-In both cases it helps to be familiar with the icons:
+浏览可用节点有两条路：
 
-![](https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Icon-Category.png) Category
+* 按分类
+* 按标签
 
-![](https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Icon-Type.png) Type Category
+两种方式下，认得这些图标都有帮助：
 
-![](https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Icon-Process.png) Process Node
+<img src="https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Icon-Category.png" height="20" /> 分类
 
-![](https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Icon-Operation.png) Operation Node
+<img src="https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Icon-Nuget.png" height="20" /> NuGet 包
 
-![](https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Icon-Nuget.png) NuGet
+节点：
 
-鼠标悬停在任何一个节点上，你都可以在节点浏览器看到关于这个节点的输入和输出。在浮出的小窗口上你也可以看到关于这个节点的介绍（如果有的话）。
+<img src="https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Icon-Process.png" height="20" /> Process 节点
 
-当你做出一个选择点击来某个列表中的节点，两种情况会发生：
-- 如果你的选择是非常明确的节点的话，该节点就会被创建出来
-- 如果你的选择只是选择某些类别，节点浏览器会打开次级列表，提供更多细节和选择来确定是要创建哪个节点
+<img src="https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Icon-Operation.png" height="20" /> Operation 节点
 
-### 依靠目录来搜寻
+类型：
 
-在VL中的节点是按照目录结构整理的。点击任何一个目录便进去其中。
+<img src="https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Icon-Type_Record.png" height="20" /> Record
 
-![](https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Tags.png)
+<img src="https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Icon-Type_Mutable.png" height="20" /> Class
 
-注意当你进入某个目录的时候，在节点浏览器的底部右侧会出现一个标签。此时节点列表就被这个标签所过滤。你可以点击'x'来关闭当前的目录来进入其他目录或者移除某个标签。按下ESC键总是会移除最新的那个标签。
+<img src="https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Icon-Type_Enum.png" height="20" /> 枚举
 
-### 依靠标签来搜寻
+<img src="https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Icon-Type_Interface.png" height="20" /> 接口
 
-在搜索框中输入任何单词来搜索。
+把鼠标悬停在代表节点的条目上，节点浏览器右上角会显示这个节点的输入和输出，提示框里会显示它的说明（如果有的话）。
 
-## VL语言的功能节点
+点一个代表节点的条目，可能发生两件事：
 
-VL语言的预设的功能节点将会被显示成斜体。
-- IOBox
-- Pad
-- Pins (Input, Output)
-- Patch Definition
-- Canvas
-- Record Definition
-- Class Definition
-- Operation Definition
-- Delegate
-- Regions (Repeat, Foreach, If)
+* 如果你的选择没有歧义，节点直接创建出来
+* 有些情况下选择是有歧义的，这时节点浏览器会让你从若干选项里再挑一下，把细节定清楚
 
-在这些VL语言的功能节点中，很多节点你可以在新建它们之后直接输入名字来命名它们。对于针脚以及 Pad 还可以有另外种用法：首先在节点浏览器中输入名字，然后选择针脚或者 Pad，他们将会带着你输入的名字建立在文档中。
+### 按分类搜索 {#search-by-category}
 
-## 激活（引入）NuGets
+VL 里的节点按分类组织成一棵层级树。点任何一个分类就进到它里面。
 
-有些NuGets在VL中可用，但是还没有被当前的文档所激活，你可以轻松的点击一下这些NuGets，它们便会被引入。在被引入之后，所有的节点也就都会显示在节点浏览器中。
+<img src="https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Tags.png" height="460" />
 
-![](https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Nugets.png)
+注意，进入一个分类后，节点浏览器右下角会出现一个标签，列表就按这个标签过滤了。你可以从列表里再选一个分类来收窄搜索，也可以点标签旁边的 X 把它去掉。按 <span class="keyseq"><kbd>ESC</kbd></span> 总是去掉最后加上的那个标签。
 
-如果你想取消某些NuGet，你得回到你的项目依赖列表中去取消它们。
+### 按标签搜索 {#search-by-tag}
+
+输入任何一个词来搜。
+
+## 语言基元 {#language-primitives}
+
+语言基元以*斜体*显示：
+
+* IOBox
+* Pad
+* 针脚（Input、Output）
+* Patch Definition
+* Canvas
+* Record Definition
+* Class Definition
+* Operation Definition
+* Delegate
+* 区块（Repeat、Foreach、If）
+
+很多基元在节点浏览器里选好要创建之后，可以直接给它起名。针脚和 Pad 还能反过来用：先在节点浏览器里输入名字，再点 Pin／Pad，创建出来的元素就已经带着你要的名字了。
+
+## 可用的 NuGet {#available-nugets}
+
+对 VL 可用、但当前文档还没引用的 NuGet 也会出现在节点浏览器里，点一下就能快速引用它。引用之后，它的所有节点都会出现在节点浏览器里。
+
+<img src="https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Nugets.png" height="460" />
+
+要想再去掉某个 NuGet，得到文档的依赖列表里取消勾选。
+
+## 只有签名不同的节点 {#nodes-that-only-differ-by-signature}
+
+节点通常靠名字、版本或分类区分。但有时候几个节点这三样全都一样。设计一个库的对外接口时，我们一般会给「只差一点细节」的节点标上版本来区分；不过另一些情况下，我们是从 dll 导入节点的，不会给每个重载单独起名。
+
+这种时候，用户需要通过挑签名来选定节点：
+
+![](https://user-images.githubusercontent.com/575557/200344675-54f48159-7444-41e6-b6b4-3a864916608d.png)
+
+我们提供两种挑选方式：
+
+* 挑一个节点签名 —— 相当于一次选定好几个针脚
+* 一个一个针脚地挑，像多选题那样
+
+#### 挑一个节点签名 {#choose-a-node-signature}
+
+这个例子里能看到三个条目，对应三个可用的节点：
+
+![](https://user-images.githubusercontent.com/575557/200342798-ecf5e1c0-ba9b-4e97-adbc-3bb549f74a8a.png)
+
+#### 一个一个针脚地挑 {#choose-single-pins}
+
+这套流程是这样走的：
+
+* 如果有一个节点的签名明显比其他所有的都简单，就先摆下这个节点
+* 双击这个节点，会看到你可以加进来的那些针脚
+* 选中一个针脚之后，如果在这套针脚配置下有唯一一个明显最简单的节点，节点浏览器就直接关掉
+* 再双击这个节点，可以看到还能加哪些针脚、以及你已经定下了哪些。已选的针脚可以逐个取消，直到找到你要的那个重载
+
+重载多、针脚也多的时候，这套流程很有用 —— 你不用记住所有的变体，只要告诉节点浏览器你想用哪些针脚，它就会把还有可能的针脚摆给你看。
+
+要启用这套流程，选这个：
+
+![](https://user-images.githubusercontent.com/575557/200347537-bee02efb-80e3-4ce2-a770-27175a3c5fc6.png)

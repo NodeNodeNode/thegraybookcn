@@ -9,19 +9,19 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/getting-started/cc/introduction-for-creative-coders.html)
 
-作为创意工程师，你所使用的各式各样的框架，它们基本上都在做着类似的工作。而它们之间最大的不同在于**是如何完成工作的**。vvvv 的开发基本上开始于 2000 年左右，这么多年来一直专注于如何更方便、更快速地使用实时的可视化编程环境。而最新的版本，也就是 vvvv gamma，则是这漫长经验累积的结果。
+创意编程的各种框架，做的事大同小异，真正的差别在于**怎么做**。vvvv 从 2000 年前后开始开发，二十多年只琢磨一件事：让实时的可视化编程环境更好用、更快。最新的 vvvv gamma 就是这些年经验的结果。
 
 ## What people are using vvvv for / 用户使用 vvvv 来做些什么 {#what-people-are-using-vvvv-for}
 
-vvvv 被广泛地用于各种领域，包括：生成艺术、交互设计、数据可视化、计算机视觉、VR、演出控制、物理计算、机器学习，以及各式各样的快速原型设计。可以来 [Gallery](https://visualprogramming.net/#Showcase) 看看各种案例。
+vvvv 用在很多领域：生成艺术、交互设计、数据可视化、计算机视觉、VR、演出控制、物理计算、机器学习，以及各种快速原型。到 [Gallery](https://visualprogramming.net/#Showcase) 看看实际案例。
 
 ---
 
-根据你从不同的平台而来，vvvv 可以提供给你不同的益处。
+你之前用什么，决定了 vvvv 能给你带来什么。
 
 ## Coming from other visual programming environments / 来自其他的创意编程环境 {#coming-from-other-visual-programming-environments}
 
-如果你对下列可视化编程环境很熟悉：
+如果你熟悉这些可视化编程环境：
 
 - [cables](https://cables.gl/)
 - [Isadora](https://troikatronix.com/)
@@ -30,11 +30,11 @@ vvvv 被广泛地用于各种领域，包括：生成艺术、交互设计、数
 - [TouchDesigner](https://derivative.ca/)
 - [Vuo](https://vuo.org/)
 
-……那么下面的信息你可能会感兴趣。
+……那下面几点你大概会感兴趣。
 
 ### Vast, modular, open-source library of nodes / 庞大、模块化、开源的节点库 {#vast-modular-open-source-library-of-nodes}
 
-查看[节点库](../../libraries/overview.md)页面，你可以纵观各式各样、数量庞大的 vvvv 节点库。大部分节点库是开源的（少数因为组织结构的原因没有做到开源）。除了核心库 VL.CoreLib 之外，还有几个大型的节点库：
+到[节点库](../../libraries/overview.md)页面可以纵览 vvvv 的节点库，数量很大。大部分开源，少数因为组织上的原因没能开源。核心库 VL.CoreLib 之外，还有几个大块头：
 
 - **VL.Stride**：用作 3D 渲染、着色器编程、VR 等，基于 [Stride 引擎](https://www.stride3d.net/)
 - **VL.Skia**：用作 2D 渲染、矢量图形输出等，基于 [Skia](https://skia.org/)
@@ -46,11 +46,11 @@ vvvv 被广泛地用于各种领域，包括：生成艺术、交互设计、数
 
 ### Export Windows applications / 导出 Windows 应用程序 {#export-windows-applications}
 
-任何你用 vvvv 编写的项目，都可以被[导出](../../hde/exporting.md)成一个 Windows 应用程序。其他平台也在计划中。
+用 vvvv 做的任何项目都可以[导出](../../hde/exporting.md)成 Windows 应用程序。其他平台在计划中。
 
 ### Comfortable licensing model / 舒适的授权模式 {#comfortable-licensing-model}
 
-vvvv 对于非商业用途是免费的。下载安装，然后用就是了：
+非商业用途免费。下载、安装、用：
 
 - 不会问你多余的问题
 - 没有复制保护
@@ -60,39 +60,39 @@ vvvv 对于非商业用途是免费的。下载安装，然后用就是了：
 - 你拿到的始终是最新版本
 - 支持按年或按月计费
 
-如果你要开始用 vvvv 做商业项目，只需要[按开发者席位购买授权](https://store.vvvv.org/)。
+要拿 vvvv 做商业项目，[按开发者席位买授权](https://store.vvvv.org/)就行。
 
 ## Coming from text based coding / 来自文本编程 {#coming-from-text-based-coding}
 
-如果你熟悉的是基于文本的创意编程，比如：
+如果你熟悉的是文本形式的创意编程，比如：
 
 - [Cinder](https://www.libcinder.org) 或 [OpenFrameworks](https://openframeworks.cc)
 - [Nannou](https://nannou.cc) 或 [rin](https://rin.rs)
 - [Processing](https://processing.org) 或 [p5.js](https://p5js.org)
 - [OpenRNDR](https://openrndr.org)
 
-……那么下面这些可能对你有意思。
+……那下面几点可能对你有意思。
 
 ### Save time / 省时间 {#save-time}
 
 vvvv 没有那个经典的、耗时的「改代码 — 编译 — 运行」循环。**你对 vvvv 程序做的每一个改动，都会立刻看到结果。** 我们把这叫做**实时编程**，用的是状态热重载的思路：每次改动都会在底层被立即编译，不需要你去触发。如果出错了，你会就地看到一个标记或提示框告诉你问题在哪，而你可以直接修 —— 不必重启程序，也不会丢掉状态。
 
-再加上[丰富的节点库](../../libraries/overview.md)（连上就能用），vvvv 让你在很短时间里就能把常见的基础场景原型做出来。
+再加上[现成的节点库](../../libraries/overview.md)，连上就能用，常见场景的原型很快就能搭出来。
 
 ### Use familiar techniques / 用你熟悉的技术 {#use-familiar-techniques}
 
-VL（vvvv 使用的语言）不是那种只能拿现成积木、又很难扩展的普通可视化语言：它有循环和 if 区块，支持递归，允许你定义并实例化自己的数据类型（甚至是 Generic 的），也能定义和实现接口。这意味着你不局限于数据流编程，还可以把面向对象的经验用上。此外你还能用 Delegate 和 Observable，让程序的一部分异步执行 —— **这一切都不需要写一行代码。**
+VL（vvvv 用的语言）不是那种只能拼现成积木、想扩展却无从下手的可视化语言。它有循环和 if 区块，支持递归，可以定义并实例化自己的数据类型（Generic 的也行），也可以定义和实现接口。所以你不必局限在数据流里，面向对象的经验照样用得上。还有 Delegate 和 Observable，让程序的一部分异步跑起来 —— **这些都不用写一行代码。**
 
 ### Write your own nodes / 自己写节点 {#write-your-own-nodes}
 
-诚然，某些东西 —— 比如底层算法 —— 有时候用文本写更容易。[节点可以用](../../extending/overview.md)纯 C# 或 F# 编写，不需要任何 vvvv 专有的样板代码。也正因如此，你可以直接使用 [NuGet](http://nuget.org) 包管理器上托管的任何 .NET 库。
+有些东西 —— 比如底层算法 —— 确实还是写文本更顺手。[节点可以](../../extending/overview.md)用纯 C# 或 F# 写，不需要任何 vvvv 专有的样板代码。也正因如此，[NuGet](http://nuget.org) 上的任何 .NET 库你都能直接拿来用。
 
 ## What you may miss / 你可能会怀念的东西 {#what-you-may-miss}
 
-和上面列出的那些框架相比，你可能会觉得少了点什么：
+跟上面那些框架比，有几样东西 vvvv 还没有：
 
-- vvvv 目前仍然只支持 Windows，我们计划在某个时候改变这一点
-- vvvv 不能导出到移动端或网页。这并非完全不可能，但目前不在路线图上
+- vvvv 目前只支持 Windows，我们打算将来改掉这一点
+- vvvv 导不出移动端和网页。并非做不到，只是眼下不在路线图上
 
 ## Getting Started / 从哪里开始 {#getting-started}
 
@@ -103,4 +103,4 @@ VL（vvvv 使用的语言）不是那种只能拿现成积木、又很难扩展�
 
 在 vvvv 里按 <span class="keyseq"><kbd>F1</kbd></span> 打开帮助面板，那里有大量各种主题的示例和帮助草图。另外：**选中任意一个节点再按 F1，可以看到它专属的帮助草图。**
 
-还有疑问？在[论坛](http://forum.vvvv.org)或[聊天室](https://app.element.io/#/room/#vvvv:matrix.org)里，开发者和热情的全球社区会帮你。
+还有问题？到[论坛](https://forum.vvvv.org)或[聊天室](https://app.element.io/#/room/#vvvv:matrix.org)问，开发者和热心的全球社区都在。

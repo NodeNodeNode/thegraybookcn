@@ -3,76 +3,91 @@ title: Navigating a Project / 文件导航
 slug: /develop-environment/navigating-a-project
 source_path: reference/hde/navigating_a_project.md
 source_blob: 8877795b03fce34483b7db1c4aaa73c146cf1704
-status: partial
-last_synced: '2026-08-11'
+status: translated
+last_synced: '2026-08-13'
 ---
 
-一个VL项目基本指的是一个.vl的文档。这个文档可能会包含一个或者多个的草图。除此之外，一个文档也可以以来别的文档，或者是NuGets的文档。这些文档的节点是可以访问的。
+VL 里的一个项目通常就是一份 .vl 文档，里面装着一张或多张草图。除此之外，一份文档还可以依赖别的文档或者 NuGet，用到它们提供的节点。
 
-在窗口的菜单栏你总能看到你现在编写的文档的名字，可以说是“被激活的文档”。
+主菜单栏上始终显示你当前在编辑的那份文档的文件名，也就是「当前文档」。
 
 ![](https://thegraybook.vvvv.org/images/hde/gamma-active_document.png)
-菜单栏显示着当前所工作的文档为“callmename.vl”
+主菜单栏，当前文档是 “callmenames.vl”
 
-## 当前文档菜单
+## 当前文档菜单 {#active-document-menu}
 
-点击当前的文档你可以打开一个菜单。在这个菜单的底部，你将会看到这个文档最后被保存的时候所保存的VL的版本。如果你看到一个红色或者是绿色标志出现在文档名字之前，那说明这个文档被保存的时候是另外一个版本的VL，跟你现在所使用的版本是不同的。
+点当前文档，打开它的菜单。
 
-![](https://thegraybook.vvvv.org/images/hde/gamma-active_document_menu.png)
-这个例子显示出当前所运行的gamma版本是2020.1.3.147
+### 依赖 {#dependencies}
 
-绿色标记
+一份文档可以引用三类依赖：
 
-![](https://thegraybook.vvvv.org/images/hde/gamma-active_document_menu_savedOlder_line.png)
-
-一个在文件名字前出现的绿色小标记意味着这个文档被升级到了现在在运行的版本。这在大部分情况下是没有问题的。当然你被给与这个标记是想提醒你如果这个文档现在保存了，那么用之前的更老的运行环境打开这个文档可能会有问题。
-
-红色标记
-
-![](https://thegraybook.vvvv.org/images/hde/gamma-active_document_menu_savedNewer_line.png)
-
-一个红色的标记是在警告这个文件最近被保存为一个更新的版本，而这也可能导致该文档运行起来或者看起来并不是预期的样子。所以在这种情况下，你可以考虑使用较新版本的VL来打开这个文档。
-
-## Dependencies 依赖
-
-一个文档可以引用三种不同的依赖：
-- VL NuGets
-- .NET NuGets
-- 文件
+* VL NuGet
+* .NET NuGet
+* 文件
 
 ![](https://thegraybook.vvvv.org/images/hde/gamma-active_document_menu_dependencies.png)
 文档的依赖
 
-### VL NuGets
+#### VL NuGet {#vl-nugets}
 
-选择 “VL NuGets” 就会看到一个列表。这个列表包含着所有面向VL的NuGets。每一个NuGet都是一个文档（.vl, .dll ...）的集合，这些文档提供可使用的节点。
+进 `VL Nugets`，可以看到所有为 VL 提供节点的 NuGet。每个 NuGet 是一批文档（.vl、.dll 等等）的集合，这些文档为你的文档提供节点。
 
-在NuGet旁边带着括号的版本，意味着当前所加载的NuGet的版本与原本应该加载的版本不一致。
-
-&gt; 意味着原本引用的版本比当前版本小
-
-&lt; 意味着原本所用的版本比当前版本大
+NuGet 旁边带括号的版本号，表示当前加载的版本与最初引用的版本不一致。`>` 表示引用的版本比当前加载的小，`<` 表示引用的版本比当前加载的大。
 
 ![](https://thegraybook.vvvv.org/images/hde/gamma-active_document_menu_dependencies_vlnugets.png)
+可用的 NuGet
 
-右键某个NuGet就可以选中它。你将可以使用选中的NuGet所提供的节点，当然是通过在文档中的节点浏览器。
+右键点一个 NuGet 就选中它。选中之后，在这份文档里可以通过节点浏览器用到它的全部节点。
 
-### .NET NuGets
+#### .NET NuGet {#net-nugets}
 
-在.NET NuGets中你可以找到所有的还没有兼容VL的NuGets。这意味着你仍然可以使用它们，但是为了库文件的兼容性，这类依赖使用起来可能会要求更多的知识。
+`.NET Nugets` 一栏里是所有并非为 VL 定制的 NuGet。它们照样能用，只是取决于库本身有多复杂，用起来可能会稍微进阶一些。
 
-### 文件
+#### 文件 {#files}
 
-除了依赖NuGets，你同样可以引用独立的文件：
-- .vl
-- .dll
+除了 NuGet，你也可以引用单个文件，支持这几种：
+
+* .vl
+* .dll
+* .csproj
+
 ![](https://thegraybook.vvvv.org/images/hde/gamma-active_document_menu_dependencies_addfiles.png)
-选择“Add Existing...”来选择一个文件。文件中的所有暴露开放出来的节点你都可以通过节点浏览器来使用。
+添加文件
 
-### Forward Dependencies
+选 `Add Existing...`，用文件浏览器挑一个文件。这些文件暴露出来的节点，都能在当前文档里通过节点浏览器用到。
 
-In this section you see a listing of all NuGets and files combined. Here you can specify if the nodes of a specific dependency will be forwarded or not.
+#### 转发依赖 {#forward-dependencies}
 
-By default if you add a dependency to a document you get only the nodes the dependency exposes directly. Dependencies can depend on other dependencies which you don't see by default.
+这一栏把所有 NuGet 和文件合在一起列出来，你可以逐个指定它的节点要不要转发出去。
 
-Only if you check a dependency as "Forward" it will also be seen by documents that only include their parent document.
+某个依赖不转发，它的节点就只在当前文档里可见 —— 引用了当前文档的那些文档看不到它们。
+
+某个依赖转发了，凡是引用了当前文档的文档，也都能看到它的节点。
+
+## Application {#application}
+
+见 [Application 草图](/language/patches#application-patch)。
+
+## Definitions {#definitions}
+
+见 [Definitions 草图](/language/patches#definitions-patch)。
+
+## 最后保存时的版本 {#last-saved-with-version}
+
+菜单底部显示这份文档最后一次保存时用的 VL 版本。如果文档名前面有个绿色或红色的小图标，说明保存它时用的版本和你现在运行的版本不是同一个。
+
+![](https://thegraybook.vvvv.org/images/hde/gamma-active_document_menu.png)
+这个例子里运行的是 gamma 2020.1.3.147
+
+*绿色*
+
+![](https://thegraybook.vvvv.org/images/hde/gamma-active_document_menu_savedOlder_line.png)
+
+文档名旁边的绿色小标记提示你：这份文档已升级到当前运行的版本，一般没什么问题。之所以还是提示一下，是想让你知道 —— 如果就这么存下去，再用老版本打开它可能会出问题。
+
+*红色*
+
+![](https://thegraybook.vvvv.org/images/hde/gamma-active_document_menu_savedNewer_line.png)
+
+红色标记是个警告：这份文档最后一次保存用的是更新的版本，所以看起来或跑起来可能不对劲。这种情况下，考虑换个更新版本的 VL 来打开它。

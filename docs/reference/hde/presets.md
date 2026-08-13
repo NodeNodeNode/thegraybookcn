@@ -22,7 +22,7 @@ last_synced: '2026-08-12'
 - 通过一组节点
 
 ![](https://thegraybook.vvvv.org/images/reference/hde/preset-columns.png)
-多个预设列可以并行使用，让你分别捕捉和调整预设
+多列预设可以并行使用，各自捕捉、各自调整
 
 每个预设都存成一个小的 .xml 文件，放在当前主 .vl 文档旁边一个叫 “Presets” 的文件夹里。这样你可以直接在资源管理器里重排、重命名预设；对版本控制也友好，改了什么一目了然。
 

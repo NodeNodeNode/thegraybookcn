@@ -4,23 +4,24 @@ slug: /develop-environment/extensions
 source_path: reference/hde/extensions.md
 source_blob: c84c904efd6e2fc89b8004346d100287198b4fda
 status: translated
-last_synced: '2026-08-11'
+last_synced: '2026-08-13'
 ---
 
-编辑环境的扩展，就是一些可以帮助增强vvvv功能的小工具。
+编辑器扩展是一些小工具，装上就能增强 vvvv。
 
 例子：
-- 键盘鼠标显示小工具：会显示鼠标和键盘操作的浮动小窗口，显示在屏幕的左下角，在录制视频教程以及做直播工作坊的时候会有帮助。
-- [Pipette](https://www.nuget.org/packages/VL.Pipette.HDE/)：一个桌面颜色拾取器。将光标移动到任何桌面的像素上同时按下ESC，则会拾取该像素的颜色值，并以hex-string保存在剪贴板（你可以直接粘贴到颜色的IOBox中）。
-- [TUIO Simulator and Monitor](https://www.nuget.org/packages/VL.TUIO.HDE/)：你有经常想要测试TUIO触摸设备而正好手边又没有合适的设备的窘境么？那么这款小工具就是你理想的伙伴了。
-- [Spout Monitor](https://www.nuget.org/packages/VL.SpoutMonitor.HDE/)：你有经常依赖从别的程序依靠[Spout](https://spout.zeal.co/)共享来的贴图么？使用这个小工具可以快速预览当前在你系统中分享的贴图。
 
-## 搜寻和安装扩展
+- 键鼠显示：vvvv 自带。在桌面左下角显示键盘和鼠标动作，录教程或者开线下工作坊时很有用。
+- [Pipette](https://www.nuget.org/packages/VL.Pipette.HDE/)：桌面取色器。把鼠标停在桌面上任意像素上按 <span class="keyseq"><kbd>ESC</kbd></span>，这个像素的颜色就以十六进制字符串进了剪贴板（可以直接粘进任何颜色 IOBox）。
+- [TUIO Simulator and Monitor](https://www.nuget.org/packages/VL.TUIO.HDE/)：在做 TUIO 多点触摸项目，手边却没有触摸设备可以测？这个模拟器加监视器就是你的好帮手。
+- [Spout Monitor](https://www.nuget.org/packages/VL.SpoutMonitor.HDE/)：贴图要靠 [Spout](https://spout.zeal.co/) 从别的程序传进来？用这个监视器可以快速看一眼系统里当前共享着哪些贴图。
 
-扩展也被描述成NuGets，就像你在环境中安装的VL和NuGet。当然也存在只作为扩展使用的NuGet。这些都可以在[nuget.org](https://www.nuget.org/packages?q=Tags%3A%22VL%22+hde)上轻松找到。
+## 找到并安装扩展 {#finding-and-installing-extensions}
 
-一旦找到，扩展就跟[其他NuGet一样的方式安装]。
+扩展以 NuGet 的形式发布，所以你装的任何一个 VL NuGet 都可能自带扩展。也有些 NuGet 只含扩展，在 [nuget.org](https://www.nuget.org/packages?q=Tags%3A%22VL%22+hde) 上很容易找到。
 
-## 编写扩展
+找到之后，[像装其他 NuGet 一样装它](/libraries/referencing#nugets)。
 
-扩展其实就是草图，因而你可以轻松地创建属于你自己的扩展。可以查看[创建编辑器扩展]。
+## 编写扩展 {#creating-extensions}
+
+扩展就是草图，所以自己做一个很容易。见[编写编辑器扩展](/extending/editor-extensions)。

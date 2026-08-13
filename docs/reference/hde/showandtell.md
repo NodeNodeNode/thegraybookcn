@@ -9,7 +9,7 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/hde/showandtell.html)
 
-Show & Tell 这个扩展让你把渲染结果的截图快速分享出去。
+Show & Tell 这个扩展用来快速分享渲染结果的截图。
 
 按 `Ctrl` `+` `3` 打开它。
 

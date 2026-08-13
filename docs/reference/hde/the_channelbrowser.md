@@ -13,21 +13,21 @@ last_synced: '2026-08-12'
 
 通道浏览器（`Ctrl` `+` `F4`）功能相当密集，值得你花点时间自己摸一摸。它总体上做的事情是：给你一份 Public Channel 的总览 —— 也就是整个程序范围内所有公开的、具名的参数。
 
-它列出并允许你编辑所有 public channel，让你用[预设](presets.md)存取它们的值快照，还能几下点击就通过[绑定](bindings.md)把它们暴露给外部世界。
+所有 public channel 都列在这里，可以直接编辑；值的快照用[预设](presets.md)存取；点几下就能通过[绑定](bindings.md)暴露给外部世界。
 
 ## Creating a public channel / 创建 public channel {#creating-a-public-channel}
 
-用 PublicChannel 节点创建 public channel，给它一个路径和类型。最简单的情况下，路径就是一个名字；但它也可以包含斜杠 `/`，这样你就能在通道浏览器里把 public channel 组织成层级。
+用 PublicChannel 节点创建 public channel，指定路径和类型。最简单的路径就是一个名字，也可以带斜杠 `/` —— 这样在通道浏览器里就能把 public channel 分出层级。
 
 ![](https://thegraybook.vvvv.org/images/reference/hde/public-channels.png)
 
-这样定义之后，这个 public channel 的值既可以从通道浏览器控制，也可以从另一个路径相同的 PublicChannel 节点控制。而且因为它是个通道，所以你对它是**双向**的、可读可写的访问。
+这样定义之后，这个 public channel 的值既能从通道浏览器改，也能从另一个路径相同的 PublicChannel 节点改。通道本来就是**双向**的，读写都行。
 
 PublicChannel 节点还可以直接从浏览器里把通道拖进草图来创建。
 
 ## Finding PublicChannel nodes / 找到 PublicChannel 节点 {#finding-publicchannel-nodes}
 
-大项目里 public channel 一多，就很难记住 PublicChannel 节点的各个实例都在哪。在浏览器里右键点击某个 public channel，会列出它的全部实例，并让你跳过去。
+大项目里 public channel 一多，就记不住 PublicChannel 节点的各个实例散在哪儿了。在浏览器里右键一个 public channel，它的全部实例会列出来，点一下就跳过去。
 
 ![](https://thegraybook.vvvv.org/images/reference/hde/finding-nodes.png)
 
@@ -39,7 +39,7 @@ PublicChannel 节点还可以直接从浏览器里把通道拖进草图来创建
 
 ## Removing a public channel / 移除 public channel {#removing-a-public-channel}
 
-删掉 PublicChannel 节点时，对应的通道**并不会**自动被移除。移除 public channel 的唯一途径是通道浏览器：右键点击某个通道，选 “Remove”。如果此时已经没有任何 PublicChannel 节点引用它，它才真的消失。
+删掉 PublicChannel 节点，对应的通道**不会**跟着消失。移除 public channel 只有一条路：在通道浏览器里右键那个通道，选 `Remove`。只有当时已经没有任何 PublicChannel 节点引用它，它才真的没了。
 
 想一次性移除所有不再被 PublicChannel 节点引用的通道，用通道浏览器编辑菜单里的 “Remove unused channels”：
 
