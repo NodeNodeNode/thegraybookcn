@@ -86,7 +86,12 @@ for (const rel of upstreamDocs) {
     buckets.untranslated.push({rel, words: words(rel)});
     continue;
   }
-  if (entry.blob && upBlob && entry.blob !== upBlob) {
+  // blob 一律按字符串比。frontmatter 里的 SHA 没加引号，而 YAML 会把纯数字的值
+  // 解析成 number —— 那样 `entry.blob &&` 会在值为 0 时短路，漂移被静默漏掉。
+  // 40 位十六进制恰好全是数字的概率极低，但这种失败是无声的，而账本的全部价值
+  // 就在于可信。强制转字符串后，最坏情况是多报一次（吵），而不是漏报（哑）。
+  const localBlob = entry.blob == null ? null : String(entry.blob);
+  if (localBlob && upBlob && localBlob !== upBlob) {
     buckets.outdated.push({rel, ...entry, upBlob});
   } else if (entry.status === 'partial' || entry.status === 'stub') {
     buckets.partial.push({rel, ...entry});
