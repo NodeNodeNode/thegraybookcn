@@ -737,5 +737,22 @@ module.exports = {
       "id": "changelog/nuget-compatibility-chart",
       "label": "NuGet 兼容性对照表"
     }
+  ],
+  "roadmap": [
+    {
+      "type": "doc",
+      "id": "roadmap/planned",
+      "label": "计划中的版本"
+    },
+    {
+      "type": "doc",
+      "id": "roadmap/further",
+      "label": "更远的议程"
+    },
+    {
+      "type": "doc",
+      "id": "roadmap/past",
+      "label": "过往版本与博客"
+    }
   ]
 };

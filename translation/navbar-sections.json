@@ -22,9 +22,9 @@
   },
   {
     "key": "roadmap",
-    "label": "路线图（英文）",
-    "type": "link",
-    "href": "https://thegraybook.vvvv.org/roadmap/planned.html",
-    "docCount": 0
+    "label": "路线图",
+    "type": "docSidebar",
+    "sidebarId": "roadmap",
+    "docCount": 3
   }
 ]

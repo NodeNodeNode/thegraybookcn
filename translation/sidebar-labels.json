@@ -139,5 +139,8 @@
   "changelog/2021.3.md": "2021.3",
   "changelog/2020.2.md": "2020.2",
   "changelog/2020.1.md": "2020.1",
-  "changelog/nuget-compatibility-chart.md": "NuGet 兼容性对照表"
+  "changelog/nuget-compatibility-chart.md": "NuGet 兼容性对照表",
+  "roadmap/planned.md": "计划中的版本",
+  "roadmap/further.md": "更远的议程",
+  "roadmap/past.md": "过往版本与博客"
 }
