@@ -143,9 +143,15 @@ if (originCn.length) console.log(`\n中文站原创内容：${originCn.length} �
 if (buckets.outdated.length) {
   console.log('\n── 已过期，需按上游改动增量重译 ──');
   for (const e of buckets.outdated) {
-    const cmp = `https://github.com/vvvv/The-Gray-Book/compare/${e.blob?.slice(0, 8)}..HEAD`;
-    console.log(`  ${e.rel}\n      本地 docs/${e.local}   ${cmp}`);
+    // 这里不能给 /compare/<blob>..HEAD —— 账本里记的是 blob（文件内容指纹），
+    // 而 GitHub 的 compare 只接受 commit/分支/tag，喂 blob 进去是 404。
+    // 曾经就是这么写的，等于把维护者第一个会点的链接做成了死的。
+    // 文件的提交历史页永远有效；要「上游到底改了什么」用 gb:diff，
+    // 它会沿历史找到我们那一版对应的 commit，给出真正可用的 compare。
+    const hist = `https://github.com/vvvv/The-Gray-Book/commits/master/${e.rel}`;
+    console.log(`  ${e.rel}\n      本地 docs/${e.local}\n      改动历史 ${hist}`);
   }
+  console.log(`\n  看上游具体改了什么：npm run gb:diff [上游路径]`);
 }
 if (buckets.orphaned.length) {
   console.log('\n── 失联（上游已删除或改名，需人工重新映射）──');

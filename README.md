@@ -44,11 +44,12 @@ npm run gb:upstream    # 建立上游工作副本（.upstream/，gitignored）
 npm start              # 本地预览；npm run start:lan 可在局域网访问
 ```
 
-### 四份文档，各管一段
+### 五份文档，各管一段
 
 | 文档 | 管什么 |
 |---|---|
 | [`ARCHITECTURE.md`](ARCHITECTURE.md) | **设计思路与已踩过的坑**。改动工具链前先读这份 |
+| [`MAINTENANCE.md`](MAINTENANCE.md) | **上游更新之后怎么跟进**。日常维护看这份 |
 | [`TRANSLATION-STYLE.md`](TRANSLATION-STYLE.md) | 文风、排版、标点、链接规范 |
 | [`translation/terms.yml`](translation/terms.yml) | 术语唯一真源（[`TERMINOLOGY.md`](TERMINOLOGY.md) 是它的产物，不要手改） |
 | 站上的[协作规范](https://docs.nodenodenode.net/about-translation/translation-standard) | 给校对者看的精简版 |
@@ -70,9 +71,13 @@ npm run build             # 断链与坏锚点会直接让构建失败
 ```bash
 npm run gb:upstream    # 更新上游副本
 npm run gb:status      # 覆盖率 + 谁过期了 + 谁还没翻
+npm run gb:diff        # 上游具体改了什么
+npm run gb:touch <路径> # 跟进完之后回填账本
 ```
 
-实测漂移率约 6 页 / 3 个月。原理与设计取舍见 [`ARCHITECTURE.md`](ARCHITECTURE.md)。
+仓库里有一个每周自动巡检上游的 GitHub Action，发现漂移会写进一个固定的 issue，**不依赖谁记得去看一眼**。
+
+实测漂移率约 6 页 / 3 个月。跟进流程见 [`MAINTENANCE.md`](MAINTENANCE.md)，原理与设计取舍见 [`ARCHITECTURE.md`](ARCHITECTURE.md)。
 
 ### 全部脚本
 
@@ -80,6 +85,8 @@ npm run gb:status      # 覆盖率 + 谁过期了 + 谁还没翻
 |---|---|
 | `gb:upstream` | 建立/更新上游工作副本 |
 | `gb:status` | 覆盖率与过期报告 |
+| `gb:diff` | 上游改了什么（跟进的起点） |
+| `gb:touch` | 跟进完之后回填账本 |
 | `gb:termcard` | 为某一页生成术语卡 |
 | `gb:check-terms` | 术语一致性检查 |
 | `gb:fix-terms` | 按术语表批量修正存量译文（只改正文区域） |
@@ -103,7 +110,7 @@ npm run build     # 输出到 build/
 npm run serve     # 本地预览构建产物
 ```
 
-仓库里没有 CI 配置，`docs.nodenodenode.net` 的托管方式不在本仓库内描述。`package.json` 里保留了 Docusaurus 自带的 `npm run deploy`（推 `gh-pages` 分支），但当前部署未走这条路径。
+仓库里唯一的 CI 是上游漂移巡检（不参与部署）。`docs.nodenodenode.net` 的托管方式不在本仓库内描述。`package.json` 里保留了 Docusaurus 自带的 `npm run deploy`（推 `gh-pages` 分支），但当前部署未走这条路径。
 
 ---
 

@@ -54,9 +54,15 @@ npm run gb:upstream   # 更新 .upstream/
 npm run gb:status     # 谁过期了、谁还没翻
 ```
 
-`gb:status` 对每个过期页给出 GitHub compare 链接，点进去就是上游那一页的 diff。
+`gb:status` 对每个过期页给出它在上游的改动历史链接。想看**具体改了什么**用 `npm run gb:diff` ——
+它会沿提交历史回溯到我们那一版对应的 commit，给出可用的 compare 与本地 diff 命令。
+
+⚠️ 这里有个坑：账本里记的是 **blob**，而 GitHub 的 `/compare/` 只接受 commit。
+曾经的实现直接把 blob 拼进 compare URL，等于把维护者第一个会点的链接做成了 404。
 
 **实测漂移率约 6 页 / 3 个月**（拿 2026-04-22 的上游提交做过对照实验）。
+
+上游更新之后的完整跟进流程（含自动巡检、判断表、回填账本）见 [`MAINTENANCE.md`](MAINTENANCE.md)。
 
 ---
 

@@ -1,0 +1,109 @@
+# 上游漂移巡检。
+#
+# 为什么要有它：上游改了哪一页，没有任何人会来通知我们。靠「谁记得去跑一下
+# gb:status」是不可靠的 —— 这个站上一次就是这么停了四年。
+#
+# 每周一次，有漂移才出声：把 gb:diff 的输出写进一个固定的 issue（改动了哪几页、
+# 上游动过几次、规模多大、diff 在哪看）。没漂移就什么都不做，避免制造噪音。
+#
+# 实测漂移率约 6 页 / 3 个月，所以每周一次足够，每天跑只会变成没人看的噪音。
+name: 上游漂移巡检
+
+on:
+  schedule:
+    # 每周一 03:00 UTC（北京时间 11:00）
+    - cron: '0 3 * * 1'
+  workflow_dispatch: # 也可以手动触发
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # 建立上游工作副本（部分克隆，只拉需要的 blob）
+      - run: npm run gb:upstream
+
+      - name: 检查漂移
+        id: check
+        run: |
+          # gb:diff 的输出既是判断依据，也是要贴进 issue 的正文
+          npm run gb:diff --silent > drift.txt 2>&1 || true
+          if grep -q '没有过期页面' drift.txt; then
+            echo "drift=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "drift=true" >> "$GITHUB_OUTPUT"
+          fi
+          cat drift.txt
+
+      - name: 覆盖率快照
+        if: steps.check.outputs.drift == 'true'
+        run: npm run gb:status --silent > status.txt 2>&1 || true
+
+      - name: 写进 issue
+        if: steps.check.outputs.drift == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const drift = fs.readFileSync('drift.txt', 'utf8');
+            const status = fs.existsSync('status.txt') ? fs.readFileSync('status.txt', 'utf8') : '';
+            // 固定标题，永远复用同一个 issue —— 每周开一个新的会很快淹掉仓库
+            const TITLE = '上游有更新，译文待跟进';
+            const body = [
+              '上游 [The-Gray-Book](https://github.com/vvvv/The-Gray-Book) 改动了下列页面。',
+              '',
+              '处理方式见 [MAINTENANCE.md](../blob/main/MAINTENANCE.md)。',
+              '',
+              '```',
+              drift.trim(),
+              '```',
+              '',
+              '<details><summary>覆盖率快照</summary>',
+              '',
+              '```',
+              status.trim(),
+              '```',
+              '',
+              '</details>',
+              '',
+              `_由 [upstream-check](../actions/workflows/upstream-check.yml) 于 ${new Date().toISOString().slice(0, 10)} 自动更新_`,
+            ].join('\n');
+
+            const {data: open} = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'upstream-drift',
+            });
+
+            if (open.length) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: open[0].number,
+                title: TITLE,
+                body,
+              });
+              core.notice(`已更新 issue #${open[0].number}`);
+            } else {
+              const {data: created} = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: TITLE,
+                body,
+                labels: ['upstream-drift'],
+              });
+              core.notice(`已新建 issue #${created.number}`);
+            }

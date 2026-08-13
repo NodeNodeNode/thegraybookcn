@@ -22,7 +22,9 @@
     "gb:fix-terms": "node scripts/gb-fix-terms.mjs",
     "start:lan": "docusaurus start --host 0.0.0.0 --no-open",
     "serve:lan": "docusaurus serve --host 0.0.0.0 --no-open",
-    "gb:termcard": "node scripts/gb-termcard.mjs"
+    "gb:termcard": "node scripts/gb-termcard.mjs",
+    "gb:diff": "node scripts/gb-diff.mjs",
+    "gb:touch": "node scripts/gb-touch.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",
