@@ -3,25 +3,67 @@ title: 如何加入
 origin: cn
 ---
 
-当然翻译的过程往往就是信息丢失的过程，很难很精确地传递原本的意思。
-但是我相信本着深入浅出与抛砖引玉的信念，多少是个好的开始。
+欢迎来帮忙。先读一下[关于翻译](/intro) —— 尤其是「这些译文是 AI 翻译的」那一节，它决定了现在最需要的是什么样的帮助。
 
-## 站点仓库
+## 现在最需要的是校对，不是从头翻
 
-本站点仓库托管于 Github [thegraybookcn](https://github.com/vvvv-happay-team/thegraybookcn)
+上游导航里的每一页都已经有中文了。所以**最有价值的贡献不再是「认领一章来翻」，而是把读着别扭的地方改顺**。
 
-## 如何提交我的翻译
+具体来说，这几类问题最值得报：
 
-1. `fork` 代码仓库到你的仓库，`clone` 至本地，安装本地环境
-2. 为你的翻译新建一个分支，命名请参照 
-   1. 新建翻译章节：`docs/[你的翻译章节]`,如 `docs/docs-language-nodes`
-   2. 修正翻译：`fix/[你的翻译章节-修正内容]`,如 `fix/docs-language-nodes-typo`
-3. 在本地环境中检查翻译内容及格式
-4. 提交 commit 并推送该分支到 origin
-5. 创建 PR，命名参照分支名，如 `docs: add translation of docs-language-nodes`，在 PR 说明中简述工作内容
-6. 等待 PR Review
-7. 如果通过 Review，你的翻译将会发布至在线站点；如有问题将回复修改意见
+| 类型 | 例子 |
+|---|---|
+| **译错了** | 意思与原文相反或偏离 —— 这类最要紧 |
+| **术语不一致** | 同一个词在这页和那页叫法不同 |
+| **读不懂** | 句子太长、语序像英文、代词指代不清 |
+| **界面对不上** | 译文写的菜单项与你 vvvv 里看到的不一样 |
+| **链接或图片坏了** | 点不开、显示不出来 |
+
+你不需要懂 Docusaurus，也不需要通读全书。**遇到一处报一处就很好。**
+
+## 最省事的三种方式
+
+### 1. 在页面上直接改
+
+每一页最下面有「编辑此页」，点开就是 GitHub 的在线编辑器。改完填一句说明、提交，就会生成一个 Pull Request。
+
+**改一个字也欢迎**，不用凑数。
+
+### 2. 开一个 issue
+
+到 [github.com/NodeNodeNode/thegraybookcn/issues](https://github.com/NodeNodeNode/thegraybookcn/issues) 说明哪一页、哪一句、问题是什么。
+
+### 3. 在 Discord 里说一声
+
+[Discord](https://discord.com/invite/yBWCJQQ4Pq) 里直接讲也行，不必走 GitHub。或者发邮件到 [info@nodenodenode.net](mailto:info@nodenodenode.net)。
+
+## 要动手改多一些内容的话
+
+站点仓库：[github.com/NodeNodeNode/thegraybookcn](https://github.com/NodeNodeNode/thegraybookcn)
+
+1. `fork` 仓库到你的账号，`clone` 到本地
+2. `npm install`，然后 `npm start` 起本地预览
+3. 新建一个分支：
+   * 校对修正：`fix/[页面-问题]`，如 `fix/language-nodes-typo`
+   * 新增内容：`docs/[页面]`，如 `docs/language-nodes`
+4. 改完在本地跑一下检查（见下）
+5. 提交并推送，创建 PR，在说明里简述改了什么
+6. 等 Review；通过后会发布到线上
+
+### 提交前跑一下这三条
+
+```bash
+npm run gb:check-terms     # 术语一致性
+npm run gb:check-anchors   # 锚点
+npm run build              # 断链会直接让构建失败
+```
+
+术语请照 [`translation/terms.yml`](https://github.com/NodeNodeNode/thegraybookcn/blob/main/translation/terms.yml)，文风照 [`TRANSLATION-STYLE.md`](https://github.com/NodeNodeNode/thegraybookcn/blob/main/TRANSLATION-STYLE.md)。
+
+**如果你要新定一个术语**，请把它写进 `terms.yml`，和译文放在同一个提交里 —— 这是本项目的硬约束，没进表就不算改完。
+
+想了解这套机制为什么长这样，见 [`ARCHITECTURE.md`](https://github.com/NodeNodeNode/thegraybookcn/blob/main/ARCHITECTURE.md)。
 
 ## 联系我们
 
-如有意加入我们参与文档翻译工作，请先联系 info@nodenodenode.net 以便沟通。
+有意长期参与的话，先发邮件到 [info@nodenodenode.net](mailto:info@nodenodenode.net) 或者到 [Discord](https://discord.com/invite/yBWCJQQ4Pq) 聊聊。

@@ -112,14 +112,19 @@ const config = {
         style: 'light',
         links: [
           {label: '关于翻译', to: '/intro'},
+          // 这两页此前没有任何入口，是读者点不到的孤儿页。
+          {label: '帮我们改进', to: '/about-translation/how-to-join'},
           {label: '原文站点', href: 'https://thegraybook.vvvv.org/'},
           {label: 'GitHub', href: 'https://github.com/NodeNodeNode/thegraybookcn'},
           {label: 'Discord', href: 'https://discord.com/invite/yBWCJQQ4Pq'},
           {label: 'nodenodenode.net', href: 'https://www.nodenodenode.net/'},
         ],
-        // 两句都不能省：非官方声明是对读者诚实，字体署名是 OFL 的许可要求。
+        // 三句都不能省：非官方声明与 AI 翻译声明是对读者诚实
+        // （读者有权知道自己读的是机器初翻，好据此决定要不要核对原文），
+        // 字体署名是 OFL 的许可要求。
         copyright:
           `© ${new Date().getFullYear()} vvvv community cn · 社区中文翻译，非官方站点 · ` +
+          'AI 翻译 + 人工校对，读着不顺请<a href="/about-translation/how-to-join">帮我们改进</a> · ' +
           '字体 Fusion Pixel Font (OFL)',
       },
       prism: {
