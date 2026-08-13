@@ -15,7 +15,7 @@ last_synced: '2026-08-13'
 
 ## 限制 {#limitations}
 
-遗憾的是，有些节点库在 Arm 版 vvvv 上没法用。当某个节点库自身带有 Arm 上不存在的所谓「原生依赖」时，就会是这种情况。想弄清哪些节点库在 Arm 上可能有问题，就在 Arm CPU 上带命令行参数 `--log` 跑一个 Arm 版 vvvv，然后在生成的日志文件里找这类警告：
+有些节点库在 Arm 版 vvvv 上用不了 —— 当它自带的所谓「原生依赖」在 Arm 上不存在时，就是这种情况。想知道哪些节点库在 Arm 上有问题，在 Arm CPU 上带命令行参数 `--log` 跑一次 Arm 版 vvvv，然后在生成的日志里找这类警告：
 
 `Library Foo contains native assets but none for the current runtime win-arm64...`
 
@@ -25,7 +25,7 @@ last_synced: '2026-08-13'
 
 7.1-preview 68 起可用。
 
-Arm CPU 往往不会配 Nvidia 的 GPU。而在着色器编程这件事上，非 Nvidia 的 GPU 似乎要严格得多地遵循官方规范。这会给人一种印象：在 Nvidia 机器上好好的东西，到了非 Nvidia 机器上就坏了 —— 但实际上多数情况是这个程序本来就是错的，只不过 Nvidia 的 GPU 仍能把它跑起来。所以真正要做的是把代码改对，让它在所有 GPU 上都成立！
+Arm CPU 往往不配 Nvidia 的 GPU。而写着色器时，非 Nvidia 的 GPU 对官方规范似乎严格得多。这就容易造成一种印象：在 Nvidia 机器上好好的东西，换台机器就坏了。但多数情况是程序本来就写错了，只是 Nvidia 的 GPU 照样能跑。所以该做的是把代码改对，让它在所有 GPU 上都成立。
 
 在少数几份帮助文档里你会看到我们加的警告：⚠️Nvidia only⚠️ —— 那表示它用了只有 Nvidia 显卡才支持的渲染技法。
 
@@ -39,14 +39,14 @@ Arm CPU 往往不会配 Nvidia 的 GPU。而在着色器编程这件事上，非
 
 ### 应该能用 {#should-work}
 
-下面这些节点库在 vvvv 里还没有 Arm 支持，但它们底层依赖的库似乎是支持的。所以稍加努力，应该有可能让它们在 Arm 版 vvvv 上跑起来：
+下面这些节点库在 vvvv 里还不支持 Arm，但它们底层依赖的库看起来是支持的。稍加努力，应该能让它们在 Arm 版 vvvv 上跑起来：
 
 * VL.OpenCV
 * VL.IO.NDI
 
 ### 也许能用 {#could-work}
 
-下面这些节点库能否支持，取决于它们底层库的作者是否支持 Arm CPU。一旦对方提供了支持，我们多半就能让它们在 Arm 版 vvvv 上工作：
+下面这些节点库能不能支持，要看它们底层库的作者支不支持 Arm CPU。对方一旦提供支持，我们多半就能让它们在 Arm 版 vvvv 上工作：
 
 * VL.VIOSOWarpBlend
 * VL.ScalableDisplay

@@ -23,7 +23,7 @@ vvvv 没有 macOS 的原生版本！
 
 ![](https://thegraybook.vvvv.org/images/reference/best-practice/vvvv-on-mac.png)
 
-[Parallels Desktop](https://www.parallels.com/de/products/desktop) 让你能在 macOS 上用虚拟机跑 Windows。装 Parallels 加装 Windows 用时不到 30 分钟。配好之后，记得下载并安装 [Arm 版 vvvv](/best-practice/vvvv-on-arm)。
+[Parallels Desktop](https://www.parallels.com/de/products/desktop) 可以在 macOS 上用虚拟机跑 Windows。装 Parallels 加装 Windows，不到 30 分钟。配好之后，记得下载并安装 [Arm 版 vvvv](/best-practice/vvvv-on-arm)。
 
 我们测试用的是 Parallels 26 版。
 

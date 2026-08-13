@@ -22,7 +22,7 @@ last_synced: '2026-08-13'
 
 ### 依赖框架 {#framework-dependent}
 
-这是导出器采用的默认模式。它要求你[在树莓派上装好 .NET（英文）](https://learn.microsoft.com/en-us/dotnet/iot/deployment#deploying-a-framework-dependent-app)（照做第 1、2 步），导出的东西才能在上面跑起来。
+导出器默认用这个模式。导出的东西要能跑起来，先得[在树莓派上装好 .NET（英文）](https://learn.microsoft.com/en-us/dotnet/iot/deployment#deploying-a-framework-dependent-app)，照做第 1、2 步。
 
 导出成功后，把生成的文件复制到树莓派上，在那边的命令行里敲这个来运行程序：
 
@@ -93,7 +93,7 @@ chmod +x myprogram
 
 ## 开机自启 {#autostart}
 
-想让你的应用在树莓派开机时自动启动，你需要把它装成一个服务（rc.local、.desktop 文件这类别的办法似乎都不行）。
+要让应用在树莓派开机时自动启动，得把它装成一个服务 —— rc.local、.desktop 文件这些办法似乎都不行。
 
 安装服务的方法，参阅 [boot.pdf](https://github.com/thagrol/Guides/blob/main/boot.pdf) 的第 “4.4 Using A Systemd Service” 章。
 

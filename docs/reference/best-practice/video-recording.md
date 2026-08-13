@@ -35,7 +35,7 @@ Windows 10 上一般已经装好了，没有的话可以从 Microsoft Store 装�
 
 ## VL.ScreenRecorder {#vlscreenrecorder}
 
-如果你想让录制功能成为你应用的一部分，去看看 [VL.ScreenRecorder](https://www.nuget.org/packages/VL.ScreenRecorder) 这个 NuGet。
+想把录制做进自己的应用里，看看 [VL.ScreenRecorder](https://www.nuget.org/packages/VL.ScreenRecorder) 这个 NuGet。
 
 ## VL.LoopTool {#vllooptool}
 
@@ -49,7 +49,7 @@ NuGet：[VL.LoopTool](https://www.nuget.org/packages/VL.LoopTool)
 * VL.Stride：TextureWriter 配合 SceneTexture
 * VL.Skia：ImageWriter 配合 Renderer (Offscreen)
 
-用它们时还要把 MainLoop 节点设为 “Is Incremental”，并指定你需要的 “Incremental FPS”。这能确保所有依赖时钟的节点（比如 LFO、滤波器……）的时序都正确推进 —— 不管每张图写进磁盘要花多久。
+用它们时还要把 MainLoop 节点设成 `Is Incremental`，并填上你要的 `Incremental FPS`。这样所有依赖时钟的节点（LFO、滤波器等等）时序才会正确推进 —— 不管每张图写进磁盘要花多久。
 
 :::note
 如果你的画面内容依赖音频分析或实时传感器数据这类实时参数，这套办法就不管用。

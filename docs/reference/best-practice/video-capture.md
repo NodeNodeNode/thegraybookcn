@@ -13,7 +13,7 @@ last_synced: '2026-08-13'
 
 ## VL.Video {#vlvideo}
 
-这个 NuGet 随 vvvv 一起发布。引用它，你就得到 **VideoIn** 节点，它支持所有带 [UVC 1.1 驱动（英文）](https://docs.microsoft.com/en-us/windows-hardware/drivers/stream/usb-video-class-driver-overview)的 USB 摄像头。
+这个 NuGet 随 vvvv 一起发布。引用它就有了 **VideoIn** 节点，支持所有带 [UVC 1.1 驱动（英文）](https://docs.microsoft.com/en-us/windows-hardware/drivers/stream/usb-video-class-driver-overview)的 USB 摄像头。
 
 ## VL.Devices.Decklink {#vldevicesdecklink}
 

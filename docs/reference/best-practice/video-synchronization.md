@@ -9,7 +9,7 @@ last_synced: '2026-08-13'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/best-practice/video-synchronization.html)
 
-用 Video 目录下的 **ImagePlayer (Stride)** 或 **ImagePlayer (Skia)** 节点（或者它们的逐帧版本），就有可能让在不同 PC 上播放的视频同步起来 —— 前提是这些机器接在同一个局域网里。
+用 Video 目录下的 **ImagePlayer (Stride)** 或 **ImagePlayer (Skia)** 节点（逐帧版本也行），可以让不同 PC 上播放的视频同步起来 —— 前提是这些机器在同一个局域网里。
 
 ## 它是怎么工作的 {#how-it-works}
 
