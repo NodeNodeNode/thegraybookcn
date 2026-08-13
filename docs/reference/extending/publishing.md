@@ -9,7 +9,7 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/extending/publishing.html)
 
-下面这份指南讲的是：如何在你的 GitHub 仓库上配好一套工作流，用 [PublishVLNuget](https://github.com/vvvv/PublishVLNuget) 这个 GitHub Action 把你的插件发布到 nuget.org 或任何你想要的源。
+这份指南讲怎么在你的 GitHub 仓库上配一套工作流，用 [PublishVLNuget](https://github.com/vvvv/PublishVLNuget) 这个 GitHub Action 把插件发布到 nuget.org 或任何你想要的源。
 
 本指南假定你已经有了 GitHub 和 nuget.org 的账号，并且能访问一个已有的 VL GitHub 仓库。
 
@@ -27,7 +27,7 @@ last_synced: '2026-08-12'
 
 ## GitHub Actions 简介 {#a-brief-introduction-to-github-actions}
 
-GitHub Action 是一些用途明确的小脚本，让你把仓库上的任务自动化。它们其实是所谓*工作流*的构件：你把若干 action 一个接一个串进自己的小脚本里，并决定这个工作流在什么条件下被触发（`main` 上有新提交、打了新标签等等）。
+GitHub Action 是一些用途明确的小脚本，用来把仓库上的任务自动化。它们是*工作流*的构件：把若干 action 一个接一个串进自己的小脚本，再决定这个工作流在什么条件下触发（`main` 上有新提交、打了新标签等等）。
 
 我们这个 action 会替你做这些事：
 
@@ -57,7 +57,7 @@ GitHub Action 是一些用途明确的小脚本，让你把仓库上的任务自
 
 ### nuspec 文件 {#nuspec-file}
 
-nuspec 文件装着你这个 NuGet 的元数据，比如版本、作者和依赖。它同时指定最终的包里该包含哪些文件。我们建议把它放在仓库根目录下的 `deployment` 文件夹里，不过放哪儿都行。
+nuspec 文件装着这个 NuGet 的元数据：版本、作者、依赖，同时指定最终的包里该含哪些文件。建议放在仓库根目录的 `deployment` 文件夹里，不过放哪儿都行。
 
 关于 `nuspec` 文件格式的更多信息，见 Microsoft 的[文档（英文）](https://docs.microsoft.com/en-us/nuget/reference/nuspec)。
 
@@ -75,9 +75,9 @@ nuspec 文件装着你这个 NuGet 的元数据，比如版本、作者和依赖
 
 一个 NuGet 包可以有两种版本：正式版或预发布版。
 
-预发布包意味着这个包还在开发中，东西可能从一个版本到下一个版本发生剧烈变化，功能也可能时不时失效或不稳定。
+预发布包意味着这个包还在开发中：东西可能在两个版本之间剧烈变化，功能也可能时不时失效或不稳定。
 
-正式版包意味着这个包已经为生产环境做过充分的测试和打磨，不预期会有重大的破坏性改动，包内的稳定性应当是可靠的。
+正式版包意味着这个包已经为生产环境做过充分测试和打磨：不预期有重大破坏性改动，稳定性可以信赖。
 
 如果你想发布包的预发布版本，就得告诉 nuget.org 这确实是个预发布版本。做法是在包版本的末尾加上 `-alpha` 后缀。
 
@@ -89,7 +89,7 @@ nuspec 文件装着你这个 NuGet 的元数据，比如版本、作者和依赖
 
 ### 包图标 {#package-icon}
 
-我们这个 GitHub Action 允许你用 `icon-src` 和 `icon-dst` 两个输入参数从外部来源指定包图标。这样你就不必把图标文件提交进仓库 —— 每次工作流运行时，这个文件都会被下载并放进你的包里。
+我们这个 GitHub Action 可以用 `icon-src` 和 `icon-dst` 两个输入参数从外部指定包图标，这样就不必把图标提交进仓库 —— 每次工作流运行都会下载它并放进包里。
 
 请注意 `icon-dst` 输入参数必须指向仓库里一个**已经存在**的文件夹。我们建议你干脆下载到仓库根目录，像这样：
 
@@ -121,7 +121,7 @@ nuspec 文件装着你这个 NuGet 的元数据，比如版本、作者和依赖
 工作流文件里的路径，相对的是仓库根目录。
 :::
 
-然后在 `file` 一节里，你的 nuspec 文件必须从「action 会把它下载到的位置」引用它（`src` 属性），并把它放到任何你想要的地方（`target` 属性）—— 注意 `target` 要和 `metadata` 一节期望的位置对得上。
+然后在 `file` 一节里，nuspec 要从「action 下载它的那个位置」引用（`src` 属性），再放到你想要的地方（`target` 属性）—— 注意 `target` 得和 `metadata` 一节期望的位置对上。
 
 ```xml
 (...)
@@ -142,7 +142,7 @@ nuspec 文件里的路径，相对的是这个文件自己所在的位置。
 
 #### 用 `csproj` 文件 {#using-a-csproj-file}
 
-你可以在 Visual Studio 里给项目配好图标。注意你得指定一个**还不存在**的文件路径，因为这个 action 稍后才会去下载它。这感觉可能有点怪，因为 Visual Studio 的界面给了你一个 `Browse` 按钮让你去挑文件 —— 直接手写路径，让它与工作流文件里的 `icon-src` 对得上就行。
+你可以在 Visual Studio 里给项目配图标。注意要填一个**还不存在**的文件路径 —— 那个文件稍后才由 action 下载。这感觉有点怪，因为 Visual Studio 给了你一个 `Browse` 按钮让你挑文件；直接手写路径，跟工作流文件里的 `icon-src` 对上就行。
 
 举例来说，你的工作流文件会长这样：
 
@@ -171,7 +171,7 @@ Visual Studio
 1. 点右上角你的用户名
 2. 在弹出的菜单里点 `API Keys`
 3. 点 `+ Create`
-4. 在 `Key Name` 下填你的仓库名或项目名 —— 当全世界的人敲 `nuget install <你的包名>` 时，这就是这个包的正式名字
+4. 在 `Key Name` 下填仓库名或项目名 —— 全世界的人敲 `nuget install <你的包名>` 时用的就是它
 5. 在 `Package owner` 下按你的情况选对选项：如果这个包该归属于你所在的某个组织而不是你个人，现在就选那个组织
 6. 在 `Glob Pattern` 下填：`*`
 7. 点 `Create`
@@ -262,7 +262,7 @@ jobs:
 
 ### 推送！{#push}
 
-现在你可以推到 `main` 分支，触发一次插件的新部署了。记得在 `nuspec` 或 `csproj` 文件里把插件的版本号往上抬 —— 否则 nuget.org（或你用的任何源）会拒收你的插件。
+现在推到 `main` 分支就能触发一次新部署。记得先把 `nuspec` 或 `csproj` 里的版本号往上抬 —— 否则 nuget.org（或你用的任何源）会拒收。
 
 到你仓库的 *Action* 一栏可以实时监看工作流的运行。工作流运行期间若有错误，会显示在这里。
 

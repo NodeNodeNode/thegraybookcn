@@ -16,7 +16,7 @@ last_synced: '2026-08-12'
 * Spout Monitor（通过 VL.SpoutMonitor.HDE 这个 NuGet 安装）
 * Desktop Pipette（通过 VL.Pipette.HDE 这个 NuGet 安装）
 
-扩展可以完全用 vvvv 打出来，并指定一个快捷键，这样用户随时都能唤起它们。当前已加载的所有扩展可以在主菜单里找到：
+扩展可以完全用 vvvv 打出来，还能指定快捷键，让用户随时唤起。当前已加载的扩展都能在主菜单里找到：
 
 `Quad > Extensions`
 
@@ -26,7 +26,7 @@ last_synced: '2026-08-12'
 
 `VL.MyExtension.HDE.vl`
 
-任何这样的文件，只要你在 vvvv 里打开了它，它就已经作为一个编辑器扩展在运行了。接下来你多半会希望能用快捷键或菜单项来唤起自己的扩展。为此你得注册一个命令，这可以通过 `Command` 节点来做 —— 引用 `VL.HDE` 这个 NuGet 即可获得该节点。
+这样的文件只要在 vvvv 里打开，就已经作为编辑器扩展在跑了。接下来你多半想用快捷键或菜单项来唤起它 —— 那就得注册一个命令，用 `Command` 节点来做（引用 `VL.HDE` 这个 NuGet 即可获得）。
 
 或者干脆从模板开始：
 
@@ -54,7 +54,7 @@ last_synced: '2026-08-12'
 
 接着去看 `Command` 的输出 —— 每当这个命令通过快捷键或点击菜单项被执行时，它就会触发。
 
-从这儿开始就交给你了。一个经典用例是：反复执行这个命令来显示／隐藏一个编辑器扩展窗口。不过就像在任何别的草图里一样，你在这儿甚至可以跑 `format c:` —— 所以一如往常，小心行事……
+从这儿开始就交给你了。一个经典用例是：反复执行这个命令来显示／隐藏扩展窗口。不过跟别的草图一样，你在这儿甚至可以跑 `format c:` —— 所以一如往常，小心行事……
 
 ## 一个 .HDE.vl 文件里放多个扩展 {#multiple-extensions-per-hdevl-file}
 
@@ -71,7 +71,7 @@ last_synced: '2026-08-12'
 
 ### 停靠 {#docking}
 
-要让窗口能参与停靠机制以及自动的窗口恢复管理，它需要被注册到窗口管理器。做法是用 `WindowFactory` 节点把它包起来，并相应地连上 `WindowContext` 和 `Window` 两个针脚。例子见 `VL.HDE/Template.HDE.vl`。
+窗口要参与停靠机制和自动的窗口恢复管理，就得注册到窗口管理器：用 `WindowFactory` 节点把它包起来，再连上 `WindowContext` 和 `Window` 两个针脚。例子见 `VL.HDE/Template.HDE.vl`。
 
 ## 与 vvvv 交互 {#interfacing-with-vvvv}
 
@@ -98,7 +98,7 @@ vvvv 的 API 让你能访问悬停中的和选中的节点，并允许你读写�
 
 ### 作为 NuGet 一部分的扩展 {#extension-as-part-of-a-nuget}
 
-扩展也可以随任何一个「主要提供其他功能」的 NuGet 一起发布。这种情况下，扩展文档的名字必须与包 ID 完全一致，只是加上 `.HDE` 后缀。举例来说，一个叫 `VL.MyPackage` 的 NuGet 至少会含这两个文档：
+扩展也可以随任何「主要提供其他功能」的 NuGet 一起发布。这时扩展文档的名字必须与包 ID 完全一致，只是加上 `.HDE` 后缀。比如一个叫 `VL.MyPackage` 的 NuGet 至少会含这两个文档：
 
 ```
 VL.MyPackage.vl      // 主文档

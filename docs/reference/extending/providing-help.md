@@ -25,7 +25,7 @@ last_synced: '2026-08-12'
 
 ## 教程与课程 {#tutorials-and-courses}
 
-如果你想链接的教程或课程并不一定绑定到某个具体的包，可以把这些信息写进 [TutorialsAndCourses.xml](https://github.com/vvvv/PublicContent/blob/master/HelpBrowser/TutorialsAndCourses.xml) 文件 —— 每一个帮助面板都会自动下载并显示它。
+想链接的教程或课程不一定绑定到某个具体的包时，把这些信息写进 [TutorialsAndCourses.xml](https://github.com/vvvv/PublicContent/blob/master/HelpBrowser/TutorialsAndCourses.xml) —— 每个帮助面板都会自动下载并显示它。
 
 ## 帮助文档 {#help-patches}
 
@@ -56,7 +56,7 @@ last_synced: '2026-08-12'
 \help\Topic\Subtopic\HowTo Do something.vl
 ```
 
-默认情况下，帮助面板会按字母顺序显示这些草图。想改这个顺序，你可以在 \help 目录里提供一个 Help.xml 文件 —— 它让你可以脱离文件系统里的顺序，自行组织和排列内容。它还允许你以在线资源链接的形式添加额外的帮助内容，像这样：
+帮助面板默认按字母顺序显示这些草图。想改顺序，就在 \help 目录里放一个 Help.xml —— 有了它，内容的组织和排列不必再跟着文件系统走，还能以在线资源链接的形式补充额外的帮助内容，像这样：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -88,16 +88,16 @@ FileReader 带一个高优先级帮助标记，SplitToLines 带一个低优先�
 
 ### 高优先级与低优先级 {#high-vs-low-priority}
 
-在某个节点上按 <span class="keyseq"><kbd>F1</kbd></span> 时，系统会遍历这个库所有 HowTo 草图里的全部帮助标记。一旦在某份 HowTo 草图里遇到针对该节点的高优先级帮助标记，就把这份草图作为帮助文档显示出来。因此，一个节点的高优先级帮助标记只设一次才讲得通！
+在某个节点上按 <span class="keyseq"><kbd>F1</kbd></span> 时，系统会遍历这个库所有 HowTo 草图里的帮助标记。一旦遇到针对该节点的高优先级标记，就把那份草图作为帮助文档显示出来。所以一个节点的高优先级帮助标记只设一次才讲得通。
 
 ![](https://thegraybook.vvvv.org/images/libraries/helpflags-7a40e.png)
 气泡提示这份帮助文档是为哪个节点打开的
 
-按下 <span class="keyseq"><kbd>F1</kbd></span> 之后，如果用户还想看这个节点的节点信息，帮助面板会列出所有「为该节点设了低优先级帮助标记」的 HowTo 草图。因此，在不同的 HowTo 草图里为同一个节点设多个低优先级帮助标记是有意义的 —— 这表示当有人在找这个节点的用例时，那几份草图也值得一看。
+按下 <span class="keyseq"><kbd>F1</kbd></span> 之后，用户若还想看这个节点的节点信息，帮助面板会列出所有「为它设了低优先级帮助标记」的 HowTo 草图。所以在不同 HowTo 草图里为同一个节点设多个低优先级标记是有意义的 —— 那表示找这个节点的用例时，这几份草图也值得一看。
 
 ### 帮助标记指示器 {#help-flag-indicator}
 
-最终用户并不需要看到帮助标记，所以打开一份帮助文档时它们默认是不可见的。你可以切换帮助标记指示器，让这份草图里的帮助标记显示或隐藏。
+最终用户不需要看到帮助标记，所以打开帮助文档时它们默认隐藏。用帮助标记指示器可以把它们显示出来。
 
 ![](https://thegraybook.vvvv.org/images/libraries/helpflags-21aea.png)
 帮助标记指示器，表示这份 HowTo 草图设了帮助标记

@@ -11,7 +11,7 @@ last_synced: '2026-08-12'
 
 首先你得[选一个代码编辑器](/extending/code-editors)。
 
-用 C# 给 VL 写自己的节点，不需要任何 VL 相关的知识或准备。本质上你写的就是普通的 C# 代码，VL 再把它变成节点。下面是一份带你上手的分步指南，也有对应的 [vvvvTv 视频（英文）](https://www.youtube.com/live/LZ-y5FOrdh0?si=76lNgMwPNrN1MgaO)。
+用 C# 给 VL 写节点，不需要任何 VL 相关的知识或准备 —— 你写的就是普通 C# 代码，VL 再把它变成节点。下面是一份上手指南，也有对应的 [vvvvTv 视频（英文）](https://www.youtube.com/live/LZ-y5FOrdh0?si=76lNgMwPNrN1MgaO)。
 
 ## 从模板开始 {#start-from-a-template}
 
@@ -21,22 +21,22 @@ last_synced: '2026-08-12'
 
 * `Quad` → `New` → `C# File`
 * 选一个模板
-  * 默认会创建一个 .csproj 文件，名字取自你当前的主文档。如果这样的 .csproj 已经存在，就把这个 C# 文件加进去。这里假定的典型情形是：一个项目一个 .csproj 文件，下面可能挂着很多 .cs 文件
+  * 默认会按当前主文档的名字创建一个 .csproj。若这个 .csproj 已存在，就把 C# 文件加进去。这里假定的典型情形是：一个项目一个 .csproj，下面挂很多 .cs 文件
   * 可选：想改掉这个默认行为，可以展开 `Customize` 下拉：
     * 手动指定 .cs 文件的名字
     * 在可能存在的多个 .csproj 文件里，选择把这个文件加到哪一个
     * 取消勾选 `Use Existing` 以新建一个 .csproj 文件
 * 在 `Open on Create` 下拉里你可以选：
-  * 打开 .csproj：最好你装了 Visual Studio 2022 这样的 IDE，然后打开这个 .csproj 文件
+  * 打开 .csproj：最好装了 Visual Studio 2022 这样的 IDE
   * 打开 .cs 文件：如果你没装完整的 IDE，用任何文本编辑器编辑 .cs 文件也行
-  * 打开文件夹：如果你这会儿不想改文件，也可以只是让资源管理器打开、指到它所在的位置
+  * 打开文件夹：这会儿不想改文件的话，就让资源管理器打开、指到文件所在的位置
 * 按 `Create`
   * 这会在磁盘上创建这些文件，并把 .csproj 文件引用进你当前的主文档
 
 ![](https://thegraybook.vvvv.org/images/reference/extending/StaticUtils.png)
 在 Visual Studio 2022 里打开的 Static Utils 模板
 
-一个新的 .csproj 文件第一次被创建时，你会看到它自动被引用进了你的当前文档，像这样：
+第一次创建 .csproj 时，你会看到它自动被引用进当前文档，像这样：
 
 ![](https://thegraybook.vvvv.org/images/reference/extending/csharp-reference.png)
 一个 .vl 文档里引用的 .csproj 文件
@@ -60,9 +60,9 @@ last_synced: '2026-08-12'
 
 ### 静态方法 {#static-methods}
 
-只要你用的都是静态方法，这套机制就毫无瑕疵 —— 静态方法可以在运行中被替换掉，不产生任何副作用。
+只要用的都是静态方法，这套机制毫无瑕疵 —— 静态方法可以在运行中替换掉，不带副作用。
 
-如果你的 C# 代码里有错误，来自同一个项目的所有节点都会变红，提示框会指出这个项目有错误，并把你指向第一个错误所在的具体 .cs 文件和行号。
+C# 代码里有错误时，同一个项目的所有节点都会变红。提示框会说明这个项目出了错，并指向第一个错误所在的 .cs 文件和行号。
 
 ![](https://thegraybook.vvvv.org/images/reference/extending/csharp-error.png)
 
@@ -72,40 +72,40 @@ last_synced: '2026-08-12'
 
 #### 过程节点 {#process-node}
 
-假如你想把自己的 C# 类当作 VL 里的[过程节点](/language/nodes#process-nodes)来用 —— 也就是一个节点一个实例，不动态地生成／销毁实例 —— 那就给它加上 [`ProcessNode`](https://github.com/vvvv/VL.StandardLibs/blob/main/VL.Core/src/Import/ProcessNodeAttribute.cs) 特性。例子[见下文](#process-nodes)。
+想把自己的 C# 类当作 VL 的[过程节点](/language/nodes#process-nodes)来用 —— 一个节点一个实例，不动态生成和销毁 —— 就给它加上 [`ProcessNode`](https://github.com/vvvv/VL.StandardLibs/blob/main/VL.Core/src/Import/ProcessNodeAttribute.cs) 特性。例子[见下文](#process-nodes)。
 
 这样一来，每当你改动 C# 代码，vvvv 都能按需正确地创建和销毁你这个类的实例。
 
 #### 动态实例 {#dynamic-instances}
 
-如果你的 C# 类更像是一个「粒子」—— 也就是说你会动态地生成和销毁实例 —— 那么上面提到的转发帮不了你，你仍会碰上销毁方面的麻烦。所以有件事你必须知道：
+如果你的 C# 类更像「粒子」—— 也就是会动态生成和销毁实例 —— 上面那招帮不了你，销毁的麻烦还在。有件事你必须知道：
 
 每一次保存 .cs 文件，你都会丢掉所有由 C# 代码定义的实例的运行状态！
 
-只要你的 C# 代码是完全托管的，这就不算太大的问题。那些实例原先所在的位置，草图里会出现粉色节点并抛出空指针异常（“Object reference not set an instance of an object”），按 F9 重启草图就能回到运行状态。
+只要 C# 代码是完全托管的，这问题不算大：原先放着实例的位置会出现粉色节点、抛空指针异常（“Object reference not set an instance of an object”），按 F9 重启草图就恢复了。
 
-一旦你的 C# 代码依赖非托管代码（比如 WinForms、设备库等等），事情就麻烦了 —— 那些资源需要手动释放。vvvv 并不知道这些资源的存在，因此没法正确清理它们！这种情况下，每次保存 .cs 文件都会留下没被释放的资源，往往导致不确定的行为（比如某个设备再也访问不了了）。碰上这种局面，只有彻底重启 vvvv 才能回到能用的状态！
+一旦 C# 代码依赖非托管代码（WinForms、设备库等等），事情就麻烦了：那些资源要手动释放，而 vvvv 根本不知道它们存在，清理不了。于是每次保存 .cs 文件都会留下没释放的资源，往往导致不确定的行为 —— 比如某个设备再也访问不了。碰上这种局面，只有彻底重启 vvvv。
 
 ## 调试 {#debugging}
 
-用 Visual Studio 编辑代码时，你可以在 C# 代码里设断点。如果断点显示「……当前不会命中」这类警告，你需要改一个 Visual Studio 的设置：在 “Debug” 菜单里选 “Options...”，找到并关掉 “Require source files to exactly match the original version”。
+用 Visual Studio 编辑代码时可以设断点。断点若显示「……当前不会命中」这类警告，去改一个设置：“Debug” 菜单选 “Options...”，找到并关掉 “Require source files to exactly match the original version”。
 
 然后[附加（英文）](https://learn.microsoft.com/en-us/visualstudio/debugger/attach-to-running-processes-with-the-visual-studio-debugger?view=vs-2022)到 vvvv.exe 上，就能看到断点被命中了。
 
 ## 示例 {#examples}
 
-这里是一些简单示例，外加几处能帮你写出自己节点的细节。它们也可以从这里获取：
+下面是一些简单示例，外加几处能帮你写出自己节点的细节。也可以从这里获取：
 https://github.com/vvvv/VL.DemoLib
 
 更多通盘的考量另见：[设计指南](/extending/design-guidelines)
 
 ### 命名空间 {#namespaces}
 
-你在 C# 里指定的命名空间，会成为 VL 里的目录。嵌套的命名空间（用点号语法）会相应地变成嵌套的目录。[`ImportAsIs`](https://github.com/vvvv/VL.StandardLibs/blob/main/VL.Core/src/Import/ImportAsIsAttribute.cs) 特性允许只导入某一个命名空间，从而把它从最终的 VL 目录里剥掉。
+C# 里的命名空间会成为 VL 里的目录，嵌套的命名空间（用点号语法）相应变成嵌套的目录。[`ImportAsIs`](https://github.com/vvvv/VL.StandardLibs/blob/main/VL.Core/src/Import/ImportAsIsAttribute.cs) 特性允许只导入某一个命名空间，从而把它从最终的 VL 目录里剥掉。
 
 ### 针脚名 {#pin-names}
 
-为了在 VL 里更好读，Operation 的参数会按驼峰式大小写拆开。所以 C# 里的 “firstInput” 到了 VL 里就是 “First Input”。默认的 “return” 返回值在 VL 里叫 “Output”。
+为了在 VL 里更好读，Operation 的参数会按驼峰式大小写拆开：C# 里的 “firstInput” 到 VL 里就是 “First Input”。默认的 “return” 返回值在 VL 里叫 “Output”。
 
 ```csharp
 public static float PinNames(float firstInput, float secondInput)
@@ -162,7 +162,7 @@ public static float MyAddition(float input, float input2, float input3)
 }
 ```
 
-在节点浏览器里选中相应的节点时，它会再问你一次，让你指定想用哪个版本。
+在节点浏览器里选这个节点时，它会再问一次你要哪个版本。
 
 *（上游此处待补图：节点浏览器里显示出两个节点）*
 
@@ -365,7 +365,7 @@ public float AddValue(float value)
 
 ### 动态枚举 {#dynamic-enums}
 
-动态枚举适用于这样的场景：你想给用户一个列表来挑选，而这个列表的条目可能在运行时变化。典型例子是那些访问硬件设备的节点 —— 设备随时可能插上或拔掉。
+动态枚举用在这种场景：给用户一个列表挑选，而列表的条目会在运行时变化。典型例子是访问硬件设备的节点 —— 设备随时可能插上或拔掉。
 
 要写一个动态枚举，最好从某个 “Dynamic Enum” [C# 文件模板](#start-from-a-template)开始。
 
@@ -403,7 +403,7 @@ public static string EnumDemo(MyEnum e)
 * `VL.Lib.Collections.DynamicEnumDefinitionBase<U>`
 * `VL.Lib.Collections.ManualDynamicEnumDefinitionBase<U>`
 
-注意，这些定义基类是单例的 —— 也就是说它的实现会保证全局始终只存在一个实例。我们需要这样，因为有一点很重要：任何引用同一个枚举定义的节点，拿到的条目必须完全一致！
+注意这些定义基类是单例：实现会保证全局始终只有一个实例。这一点很重要 —— 引用同一个枚举定义的节点，拿到的条目必须完全一致。
 
 用上面这两个基类，你自己的动态枚举实现大概长这样：
 
@@ -435,7 +435,7 @@ public class MyEnum: DynamicEnumBase<MyEnum, MyEnumDefinition>
 
 ##### 2. 提供可选条目 {#2-provide-available-entries}
 
-从 `DynamicEnumDefinitionBase` 派生，实现那个「向系统提供本枚举当前可选条目」的类。这里你只需要覆写两个函数：一个返回当前枚举条目的字符串列表，另一个告诉系统你的枚举条目什么时候变了。
+从 `DynamicEnumDefinitionBase` 派生，实现那个「向系统提供当前可选条目」的类。只需覆写两个函数：一个返回当前条目的字符串列表，另一个告诉系统条目什么时候变了。
 
 ```csharp
 public class MyEnumDefinition : DynamicEnumDefinitionBase<MyEnumDefinition>

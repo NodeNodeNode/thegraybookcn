@@ -9,9 +9,9 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/extending/forwarding.html)
 
-通过[使用 .NET 库](/extending/using-net-libraries)，我们能直接拿到浩瀚的节点来打草图。不过其中很多库放到 VL 的数据流环境里并不好用。
+[使用 .NET 库](/extending/using-net-libraries)让我们能直接拿到浩瀚的节点来打草图。不过其中很多库放进 VL 的数据流环境并不好用。
 
-为了让这些库对更随性的用户也能用得上，我们常常想精确地筛选：原始库里究竟哪些节点和类型该被他们看到。转发让我们能插入极薄的一层包装，方便地做这种筛选。
+为了让更随性的用户也用得上，我们常常想精确筛选：原始库里究竟哪些节点和类型该露给他们。转发就是插入极薄的一层包装来做这件事。
 
 ## 转发的理由 {#reasons-to-forward}
 
@@ -27,14 +27,14 @@ last_synced: '2026-08-12'
 :::note
 从一个库里转发类型时有一点很重要：我们不希望引入新的包装类型。因此使用转发**不会**引入新类型！
 
-被转发的类型与原始库是兼容的 —— 这样用户就能回退到原始库的底层功能，并把它与高层包装的用法混在一起用。
+被转发的类型与原始库兼容 —— 用户可以随时回退到原始库的底层功能，并与高层包装混着用。
 
-另外，这层包装可以充当一道有用的屏障，把 vl 节点库的最终用户与原始库的变动隔开。原始库改了名字之类的时候，与其让 vl 用户直面这些变动，转发让我们有办法在这种情况下不把用户的草图弄坏。
+另外，这层包装还是一道有用的屏障，把 vl 节点库的用户与原始库的变动隔开。原始库改了名字之类的时候，与其让用户直面变动，不如用转发把草图保住。
 :::
 
 ## 转发类型 {#forwarding-types}
 
-典型的做法是，你创建*一个 .vl 文档*，用来转发一个或多个 .NET .dll 或 C# 项目（.csproj）里的类型。这样，你这个节点库的用户唯一需要引用的东西就是这一个 .vl 文档。
+典型做法是建*一个 .vl 文档*，用它转发一个或多个 .NET .dll 或 C# 项目（.csproj）里的类型。这样用户唯一要引用的就是这个文档。
 
 ## 创建类型转发 {#create-type-forward}
 
@@ -82,7 +82,7 @@ last_synced: '2026-08-12'
 
 #### 转发所有节点 {#forward-all-nodes}
 
-创建类型转发时，这个类型的每一个 Operation 默认都会被当作节点转发出去。如果你更愿意只有选择地转发其中一部分 Operation，就取消勾选 “Forward All Nodes” 这个选项。
+创建类型转发时，这个类型的每个 Operation 默认都当作节点转发出去。只想转发其中一部分，就取消勾选 “Forward All Nodes”。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-ForwardAll.png)
 Forward All Nodes
@@ -93,7 +93,7 @@ Forward All Nodes
 
 #### 可变性 {#mutability}
 
-.NET 库并不带「这个类型可不可变」这样的元信息。因此我们需要手动告诉 VL —— 相应地设好 mutable 标记。
+.NET 库不带「这个类型可不可变」这样的元信息，所以得手动告诉 VL：把 mutable 标记设对。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-Mutable.png)
 Mutable 复选框
@@ -114,9 +114,9 @@ C# 接下来的版本里请留意 `record`，它应该能减轻写不可变类�
 
 #### 创建默认值 {#create-default}
 
-成员 Operation 节点常常期望主输入上有一个该类型的值，只要那儿什么都没连，它就抛「空指针异常」。为了避免这一点，我们需要告诉 VL：需要时它该怎么构造这个类型的一个默认实例。
+成员 Operation 节点通常期望主输入上有一个该类型的值，那儿一空就抛「空指针异常」。要避免这一点，得告诉 VL：需要时该怎么构造这个类型的默认实例。
 
-做法很简单：在类型转发草图里创建一个叫 `CreateDefault` 的 Operation，把它实现成返回该类型的一个实例。这往往只需要返回该类型某个构造函数的结果，别无其他。
+做法很简单：在类型转发草图里建一个叫 `CreateDefault` 的 Operation，让它返回该类型的一个实例 —— 往往直接返回某个构造函数的结果就够了。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-CreateDefault.png)
 为一个类型创建默认值
@@ -134,7 +134,7 @@ C# 接下来的版本里请留意 `record`，它应该能减轻写不可变类�
 
 ### 转发 Operation {#forwarding-operations}
 
-如上所示，一个类型转发可以轻松地自动转发它的全部 Operation。不过即便 “Forward All Nodes” 开着，手动转发某些 Operation 以便调整它们的针脚，仍然是讲得通的。
+如上所示，类型转发能轻松地自动转发全部 Operation。不过就算 “Forward All Nodes” 开着，手动转发某些 Operation 来调整针脚仍然讲得通。
 
 为个别 Operation 创建转发：
 
@@ -151,7 +151,7 @@ C# 接下来的版本里请留意 `record`，它应该能减轻写不可变类�
 你也可以选中多个 Operation，一次性把它们放进草图。
 :::
 
-现在你有了一个转发 Operation 定义，包在你想转发的那个节点外面。被转发节点的所有针脚都会自动反映在这个转发定义的签名里。这也意味着：该节点签名的任何变动（也就是它底层的 .NET 代码里增加／改名／删除了针脚）都会自动反映到转发定义的签名上。如果因为某些原因你不想要这种行为，见下文「手动管理签名」。
+现在你有了一个转发 Operation 定义，包在要转发的那个节点外面。被转发节点的所有针脚都会自动反映到这个定义的签名里 —— 也就是说，底层 .NET 代码里增加、改名或删除针脚，签名都会跟着变。不想要这种行为，见下文「手动管理签名」。
 
 即便不手动管理签名，你仍然可以对一个转发做下面这些改动：
 
@@ -197,12 +197,12 @@ Show Category 复选框
 
 ### 手动管理签名 {#manually-managing-the-signature}
 
-转发一个节点时，你通常希望它的签名自动与外层定义的签名同步。这就是为什么管理这一行为的两个选项默认都是开着的：
+转发节点时，你通常希望签名自动与外层定义同步。所以管理这个行为的两个选项默认都开着：
 
 * Locked Signature（也就是由系统管理，而非用户手动管理）
 * Connect to Signature（只在签名被锁定时起作用）
 
-关掉它们的理由可能是：你想为自己的 vl 节点库建立一套稳定的 API，不希望它自动跟着底层 .NET 库的变动走。既然 .NET 库的一处改动可能对你 vl 节点库的用户造成不兼容，你就会希望有机会先审阅这些变动，再决定怎样把它们转发到你的 API 上。
+关掉它们的理由通常是：你想给自己的 vl 节点库建一套稳定 API，不希望它自动跟着底层 .NET 库走。.NET 库改一处就可能让你的用户不兼容，所以你会想先审阅这些变动，再决定怎么转发到自己的 API 上。
 
 :::note
 “Locked Signature” 和 “Connect to Signature” 这两个功能并不限于在转发定义里使用。别的场景下它们也可能有用。
@@ -219,7 +219,7 @@ Show Category 复选框
 
 ### Connect to Signature {#connect-to-signature}
 
-对从方案浏览器里拖进来准备转发的节点，Connect to Signature 默认是开着的。它能省下几次点击 —— 自动把这个节点连到外层签名上，就好像你为每个针脚都建了一个同名针脚并连上一样。如果你想更手动地控制哪些针脚被转发，可以把这个功能关掉。
+从方案浏览器拖进来准备转发的节点，Connect to Signature 默认开着。它替你省几次点击：自动把节点连到外层签名，效果等同于你为每个针脚都建一个同名针脚再连上。想更手动地控制转发哪些针脚，就关掉它。
 
 在你正在转发的那个节点上右键，选 `Configure > Connect to Signature`。
 
@@ -235,7 +235,7 @@ Show Category 复选框
 
 ## 包装非标准的事件或 Delegate {#wrapping-non-standard-events-or-delegates}
 
-第三方库里的事件或 Delegate，常常正是写一小段 C# 包装的理由。符合 [.NET Core 事件模式（英文）](https://docs.microsoft.com/en-us/dotnet/csharp/modern-events)的事件会被方便地自动转换成 vl 里的 Observable，但很多库用的是非标准的事件或 Delegate —— 这种情况下你得用 System.Reactive 这个 NuGet 提供的 [Observable.FromEvent（英文）](https://msdn.microsoft.com/en-us/library/system.reactive.linq.observable.fromevent(v=vs.103).aspx)，在 C# 里手写一个到 Observable 的转换。
+第三方库里的事件或 Delegate，常常正是写一小段 C# 包装的理由。符合 [.NET Core 事件模式（英文）](https://docs.microsoft.com/en-us/dotnet/csharp/modern-events)的事件会自动转成 vl 里的 Observable；但很多库用的是非标准事件或 Delegate，这时就得用 System.Reactive 这个 NuGet 提供的 [Observable.FromEvent（英文）](https://msdn.microsoft.com/en-us/library/system.reactive.linq.observable.fromevent(v=vs.103).aspx)，在 C# 里手写转换。
 
 举个例子。假设这个库有个数据类型 `Tablet`，上面定义了这样一个事件：
 
@@ -287,7 +287,7 @@ public static class TabletHelper
 
 *（上游此处待补图：在 vl 里长什么样）*
 
-注意这里节点是放在 Create 上、结果存进一个 Pad 的，而不是放在 Update 上 —— 这样 Observable 只会被创建一次，这正是我们想要的。如果因为某些原因你必须把节点放在 Update 上（比如它输入上的 Tablet 可能会变），那么有个小技巧可以加上，用来缓存这个 Observable、只在输入变化时重建它：
+注意这里节点放在 Create 上、结果存进一个 Pad，而不是放在 Update 上 —— 这样 Observable 只创建一次，正是我们想要的。若你必须把节点放在 Update 上（比如输入的 Tablet 会变），可以加个小技巧来缓存 Observable、只在输入变化时重建：
 
 ```csharp
 public static class TabletHelper

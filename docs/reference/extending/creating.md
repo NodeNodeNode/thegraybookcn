@@ -9,11 +9,11 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/extending/creating.html)
 
-给 vvvv 贡献一组节点，最一致的方式是做一个节点库，并以 [NuGet 包](https://nuget.org)的形式发布。
+给 vvvv 贡献一组节点，最规整的方式是做一个节点库，以 [NuGet 包](https://nuget.org)的形式发布。
 
 ## 源码 NuGet 与二进制 NuGet {#source-and-binary-nugets}
 
-NuGet 包通常以二进制形式安装。vvvv 在此之上加了「源码 NuGet」这个想法：它允许你直接引用一个包的源码，就好像那已经是一个二进制 NuGet 一样。要让 vvvv 把一个目录认作源码 NuGet，这个目录必须位于某个[包仓库](/extending/contributing#source-package-repositories)路径下，并遵守下面这些约定：
+NuGet 包通常以二进制形式安装。vvvv 在此之上加了「源码 NuGet」：你可以直接引用一个包的源码，就当它已经是二进制 NuGet。要让 vvvv 把一个目录认作源码 NuGet，这个目录得位于某个[包仓库](/extending/contributing#source-package-repositories)路径下，并遵守下面这些约定：
 
 ## 一个 NuGet 的内部构造 {#innards-of-a-nuget}
 
@@ -31,10 +31,10 @@ NuGet 包通常以二进制形式安装。vvvv 在此之上加了「源码 NuGet
 
 .nuspec 文件用一种简单的文本格式描述一个 NuGet，格式定义见 [Nuspec 参考（英文）](http://docs.nuget.org/Create/Nuspec-Reference)。
 
-.vl 文件是使用这个 NuGet 时的中心入口。它定义了「用了这个 NuGet 之后你能得到哪些节点」：所有东西要么打在这个文件里，要么被标记为「转发依赖」。
+.vl 文件是这个 NuGet 的中心入口，定义了「用了它之后你能得到哪些节点」：所有东西要么打在这个文件里，要么标记为「转发依赖」。
 
 :::note
-确保这个包里没有任何一个 .vl 文件引用了 .csproj 文件！那会强制整个包、以及所有依赖它的包变成可编辑的，于是你就失去了[只读包](/language/compilation#read-only-packages)带来的好处。
+确保这个包里没有任何 .vl 文件引用 .csproj！那会强制整个包、以及所有依赖它的包变成可编辑的，于是你就失去了[只读包](/language/compilation#read-only-packages)的好处。
 :::
 
 要让 NuGet 在 vvvv 里正常工作，你得提供下面这样的结构 —— 当然所有目录都是可选的，只有某个 NuGet 真的用到时才需要：

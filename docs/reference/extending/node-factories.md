@@ -9,7 +9,7 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/extending/node-factories.html)
 
-*node factory*（节点工厂）让你能用 C# 这样的语言造出完整的节点，不必把类型和方法拖放到 VL 画布上。工厂让你通过一套 API 动态地描述节点，这样你也可以用程序批量造出一堆节点。
+*node factory*（节点工厂）让你用 C# 这样的语言直接造出完整的节点，不必把类型和方法拖到 VL 画布上。工厂通过一套 API 动态描述节点，所以也能用程序批量生成。
 
 做好之后，请把这个工厂选为你的 VL 文档的依赖，像这样：
 
