@@ -9,7 +9,7 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/introduction/lo_5_Runtime.html)
 
-这么说可能有点耍赖，但你不妨把**整个运行中的系统**想成一个过程节点：它被创建一次，然后被反复更新。
+这么说也许有点耍赖，但你不妨把**整个运行中的系统**想成一个过程节点：创建一次，然后反复更新。
 
 ## A Root Patch / 根草图 {#a-root-patch}
 
@@ -19,13 +19,13 @@ last_synced: '2026-08-12'
 
 ## Create And Update {#create-and-update}
 
-在根草图里，你定义「系统启动时发生什么」和「系统运行时发生什么」—— 方法是把节点分别放到 “Create” 和 “Update” 上。
+在根草图里，把节点分别放到 “Create” 和 “Update” 上，就定义了「系统启动时做什么」和「系统运行时做什么」。
 
 既然我们还在「看待事物」这一章：
 
 ![](https://thegraybook.vvvv.org/images/introduction/createAndUpdate.png)
 
-再说一遍：草图的一部分只在系统启动时执行一次，另一部分则被一遍遍地调用。你能看出哪部分是哪部分吗？
+再说一遍：草图的一部分只在系统启动时跑一次，另一部分一遍遍地跑。你能看出哪部分是哪部分吗？
 
 *给 vvvv 用户：在 vvvv 里创建或重置这个节点时，过程会被重置，也就是 “Create” 被调用。从那之后，每一个 vvvv 帧都会调用 “Update”。*
 
