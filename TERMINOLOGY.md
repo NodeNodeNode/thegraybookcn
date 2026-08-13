@@ -7,7 +7,7 @@
 翻译时不需要通读本表 —— `gb:termcard` 会针对当前页面生成一份不超过 30 条的术语卡。
 本表用于查阅与审校。
 
-共 58 条，其中待拍板 0 条。
+共 60 条，其中待拍板 0 条。
 
 
 | 英文 | 中文 | 状态 | 规则 | 说明 |
@@ -68,5 +68,7 @@
 | `help flag` | 帮助标记 | 已拍板 | 首次出现用双语并列 | 不用「帮助旗标」—— 界面上它就是一个小标记，不是旗子。 |
 | `Observable` | （保留 Observable / Observables） | 保留英文 | — | Rx 的核心概念，与 VL 的响应式体系直接对应。保留英文，已有译文即如此。 |
 | `mesh` | 网格 | 已拍板 | — | 3D 图形里的标准中译。Stride 的类型名 `Mesh`、`MeshDraw`、`MeshEntity` 等 在正文里保留英文并加反引号 —— 那是界面和代码里的字面名字，与泛指的「网格」分开。 |
+| `framebased` | 逐帧 | 已拍板 | — | 与 timebased 成对。节点名和目录名里的 `FrameBased`（如 `ImagePlayer (FrameBased Stride)`、Animation 下的 FrameBased 子目录） 是界面字面值，保留英文原样；正文行文用「逐帧」。 |
+| `timebased` | 基于时间 | 已拍板 | — | 与 framebased 成对。不译「时基」—— 那在视频领域另有所指（time base）。 |
 | `slice` | （保留 slice / slices / Slice / Slices） | 保留英文 | — | 保留英文，与 spread 同理 —— Spread 里的一项就叫 slice，这是 vvvv 社区口语。 按仓库既有事实定：现有译文 16 处全是裸用英文，0 处「切片」。 大小写放宽到四种：句中行文用小写（loops.md 全篇如此）， 作为类型名或节点名的一部分时（GetSlice、Slice 类型）才大写。 |
 | `shader` | 着色器 | 已拍板 | 首次出现用双语并列 | 按仓库既有事实定，不是新拍：现有译文 42 处「着色器」对 17 处裸用， 而裸用的多是 `shaders` 文件夹名、SDSL、ShaderFX 这类专名。 刻意不设 forbid_bare_en —— 那些专名必须保留原样。 |

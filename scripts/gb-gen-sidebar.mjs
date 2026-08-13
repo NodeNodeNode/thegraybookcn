@@ -35,6 +35,21 @@ const resolveDoc = (rel) => {
 };
 const docExists = (rel) => resolveDoc(rel) !== null;
 const docId = (rel) => rel.replace(/\.mdx?$/, '');
+
+// 一文多挂时第二次要降级成 link，而 link 需要一个真实 URL —— 不能拿 docId（文件路径）
+// 顶替：本项目每页都有显式 frontmatter slug，文件路径从来就不是有效地址。
+// 这个坑一直潜伏着，直到 text-rendering 成为第一个真被挂两次的页面才引爆。
+const docUrl = (rel) => {
+  const stem = resolveDoc(rel);
+  if (!stem) return null;
+  for (const ext of ['.md', '.mdx']) {
+    const abs = path.join(DOCS, stem + ext);
+    if (!fs.existsSync(abs)) continue;
+    const m = /^slug:\s*(\S+)\s*$/m.exec(fs.readFileSync(abs, 'utf8'));
+    if (m) return m[1];
+  }
+  return '/' + stem; // 没写 slug 的页才回退到路径
+};
 const upstreamUrl = (rel) => `https://thegraybook.vvvv.org/${rel.replace(/\.md$/, '.html')}`;
 
 const seenDocs = new Set(); // 一文多挂时，第二次出现降级成 link，避免 prev/next 归属歧义
@@ -85,7 +100,7 @@ function build(nodes) {
     if (kids.length === 0) {
       // 叶子
       if (has && !isDup) out.push({type: 'doc', id: docId(rel), label: label(item)});
-      else if (has && isDup) out.push({type: 'link', label: label(item), href: '/' + docId(rel)});
+      else if (has && isDup) out.push({type: 'link', label: label(item), href: docUrl(rel)});
       else if (WITH_UNTRANSLATED && rel)
         out.push({type: 'link', label: label(item), href: upstreamUrl(rel), className: 'gb-en'});
       continue;

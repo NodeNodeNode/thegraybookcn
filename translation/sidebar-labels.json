@@ -120,5 +120,16 @@
   "reference/extending/providing-help.md": "提供帮助文档",
   "reference/extending/publishing.md": "发布 NuGet",
   "reference/extending/editor-extensions.md": "创建编辑器扩展",
-  "reference/extending/writing-nodes.md": "使用 C# 编写节点"
+  "reference/extending/writing-nodes.md": "使用 C# 编写节点",
+  "reference/best-practice/": "最佳实践",
+  "reference/best-practice/overview.md": "最佳实践",
+  "reference/best-practice/vvvv-on-arm.md": "在 Arm CPU 上运行",
+  "reference/best-practice/vvvv-on-mac.md": "在 Mac 上运行",
+  "reference/best-practice/text-rendering.md": "文字渲染",
+  "reference/best-practice/video-capture.md": "采集视频输入",
+  "reference/best-practice/video-playback.md": "播放视频",
+  "reference/best-practice/video-synchronization.md": "视频同步",
+  "reference/best-practice/video-recording.md": "录成视频",
+  "reference/best-practice/raspberry-pi.md": "部署到树莓派",
+  "reference/best-practice/version-control.md": "用 Git 做版本管理"
 }

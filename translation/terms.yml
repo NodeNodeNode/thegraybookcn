@@ -438,6 +438,21 @@ terms:
       在正文里保留英文并加反引号 —— 那是界面和代码里的字面名字，与泛指的「网格」分开。
     decided_at: 2026-08-12
 
+  - en: framebased
+    zh: 逐帧
+    status: decided
+    note: >-
+      与 timebased 成对。节点名和目录名里的 `FrameBased`（如
+      `ImagePlayer (FrameBased Stride)`、Animation 下的 FrameBased 子目录）
+      是界面字面值，保留英文原样；正文行文用「逐帧」。
+    decided_at: 2026-08-13
+
+  - en: timebased
+    zh: 基于时间
+    status: decided
+    note: 与 framebased 成对。不译「时基」—— 那在视频领域另有所指（time base）。
+    decided_at: 2026-08-13
+
   - en: slice
     status: keep-en
     case: [slice, slices, Slice, Slices]

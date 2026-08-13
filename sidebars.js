@@ -392,6 +392,11 @@ module.exports = {
             },
             {
               "type": "doc",
+              "id": "reference/best-practice/text-rendering",
+              "label": "文字渲染"
+            },
+            {
+              "type": "doc",
               "id": "reference/libraries/3d/transparency",
               "label": "透明"
             },
@@ -515,6 +520,61 @@ module.exports = {
       "link": {
         "type": "doc",
         "id": "reference/extending/overview"
+      }
+    },
+    {
+      "type": "category",
+      "label": "最佳实践",
+      "items": [
+        {
+          "type": "doc",
+          "id": "reference/best-practice/vvvv-on-arm",
+          "label": "在 Arm CPU 上运行"
+        },
+        {
+          "type": "doc",
+          "id": "reference/best-practice/vvvv-on-mac",
+          "label": "在 Mac 上运行"
+        },
+        {
+          "type": "doc",
+          "id": "reference/best-practice/video-playback",
+          "label": "播放视频"
+        },
+        {
+          "type": "doc",
+          "id": "reference/best-practice/video-capture",
+          "label": "采集视频输入"
+        },
+        {
+          "type": "doc",
+          "id": "reference/best-practice/video-recording",
+          "label": "录成视频"
+        },
+        {
+          "type": "doc",
+          "id": "reference/best-practice/video-synchronization",
+          "label": "视频同步"
+        },
+        {
+          "type": "link",
+          "label": "文字渲染",
+          "href": "/best-practice/text-rendering"
+        },
+        {
+          "type": "doc",
+          "id": "reference/best-practice/raspberry-pi",
+          "label": "部署到树莓派"
+        },
+        {
+          "type": "doc",
+          "id": "reference/best-practice/version-control",
+          "label": "用 Git 做版本管理"
+        }
+      ],
+      "link": {
+        "type": "doc",
+        "id": "reference/best-practice/overview"
       }
     }
   ],
