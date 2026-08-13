@@ -29,7 +29,7 @@ vvvv 不自带着色器编辑器。要获得最好的体验，我们推荐 **Vis
 * 在 `Open on Create` 下拉里你可以选：
   * Solution：这是最好的选择，前提是你按[编辑着色器](/libraries/3d/editing-shaders)所述装好了 Visual Studio 和 Stride 扩展
   * 打开 .sdsl 文件：如果你没装 Visual Studio，用任何文本编辑器编辑 .sdsl 文件也行
-  * 打开文件夹：如果你这会儿不想改文件，也可以只是让资源管理器打开、指到它所在的位置
+  * 打开文件夹：这会儿不想改文件的话，也可以只让资源管理器打开到文件所在的位置
 * 按 `Create`
   * 这会在磁盘上创建新的着色器文件，把 VL.Stride 包引用进你的当前文档（如果还没引用的话），并打开这个着色器
 
@@ -46,7 +46,7 @@ vvvv 不自带着色器编辑器。要获得最好的体验，我们推荐 **Vis
 任何把 VL.Stride 设为依赖的 .vl 文档，都会拾取放在它旁边、名为 “shaders” 的特殊文件夹里的着色器文件。多个 .vl 文档可以共用同一个 shaders 文件夹。
 
 :::note
-着色器文件共享一个全局范围，因此不允许出现两个同名文件 —— 哪怕它们是被两个不同的 .vl 文档引用的。
+着色器文件共享一个全局范围，所以不能有两个同名文件 —— 哪怕分属两个不同的 .vl 文档。
 :::
 
 ### 特殊后缀 {#special-suffixes}
@@ -55,7 +55,7 @@ vvvv 不自带着色器编辑器。要获得最好的体验，我们推荐 **Vis
 
 #### _ShaderFX {#_shaderfx}
 
-一个只代表「一段代码」的节点，可以用来组合出更大的着色器。这是最灵活的一类节点，它能和其他所有类型的着色器节点配合。
+一个只代表「一段代码」的节点，用来组合出更大的着色器。这类节点最灵活，跟其他所有类型的着色器节点都能配合。
 
 #### _DrawFX {#_drawfx}
 
@@ -102,7 +102,7 @@ shader MyFx_TextureFX : FilterBase
 
 ### 继承 {#inheritance}
 
-继承的主要用途是复用已有的着色器代码。你可以把它想成把另一个着色器的代码导入或包含进自己的着色器。
+继承主要用来复用已有的着色器代码，可以理解成把另一个着色器的代码导入或包含进自己的着色器。
 
 例子见 Stride 文档里的 [Inheritance（英文）](https://doc.stride3d.net/latest/en/manual/graphics/effects-and-shaders/shading-language/shader-classes-mixins-and-inheritance.html#example-code-inheritance)。
 
@@ -113,12 +113,12 @@ shader MyFx_TextureFX : FilterBase
 
 ### Composition {#composition}
 
-Composition 让着色器 A 能像用一个变量那样使用另一个着色器 B，并调用它的函数。它的关键之处在于：只要着色器 C 或 D 继承自「A 期望作为 composition 变量的」那个着色器类 B，它们就都能被用作这个 composition。正因为你可以用不同的实现（继承自 B 的着色器）来充当这个 composition，就得到了面向对象语言里所谓**接口**那样的多态。
+Composition 让着色器 A 能把另一个着色器 B 当成一个变量来用，调用 B 的函数。关键在于：A 期望的 composition 变量是着色器类 B，那么凡是继承自 B 的着色器 —— C、D 都行 —— 都可以填进这个位置。同一个 composition 能换上不同的实现，这就得到了面向对象语言里**接口**那样的多态。
 
 例子见 Stride 文档里的 [Composition（英文）](https://doc.stride3d.net/latest/en/manual/graphics/effects-and-shaders/shading-language/composition.html)。
 
 ### Stream {#streams}
 
-SDSL 提供了一种方便的方式，在着色器的不同阶段之间传递参数：只要把一个变量声明为 stream 变量，就能在任何着色器阶段读写它。SDSL 编译器会为每个着色器阶段生成对应的输入输出结构体。
+在着色器的不同阶段之间传参，SDSL 提供了一个方便的办法：把变量声明成 stream 变量，任何着色器阶段都能读写。SDSL 编译器会为每个阶段生成对应的输入输出结构体。
 
 例子见 Stride 文档里的 [Automatic shader stage input/output（英文）](https://doc.stride3d.net/latest/en/manual/graphics/effects-and-shaders/shading-language/automatic-shader-stage-input-output.html)。

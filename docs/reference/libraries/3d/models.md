@@ -15,7 +15,7 @@ last_synced: '2026-08-12'
 
 加载好的模型可以接到 `ModelEntity` 上，用某个材质把它渲染出来。
 
-目前我们还不支持自动加载材质、贴图、动画或骨骼，这些会在以后的版本里加上。例子见帮助文档 `Load Assets from File`，它同时演示了怎样给一个模型指定多个材质。
+材质、贴图、动画和骨骼目前还不能自动加载，以后的版本会加上。例子见帮助文档 `Load Assets from File`，里面还演示了怎样给一个模型指定多个材质。
 
 模型也可以从 Stride 游戏项目里加载。这样做的好处是你可以在 Stride 编辑器里把模型连同材质一起配置好。见 Stride 手册里的 [Assets（英文）](https://doc.stride3d.net/4.0/en/manual/game-studio/assets.html)和 [Animation（英文）](https://doc.stride3d.net/4.0/en/manual/animation/index.html)。另见帮助文档 `Load Stride Project` 和 `Modify Entities from a Stride Project`。
 
@@ -23,14 +23,14 @@ last_synced: '2026-08-12'
 
 ### Model {#model}
 
-`Model` 是一个高层的类，它把几何（网格）与外观（材质）组合在一起，还可以选配一副用于动画的骨骼。因此它既能表示只有一个网格、一份材质的简单模型，也能表示带动画的角色这类复杂的 3D 物体。
+`Model` 是个高层的类，把几何（网格）和外观（材质）组合在一起，还可以选配一副用于动画的骨骼。所以简单模型（一个网格加一份材质）能表示，带动画的角色这类复杂 3D 物体也能表示。
 
 在场景图里，一个模型必须被指派给某个 `Entity` 上的 `ModelComponent`。见[渲染](/libraries/3d/rendering)。
 
 ![](https://thegraybook.vvvv.org/images/libraries/3d/stride_model.svg)
 Model 的数据结构
 
-要把一个模型的数据拼起来，简单情形下（一个网格加一份材质）用 `MeshModel` 节点，多个网格和材质则用 `MeshesModel`。要把单个模型接进场景图，可以用 `ModelEntity` 节点 —— 它在内部替你把 entity 和 component 都配好了。
+拼一个模型的数据：简单情形（一个网格加一份材质）用 `MeshModel` 节点，多个网格和材质用 `MeshesModel`。把单个模型接进场景图用 `ModelEntity` 节点 —— 内部已经替你把 entity 和 component 配好了。
 
 ### Mesh {#mesh}
 
@@ -47,4 +47,4 @@ Mesh 的数据结构
 
 `DynamicMesh` 和 `DynamicMesh (Indexed)` 这两个节点，能从顶点数据和／或索引数据造出一个网格。
 
-要把单个网格接进场景图，可以用 `MeshEntity` 节点 —— 它在内部替你把 entity 和 component 都配好了。网格也可以用底层的工作流、通过 `MeshRenderer` 来渲染，细节见[渲染](/libraries/3d/rendering)。另见帮助文档 `Dynamic Mesh`，那是一个搭建并渲染网格的例子。
+把单个网格接进场景图用 `MeshEntity` 节点 —— 内部已经替你把 entity 和 component 配好了。网格也可以走底层工作流，用 `MeshRenderer` 渲染，细节见[渲染](/libraries/3d/rendering)。帮助文档 `Dynamic Mesh` 是一个搭建并渲染网格的例子。

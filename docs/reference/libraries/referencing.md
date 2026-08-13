@@ -19,36 +19,36 @@ VL 文档可以引用 3 种不同类型的依赖：
 
 ## NuGet {#nugets}
 
-[NuGet](https://www.nuget.org) 是 .NET 的包管理系统。NuGet 是一个个包，里面可以装很多 .dll 和／或 .vl 文件，把节点提供给引用它的文档。
+[NuGet](https://www.nuget.org) 是 .NET 的包管理系统。一个 NuGet 就是一个包，里面可以装很多 .dll 和／或 .vl 文件，为引用这个包的文档提供节点。
 
 安装 NuGet 的方法见[管理 NuGet](/develop-environment/managing-nugets)。
 
 ### VL NuGet 与 .NET NuGet {#vl-vs-net-nugets}
 
-VL NuGet 是专为 vl 制作的 NuGet，用在别的 [.NET 语言](https://en.wikipedia.org/wiki/List_of_CLI_languages)上是不行的。按 NuGet 原本的定义，它仍是一个合法的 NuGet，但因为它里面装着 .vl 文档，所以在 vl 之外用不了。
+VL NuGet 是专为 vl 做的 NuGet，别的 [.NET 语言](https://en.wikipedia.org/wiki/List_of_CLI_languages)用不了。按 NuGet 原本的定义，这仍是一个合法的 NuGet，只是里面装着 .vl 文档，出了 vl 就没用。
 
 .NET NuGet 则更笼统地面向任何 .NET 语言。
 
-在菜单里导航到某个 VL 或 .NET NuGet，按鼠标右键即可切换它的选中状态，从而引用它：
+在菜单里找到某个 VL 或 .NET NuGet，右键切换选中状态，就引用上了：
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-Dependencies-Nuget.png)
 右键切换添加／移除一个 NuGet 引用
 
 ### 找不到的 NuGet {#missing-nugets}
 
-如果某个文档引用的 NuGet 找不到，它会在 Dependencies 菜单里以红色列出。这种情况下右键点这条红色条目，你可以：
+文档引用的 NuGet 如果找不到，会在 Dependencies 菜单里标成红色。右键点这条红色条目，你可以：
 
 * *Install*：尝试从 nuget.org 安装。显然这只在该 NuGet 能在线找到时才管用
 * *Remove Reference*：把这个 NuGet 从本文档的依赖中移除
 
-注意你可以用右键选中多条红色条目，然后一次性对它们全部执行安装或移除。
+红色条目可以用右键选中多条，一次性全部安装或移除。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-Dependencies-MissingNuget.png)
 找不到的 NuGet 的几个选项
 
 ### 非托管／原生依赖 {#unmanagednative-dependencies}
 
-有些 NuGet 自带或依赖非托管／原生 .dll，而 vl 没法自动认出它们 —— 因为 NuGet 规范里并没有规定这类文件该怎么处理。所以，要让一个 NuGet 的这类非托管依赖被认出来，眼下你得通过一个批处理文件给 vl 加一条搜索路径，像这样：
+有些 NuGet 自带或依赖非托管／原生 .dll，vl 认不出来 —— NuGet 规范压根没规定这类文件该怎么处理。眼下要让这类非托管依赖被认出来，得写个批处理文件给 vl 加一条搜索路径，像这样：
 
 ```
 SET PATH=%PATH%;c:\path\to\nugets\nativelibs;
@@ -72,7 +72,7 @@ vvvv.exe
 
 #### 找不到的文件 {#missing-files}
 
-显示为红色的文件在磁盘上找不到。你可以右键移除或替换它们的引用。
+标成红色的文件在磁盘上找不到。右键可以移除或替换这条引用。
 
 #### 移除或替换文件 {#removing-or-replacing-files}
 
@@ -100,7 +100,7 @@ vvvv.exe
 
 ### 来自 GAC（全局程序集缓存）的库 {#libraries-from-the-gac-global-assembly-cache}
 
-.NET 默认自带大量可供引用的程序集。凡是装了 .NET 的机器上，它们都存放在 [GAC](https://docs.microsoft.com/en-us/dotnet/framework/app-domains/gac) 里，可以这样从那儿引用：
+.NET 默认自带大量可以引用的程序集。装了 .NET 的机器上，这些程序集都在 [GAC](https://docs.microsoft.com/en-us/dotnet/framework/app-domains/gac) 里，可以这样引用：
 
 * 按 <span class="keyseq"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>E</kbd></span>
 * 通过 `Document > Dependencies > Files > Add .NET Framework Assembly...`

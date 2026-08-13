@@ -13,11 +13,11 @@ VL.CoreLib 里带了大量不同的集合类型：
 
 ## Sequence {#sequence}
 
-VL 里集合的基础类型是 *Sequence*。它对应 .NET 世界里所谓的 *IEnumerable* —— 我们只是给了它一个更好读的名字。
+VL 里集合的基础类型是 *Sequence*，对应 .NET 世界里的 *IEnumerable* —— 我们只是换了个更好读的名字。
 
 ## Spread {#spread}
 
-Spread 是一种特化的 Sequence。Spread 里的元素叫作 slice。当你向一个有 4 个 slice 的 Spread 索要序号为 6 的 slice 时，它不会抱怨，而是把序号对它的个数取模 —— 也就是 6 mod 4 = 2 —— 然后返回序号为 2 的那个 slice。
+Spread 是一种特化的 Sequence，里面的元素叫 slice。向一个有 4 个 slice 的 Spread 要序号 6 的 slice，它不会报错，而是把序号对个数取模 —— 6 mod 4 = 2 —— 返回序号 2 的那个 slice。
 
 ## SpreadBuilder {#spreadbuilder}
 
