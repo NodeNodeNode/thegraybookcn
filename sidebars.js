@@ -695,5 +695,47 @@ module.exports = {
         }
       ]
     }
+  ],
+  "changelog": [
+    {
+      "type": "doc",
+      "id": "changelog/7.x",
+      "label": "7.x"
+    },
+    {
+      "type": "doc",
+      "id": "changelog/6.x",
+      "label": "6.x"
+    },
+    {
+      "type": "doc",
+      "id": "changelog/5.x",
+      "label": "5.x"
+    },
+    {
+      "type": "doc",
+      "id": "changelog/2021.4",
+      "label": "2021.4"
+    },
+    {
+      "type": "doc",
+      "id": "changelog/2021.3",
+      "label": "2021.3"
+    },
+    {
+      "type": "doc",
+      "id": "changelog/2020.2",
+      "label": "2020.2"
+    },
+    {
+      "type": "doc",
+      "id": "changelog/2020.1",
+      "label": "2020.1"
+    },
+    {
+      "type": "doc",
+      "id": "changelog/nuget-compatibility-chart",
+      "label": "NuGet 兼容性对照表"
+    }
   ]
 };

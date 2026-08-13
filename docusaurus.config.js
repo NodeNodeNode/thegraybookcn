@@ -68,6 +68,10 @@ const config = {
           // 与上游 .../reference/hde/the_nodebrowser.html 对称。首页仍由
           // src/pages/index.js 占据 '/'（只要没有 doc 的 slug 是 '/' 就不冲突）。
           routeBasePath: '/',
+          // 关掉「文件名数字前缀」解析。它默认会把 `5.x.md` 开头的 `5.` 当成排序前缀剥掉，
+          // 于是 5.x / 6.x / 7.x 三页的 doc id 全变成 `x` 直接撞车，构建失败。
+          // 我们的文件名与上游 1:1，顺序完全由 toc 决定，这个机制对本站有害无益。
+          numberPrefixParser: false,
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
             'https://github.com/NodeNodeNode/thegraybookcn/edit/main/',
