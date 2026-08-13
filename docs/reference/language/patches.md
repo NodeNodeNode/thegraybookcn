@@ -36,7 +36,7 @@ VL 文档里所有的节点定义都放在这里。你可以用[目录（英文�
 ![](https://thegraybook.vvvv.org/images/language/vl-DocumentPatch.png)
 VL.CoreLib.vl 的 Definitions 草图的一部分
 
-在这里通常能看到一系列类型定义和目录，不过定义草图里也可以直接放[静态运算器](operations.md#static-operations)。
+在这里通常能看到一系列类型定义和目录，不过定义草图里也可以直接放[静态 Operation](operations.md#static-operations)。
 
 定义草图可以设置一个基础目录，也可以不设。
 
@@ -53,7 +53,7 @@ VL.CoreLib.vl 的 Definitions 草图的一部分
 * Interface
 * Forward
 
-Process、Record 和 Class 草图可以有[参数](properties.md)和[成员运算器](operations.md#member-operations)。Interface 和 Forward 比较特殊，见下文。
+Process、Record 和 Class 草图可以有[参数](properties.md)和[成员 Operation](operations.md#member-operations)。Interface 和 Forward 比较特殊，见下文。
 
 每个类型草图，在定义草图里都有一个对应的类型定义元素。
 
@@ -72,11 +72,11 @@ Process、Record 和 Class 草图可以有[参数](properties.md)和[成员运�
 
 最常见的类型草图就是 Process。它保存着[过程节点](nodes.md)的定义 —— 也就是说，它的生命周期绑定在某个节点的存在上。
 
-Process 的成员运算器既可以直接属于这个 Process，也可以不属于。用草图浏览器可以逐个决定。多个运算器的执行顺序也在那里配置，上下拖动即可。
+Process 的成员 Operation 既可以直接属于这个 Process，也可以不属于。用草图浏览器可以逐个决定。多个 Operation 的执行顺序也在那里配置，上下拖动即可。
 
 文档的 Application 草图是一种特殊的 Process 草图：
 
-* 它有 Create 和 Update 运算器，但不允许你再添加别的运算器
+* 它有 Create 和 Update Operation，但不允许你再添加别的 Operation
 * 它不能被实例化成节点，但只要它所在的文档被直接打开、或作为别的文档的依赖被打开，它的一个*实例*就在运行了
 
 ### Record {#record}
@@ -85,12 +85,12 @@ Process 的成员运算器既可以直接属于这个 Process，也可以不属�
 
 一个 Record 典型的生命周期是这样：
 
-- 调用它的 `Create` 运算器创建出一个实例
+- 调用它的 `Create` Operation 创建出一个实例
 - 这个实例被存进某个集合里
-- `Update`（或者你自己定义的其他运算器）被反复调用、或者偶尔调用，每次返回一个**新的**实例，替换掉原来那个，再存回集合
-- 想把它清掉时，把实例从集合里移除。如果这个 Record 持有非托管资源，移除之前还必须调用它的 `Dispose` 运算器
+- `Update`（或者你自己定义的其他 Operation）被反复调用、或者偶尔调用，每次返回一个**新的**实例，替换掉原来那个，再存回集合
+- 想把它清掉时，把实例从集合里移除。如果这个 Record 持有非托管资源，移除之前还必须调用它的 `Dispose` Operation
 
-任何修改 Record 类型的节点，本质上都是复制一份（把改动应用上去）然后返回一个新实例。所以**被修改过的 Record 必须写回 *Pad*（数据板）**，改动才能活到下一帧。
+任何修改 Record 类型的节点，本质上都是复制一份（把改动应用上去）然后返回一个新实例。所以**被修改过的 Record 必须写回 Pad**，改动才能活到下一帧。
 
 Record 在任何时刻都是一份固定不变的数据快照 —— 这个性质让它特别适合 VL 这样的数据流编程语言。
 

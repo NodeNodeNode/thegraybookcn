@@ -15,11 +15,11 @@ last_synced: '2026-08-12'
 
 ## 转发的理由 {#reasons-to-forward}
 
-* 有选择地转发 .NET .dll 里的类型和运算器
+* 有选择地转发 .NET .dll 里的类型和 Operation
 * 调整类型上与 VL 相关的元信息（比如可变性和已知类型结构）
 * 为 VL 里的节点和类型挑一个合适的目录
 * 做简单的单位或类型转换（比如把弧度制的角度换成周期制）
-* 重命名针脚、运算器、类型
+* 重命名针脚、Operation、类型
 * 给输入针脚设定默认值
 * 提供便利的过程节点，把一些底层功能包装成更高层的节点
 * 设计可销毁对象的生命周期管理
@@ -82,13 +82,13 @@ last_synced: '2026-08-12'
 
 #### 转发所有节点 {#forward-all-nodes}
 
-创建类型转发时，这个类型的每一个运算器默认都会被当作节点转发出去。如果你更愿意只有选择地转发其中一部分运算器，就取消勾选 “Forward All Nodes” 这个选项。
+创建类型转发时，这个类型的每一个 Operation 默认都会被当作节点转发出去。如果你更愿意只有选择地转发其中一部分 Operation，就取消勾选 “Forward All Nodes” 这个选项。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-ForwardAll.png)
 Forward All Nodes
 
 :::note
-即使这个选项开着，你仍然可以为个别运算器单独创建运算器转发，从而调整它们的转发方式，见下文。
+即使这个选项开着，你仍然可以为个别 Operation 单独创建 Operation 转发，从而调整它们的转发方式，见下文。
 :::
 
 #### 可变性 {#mutability}
@@ -114,9 +114,9 @@ C# 接下来的版本里请留意 `record`，它应该能减轻写不可变类�
 
 #### 创建默认值 {#create-default}
 
-成员运算器节点常常期望主输入上有一个该类型的值，只要那儿什么都没连，它就抛「空指针异常」。为了避免这一点，我们需要告诉 VL：需要时它该怎么构造这个类型的一个默认实例。
+成员 Operation 节点常常期望主输入上有一个该类型的值，只要那儿什么都没连，它就抛「空指针异常」。为了避免这一点，我们需要告诉 VL：需要时它该怎么构造这个类型的一个默认实例。
 
-做法很简单：在类型转发草图里创建一个叫 `CreateDefault` 的运算器，把它实现成返回该类型的一个实例。这往往只需要返回该类型某个构造函数的结果，别无其他。
+做法很简单：在类型转发草图里创建一个叫 `CreateDefault` 的 Operation，把它实现成返回该类型的一个实例。这往往只需要返回该类型某个构造函数的结果，别无其他。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-CreateDefault.png)
 为一个类型创建默认值
@@ -130,28 +130,28 @@ C# 接下来的版本里请留意 `record`，它应该能减轻写不可变类�
 
 这样你就得到了一个可用的、属于你 C# 类型的过程节点。
 
-如果你想从同一个类型转发里暴露多于一个过程节点，那么每多一个过程节点，你就得另建一个[过程定义](/language/patches#process)。这些定义不转发类型，只是用该类型的运算器来搭出想要的过程。
+如果你想从同一个类型转发里暴露多于一个过程节点，那么每多一个过程节点，你就得另建一个[过程定义](/language/patches#process)。这些定义不转发类型，只是用该类型的 Operation 来搭出想要的过程。
 
-### 转发运算器 {#forwarding-operations}
+### 转发 Operation {#forwarding-operations}
 
-如上所示，一个类型转发可以轻松地自动转发它的全部运算器。不过即便 “Forward All Nodes” 开着，手动转发某些运算器以便调整它们的针脚，仍然是讲得通的。
+如上所示，一个类型转发可以轻松地自动转发它的全部 Operation。不过即便 “Forward All Nodes” 开着，手动转发某些 Operation 以便调整它们的针脚，仍然是讲得通的。
 
-为个别运算器创建转发：
+为个别 Operation 创建转发：
 
-1. 打开你想把这个运算器放进去的那个类型
+1. 打开你想把这个 Operation 放进去的那个类型
 2. 打开方案浏览器
 3. 选 “.NET Dependencies”
-4. 找到你想导入的运算器
-5. 把这个运算器拖放进那个类型
+4. 找到你想导入的 Operation
+5. 把这个 Operation 拖放进那个类型
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-DroppingOperation.png)
-把运算器放进类型里
+把 Operation 放进类型里
 
 :::note
-你也可以选中多个运算器，一次性把它们放进草图。
+你也可以选中多个 Operation，一次性把它们放进草图。
 :::
 
-现在你有了一个转发运算器定义，包在你想转发的那个节点外面。被转发节点的所有针脚都会自动反映在这个转发定义的签名里。这也意味着：该节点签名的任何变动（也就是它底层的 .NET 代码里增加／改名／删除了针脚）都会自动反映到转发定义的签名上。如果因为某些原因你不想要这种行为，见下文「手动管理签名」。
+现在你有了一个转发 Operation 定义，包在你想转发的那个节点外面。被转发节点的所有针脚都会自动反映在这个转发定义的签名里。这也意味着：该节点签名的任何变动（也就是它底层的 .NET 代码里增加／改名／删除了针脚）都会自动反映到转发定义的签名上。如果因为某些原因你不想要这种行为，见下文「手动管理签名」。
 
 即便不手动管理签名，你仍然可以对一个转发做下面这些改动：
 
@@ -164,7 +164,7 @@ C# 接下来的版本里请留意 `record`，它应该能减轻写不可变类�
 
 ### 设定默认值 {#setting-a-default}
 
-运算器的参数很少带有意义的默认值。要转发一个带合适默认值的针脚，就手动为这个针脚建一个输入，并给它设默认值。
+Operation 的参数很少带有意义的默认值。要转发一个带合适默认值的针脚，就手动为这个针脚建一个输入，并给它设默认值。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-ForwardPins-Default.png)
 通过中键点击或 `Rightclick > Configure` 给输入设默认值
@@ -178,19 +178,19 @@ C# 接下来的版本里请留意 `record`，它应该能减轻写不可变类�
 
 ### 类型或单位转换 {#type-or-unit-conversions}
 
-转发是做简单类型或单位转换的好地方。设想一个运算器接受弧度制的角度，而你想用符合 vl 习惯的周期制。
+转发是做简单类型或单位转换的好地方。设想一个 Operation 接受弧度制的角度，而你想用符合 vl 习惯的周期制。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-ForwardPins-Conversion.png)
 SineWave 接受周期制的角度
 
 ### 显示目录 {#show-category}
 
-默认情况下成员运算器开着这一项，静态运算器不开。要改这个默认值，唯一说得过去的理由是像 Vector (Join) 这样的节点 —— 它们是成员这一事实，对草图的可读性并不重要。对比下面两者：
+默认情况下成员 Operation 开着这一项，静态 Operation 不开。要改这个默认值，唯一说得过去的理由是像 Vector (Join) 这样的节点 —— 它们是成员这一事实，对草图的可读性并不重要。对比下面两者：
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-ShowCategory-Compare.png)
 Vector (Join) [2D.Vector2] 不显示它的目录，而 GetSlice [Collections.Spreads] 显示
 
-在你正在转发的那个运算器的标题栏上右键，选 `Configure > Show Category`，来指定这个节点是否显示它的类型目录。
+在你正在转发的那个 Operation 的标题栏上右键，选 `Configure > Show Category`，来指定这个节点是否显示它的类型目录。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-ShowCategory.png)
 Show Category 复选框
@@ -215,7 +215,7 @@ Show Category 复选框
 * 签名里的针脚不再按它们在草图里的横向位置自动排序
 * 对那些开了 “Connect to Signature” 的节点，若其签名变了，针脚不会再被自动加进／移出签名。取而代之，签名上会显示警告，让你去查看这些变动并作出反应
 
-另见[运算器签名](/language/operations#operation-signature)。
+另见 [Operation 签名](/language/operations#operation-signature)。
 
 ### Connect to Signature {#connect-to-signature}
 
@@ -263,7 +263,7 @@ public class PackageArgs: EventArgs
 }
 ```
 
-然后你可以造一个静态运算器节点，它在 VL 里接收一个 `Tablet` 实例，并在输出上返回一个 `Observable<PackageArgs>`：
+然后你可以造一个静态 Operation 节点，它在 VL 里接收一个 `Tablet` 实例，并在输出上返回一个 `Observable<PackageArgs>`：
 
 ```csharp
 public static class TabletHelper
@@ -287,7 +287,7 @@ public static class TabletHelper
 
 *（上游此处待补图：在 vl 里长什么样）*
 
-注意这里节点是放在 Create 上、结果存进一个数据板的，而不是放在 Update 上 —— 这样 Observable 只会被创建一次，这正是我们想要的。如果因为某些原因你必须把节点放在 Update 上（比如它输入上的 Tablet 可能会变），那么有个小技巧可以加上，用来缓存这个 Observable、只在输入变化时重建它：
+注意这里节点是放在 Create 上、结果存进一个 Pad 的，而不是放在 Update 上 —— 这样 Observable 只会被创建一次，这正是我们想要的。如果因为某些原因你必须把节点放在 Update 上（比如它输入上的 Tablet 可能会变），那么有个小技巧可以加上，用来缓存这个 Observable、只在输入变化时重建它：
 
 ```csharp
 public static class TabletHelper

@@ -13,7 +13,7 @@ last_synced: '2026-08-12'
 
 *（上游此处待补图：普通连线、引用连线、Delegate 连线）*
 
-在[类型草图](patches.md#datatype-patches)里，连线可以带颜色，颜色告诉你它属于哪个[成员运算器](operations.md#member-operations)。
+在[类型草图](patches.md#datatype-patches)里，连线可以带颜色，颜色告诉你它属于哪个[成员 Operation](operations.md#member-operations)。
 
 连线上出现「黄袜子」是一个警告：这条连线的来源是可变的，而它同时接到了不止一个下游节点。具体含义以及该怎么处理，请读提示框里的完整说明。
 

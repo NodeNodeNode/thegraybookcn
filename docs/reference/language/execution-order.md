@@ -21,7 +21,7 @@ last_synced: '2026-08-12'
 
 ![](https://thegraybook.vvvv.org/images/language/mutable-undefined-order.png)
 
-与其把这些运算器「并联」到数据板上，不如把它们「串联」起来，这样执行顺序就明确了。
+与其把这些 Operation「并联」到 Pad 上，不如把它们「串联」起来，这样执行顺序就明确了。
 
 ![](https://thegraybook.vvvv.org/images/language/mutable-defined-order.png)
 
@@ -49,6 +49,6 @@ last_synced: '2026-08-12'
 
 想想就明白：如果 VL 允许你这么干，它永远不知道该从哪里开始执行。所以在这种情形下，你需要想清楚 —— 把上一帧算出来的值存在哪里，然后在下一帧取用。
 
-解决办法是引入一个[参数](properties.md)，用数据板在这一帧写入、在下一帧读出：
+解决办法是引入一个[参数](properties.md)，用 Pad 在这一帧写入、在下一帧读出：
 
 ![](https://thegraybook.vvvv.org/images/language/property-instead-of-cyclic-graph.png)

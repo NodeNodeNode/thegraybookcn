@@ -11,14 +11,14 @@ last_synced: '2026-08-12'
 
 ## Nodes / 节点 {#nodes}
 
-在 vvvv beta 里所有节点长得都一样。VL 则区分**过程节点**和**运算器节点**：
+在 vvvv beta 里所有节点长得都一样。VL 则区分**过程节点**和 **Operation 节点**：
 
-*（上游此处待补图：过程节点 LFO、运算器节点 Distance、成员运算器节点 Any 的对比）*
+*（上游此处待补图：过程节点 LFO、Operation 节点 Distance、成员 Operation 节点 Any 的对比）*
 
 * **过程节点是有状态的**，针脚下面有一条较深的横条
-* **运算器节点是无状态的**，没有那条横条
+* **Operation 节点是无状态的**，没有那条横条
 
-有状态意味着过程节点可以跨帧保存数据。无状态的运算器节点则是简单的函数，只能对通过输入拿到的数据做运算。
+有状态意味着过程节点可以跨帧保存数据。无状态的 Operation 节点则是简单的函数，只能对通过输入拿到的数据做运算。
 
 从这个角度说，vvvv beta 里所有节点都**可能**有状态，但你没有简单的办法看出它究竟有没有。
 
@@ -38,15 +38,15 @@ Name (Version1 Version2 ..) [Category.Subcategory]
 Name (Category Version1 Version2)
 ```
 
-## Operations / 运算器 {#operations}
+## Operations / Operation {#operations}
 
-在 vvvv beta 里，每个草图恰好定义一个运算。VL 里一个草图可以定义任意多个运算器，每个都有你自己指定的名字和版本，并继承所在草图的目录。
+在 vvvv beta 里，每个草图恰好定义一个运算。VL 里一个草图可以定义任意多个 Operation，每个都有你自己指定的名字和版本，并继承所在草图的目录。
 
-*（上游此处待补图：一个草图里的多个运算器）*
+*（上游此处待补图：一个草图里的多个 Operation）*
 
 ## IOBoxes vs Pins / IOBox 与针脚 {#ioboxes-vs-pins}
 
-在 vvvv beta 里，IOBox 既可以用来设置值也可以用来显示值；给它起个有描述性的名字，它就变成了所在草图的输入或输出针脚。VL 则把 IOBox 和针脚分开了：IOBox 仍然用来设置或显示值，而运算器的入口和出口要用显式的针脚元素来指定。
+在 vvvv beta 里，IOBox 既可以用来设置值也可以用来显示值；给它起个有描述性的名字，它就变成了所在草图的输入或输出针脚。VL 则把 IOBox 和针脚分开了：IOBox 仍然用来设置或显示值，而 Operation 的入口和出口要用显式的针脚元素来指定。
 
 *（上游此处待补图：IOBox 与针脚的对比）*
 
@@ -79,7 +79,7 @@ VL 里数值类型有很多：
 
 ## Spreads {#spreads}
 
-vvvv beta 里有 Spread 生成器（如 LinearSpread）、Spread 运算器（如 GetSlice、Zip）和 Spread 汇点（如 Bounds、Mean）。VL 里这些都有，而且更多 —— 还有个额外的好处：**所有 Spread 操作对所有数据类型都始终可用**，不必为此往节点浏览器里塞更多节点。见 Generics。
+vvvv beta 里有 Spread 生成器（如 LinearSpread）、Spread Operation（如 GetSlice、Zip）和 Spread 汇点（如 Bounds、Mean）。VL 里这些都有，而且更多 —— 还有个额外的好处：**所有 Spread 操作对所有数据类型都始终可用**，不必为此往节点浏览器里塞更多节点。见 Generics。
 
 在 vvvv beta 里，两个针脚之间的每条连接都是一个 Spread。Spread 可以有 0 个、1 个或多个 slice，但无论如何它都是 Spread。
 

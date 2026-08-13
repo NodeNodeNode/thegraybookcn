@@ -7,17 +7,17 @@ origin: cn
 
 ## 专有名词
 
-这七个词是全书的地基，出现频率最高，也最容易各译各的：
+这七个词是全书的地基，出现频率最高，也最容易各译各的。其中 Operation 与 Pad 保留英文 —— 与 IOBox、Spread、Delegate 同一处理，界面上写的也是它们：
 
 | 名词 | 翻译 |
 | :--- | :--- |
 | Patch | 草图 |
 | Node | 节点 |
-| Operation | 运算器 |
+| Operation | 保留英文 |
 | Link | 连线 |
 | Pin | 针脚 |
 | Region | 区块 |
-| Pad | 数据板 |
+| Pad | 保留英文 |
 
 **完整术语表有 60 条**，包括哪些词保留英文不译（Spread、Delegate、Generic、Aspect 等）：
 

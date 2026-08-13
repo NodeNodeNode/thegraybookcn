@@ -11,7 +11,7 @@ last_synced: '2026-08-12'
 
 再来看一些数据：
 
-| 类型 | 数据板 |
+| 类型 | Pad |
 |---|---|
 | Color（RGBA 颜色） | ![](https://thegraybook.vvvv.org/images/introduction/datatype-color.png) |
 | Number（Integer32 整数） | ![](https://thegraybook.vvvv.org/images/introduction/datatype-Integer32.png) |

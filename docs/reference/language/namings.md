@@ -19,7 +19,7 @@ ParticleSystem
 AlignedBox
 ```
 
-运算器：
+Operation：
 
 ```
 Update
@@ -31,7 +31,7 @@ SplitCurve
 
 **a-z A-Z 0-9 + - \* / = ~ < >**
 
-数据板和针脚的名字里应当带空格，这样看起来更舒服，也和运算器区分得开：
+Pad 和针脚的名字里应当带空格，这样看起来更舒服，也和 Operation 区分得开：
 
 ```
 Velocity

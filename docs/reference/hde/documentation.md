@@ -13,7 +13,7 @@ last_synced: '2026-08-12'
 
 * 文档
 * 所选文档里的草图
-* 所选草图里的运算器
+* 所选草图里的 Operation
 
 只要 *Attach* 复选框没有勾上，你在编辑器里切换草图时，文档窗口就会跟着当前草图走。
 
@@ -37,10 +37,10 @@ last_synced: '2026-08-12'
 * Tags：逗号分隔的标签，用来在节点浏览器里找到这个数据类型
 * Properties：逐个描述这个数据类型的每个参数
 
-## Operation / 运算器 {#operation}
+## Operation / Operation {#operation}
 
-* Summary：一句话描述这个运算器
+* Summary：一句话描述这个 Operation
 * Remarks：补充的用法说明、注意事项、已知问题等
-* Tags：逗号分隔的标签，用来在节点浏览器里找到这个运算器
-* Inputs：逐个描述这个运算器的每个输入
-* Outputs：逐个描述这个运算器的每个输出
+* Tags：逗号分隔的标签，用来在节点浏览器里找到这个 Operation
+* Inputs：逐个描述这个 Operation 的每个输入
+* Outputs：逐个描述这个 Operation 的每个输出

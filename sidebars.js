@@ -258,7 +258,7 @@ module.exports = {
         {
           "type": "doc",
           "id": "reference/language/operations",
-          "label": "运算器"
+          "label": "Operation"
         },
         {
           "type": "doc",

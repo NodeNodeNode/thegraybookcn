@@ -65,14 +65,19 @@ terms:
     decided_at: 2026-08-11
 
   - en: pad
-    zh: 数据板
-    status: decided
-    first_use: true
+    status: keep-en
+    case: [Pad, Pads]
+    forbid: [数据板]
     note: >-
-      原先只有 3 处样本，暂定为「数据板」。翻 properties 页时它出现 47 次
-      （那是它的主场页），读下来「数据板」站得住 —— 它确实是草图里存放数据的一块板子，
-      与 IOBox 本质相同。2026-08-12 转为已定。
-    decided_at: 2026-08-12
+      保留英文。2026-08-13 由 RED 拍板，推翻 8-12 那次「数据板」的决定。
+      推翻的直接理由是当初那条决策自己写着「与 IOBox 本质相同」，而 IOBox 保留英文的
+      理由是「社区口语固定说法，译成中文反而增加理解成本」—— 同一条理由对 Pad 完全成立，
+      当时却把它译了，这本身就不自洽。
+      「数据板」翻的是「板子」这个视觉比喻，没有传达「这是个变量」。
+      Pad 在 VL 里本质就是变量（草图里是字段，Operation 里是局部变量），
+      所以 properties 页首次出现处补了一句「Pad 就是草图里的变量」作为心智模型。
+      「数据板」已列入 forbid，防止回潮。
+    decided_at: 2026-08-13
 
   - en: region
     zh: 区块
@@ -81,25 +86,32 @@ terms:
     decided_at: 2026-08-11
 
   - en: operation
-    zh: 运算器
-    status: decided
-    forbid: [操作器]
-    first_use: true
+    status: keep-en
+    case: [Operation, Operations]
+    forbid: [运算器, 操作器]
     note: >-
-      原译者在 language/operations.md 里专门写了 :::note 论证过这个选择
-      （「Operations 可以翻译成运算器，操作器等等……这里先采用运算器」）。
-      沿用，并把「操作器」列入 forbid。
-    decided_at: 2026-08-11
+      保留英文。2026-08-13 由 RED 拍板，推翻 8-11 沿用下来的「运算器」。
+      原译者在 language/operations.md 里专门写过 :::note 论证这个选择
+      （「Operations 可以翻译成运算器，操作器等等……这里先采用运算器」），
+      当时的取舍是认真的，这里记一笔。
+      推翻的理由有两条：一、中文《计算机组成原理》里「运算器」就是 ALU
+      （算术逻辑单元），CPU = 运算器 + 控制器 —— 对科班读者是明确的撞词；
+      二、「-器」是设备后缀，而 Operation 是一段可调用的逻辑，不是设备。
+      与 spread / delegate / generic / aspect 同一策略，界面上写的也是 Operation。
+      「运算器」「操作器」均已列入 forbid。
+    decided_at: 2026-08-13
 
   - en: static operation
-    zh: 静态运算器
+    zh: 静态 Operation
     status: decided
-    decided_at: 2026-08-11
+    forbid: [静态运算器]
+    decided_at: 2026-08-13
 
   - en: member operation
-    zh: 成员运算器
+    zh: 成员 Operation
     status: decided
-    decided_at: 2026-08-11
+    forbid: [成员运算器]
+    decided_at: 2026-08-13
 
   - en: process node
     zh: 过程节点

@@ -68,9 +68,9 @@ Advanced 大概是最重要的一个 Aspect。它背后的想法是：节点库�
 
 给某个类型指定的 Aspect，同样作用于它内部的所有元素！
 
-## 给单个运算器指定 Aspect {#specifying-an-aspect-for-a-single-operation}
+## 给单个 Operation 指定 Aspect {#specifying-an-aspect-for-a-single-operation}
 
-要给单个[运算器](/language/operations)指定 Aspect，只要把关键字写进运算器名字的版本部分，比如：
+要给单个 [Operation](/language/operations) 指定 Aspect，只要把关键字写进 Operation 名字的版本部分，比如：
 
 ```
 GetBytes (Advanced) 或 Transform (Normal Advanced)

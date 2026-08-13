@@ -9,7 +9,7 @@ last_synced: '2026-08-12'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/language/delegates.html)
 
-Delegate 是**匿名的运算器**：它可以像一个对象那样被传来传去，需要的时候再拿数据去调用它。
+Delegate 是**匿名的 Operation**：它可以像一个对象那样被传来传去，需要的时候再拿数据去调用它。
 
 Delegate 没有名字，这在这里是个优点 —— 只要签名对得上，它就能装进去，像一块形状合适的乐高。这样你就能把「行为」当成对象来处理，在不同功能之间轻松切换，而下游调用它的代码一个字都不用改。Delegate 把内部实现藏起来，只对外露出一个门面。
 

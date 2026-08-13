@@ -12,7 +12,7 @@ last_synced: '2026-08-12'
 开发环境提供两种快速查找的方式：
 
 * **Finder**：在当前草图里搜字符串
-* **SymbolFinder**：搜文档、草图、运算器、数据板
+* **SymbolFinder**：搜文档、草图、Operation、Pad
 
 ## Finder {#finder}
 
@@ -34,6 +34,6 @@ SymbolFinder
 |---|---|
 | d | 只搜文档 |
 | p | 只搜草图（类型、Process） |
-| m | 只搜成员运算器 |
-| u | 只搜工具运算器 |
+| m | 只搜成员 Operation |
+| u | 只搜工具 Operation |
 | f | 只搜字段 |

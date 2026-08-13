@@ -82,8 +82,8 @@ last_synced: '2026-08-12'
 | 在定义中向上一层 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>^</kbd></span>（同上） |
 | 把当前草图截图复制到剪贴板，并在 .vl 文档旁存为 PNG | <span class="keyseq"><kbd>Ctrl</kbd><kbd>2</kbd></span> |
 | 把当前草图截图，在 .vl 文档旁存为 SVG | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>2</kbd></span> |
-| 复制选中的节点／数据板 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>D</kbd></span> |
-| 复制选中的节点／数据板，并保留进来的连线 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>D</kbd></span> |
+| 复制选中的节点／Pad | <span class="keyseq"><kbd>Ctrl</kbd><kbd>D</kbd></span> |
+| 复制选中的节点／Pad，并保留进来的连线 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>D</kbd></span> |
 
 ## Pan & Zoom / 平移与缩放 {#pan--zoom}
 
@@ -110,7 +110,7 @@ last_synced: '2026-08-12'
 |---|---|
 | 选中一个元素 | 左键单击 |
 | 把一个元素加进选区 | <span class="keyseq"><kbd>Ctrl</kbd></span> + 左键单击 |
-| 框选时强制把连线也选进来（即使已经选中了节点或数据板） | <span class="keyseq"><kbd>Space</kbd></span> |
+| 框选时强制把连线也选进来（即使已经选中了节点或 Pad） | <span class="keyseq"><kbd>Space</kbd></span> |
 | 框选时只选连线 | <span class="keyseq"><kbd>L</kbd></span> |
 
 ## Nodes / 节点 {#nodes}
@@ -120,8 +120,8 @@ last_synced: '2026-08-12'
 | 调出节点浏览器来创建节点 | 在草图空白处或连线上双击左键 | |
 | 替换一个节点 | 双击左键调出节点浏览器，选另一个节点。可能需要先按 <kbd>Esc</kbd> 清掉已有的选择 | |
 | 把节点（或一组节点）移进／移出区块 | 拖动时按住 <span class="keyseq"><kbd>Space</kbd></span> | |
-| 把运算器节点指派给某个运算器 | 右键 -> Assign -> （运算器） | |
-| 清除节点的运算器指派 | 右键 -> Assign -> Clear assignment | |
+| 把 Operation 节点指派给某个 Operation | 右键 -> Assign -> （Operation） | |
+| 清除节点的 Operation 指派 | 右键 -> Assign -> Clear assignment | |
 | 对齐选中的节点 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>L</kbd></span> | |
 | 把选中的节点排成一行 | <span class="keyseq"><kbd>Alt</kbd><kbd>L</kbd></span> | |
 | 在选区最左／上和最右／下的节点之间均匀分布 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>L</kbd></span> | |
@@ -134,8 +134,8 @@ last_synced: '2026-08-12'
 | 设置帮助标志 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>H</kbd></span> | [帮助（英文）](https://thegraybook.vvvv.org/reference/extending/providing-help.html#help-flags) |
 | 把节点打包成过程节点 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>G</kbd></span> | |
 | 把节点打包成过程节点（在当前画布） | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>G</kbd></span> | |
-| 把节点打包成运算器节点 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>G</kbd></span> | |
-| 把节点打包成运算器节点（在当前画布） | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>Shift</kbd><kbd>G</kbd></span> | |
+| 把节点打包成 Operation 节点 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>G</kbd></span> | |
+| 把节点打包成 Operation 节点（在当前画布） | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>Shift</kbd><kbd>G</kbd></span> | |
 | 重命名节点的定义 | <span class="keyseq"><kbd>F2</kbd></span> | |
 | 剪切节点的定义 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>X</kbd></span> | |
 
@@ -156,16 +156,16 @@ last_synced: '2026-08-12'
 | （输出组 2）添加针脚 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>Shift</kbd><kbd>+</kbd></span> |
 | （输出组 2）移除针脚 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>Shift</kbd><kbd>-</kbd></span> |
 
-## Pads / 数据板 {#pads}
+## Pads / Pad {#pads}
 
 | 操作 | 按键 |
 |---|---|
-| 通过节点浏览器创建 | 在草图里双击左键，输入数据板的名字，选 *Pad* |
+| 通过节点浏览器创建 | 在草图里双击左键，输入 Pad 的名字，选 *Pad* |
 | 拉连线的过程中创建 | 以 <span class="keyseq"><kbd>Shift</kbd></span> + 左键单击收尾 |
 | 固化当前的类型标注 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>T</kbd></span> |
 | 清除类型标注 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>T</kbd></span> |
-| 生成 Create／Split 运算器 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>K</kbd></span> |
-| 生成参数存取运算器（Get／Set） | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>K</kbd></span> |
+| 生成 Create／Split Operation | <span class="keyseq"><kbd>Ctrl</kbd><kbd>K</kbd></span> |
+| 生成参数存取 Operation（Get／Set） | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>K</kbd></span> |
 
 ## IOBoxes {#ioboxes}
 
@@ -196,7 +196,7 @@ last_synced: '2026-08-12'
 |---|---|
 | 拉连线时创建一个 IOBox | 在草图里以中键单击收尾（或 <span class="keyseq"><kbd>Alt</kbd></span> + 左键单击） |
 | 拉连线时创建输入或输出针脚 | 在草图里以 <span class="keyseq"><kbd>Ctrl</kbd></span> + 左键单击收尾 |
-| 拉连线时创建一个数据板 | 在草图里以 <span class="keyseq"><kbd>Shift</kbd></span> + 左键单击收尾 |
+| 拉连线时创建一个 Pad | 在草图里以 <span class="keyseq"><kbd>Shift</kbd></span> + 左键单击收尾 |
 | 拉连线时创建一个节点 | 以双击左键收尾 |
 | 拉连线时插入一个折点 | 在草图空白处单击 |
 | 在已有连线上插入折点 | 在连线上按下并拖出一个新的点 |
@@ -206,20 +206,20 @@ last_synced: '2026-08-12'
 | 在已有连线上插入一个 IOBox | 在连线上双击右键 |
 | 删除一条连线 | 中键单击它，或选中后按 <kbd>Delete</kbd> |
 | 连完一条线后，从同一个源再拉一条 | 以中键单击收尾 |
-| 把连线指派给某个运算器 | 右键 -> Assign -> （运算器） |
-| 清除连线的运算器指派 | 右键 -> Assign -> Clear assignment |
-| 在已有连线上插入一个数据板 | <span class="keyseq"><kbd>Shift</kbd></span> + 双击左键，或在连线上双击右键 |
+| 把连线指派给某个 Operation | 右键 -> Assign -> （Operation） |
+| 清除连线的 Operation 指派 | 右键 -> Assign -> Clear assignment |
+| 在已有连线上插入一个 Pad | <span class="keyseq"><kbd>Shift</kbd></span> + 双击左键，或在连线上双击右键 |
 | 在已有连线上插入一个节点 | 在连线上双击左键 |
-| 显示连线的提示框，查看当前值和它被指派给哪个运算器 | 悬停连线时按住 <span class="keyseq"><kbd>Ctrl</kbd></span> |
+| 显示连线的提示框，查看当前值和它被指派给哪个 Operation | 悬停连线时按住 <span class="keyseq"><kbd>Ctrl</kbd></span> |
 | 强制连到一个本来不接受该连接的数据枢纽 | <span class="keyseq"><kbd>Space</kbd></span> |
-| 框选时强制把连线也选进来（即使已经选中了节点或数据板） | <span class="keyseq"><kbd>Space</kbd></span> |
+| 框选时强制把连线也选进来（即使已经选中了节点或 Pad） | <span class="keyseq"><kbd>Space</kbd></span> |
 
 ## Finders / 查找 {#finders}
 
 | 操作 | 按键 | 帮助 |
 |---|---|---|
 | 在当前草图里搜字符串 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>F</kbd></span> | [查找](finders.md) |
-| 全局搜索符号（文档、草图、运算器、数据板） | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>F</kbd></span> 或 <span class="keyseq"><kbd>Ctrl</kbd><kbd>,</kbd></span> | [查找](finders.md) |
+| 全局搜索符号（文档、草图、Operation、Pad） | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>F</kbd></span> 或 <span class="keyseq"><kbd>Ctrl</kbd><kbd>,</kbd></span> | [查找](finders.md) |
 
 ## Frames / 边框 {#frames}
 
@@ -227,7 +227,7 @@ last_synced: '2026-08-12'
 |---|---|
 | 从框选创建一个边框 | 框选时按住 <span class="keyseq"><kbd>Alt</kbd></span> |
 | 从框选在视图空间创建一个边框 | 框选时按住 <span class="keyseq"><kbd>Alt</kbd><kbd>Shift</kbd></span> |
-| 框选时强制把边框也选进来（即使已经选中了节点或数据板） | <span class="keyseq"><kbd>Space</kbd></span> |
+| 框选时强制把边框也选进来（即使已经选中了节点或 Pad） | <span class="keyseq"><kbd>Space</kbd></span> |
 | 用边框把选中的节点围起来 | <span class="keyseq"><kbd>Alt</kbd><kbd>F</kbd></span> |
 | 在视图空间用边框把选中的节点围起来 | <span class="keyseq"><kbd>Alt</kbd><kbd>Shift</kbd><kbd>F</kbd></span> |
 | 切换草图中所有边框的显示 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>F</kbd></span> |

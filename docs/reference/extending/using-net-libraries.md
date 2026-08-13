@@ -17,7 +17,7 @@ last_synced: '2026-08-12'
 
 ## 访问节点 {#accessing-nodes}
 
-每一个被引用的 .dll 都会在节点浏览器里显示为一个顶级目录。进去就能浏览这个库的命名空间、类型和运算器。把鼠标停在某个运算器上，可以读它附带的 xml 文档。点击任意一个运算器，就能把它当节点用在草图里。
+每一个被引用的 .dll 都会在节点浏览器里显示为一个顶级目录。进去就能浏览这个库的命名空间、类型和 Operation。把鼠标停在某个 Operation 上，可以读它附带的 xml 文档。点击任意一个 Operation，就能把它当节点用在草图里。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-using-NodeBrowser.png)
 节点浏览器里，来自 VL.DemoLib.dll 的命名空间 “DemoLib” 显示为一个顶级目录

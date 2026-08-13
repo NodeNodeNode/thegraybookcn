@@ -26,7 +26,7 @@ VL 的默认节点库叫 VL.CoreLib，它为最基本的打草图需求提供节
 | Adaptive | 能对不同数据类型运算的节点，比如能处理数字、字符串、颜色……的 `+ [Adaptive]`，或者对 2D 和 3D 向量都管用的 `Length [Adaptive]`。 |
 | Animation | 基于时间的节点，比如时间发生器（LFO、Stopwatch……）和滤波器（Damper、Oscillator……）。它还有一个子目录 *FrameBased*，里面是功能类似但改为逐帧运算的节点。 |
 | [Collections](/libraries/collections) | 最值得一提的是 Spread，此外还有 Sequence、Dictionary、HashSet 这些较简单的集合。 |
-| Color | 包含 RGBA 颜色类型，以及在不同色彩空间之间转换的运算器。 |
+| Color | 包含 RGBA 颜色类型，以及在不同色彩空间之间转换的 Operation。 |
 | Control | 用来打控制流的节点，比如 FlipFlop、MonoFlop…… |
 | IO | 鼠标、键盘和触摸节点，以及文件 IO、Path（目录、文件名）和网络相关的节点。 |
 | Math | 通用数学、算法…… |

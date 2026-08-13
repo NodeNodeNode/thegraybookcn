@@ -105,7 +105,7 @@ https://github.com/vvvv/VL.DemoLib
 
 ### 针脚名 {#pin-names}
 
-为了在 VL 里更好读，运算器的参数会按驼峰式大小写拆开。所以 C# 里的 “firstInput” 到了 VL 里就是 “First Input”。默认的 “return” 返回值在 VL 里叫 “Output”。
+为了在 VL 里更好读，Operation 的参数会按驼峰式大小写拆开。所以 C# 里的 “firstInput” 到了 VL 里就是 “First Input”。默认的 “return” 返回值在 VL 里叫 “Output”。
 
 ```csharp
 public static float PinNames(float firstInput, float secondInput)
@@ -148,7 +148,7 @@ public static void MultipleOutputs(float firstInput, float secondInput, out floa
 
 ### 函数重载 {#function-overloading}
 
-你可以写多个同名的运算器，它们只在输入参数的个数上有差别：
+你可以写多个同名的 Operation，它们只在输入参数的个数上有差别：
 
 ```csharp
 public static float MyAddition(float input, float input2)
@@ -168,7 +168,7 @@ public static float MyAddition(float input, float input2, float input3)
 
 ### 使用枚举 {#using-enums}
 
-你可以把自定义的 C# 枚举用作运算器的输入或输出类型：
+你可以把自定义的 C# 枚举用作 Operation 的输入或输出类型：
 
 ```csharp
 public enum DemoEnum { Foo, Bar };
@@ -352,7 +352,7 @@ public float AddValue(float value)
 在 VL 里，这些事件以同名节点的形式提供，返回一个 `Observable<EventPattern<>>`：
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-writingNodes-Observables.png)
-在 VL 里长这样：a) 成员运算器，b) 不带任何参数的 ValueChanged 事件，c) 带一个参数的 ValueExceeded 事件
+在 VL 里长这样：a) 成员 Operation，b) 不带任何参数的 ValueChanged 事件，c) 带一个参数的 ValueExceeded 事件
 
 * 如果你的事件不带任何参数（上图中的 b 部分），只是在某件事发生时发一个脉冲，那就用 HoldLatest [Reactive] 节点的 `On Data` 输出来获知这个事件。
 
@@ -379,7 +379,7 @@ enum MyEnum = { Foo, Bar }
 
 这里 `MyEnum` 是我们所说的类型，而 `{ Foo, Bar }` 构成了它的定义。
 
-我们想在代码里使用这样一个枚举的方式，是把它作为某个运算器的输入参数的类型，像这样：
+我们想在代码里使用这样一个枚举的方式，是把它作为某个 Operation 的输入参数的类型，像这样：
 
 ```csharp
 public static string EnumDemo(MyEnum e)

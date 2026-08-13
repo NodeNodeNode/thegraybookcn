@@ -53,7 +53,7 @@ Full Category 和普通目录类似，区别在于它**不会**把自己追加�
 
 ## Setting Categories on Definitions / 在定义上设置目录 {#setting-categories-on-definitions}
 
-好像上面这些选择还不够多似的，还有一种方式可以给运算器或数据类型的定义指定目录：
+好像上面这些选择还不够多似的，还有一种方式可以给 Operation 或数据类型的定义指定目录：
 
 ![](https://thegraybook.vvvv.org/images/language/09_SetCategoryOnDef.gif)
-在数据类型或运算器的定义上设置目录
+在数据类型或 Operation 的定义上设置目录

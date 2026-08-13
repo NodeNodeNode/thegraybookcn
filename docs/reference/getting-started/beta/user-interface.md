@@ -22,7 +22,7 @@ VL 的节点浏览器完全是另一套东西。见[节点浏览器](../../hde/t
 Inspector 有两个：
 
 - 主 [Inspector（英文）](https://thegraybook.vvvv.org/reference/hde/inspector.html)
-- 也可以按需在可查看的元素旁边就地打开一个：中键点击某个输入／输出、数据板或 IOBox，或者右键点它的标签选 `Configure`
+- 也可以按需在可查看的元素旁边就地打开一个：中键点击某个输入／输出、Pad 或 IOBox，或者右键点它的标签选 `Configure`
 
 ## Finder / 查找 {#finder}
 

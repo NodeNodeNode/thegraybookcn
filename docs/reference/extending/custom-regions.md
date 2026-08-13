@@ -163,7 +163,7 @@ VL 为区块开发者提供了好几种这样的回调机制。
 
 ### 示例 {#examples}
 
-目前在帮助面板的 API / Custom Regions 下有一个例子，叫 *IfElse*。它定义了一个叫 `IIfElsePatch` 的接口，充当内嵌草图，带两个运算器 `Then` 和 `Else`。打开时它创建一份内嵌草图，此后就按输入条件在它上面调用 `Then` 或 `Else`。
+目前在帮助面板的 API / Custom Regions 下有一个例子，叫 *IfElse*。它定义了一个叫 `IIfElsePatch` 的接口，充当内嵌草图，带两个 Operation `Then` 和 `Else`。打开时它创建一份内嵌草图，此后就按输入条件在它上面调用 `Then` 或 `Else`。
 
 同一个例子的 C# 写法在这里：https://github.com/vvvv/VL.StandardLibs/blob/main/VL.TestNodes/src/IfElseRegion.cs
 
@@ -173,14 +173,14 @@ VL 为区块开发者提供了好几种这样的回调机制。
 
 * 定义一个类，继承 `IRegion`，并启用它的 process。
 * 可选：定义一个接口 `IMyPatchInlay`，代表区块的内部。
-* 给你的类加一个叫 `Update` 的运算器，并确保它属于这个 process。这是当前设计的一条限制／假设，将来可能会放开。
-* 定义一个叫 `SetPatchInlayFactory` 的运算器，带一个输入 `Patch Inlay Factory`，并标注为 `() -> IMyPatchInlay`。
+* 给你的类加一个叫 `Update` 的 Operation，并确保它属于这个 process。这是当前设计的一条限制／假设，将来可能会放开。
+* 定义一个叫 `SetPatchInlayFactory` 的 Operation，带一个输入 `Patch Inlay Factory`，并标注为 `() -> IMyPatchInlay`。
 * 这个区块现在应该能从节点浏览器里找到了。
 * `Patch Inlay Factory` 这个针脚可以用来进一步配置支持哪些类型的控制点（或者一个都不支持）。细节见下文。
-* 加上运算器 `AcknowledgeInput` —— 系统会为每一个控制点和连线调用它，把数据送进区块。
-* 加上运算器 `RetrieveOutput` —— 系统会调用它，为每一个控制点取回数据。
-* 加上运算器 `RetrieveInput` —— 系统会从内嵌草图内部调用它，为某个控制点或连线取回数据。
-* 加上运算器 `AcknowledgeOutput` —— 系统会从内嵌草图内部调用它，把某个控制点的数据交给区块。
+* 加上 Operation `AcknowledgeInput` —— 系统会为每一个控制点和连线调用它，把数据送进区块。
+* 加上 Operation `RetrieveOutput` —— 系统会调用它，为每一个控制点取回数据。
+* 加上 Operation `RetrieveInput` —— 系统会从内嵌草图内部调用它，为某个控制点或连线取回数据。
+* 加上 Operation `AcknowledgeOutput` —— 系统会从内嵌草图内部调用它，把某个控制点的数据交给区块。
 
 ### 配置选项 {#configuration-options-1}
 
@@ -196,6 +196,6 @@ VL 为区块开发者提供了好几种这样的回调机制。
 
 虽然我们认为这套 API 状态相当不错（它是这些年多份提案演化来的，比如 https://github.com/vvvv/VL-Language/issues/53 ），当前的实现仍带着一些假设／限制：
 
-* 这个 process 必须含有一个 `Update` 运算器。我们大概还需要加一些配置选项，来定义控制点在「从外部的多个时刻连线」这件事上允许怎样表现。目前输入控制点被假定在 `Update` 上，而输出控制点也可以从其他时刻访问。这条限制不适用于区块的内部时刻 —— 我们的 *IfElse* 例子就明确允许从 `Then` 和 `Else` 连到同一个控制点，最后一个赢。
+* 这个 process 必须含有一个 `Update` Operation。我们大概还需要加一些配置选项，来定义控制点在「从外部的多个时刻连线」这件事上允许怎样表现。目前输入控制点被假定在 `Update` 上，而输出控制点也可以从其他时刻访问。这条限制不适用于区块的内部时刻 —— 我们的 *IfElse* 例子就明确允许从 `Then` 和 `Else` 连到同一个控制点，最后一个赢。
 * 用作内嵌草图的那个接口不能继承其他接口。
 * 接口上的类型参数（泛化接口）目前还没测试过。

@@ -97,7 +97,7 @@ vvvvc.exe MyApp.vl --asset-behavior RelativeToDocument
 vvvvc.exe MyApp.vl --output-type Exe
 ```
 
-控制台程序会打开一个 Windows 控制台，把 Update 运算器只跑一帧，然后立刻自我释放。想避免这个默认行为，用 **KeepAppAlive** 节点。
+控制台程序会打开一个 Windows 控制台，把 Update Operation 只跑一帧，然后立刻自我释放。想避免这个默认行为，用 **KeepAppAlive** 节点。
 
 ## Runtime identifier / 运行时标识 {#runtime-identifier}
 
