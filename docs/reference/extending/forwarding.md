@@ -40,7 +40,7 @@ last_synced: '2026-08-12'
 
 ### 1. Set a reference to the .NET .dll or .csproj / 1. 设一个指向 .NET .dll 或 .csproj 的引用 {#1-set-a-reference-to-the-net-dll-or-csproj}
 
-在一个空白的 .vl 文档里，设好指向你想转发类型的那些 .NET .dll 或 .csproj 文件的引用。见[引用文件（英文）](https://thegraybook.vvvv.org/reference/libraries/referencing.html#Files)。
+在一个空白的 .vl 文档里，设好指向你想转发类型的那些 .NET .dll 或 .csproj 文件的引用。见[引用文件](/libraries/referencing#files)。
 
 ### 2. Prepare a Category / 2. 准备好一个目录 {#2-prepare-a-category}
 

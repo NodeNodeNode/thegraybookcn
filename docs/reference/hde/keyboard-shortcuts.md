@@ -131,7 +131,7 @@ last_synced: '2026-08-12'
 | 暴露针脚 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>K</kbd></span> | |
 | 移动选中的节点 | <span class="keyseq"><kbd>方向键</kbd></span> | |
 | 更快地移动选中的节点 | <span class="keyseq"><kbd>Shift</kbd><kbd>方向键</kbd></span> | |
-| 设置帮助标志 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>H</kbd></span> | [帮助（英文）](https://thegraybook.vvvv.org/reference/extending/providing-help.html#help-flags) |
+| 设置帮助标志 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>H</kbd></span> | [帮助](/extending/providing-help#help-flags) |
 | 把节点打包成过程节点 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>G</kbd></span> | |
 | 把节点打包成过程节点（在当前画布） | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>G</kbd></span> | |
 | 把节点打包成 Operation 节点 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>G</kbd></span> | |

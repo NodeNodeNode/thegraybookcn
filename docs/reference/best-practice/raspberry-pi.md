@@ -9,7 +9,7 @@ last_synced: '2026-08-13'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/best-practice/raspberry-pi.html)
 
-从 [5.0 版本（英文）](https://thegraybook.vvvv.org/changelog/5.x.html)起，你可以把控制台应用[导出](/develop-environment/exporting)到 Linux —— 这让[树莓派](https://www.raspberrypi.com/)成了一个绝佳的目标平台。
+从 [5.0 版本](/changelog/5.x)起，你可以把控制台应用[导出](/develop-environment/exporting)到 Linux —— 这让[树莓派](https://www.raspberrypi.com/)成了一个绝佳的目标平台。
 
 在[应用导出器](/develop-environment/exporting)里这样指定：
 

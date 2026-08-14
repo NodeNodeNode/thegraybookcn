@@ -4,33 +4,42 @@ slug: /getting-started/
 source_path: reference/getting-started/overview.md
 source_blob: d198a604921900819b38f0dfb5529dd7948491f8
 status: translated
-last_synced: '2026-08-11'
+last_synced: '2026-08-14'
 ---
 
-如果你想认真地对待一下vvvv，这个文档就是一个不错地开始。
+想认真玩一下 vvvv？来对地方了。
 
-根据你的背景不同，你可以从下面挑选一个介绍帮助你开始。
+看你从哪儿来，下面这几篇介绍里总有一篇适合你：
 
-- [写给 creative coder](introduction-for-creative-coders)
-- [写给 .NET 开发者（英文）](https://thegraybook.vvvv.org/reference/getting-started/dotnet/introduction-for-dotnet-programmers.html)
-- [写给 vvvv beta 用户（英文）](https://thegraybook.vvvv.org/reference/getting-started/beta/introduction-for-vvvv-beta-users.html)
+* [写给 creative coders](/getting-started/introduction-for-creative-coders)
+* [写给 .NET 程序员](/getting-started/introduction-for-dotnet-programmers)
+* [写给 vvvv beta 用户](/getting-started/introduction-for-vvvv-beta-users)
 
-## 章节
+## Download / 下载 {#download}
 
-这里展现了更细节的章节划分
+[下载 vvvv](https://vvvv.org/#Download) 时有两个版本可选：
 
-|  章节   | 内容  |
-|  ----  | ----  |
-| 开发环境  | 关于vvvv不同的组件（菜单，窗口等等） |
-| 语言  | 关于介绍VL这个语言 |
-| Library  | 关于可以使用的节点库的概览 |
-| 扩展vvvv  | 关于开发者开发自己的节点以及libraries |
-| Best Practice  | 关于某些具体主题的 Best Practice |
+- Stable（稳定版）：正式项目用这个
+- Preview（预览版）：想试最新功能用这个
 
-## 教程
+也可以用第三方的 [Gamma Launcher](https://github.com/sebescudie/GammaLauncher/releases)，方便下载多个版本并排使用。
 
-想要先看看视频教程？请访问youtube的[vvvvTv](https://www.youtube.com/vvvvtv42)频道。[这里](https://thenodeinstitute.org/courses/node20-vvvv-workshop-bundle/)同样也提供了大概有30个的工作坊的视频记录。
+## Finding Help / 找到帮助 {#finding-help}
 
-## 交流
+* [课程与教程（英文）](https://thegraybook.vvvv.org/index.html#courses)：在线课程和教程视频一览
+* [帮助面板](/develop-environment/finding-help#help-browser)：vvvv 内置，从这里进入教程、示例和更多内容
+* [论坛](https://forum.vvvv.org)：还有问题？在这儿问
+* [聊天](https://matrix.to/#/#vvvv-space:matrix.org)：想跟其他 vvvv 用户聊聊？这是我们在 Matrix 上的空间，按主题分了若干房间
+* [商业支持](https://vvvv.org/support/)：商业项目需要定制支持？我们可以帮忙
 
-还有很多问题？试着去[论坛](https://discourse.vvvv.org/)找找答案吧。想喝其他的vvvv 用户交流？欢迎加入我们的[讨论](https://app.element.io/#/room/#vvvv:matrix.org)。
+:::note[译者补充]
+下面这张表是译者添加的，上游原文没有。左侧栏已有同样的导航，这里只是给个概览。
+
+| 章节 | 内容 |
+| --- | --- |
+| [开发环境](/develop-environment/overview) | vvvv 的各个组件：菜单、窗口等等 |
+| [编程语言](/language/) | VL 这门语言本身 |
+| [节点库](/libraries/) | 可用节点库的概览 |
+| [扩展 vvvv](/extending/) | 自己写节点和节点库 |
+| [最佳实践](/best-practice/) | 若干具体主题的实践建议 |
+:::

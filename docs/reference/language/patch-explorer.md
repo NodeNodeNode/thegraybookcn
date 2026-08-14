@@ -32,7 +32,7 @@ last_synced: '2026-08-12'
 ![](https://thegraybook.vvvv.org/images/hde/definition-patch-explorer.png)
 
 - 可以指定一个目录，它会作用于文档里的所有元素
-- 列出嵌套的元素，比如[类型草图定义](patches.md#datatype-patches)、[静态 Operation 定义](operations.md#creating-a-static-operation)和[目录（英文）](https://thegraybook.vvvv.org/reference/language/categories.html)
+- 列出嵌套的元素，比如[类型草图定义](patches.md#datatype-patches)、[静态 Operation 定义](operations.md#creating-a-static-operation)和[目录](/language/categories)
 
 ## Datatype Patch Explorer / 类型草图 {#datatype-patch-explorer}
 
@@ -42,7 +42,7 @@ last_synced: '2026-08-12'
 
 - 可以指定数据类型的名字
 - 可以设置[类型草图](patches.md#datatype-patches)的种类
-- 仅 Record／Class：可以指定一个 [Aspect（英文）](https://thegraybook.vvvv.org/reference/extending/aspects.html)
+- 仅 Record／Class：可以指定一个 [Aspect](/extending/aspects)
 - 可以指定这个数据类型能否有 Generic 的输入／输出
 - 仅 Record／Class：列出全部 Interface，可以增删
 - 列出这个类型的全部[参数](properties.md)，可以增加、重命名、删除
@@ -50,7 +50,7 @@ last_synced: '2026-08-12'
   - 每个 Operation 的[签名](operations.md#operation-signature)都可以在这里显示和调整
 - 可以配置 [Process](patches.md#process) 定义
   - 启用／停用 Process
-  - 设置一个 [Aspect（英文）](https://thegraybook.vvvv.org/reference/extending/aspects.html)
+  - 设置一个 [Aspect](/extending/aspects)
   - 启用／停用 State 输出
   - 通过勾选框决定哪些 Operation 属于这个 Process
   - 上下拖动 Operation，决定它们在 Process 里的执行顺序
@@ -62,12 +62,12 @@ last_synced: '2026-08-12'
 
 ### Forward {#forward}
 
-见 [Forwarding .NET Libraries（英文）](https://thegraybook.vvvv.org/reference/extending/forwarding.html)。
+见 [Forwarding .NET Libraries](/extending/forwarding)。
 
 ## Category Patch Explorer / 目录草图 {#category-patch-explorer}
 
 ![](https://thegraybook.vvvv.org/images/hde/category-patch-explorer.png)
 
-- 可以给[目录（英文）](https://thegraybook.vvvv.org/reference/language/categories.html)或 [group patch（英文）](https://thegraybook.vvvv.org/reference/language/groups.html)指定名字
-- 可以改变[目录（英文）](https://thegraybook.vvvv.org/reference/language/categories.html)的类型
-- 列出嵌套的元素，比如[类型草图定义](patches.md#datatype-patches)、[静态 Operation 定义](operations.md#creating-a-static-operation)和[目录（英文）](https://thegraybook.vvvv.org/reference/language/categories.html)
+- 可以给[目录](/language/categories)或 [group patch](/language/groups)指定名字
+- 可以改变[目录](/language/categories)的类型
+- 列出嵌套的元素，比如[类型草图定义](patches.md#datatype-patches)、[静态 Operation 定义](operations.md#creating-a-static-operation)和[目录](/language/categories)

@@ -14,7 +14,7 @@ Aspect 主要用在节点库开发中。它能让你：
 * 把「标准」节点与「进阶」「内部」节点区分开
 * 把节点标记为「已废弃」或「实验性」
 
-在节点浏览器里，Aspect 可以用来[过滤节点（英文）](https://thegraybook.vvvv.org/reference/hde/the_nodebrowser.html#filtering-nodes)。
+在节点浏览器里，Aspect 可以用来[过滤节点](/develop-environment/the-node-browser#filtering-nodes)。
 
 VL 有这几个 Aspect 关键字：
 

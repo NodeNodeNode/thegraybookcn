@@ -106,7 +106,7 @@
   "reference/libraries/3d/rendering.md": "渲染",
   "reference/libraries/3d/shaders.md": "着色器",
   "reference/libraries/3d/texturefx.md": "TextureFX",
-  "reference/libraries/3d/geometry.md": "多边形",
+  "reference/libraries/3d/geometry.md": "几何",
   "reference/extending/overview.md": "扩展 vvvv",
   "reference/extending/using-net-libraries.md": "使用 .NET 库",
   "reference/extending/code-editors.md": "选一个代码编辑器",

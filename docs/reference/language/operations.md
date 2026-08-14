@@ -129,7 +129,7 @@ Operation 定义里的输入和输出，会在对应的节点上呈现为针脚�
 
 ### Pin groups / Pin Group {#pin-groups}
 
-类型为 `Spread<T>`、`Array<T>`、`MutableArray<T>`、`Dictionary<string, T>` 和 `MutableDictionary<string, T>` 的针脚，可以改成所谓的 *Pin Group*。Pin Group 允许你在节点上动态增删针脚。对应的快捷键见 [Pin Group 快捷键（英文）](https://thegraybook.vvvv.org/reference/hde/keyboard-shortcuts.html#pin-groups)。
+类型为 `Spread<T>`、`Array<T>`、`MutableArray<T>`、`Dictionary<string, T>` 和 `MutableDictionary<string, T>` 的针脚，可以改成所谓的 *Pin Group*。Pin Group 允许你在节点上动态增删针脚。对应的快捷键见 [Pin Group 快捷键](/develop-environment/keyboard-shortcuts#pin-groups)。
 
 要把一个针脚变成 Pin Group，它必须先被标注成上面那些类型之一。只有这样，设置菜单里的 Pin Group 标志才能设为 TRUE。
 
@@ -149,6 +149,6 @@ Operation 的签名决定了它的输入和输出在对应节点上的排列顺�
 
 签名默认**锁定**，也就是针脚顺序由它们在草图里从左到右的位置决定。想手动管理，点那个锁图标**解锁** —— 之后就能拖拽排列了。
 
-[Connect To Signature（英文）](https://thegraybook.vvvv.org/reference/extending/forwarding.html#connect-to-signature)这个功能只在锁定的签名上生效 —— 那种情况下系统才完全掌控针脚的存在与顺序。
+[Connect To Signature](/extending/forwarding#connect-to-signature)这个功能只在锁定的签名上生效 —— 那种情况下系统才完全掌控针脚的存在与顺序。
 
 双击针脚的名字可以重命名。中键单击针脚可以给它标注类型。

@@ -54,6 +54,6 @@ last_synced: '2026-08-12'
 
 动态枚举目前同样不能在 VL 里直接创建，也得写一小段 C# 代码。按[使用 C# 编写节点](../extending/writing-nodes.md)里的说明操作，选其中一个 “Dynamic Enum” 模板，然后打开生成的 .cs 文件按需定制。
 
-定制的细节见[定义动态枚举（英文）](https://thegraybook.vvvv.org/reference/extending/writing-nodes.html#dynamic-enums)。
+定制的细节见[定义动态枚举](/extending/writing-nodes#dynamic-enums)。
 
 改完保存 .cs 文件，这个枚举就能在你的 VL 文档里用了。

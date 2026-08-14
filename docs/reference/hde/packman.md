@@ -89,6 +89,10 @@ nuget.org（vvvv 默认的包仓库）维护着一份[已知漏洞](https://lear
 
 Packman 最好的地方在于：**到头来你其实不太需要它。** 如果你已经知道想引用的 VL 包叫什么名字，直接在节点浏览器里加就行。
 
+<video width="100%" controls autoPlay muted loop>
+  <source src="https://thegraybook.vvvv.org/images/reference/hde/packman-nfc.mp4" type="video/mp4" />
+</video>
+
 在节点浏览器里输入任意一个包的名字，选中，就完事了。凡是能在 Packman 或[线上包浏览器](https://vvvv.org/packs/)里找到的 VL 包，都能这样添加。
 
 这一步到底做了什么？两件事：
@@ -97,6 +101,10 @@ Packman 最好的地方在于：**到头来你其实不太需要它。** 如果�
 - 把这个版本引用到当前 VL 文档
 
 想把包移除？同样的办法。
+
+<video width="100%" controls autoPlay muted loop>
+  <source src="https://thegraybook.vvvv.org/images/reference/hde/packman-nfc2.mp4" type="video/mp4" />
+</video>
 
 那什么时候还需要 Packman 呢？
 

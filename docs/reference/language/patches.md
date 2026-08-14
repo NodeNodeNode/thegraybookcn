@@ -31,7 +31,7 @@ Application 草图里也可以放定义，但这不算什么好习惯。
 
 ## Definitions patch / Definitions 草图 {#definitions-patch}
 
-VL 文档里所有的节点定义都放在这里。你可以用[目录（英文）](https://thegraybook.vvvv.org/reference/language/categories.html)和 [group patch（英文）](https://thegraybook.vvvv.org/reference/language/groups.html)在这里搭出层级、组织你的定义。快捷键 `Alt` `+` `Shift` `+` `A` 可以到这个草图。
+VL 文档里所有的节点定义都放在这里。你可以用[目录](/language/categories)和 [group patch](/language/groups)在这里搭出层级、组织你的定义。快捷键 `Alt` `+` `Shift` `+` `A` 可以到这个草图。
 
 ![](https://thegraybook.vvvv.org/images/language/vl-DocumentPatch.png)
 VL.CoreLib.vl 的 Definitions 草图的一部分
@@ -110,4 +110,4 @@ Class 同样可以顺带定义一个 Process，方法也是在草图浏览器里
 
 ### Forward {#forward}
 
-见 [Forwarding（英文）](https://thegraybook.vvvv.org/reference/extending/forwarding.html)。
+见 [Forwarding](/extending/forwarding)。

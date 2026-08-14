@@ -13,7 +13,7 @@ last_synced: '2026-08-12'
 
 ## Referencing Libraries / 引用节点库 {#referencing-libraries}
 
-想在草图里用上某个节点库，只需把它作为*dependency*（依赖）[引用（英文）](https://thegraybook.vvvv.org/reference/libraries/referencing.html)进这个 .vl 文档。
+想在草图里用上某个节点库，只需把它作为*dependency*（依赖）[引用](/libraries/referencing)进这个 .vl 文档。
 
 ## Accessing nodes / 访问节点 {#accessing-nodes}
 

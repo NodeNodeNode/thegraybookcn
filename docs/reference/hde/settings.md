@@ -4,18 +4,22 @@ slug: /develop-environment/settings
 source_path: reference/hde/settings.md
 source_blob: 7d7ff1a2befae6796cebe0d2d016295ec9141780
 status: translated
-last_synced: '2026-08-11'
+last_synced: '2026-08-14'
 ---
 
-点击编辑窗口的右上的汉堡包按钮，你将会看到设置的选项：
+设置在编辑器窗口右上角的汉堡菜单里：
 
 ![](https://thegraybook.vvvv.org/images/reference/hde/settings.png)
 
-在2021.4的之前版本里，这个设置的选项基本上需要在一个文本文档中编辑，查看`Quad > Setting`（Quad指编辑窗口左上角的灰色logo方块）。
+2021.4 之前的版本，设置得手动改一个文本文件，见 `Quad > Settings`。
 
-## 本地设置
+:::note[译者注]
+`Quad` 指编辑器窗口左上角那个灰色的 logo 方块。这句是译者补充，上游原文没有。
+:::
 
-你也可以同样使用本地的文档作为设置。你需要在启动vvvv的时候使用下面的命令行作作为参数。
+## Local Settings / 本地设置 {#local-settings}
+
+启动 vvvv.exe 时也可以通过命令行参数指定一份本地设置文件：
 
 ```
 --settings C:\path\to\setings.xml

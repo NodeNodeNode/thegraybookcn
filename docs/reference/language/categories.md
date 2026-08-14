@@ -46,7 +46,7 @@ Full Category 与普通目录类似，区别是**不**追加到上级目录后�
 
 ## Changing the Patch Type / 改变草图类型 {#changing-the-patch-type}
 
-用草图类型的枚举，可以轻松把目录转成 [group patch（英文）](https://thegraybook.vvvv.org/reference/language/groups.html)，反过来也行。注意看标签是怎么变化、怎么反映实际的目录结构的：
+用草图类型的枚举，可以轻松把目录转成 [group patch](/language/groups)，反过来也行。注意看标签是怎么变化、怎么反映实际的目录结构的：
 
 ![](https://thegraybook.vvvv.org/images/language/08_ChangePatchType.gif)
 把 group 转成目录

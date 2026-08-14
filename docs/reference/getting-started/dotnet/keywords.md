@@ -18,11 +18,27 @@ last_synced: '2026-08-12'
 
 ### abstract {#abstract}
 
-[C# 参考](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract) · {no-inheritance}
+[C# 参考](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract)
+
+```csharp
+abstract class Foo
+{
+  abstract public int Bar();
+}
+```
+
+{no-inheritance}
 
 ### as {#as}
 
-[C# 参考](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/as) · 用 *CastAs* 节点。
+[C# 参考](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/as)
+
+```csharp
+object foo = 1;
+var foo = foo as int;
+```
+
+用 *CastAs* 节点。
 
 ### base {#base}
 
@@ -30,7 +46,18 @@ last_synced: '2026-08-12'
 
 ### break {#break}
 
-[C# 参考](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/break) · 见[循环的特殊针脚](../../language/loops.md#special-pins)，那里讲了怎么用 **Break** 输出跳出循环。
+[C# 参考](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/break)
+
+```csharp
+for (int i = 0; i < 10; i++)
+{
+  if (i % 2 == 0)
+    break;
+  Console.Beep();
+}
+```
+
+见[循环的特殊针脚](../../language/loops.md#special-pins)，那里讲了怎么用 **Break** 输出跳出循环。
 
 ### case {#case}
 
@@ -88,7 +115,13 @@ last_synced: '2026-08-12'
 
 ### enum {#enum}
 
-[C# 参考](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum) · 已有的枚举在 VL 里当然能用，但有一件事 VL 还做不到：**定义自定义枚举**。需要自定义枚举的话，目前得用 C# 代码来定义，做法见[使用 C# 编写节点](../../extending/writing-nodes.md)。
+[C# 参考](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum)
+
+```csharp
+enum Alignment {Left, Middle, Right};
+```
+
+已有的枚举在 VL 里当然能用，但有一件事 VL 还做不到：**定义自定义枚举**。需要自定义枚举的话，目前得用 C# 代码来定义，做法见[使用 C# 编写节点](../../extending/writing-nodes.md)。
 
 ### event {#event}
 
@@ -172,7 +205,13 @@ last_synced: '2026-08-12'
 
 ### new {#new}
 
-[C# 参考](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/new) · `new` 关键字表示构造器，也就是创建对象新实例的那个运算。在 VL 里，Class 和 Record 的构造器一律叫 **Create**。
+[C# 参考](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/new)
+
+```csharp
+var date = new DateTime(2002, 12, 24);
+```
+
+`new` 关键字表示构造器，也就是创建对象新实例的那个运算。在 VL 里，Class 和 Record 的构造器一律叫 **Create**。
 
 在 VL 里创建一个 DateTime 实例是这样：
 

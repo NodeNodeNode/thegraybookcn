@@ -44,14 +44,14 @@ last_synced: '2026-08-12'
 具体包括：
 
 - 所有随 vvvv 一起发布的包
-- 所有你额外[安装（英文）](https://thegraybook.vvvv.org/reference/hde/managing-nugets.html)并在项目里引用的包。这是合理的 —— 你本来就不该去改它们，要改也是换一个版本的 NuGet
-- 所有你从[源码包仓库（英文）](https://thegraybook.vvvv.org/reference/extending/contributing.html#source-package-repositories)引用的包
+- 所有你额外[安装](/develop-environment/managing-nugets)并在项目里引用的包。这是合理的 —— 你本来就不该去改它们，要改也是换一个版本的 NuGet
+- 所有你从[源码包仓库](/extending/contributing#source-package-repositories)引用的包
 
 ### Editable packages / 可编辑的包 {#editable-packages}
 
-你想让某些包脱离「默认只读」，最可能的原因是：你通过[源码包仓库（英文）](https://thegraybook.vvvv.org/reference/extending/contributing.html#source-package-repositories)引用了它们，就是为了改它们。
+你想让某些包脱离「默认只读」，最可能的原因是：你通过[源码包仓库](/extending/contributing#source-package-repositories)引用了它们，就是为了改它们。
 
-这种情况下，启动 vvvv 时要加上[命令行参数（英文）](https://thegraybook.vvvv.org/reference/hde/commandline-arguments.html) `editable-packages`。下面这个例子让所有以 “VL.Devices” 开头的包、以及 “VL.Audio” 这个包都退出预编译：
+这种情况下，启动 vvvv 时要加上[命令行参数](/develop-environment/commandline-arguments) `editable-packages`。下面这个例子让所有以 “VL.Devices” 开头的包、以及 “VL.Audio” 这个包都退出预编译：
 
 ```
 --editable-packages VL.Devices*;VL.Audio

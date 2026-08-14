@@ -17,7 +17,7 @@ last_synced: '2026-08-12'
 
 编程有时候像玩耍 —— 你正身处创造之中。为了不打断这个过程，就算系统眼下觉得某条连接讲不通，你也可以按 `SPACE` `+` 点击强行连上。说不定再动几下、断开另一条线，它就讲得通了。
 
-关于打草图的体验和工作流，更多内容见[「开发环境」（英文）](https://thegraybook.vvvv.org/reference/hde/gui.html)。
+关于打草图的体验和工作流，更多内容见[「开发环境」](/develop-environment/)。
 
 ## Meaning? / 这些连接意味着什么 {#meaning}
 

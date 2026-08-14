@@ -11,7 +11,7 @@ last_synced: '2026-08-12'
 
 边框用来在视觉上组织草图：在某一部分背后放一个边框，加上标题和颜色。
 
-边框相关的全部快捷键，见 [边框快捷键（英文）](https://thegraybook.vvvv.org/reference/hde/keyboard-shortcuts.html#Frames)。
+边框相关的全部快捷键，见 [边框快捷键](/develop-environment/keyboard-shortcuts#frames)。
 
 ![](https://thegraybook.vvvv.org/images/language/frame.png)
 

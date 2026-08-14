@@ -60,7 +60,7 @@ vvvv 永远会加载它找到的最新版 NuGet。所以如果你想降级到某
 删除某个版本的方法是去[查看已安装](#show-installed)，从那里删掉对应的文件夹。如果删不掉，先把 vvvv 关掉。
 :::
 
-我们在 [NuGet 兼容性对照表（英文）](https://thegraybook.vvvv.org/changelog/nuget-compatibility-chart.html)里收集了各个包在特定 vvvv 版本下的推荐版本。
+我们在 [NuGet 兼容性对照表](/changelog/nuget-compatibility-chart)里收集了各个包在特定 vvvv 版本下的推荐版本。
 
 ### Troubleshooting / 排查 {#troubleshooting}
 

@@ -388,7 +388,7 @@ module.exports = {
             {
               "type": "doc",
               "id": "reference/libraries/3d/geometry",
-              "label": "多边形"
+              "label": "几何"
             },
             {
               "type": "doc",

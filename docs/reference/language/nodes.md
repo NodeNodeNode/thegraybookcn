@@ -80,7 +80,7 @@ Class Operation 节点属于某个 Class，并在这个 Class 上工作。它们
 
 一个节点通常只有一个输入或一个输出针脚组，这种情况下按 <span class="keyseq"><kbd>CTRL</kbd><kbd>+</kbd></span> 增加针脚、<span class="keyseq"><kbd>CTRL</kbd><kbd>-</kbd></span> 减少针脚。
 
-节点上有多个针脚组时的快捷键，见[针脚组快捷键（英文）](https://thegraybook.vvvv.org/reference/hde/keyboard-shortcuts.html#pin-groups)。
+节点上有多个针脚组时的快捷键，见[针脚组快捷键](/develop-environment/keyboard-shortcuts#pin-groups)。
 
 ![](https://thegraybook.vvvv.org/images/language/PinGroup.png)
 
