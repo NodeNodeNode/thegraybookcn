@@ -16,11 +16,11 @@ last_synced: '2026-08-13'
 * Output type：Console Application
 * Target：Linux
 
-## 部署模式 {#deployment-modes}
+## Deployment modes / 部署模式 {#deployment-modes}
 
 正如 [Deploy .NET apps on ARM single-board computers（英文）](https://learn.microsoft.com/en-us/dotnet/iot/deployment#deploying-a-framework-dependent-app)所述，有两种部署模式：
 
-### 依赖框架 {#framework-dependent}
+### Framework dependent / 依赖框架 {#framework-dependent}
 
 导出器默认用这个模式。导出的东西要能跑起来，先得[在树莓派上装好 .NET（英文）](https://learn.microsoft.com/en-us/dotnet/iot/deployment#deploying-a-framework-dependent-app)，照做第 1、2 步。
 
@@ -30,7 +30,7 @@ last_synced: '2026-08-13'
 dotnet myprogram.dll
 ```
 
-### 自包含 {#self-contained}
+### Self-contained / 自包含 {#self-contained}
 
 用这个选项就不需要你装 .NET 了！
 
@@ -60,7 +60,7 @@ chmod +x myprogram
 ./myprogram
 ```
 
-## 自动部署文件 {#automatic-deployment-of-files}
+## Automatic deployment of files / 自动部署文件 {#automatic-deployment-of-files}
 
 每次构建之后把文件复制到树莓派这件事，是可以自动化的。在导出器界面里按 `Advanced build configuration`，在 `<Project>` 标签内部加上下面这些行：
 
@@ -91,18 +91,18 @@ chmod +x myprogram
 
 把 `SourceFolder` 和 `DestFolder` 填好。之后每次构建，改动过的文件都会被复制到树莓派上。
 
-## 开机自启 {#autostart}
+## Autostart / 开机自启 {#autostart}
 
 要让应用在树莓派开机时自动启动，得把它装成一个服务 —— rc.local、.desktop 文件这些办法似乎都不行。
 
 安装服务的方法，参阅 [boot.pdf](https://github.com/thagrol/Guides/blob/main/boot.pdf) 的第 “4.4 Using A Systemd Service” 章。
 
-### 几个坑 {#pitfalls}
+### Pitfalls / 几个坑 {#pitfalls}
 
 * 如果你的程序要访问文件，记得把 `WorkingDirectory` 设到应用在磁盘上所在的位置
 * `ExecStart` 里 “dotnet” 和你的应用都需要写绝对路径，比如：`/home/pi/.dotnet/dotnet /home/pi/MyApp/myapp.dll`
 
-### 把树莓派映射成网络驱动器 {#map-pi-as-network-drive}
+### Map Pi as network drive / 把树莓派映射成网络驱动器 {#map-pi-as-network-drive}
 
 要把树莓派用户的主目录映射成 Windows 机器上的 Z 盘，在命令提示符里运行：
 
@@ -110,7 +110,7 @@ chmod +x myprogram
 net use Z: \\[hostname]\[username]
 ```
 
-## 好用的 NuGet {#useful-nugets}
+## Useful NuGets / 好用的 NuGet {#useful-nugets}
 
 * [System.Device.Gpio](https://www.nuget.org/packages/System.Device.Gpio)：用于 GPIO、I2C、SPI、PWM、串口
 * [Iot.Device.Bindings](https://www.nuget.org/packages/Iot.Device.Bindings)：用于更高层的特定设备支持
@@ -122,7 +122,7 @@ net use Z: \\[hostname]\[username]
 上游把「IO 目录下的任何节点库」链到 `../libraries/io.md`，但上游仓库里并没有这个文件，链接是断的，因此译文这里不加链接。
 :::
 
-## 有用的链接 {#useful-links}
+## Useful links / 有用的链接 {#useful-links}
 
 * [Setup Raspberry Pi SSH Keys for Authentication（英文）](https://pimylifeup.com/raspberry-pi-ssh-keys/)
 * [.NET IoT Libraries documentation（英文）](https://learn.microsoft.com/en-us/dotnet/iot/)

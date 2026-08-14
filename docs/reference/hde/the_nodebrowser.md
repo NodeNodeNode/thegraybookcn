@@ -21,7 +21,7 @@ last_synced: '2026-08-13'
 * 在一根已有的连线上左键双击，往这根线上插入一个节点
 * 在一个已有的节点上左键双击，替换掉它
 
-## 过滤节点 {#filtering-nodes}
+## Filtering nodes / 过滤节点 {#filtering-nodes}
 
 左侧那几个圆圈是过滤器，用来快速纳入或排除某一组节点。鼠标悬停可以看到各自的用途，点击开关：
 
@@ -43,7 +43,7 @@ last_synced: '2026-08-13'
 
 这些过滤器的默认值可以在[设置](/develop-environment/settings)的 “Advanced” 一节里改。
 
-## 找到节点 {#finding-nodes}
+## Finding Nodes / 找到节点 {#finding-nodes}
 
 浏览可用节点有两条路：
 
@@ -79,7 +79,7 @@ last_synced: '2026-08-13'
 * 如果你的选择没有歧义，节点直接创建出来
 * 有些情况下选择是有歧义的，这时节点浏览器会让你从若干选项里再挑一下，把细节定清楚
 
-### 按分类搜索 {#search-by-category}
+### Search By Category / 按分类搜索 {#search-by-category}
 
 VL 里的节点按分类组织成一棵层级树。点任何一个分类就进到它里面。
 
@@ -87,11 +87,11 @@ VL 里的节点按分类组织成一棵层级树。点任何一个分类就进�
 
 注意，进入一个分类后，节点浏览器右下角会出现一个标签，列表就按这个标签过滤了。你可以从列表里再选一个分类来收窄搜索，也可以点标签旁边的 X 把它去掉。按 <span class="keyseq"><kbd>ESC</kbd></span> 总是去掉最后加上的那个标签。
 
-### 按标签搜索 {#search-by-tag}
+### Search By Tag / 按标签搜索 {#search-by-tag}
 
 输入任何一个词来搜。
 
-## 语言基元 {#language-primitives}
+## Language Primitives / 语言基元 {#language-primitives}
 
 语言基元以*斜体*显示：
 
@@ -108,7 +108,7 @@ VL 里的节点按分类组织成一棵层级树。点任何一个分类就进�
 
 很多基元在节点浏览器里选好要创建之后，可以直接给它起名。针脚和 Pad 还能反过来用：先在节点浏览器里输入名字，再点 Pin／Pad，创建出来的元素就已经带着你要的名字了。
 
-## 可用的 NuGet {#available-nugets}
+## Available Nugets / 可用的 NuGet {#available-nugets}
 
 对 VL 可用、但当前文档还没引用的 NuGet 也会出现在节点浏览器里，点一下就能快速引用它。引用之后，它的所有节点都会出现在节点浏览器里。
 
@@ -116,7 +116,7 @@ VL 里的节点按分类组织成一棵层级树。点任何一个分类就进�
 
 要想再去掉某个 NuGet，得到文档的依赖列表里取消勾选。
 
-## 只有签名不同的节点 {#nodes-that-only-differ-by-signature}
+## Nodes that only differ by Signature / 只有签名不同的节点 {#nodes-that-only-differ-by-signature}
 
 节点通常靠名字、版本或分类区分。但有时候几个节点这三样全都一样。设计一个库的对外接口时，我们一般会给「只差一点细节」的节点标上版本来区分；不过另一些情况下，我们是从 dll 导入节点的，不会给每个重载单独起名。
 
@@ -129,13 +129,13 @@ VL 里的节点按分类组织成一棵层级树。点任何一个分类就进�
 * 挑一个节点签名 —— 相当于一次选定好几个针脚
 * 一个一个针脚地挑，像多选题那样
 
-#### 挑一个节点签名 {#choose-a-node-signature}
+#### Choose a node signature / 挑一个节点签名 {#choose-a-node-signature}
 
 这个例子里能看到三个条目，对应三个可用的节点：
 
 ![](https://user-images.githubusercontent.com/575557/200342798-ecf5e1c0-ba9b-4e97-adbc-3bb549f74a8a.png)
 
-#### 一个一个针脚地挑 {#choose-single-pins}
+#### Choose single pins / 一个一个针脚地挑 {#choose-single-pins}
 
 这套流程是这样走的：
 

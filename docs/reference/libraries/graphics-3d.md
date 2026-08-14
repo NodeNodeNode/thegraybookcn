@@ -20,7 +20,7 @@ vvvv 的 3D 渲染引擎 VL.Stride 基于 [Stride 3D 引擎](http://stride3d.net
 
 总的来说，[Stride 官方文档（英文）](https://doc.stride3d.net/latest/en/)对理解这个引擎的关键概念很有帮助。
 
-### 主题 {#topics}
+### Topics / 主题 {#topics}
 
 * [渲染](/libraries/3d/rendering)
 * [模型与网格](/libraries/3d/models)
@@ -37,11 +37,11 @@ vvvv 的 3D 渲染引擎 VL.Stride 基于 [Stride 3D 引擎](http://stride3d.net
 上游此处的「投影映射」链接指向 `projectionmapping.md`，但上游仓库里并没有这个文件，链接是断的。这里保留条目、去掉链接。
 :::
 
-### 其他节点库 {#additional-libraries}
+### Additional libraries / 其他节点库 {#additional-libraries}
 
 见包浏览器里的 [3d Graphics 分类](https://vvvv.org/packs/?c=3d%20Graphics)。
 
-### 好用的工具 {#useful-tools}
+### Useful tools / 好用的工具 {#useful-tools}
 
 * [Stride 着色器浏览器](https://github.com/tebjan/Stride.ShaderExplorer)，用来翻可继承的着色器（还需要装上 [Stride](https://stride3d.net/download/)）
 * [材质编辑器清单](https://forum.vvvv.org/t/open-source-material-editor-material-creation-resource-list/19185)

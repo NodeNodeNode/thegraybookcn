@@ -28,7 +28,7 @@ last_synced: '2026-08-12'
 
 数据和数据类型到处都是，于是人们干脆把 data type 里冗余的 data 省掉，直接叫 “type”（类型）。
 
-## 实例 {#instances}
+## Instances / 实例 {#instances}
 
 某个数据类型的数据，也叫作那个数据类型的*instance*（实例）。
 

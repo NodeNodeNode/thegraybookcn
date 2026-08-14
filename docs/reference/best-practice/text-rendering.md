@@ -9,7 +9,7 @@ last_synced: '2026-08-13'
 
 [源文档地址](https://thegraybook.vvvv.org/reference/best-practice/text-rendering.html)
 
-## 2D 图形 {#2d-graphics}
+## 2d Graphics / 2D 图形 {#2d-graphics}
 
 用 VL.Skia 时你有这些选择：
 
@@ -17,7 +17,7 @@ last_synced: '2026-08-13'
 * 富文本渲染可以试试 [VL.RichtextKit](https://forum.vvvv.org/t/vl-richtextkit/19883)
 * 用 [VL.CEF.Skia](https://www.nuget.org/packages/VL.CEF.Skia) 渲染 html 内容，可以渲染出复杂排版的文字
 
-## 3D 图形 {#3d-graphics}
+## 3d Graphics / 3D 图形 {#3d-graphics}
 
 用 [VL.Stride](/libraries/graphics-3d) 时你有这些选择：
 

@@ -37,14 +37,14 @@ Arm CPU 往往不配 Nvidia 的 GPU。而写着色器时，非 Nvidia 的 GPU �
 
 用 Resample [Audio.Utils] 节点会让 vvvv 崩溃。
 
-### 应该能用 {#should-work}
+### Should work / 应该能用 {#should-work}
 
 下面这些节点库在 vvvv 里还不支持 Arm，但它们底层依赖的库看起来是支持的。稍加努力，应该能让它们在 Arm 版 vvvv 上跑起来：
 
 * VL.OpenCV
 * VL.IO.NDI
 
-### 也许能用 {#could-work}
+### Could work / 也许能用 {#could-work}
 
 下面这些节点库能不能支持，要看它们底层库的作者支不支持 Arm CPU。对方一旦提供支持，我们多半就能让它们在 Arm 版 vvvv 上工作：
 
@@ -59,7 +59,7 @@ Arm CPU 往往不配 Nvidia 的 GPU。而写着色器时，非 Nvidia 的 GPU �
 * VL.Devices.IDS
 * VL.Devices.TheImagingSource
 
-### 不会能用 {#will-not-work}
+### Will not work / 不会能用 {#will-not-work}
 
 下面这些设备，厂商在 Arm CPU 上提供支持的希望很小：
 

@@ -19,7 +19,7 @@ last_synced: '2026-08-12'
 
 模型也可以从 Stride 游戏项目里加载。这样做的好处是你可以在 Stride 编辑器里把模型连同材质一起配置好。见 Stride 手册里的 [Assets（英文）](https://doc.stride3d.net/4.0/en/manual/game-studio/assets.html)和 [Animation（英文）](https://doc.stride3d.net/4.0/en/manual/animation/index.html)。另见帮助文档 `Load Stride Project` 和 `Modify Entities from a Stride Project`。
 
-## Model 与 Mesh 的区别 {#difference-between-model-and-mesh}
+## Difference between Model and Mesh / Model 与 Mesh 的区别 {#difference-between-model-and-mesh}
 
 ### Model {#model}
 
@@ -43,7 +43,7 @@ Mesh 的数据结构
 
 顶点缓冲里存的顶点可以带不同的字段，比如法线、纹理坐标等等。为了让取顶点数据这件事更顺手，你可以用 `MeshSplit` 这组节点，见帮助文档 `Split a mesh into its components`。
 
-### 动态网格 {#dynamic-mesh}
+### Dynamic Mesh / 动态网格 {#dynamic-mesh}
 
 `DynamicMesh` 和 `DynamicMesh (Indexed)` 这两个节点，能从顶点数据和／或索引数据造出一个网格。
 

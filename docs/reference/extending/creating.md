@@ -11,11 +11,11 @@ last_synced: '2026-08-12'
 
 给 vvvv 贡献一组节点，最规整的方式是做一个节点库，以 [NuGet 包](https://nuget.org)的形式发布。
 
-## 源码 NuGet 与二进制 NuGet {#source-and-binary-nugets}
+## Source and binary nugets / 源码 NuGet 与二进制 NuGet {#source-and-binary-nugets}
 
 NuGet 包通常以二进制形式安装。vvvv 在此之上加了「源码 NuGet」：你可以直接引用一个包的源码，就当它已经是二进制 NuGet。要让 vvvv 把一个目录认作源码 NuGet，这个目录得位于某个[包仓库](/extending/contributing#source-package-repositories)路径下，并遵守下面这些约定：
 
-## 一个 NuGet 的内部构造 {#innards-of-a-nuget}
+## Innards of a nuget / 一个 NuGet 的内部构造 {#innards-of-a-nuget}
 
 对 vvvv 来说，一个目录里的源码 NuGet 由两个文件定义：
 
@@ -49,7 +49,7 @@ NuGet 包通常以二进制形式安装。vvvv 在此之上加了「源码 NuGet
 
 \* 见[按架构区分的目录（英文）](https://learn.microsoft.com/en-us/nuget/create-packages/supporting-multiple-target-frameworks#architecture-specific-folders)
 
-## 创建并发布一个 NuGet {#creating-and-publishing-a-nuget}
+## Creating and Publishing a NuGet / 创建并发布一个 NuGet {#creating-and-publishing-a-nuget}
 
 当你准备好把节点库打成一个 .nupkg 时，有几种做法可选：
 

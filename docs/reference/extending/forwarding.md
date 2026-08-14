@@ -13,7 +13,7 @@ last_synced: '2026-08-12'
 
 为了让更随性的用户也用得上，我们常常想精确筛选：原始库里究竟哪些节点和类型该露给他们。转发就是插入极薄的一层包装来做这件事。
 
-## 转发的理由 {#reasons-to-forward}
+## Reasons to Forward / 转发的理由 {#reasons-to-forward}
 
 * 有选择地转发 .NET .dll 里的类型和 Operation
 * 调整类型上与 VL 相关的元信息（比如可变性和已知类型结构）
@@ -32,25 +32,25 @@ last_synced: '2026-08-12'
 另外，这层包装还是一道有用的屏障，把 vl 节点库的用户与原始库的变动隔开。原始库改了名字之类的时候，与其让用户直面变动，不如用转发把草图保住。
 :::
 
-## 转发类型 {#forwarding-types}
+## Forwarding Types / 转发类型 {#forwarding-types}
 
 典型做法是建*一个 .vl 文档*，用它转发一个或多个 .NET .dll 或 C# 项目（.csproj）里的类型。这样用户唯一要引用的就是这个文档。
 
-## 创建类型转发 {#create-type-forward}
+## Create Type Forward / 创建类型转发 {#create-type-forward}
 
-### 1. 设一个指向 .NET .dll 或 .csproj 的引用 {#1-set-a-reference-to-the-net-dll-or-csproj}
+### 1. Set a reference to the .NET .dll or .csproj / 1. 设一个指向 .NET .dll 或 .csproj 的引用 {#1-set-a-reference-to-the-net-dll-or-csproj}
 
 在一个空白的 .vl 文档里，设好指向你想转发类型的那些 .NET .dll 或 .csproj 文件的引用。见[引用文件（英文）](https://thegraybook.vvvv.org/reference/libraries/referencing.html#Files)。
 
-### 2. 准备好一个目录 {#2-prepare-a-category}
+### 2. Prepare a Category / 2. 准备好一个目录 {#2-prepare-a-category}
 
 被导入的类型会出现在你把它放进的那个[目录](/language/categories)里。所以，先在你文档的[定义草图](/language/patches#definitions-patch)里把需要的目录建好。
 
-### 3. 创建类型转发 {#3-create-type-forward}
+### 3. Create Type Forward / 3. 创建类型转发 {#3-create-type-forward}
 
 创建类型转发有两种方式：
 
-#### 3.1 从方案浏览器拖放 {#31-drag-drop-from-the-solution-explorer}
+#### 3.1 Drag-Drop from the Solution Explorer / 3.1 从方案浏览器拖放 {#31-drag-drop-from-the-solution-explorer}
 
 1. 打开你想把类型放进去的那个 group
 2. 打开方案浏览器
@@ -61,7 +61,7 @@ last_synced: '2026-08-12'
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-dragndrop.png)
 把类型从方案浏览器拖放进 group
 
-#### 3.2 手动 {#32-manually}
+#### 3.2 Manually / 3.2 手动 {#32-manually}
 
 1. 打开你想把类型放进去的那个 group
 2. 新建一个 *Process* 草图
@@ -71,16 +71,16 @@ last_synced: '2026-08-12'
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-Manually.png)
 左：点开 `patch type` 下拉，设为 “Forward”。右：点 `type-annotation`，从节点浏览器里选一个类型
 
-### 配置类型转发 {#configure-type-forward}
+### Configure Type Forward / 配置类型转发 {#configure-type-forward}
 
-#### 重命名类型 {#rename-type}
+#### Rename Type / 重命名类型 {#rename-type}
 
 通常你会想保留原始库里类型的名字。如果你有充分的理由改名，那就改。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-Rename.png)
 重命名一个类型
 
-#### 转发所有节点 {#forward-all-nodes}
+#### Forward All Nodes / 转发所有节点 {#forward-all-nodes}
 
 创建类型转发时，这个类型的每个 Operation 默认都当作节点转发出去。只想转发其中一部分，就取消勾选 “Forward All Nodes”。
 
@@ -91,7 +91,7 @@ Forward All Nodes
 即使这个选项开着，你仍然可以为个别 Operation 单独创建 Operation 转发，从而调整它们的转发方式，见下文。
 :::
 
-#### 可变性 {#mutability}
+#### Mutability / 可变性 {#mutability}
 
 .NET 库不带「这个类型可不可变」这样的元信息，所以得手动告诉 VL：把 mutable 标记设对。
 
@@ -106,13 +106,13 @@ Mutable 复选框
 
 C# 接下来的版本里请留意 `record`，它应该能减轻写不可变类型的痛苦。
 
-#### 已知类型结构 {#known-type-structure}
+#### Known Type Structure / 已知类型结构 {#known-type-structure}
 
 （上游此处待写）
 
 *（上游此处待补图：已知类型结构）*
 
-#### 创建默认值 {#create-default}
+#### Create Default / 创建默认值 {#create-default}
 
 成员 Operation 节点通常期望主输入上有一个该类型的值，那儿一空就抛「空指针异常」。要避免这一点，得告诉 VL：需要时该怎么构造这个类型的默认实例。
 
@@ -121,7 +121,7 @@ C# 接下来的版本里请留意 `record`，它应该能减轻写不可变类�
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-CreateDefault.png)
 为一个类型创建默认值
 
-### 过程节点 {#process-node}
+### Process Node / 过程节点 {#process-node}
 
 每一个类型转发也可以直接暴露出一个过程节点。这与从普通草图里暴露一个[过程节点](/language/nodes#process-nodes)完全一样。
 
@@ -132,7 +132,7 @@ C# 接下来的版本里请留意 `record`，它应该能减轻写不可变类�
 
 如果你想从同一个类型转发里暴露多于一个过程节点，那么每多一个过程节点，你就得另建一个[过程定义](/language/patches#process)。这些定义不转发类型，只是用该类型的 Operation 来搭出想要的过程。
 
-### 转发 Operation {#forwarding-operations}
+### Forwarding Operations / 转发 Operation {#forwarding-operations}
 
 如上所示，类型转发能轻松地自动转发全部 Operation。不过就算 “Forward All Nodes” 开着，手动转发某些 Operation 来调整针脚仍然讲得通。
 
@@ -155,35 +155,35 @@ C# 接下来的版本里请留意 `record`，它应该能减轻写不可变类�
 
 即便不手动管理签名，你仍然可以对一个转发做下面这些改动：
 
-### 重命名针脚 {#renaming-a-pin}
+### Renaming a Pin / 重命名针脚 {#renaming-a-pin}
 
 如果你有充分的理由改一个针脚的名字，比如为了让它符合 [VL 命名约定](/language/namings)，那就手动为这个针脚建一个输入或输出，然后改名。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-ForwardPins-Rename.png)
 重命名一个针脚
 
-### 设定默认值 {#setting-a-default}
+### Setting a Default / 设定默认值 {#setting-a-default}
 
 Operation 的参数很少带有意义的默认值。要转发一个带合适默认值的针脚，就手动为这个针脚建一个输入，并给它设默认值。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-ForwardPins-Default.png)
 通过中键点击或 `Rightclick > Configure` 给输入设默认值
 
-### 隐藏针脚 {#hiding-a-pin}
+### Hiding a Pin / 隐藏针脚 {#hiding-a-pin}
 
 即使「自动转发所有针脚」开着，你也可以覆盖个别针脚的转发 —— 只要往它上面连一个 IOBox。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-ForwardPins-HidingPins.png)
 隐藏一个针脚
 
-### 类型或单位转换 {#type-or-unit-conversions}
+### Type or Unit Conversions / 类型或单位转换 {#type-or-unit-conversions}
 
 转发是做简单类型或单位转换的好地方。设想一个 Operation 接受弧度制的角度，而你想用符合 vl 习惯的周期制。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-ForwardPins-Conversion.png)
 SineWave 接受周期制的角度
 
-### 显示目录 {#show-category}
+### Show Category / 显示目录 {#show-category}
 
 默认情况下成员 Operation 开着这一项，静态 Operation 不开。要改这个默认值，唯一说得过去的理由是像 Vector (Join) 这样的节点 —— 它们是成员这一事实，对草图的可读性并不重要。对比下面两者：
 
@@ -195,7 +195,7 @@ Vector (Join) [2D.Vector2] 不显示它的目录，而 GetSlice [Collections.Spr
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-ShowCategory.png)
 Show Category 复选框
 
-### 手动管理签名 {#manually-managing-the-signature}
+### Manually managing the Signature / 手动管理签名 {#manually-managing-the-signature}
 
 转发节点时，你通常希望签名自动与外层定义同步。所以管理这个行为的两个选项默认都开着：
 
@@ -226,14 +226,14 @@ Show Category 复选框
 ![](https://thegraybook.vvvv.org/images/reference/extending/connect-to-signature.png)
 “Connect to Signature” 功能
 
-## 转发枚举 {#forwarding-enums}
+## Forwarding Enums / 转发枚举 {#forwarding-enums}
 
 要把一个 .dll 里的枚举转发给 .vl 文档的使用者，只要把这个枚举拖放到草图上。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-wrapping-Enums.png)
 枚举转发
 
-## 包装非标准的事件或 Delegate {#wrapping-non-standard-events-or-delegates}
+## Wrapping Non-Standard Events or Delegates / 包装非标准的事件或 Delegate {#wrapping-non-standard-events-or-delegates}
 
 第三方库里的事件或 Delegate，常常正是写一小段 C# 包装的理由。符合 [.NET Core 事件模式（英文）](https://docs.microsoft.com/en-us/dotnet/csharp/modern-events)的事件会自动转成 vl 里的 Observable；但很多库用的是非标准事件或 Delegate，这时就得用 System.Reactive 这个 NuGet 提供的 [Observable.FromEvent（英文）](https://msdn.microsoft.com/en-us/library/system.reactive.linq.observable.fromevent(v=vs.103).aspx)，在 C# 里手写转换。
 

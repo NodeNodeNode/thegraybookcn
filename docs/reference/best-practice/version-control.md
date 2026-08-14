@@ -28,7 +28,7 @@ last_synced: '2026-08-13'
 
 ## 前置条件 {#prerequisites}
 
-### 软件 {#software}
+### Software / 软件 {#software}
 
 本质上你需要的是：
 
@@ -39,13 +39,13 @@ Git 也可以只用命令行，不装图形客户端 —— 有些人就喜欢�
 
 选哪个图形客户端？多半得挨个试，看自己顺手哪个。vvvv 开发团队用 [GitExtensions](https://gitextensions.github.io/) 用了很多年，一直挺舒服。差异／合并工具里我们觉得最好的是 [P4Merge](https://www.perforce.com/downloads/visual-merge-tool)，可以在 GitExtensions 里把它设成默认的差异／合并工具，别的客户端多半也能这么设。
 
-### 云服务 {#cloud-service}
+### Cloud Service / 云服务 {#cloud-service}
 
 如果你想把 git 仓库备份到云上（这同时也方便与人共享），去这些 [git 云服务商](https://git.wiki.kernel.org/index.php/GitHosting)里注册一个。
 
 [vvvv 的节点库仓库](https://github.com/vvvv)大多在 GitHub 上，所以如果你以后想给它们做贡献，就需要一个 [GitHub](https://github.com) 账号。
 
-### 术语 {#terminology}
+### Terminology / 术语 {#terminology}
 
 * 每个项目存放在一个**仓库**（repository）里
 * 要把本地仓库镜像到云服务，你得给它一个**远端**（remote），也就是远程仓库的 URL
@@ -59,15 +59,15 @@ Git 也可以只用命令行，不装图形客户端 —— 有些人就喜欢�
 
 ## 上手 {#getting-started}
 
-### 创建一个新仓库 {#creating-a-new-repository}
+### Creating a new repository / 创建一个新仓库 {#creating-a-new-repository}
 
 （上游此处待写）
 
-### fork 和／或克隆一个已有仓库 {#forking-andor-cloning-an-existing-repository}
+### Forking and/or Cloning an existing repository / fork 和／或克隆一个已有仓库 {#forking-andor-cloning-an-existing-repository}
 
 （上游此处待写）
 
-### 提交 {#commiting}
+### Commiting / 提交 {#commiting}
 
 关于提交的一些通盘想法：
 
@@ -77,7 +77,7 @@ Git 也可以只用命令行，不装图形客户端 —— 有些人就喜欢�
 * 绝不要提交你并非有意改动的文件（文件可能在你忙别的事时被意外改到，或者你在某处试过什么但并不打算提交，自己却忘了）
 * 提交前一定检查一遍即将提交的改动，确认它们与你想改的东西相符
 
-## 一个人干活 {#working-on-your-own}
+## Working on your own / 一个人干活 {#working-on-your-own}
 
 只要项目是你一个人在做，一切基本上都直截了当。典型的工作流大概是这样：
 
@@ -97,7 +97,7 @@ Git 也可以只用命令行，不装图形客户端 —— 有些人就喜欢�
 
 git 的名堂远不止这些，但上面这些够你看清最简单的工作流了。先在自己的项目上练熟，再去和团队协作 —— 那边事情会更有意思。
 
-## 和团队一起干活 {#working-with-a-team}
+## Working with a team / 和团队一起干活 {#working-with-a-team}
 
 和团队协作时，视各人的 git 熟练程度而定，大家约好用同一个 Git 客户端可能会有帮助。这样一旦出问题，彼此更容易搭把手。
 
@@ -115,7 +115,7 @@ git 的名堂远不止这些，但上面这些够你看清最简单的工作流�
 
 所以关键真的在于：尽你所能避免合并冲突。记住，只要大家同时干活但改的是不同文件，就不会有冲突，因此：
 
-### 把项目拆成多个 .vl 文档 {#split-a-project-into-multiple-vl-documents}
+### Split a project into multiple .vl documents / 把项目拆成多个 .vl 文档 {#split-a-project-into-multiple-vl-documents}
 
 整个项目做在一个 .vl 文档里，vvvv 当然也支持。但按下面这些原则拆成多个文档是个好习惯：
 
@@ -127,14 +127,14 @@ git 的名堂远不止这些，但上面这些够你看清最简单的工作流�
 
 主 .vl 文档显然是个典型的冲突点 —— 每个人都得动它，才能看到自己的改动跑起来。可以试试这样：如果你负责的那部分足够独立，就自己复制一份主文档，在副本里搭。那份副本你想怎么折腾都行，只给自己测试用，不提交。等你那部分整合妥当了，先拉到最新的主文档，跟大家打声招呼说要推了，然后一次性把你那部分复制粘贴过去 —— 一次合并都不用冒。当然，这招不是每种场合都管用。
 
-### 沟通 {#communicate}
+### Communicate / 沟通 {#communicate}
 
 总有些改动一次要动很多文档。这种时候先让所有人都知道，让大家把最新状态提交并推上去，再由一个人来做这次跨文档的改动。拿不准就共享屏幕一起做，让大家都看清发生了什么。
 
-## 分支 {#branching}
+## Branching / 分支 {#branching}
 
 分支不是你该一上来就碰的东西。
 
-## 合并 {#merging}
+## Merging / 合并 {#merging}
 
 [VL 文档的合并工具](https://github.com/vvvv/MergeVLDocs/)

@@ -16,13 +16,13 @@ last_synced: '2026-08-12'
 
 两个工具都能帮你找出性能瓶颈和问题，看你需要多细。它们也可以配合着用。
 
-## 用 Stride Profiler 做性能分析 {#performance-profiling-with-the-stride-profiler}
+## Performance Profiling with the Stride Profiler / 用 Stride Profiler 做性能分析 {#performance-profiling-with-the-stride-profiler}
 
 [**Stride Profiler**（英文）](https://doc.stride3d.net/4.2/en/manual/troubleshooting/profiling.html)是 vvvv 内置的工具，用来实时地快速评估性能，给出一份概览：草图的哪些部分最吃资源。
 
 要打开 Stride Profiler，在任意 Stride 窗口里按 **F3**。左上角会出现一小块文字显示，显示**当前帧率**（FPS）。
 
-### 在 Profiler 里导航 {#navigating-the-profiler}
+### Navigating the Profiler / 在 Profiler 里导航 {#navigating-the-profiler}
 
 按 **F5** 在几个页面之间切换，可以看到不同的性能细节：
 
@@ -30,7 +30,7 @@ last_synced: '2026-08-12'
 * **CPU 页**：列出 CPU 性能
 * **GPU 页**：列出 GPU 性能
 
-### 排序与查看细节 {#sorting-and-viewing-details}
+### Sorting and Viewing Details / 排序与查看细节 {#sorting-and-viewing-details}
 
 默认情况下，条目按耗时排序（最长的调用／动作排在最前）。
 
@@ -39,13 +39,13 @@ last_synced: '2026-08-12'
 
 ![](https://thegraybook.vvvv.org/images/libraries/3d/stride_profiler.png)
 
-### Profiler Key 输入 {#profiler-key-input}
+### Profiler Key Input / Profiler Key 输入 {#profiler-key-input}
 
 草图里的每一个着色器或渲染器都有一个 **Profiler Key** 输入。在这里填一个独特的名字，就更容易在 Profiler 窗口里追踪特定元素的性能。
 
 Stride Profiler 特别适合快速找出草图里哪些部分性能开销最高。它提供了一种不依赖外部工具、又快又高效的性能监看方式。
 
-## 用 RenderDoc 做细致调试 {#detailed-debugging-with-renderdoc}
+## Detailed Debugging with RenderDoc / 用 RenderDoc 做细致调试 {#detailed-debugging-with-renderdoc}
 
 想更深入地调 GPU，用 **RenderDoc**。它能抓下单独一帧，查看 GPU 调用、着色器，以及其他在 Stride Profiler 里实时看不到的渲染细节。
 
@@ -58,19 +58,19 @@ Stride Profiler 特别适合快速找出草图里哪些部分性能开销最高�
    * 这个标志打通 RenderDoc 与 vvvv 之间的连接
    * 可选：再加 `--debug-gpu` 以同时启用 D3D11 调试层，它的前置条件见下文
 
-### 在 vvvv 里使用 RenderDocManager {#using-the-renderdocmanager-in-vvvv}
+### Using the RenderDocManager in vvvv / 在 vvvv 里使用 RenderDocManager {#using-the-renderdocmanager-in-vvvv}
 
-#### 1. 摆好 RenderDocManager 节点 {#1-setting-up-the-renderdocmanager-node}
+#### 1. Setting Up the RenderDocManager Node / 1. 摆好 RenderDocManager 节点 {#1-setting-up-the-renderdocmanager-node}
 
 vvvv 带着 `--renderdoc` 标志跑起来之后，打开任意一份引用了 **VL.Stride** 的草图，加上 **RenderDocManager** 节点。
 
-#### 2. 打开 Stride Profiler {#2-enabling-the-stride-profiler}
+#### 2. Enabling the Stride Profiler / 2. 打开 Stride Profiler {#2-enabling-the-stride-profiler}
 
 抓帧之前，按上文所述打开 **Stride Profiler**。
 
 当前显示哪一页无所谓，但这个 profiler **必须开着** —— RenderDoc 要靠它拿到组织 GPU 调用所需的详细信息。
 
-#### 3. 抓取帧 {#3-capturing-frames}
+#### 3. Capturing Frames / 3. 抓取帧 {#3-capturing-frames}
 
 * **抓单帧**：触发 **Capture Next Frame** 输入，抓取 GPU 渲染的下一帧。这一帧会被存下来，供之后在 RenderDoc 里分析。
 
@@ -78,7 +78,7 @@ vvvv 带着 `--renderdoc` 标志跑起来之后，打开任意一份引用了 **
 
 ![](https://thegraybook.vvvv.org/images/libraries/3d/renderdoc_node.png)
 
-## 把 RenderDoc 附加到 vvvv {#attaching-renderdoc-to-vvvv}
+## Attaching RenderDoc to vvvv / 把 RenderDoc 附加到 vvvv {#attaching-renderdoc-to-vvvv}
 
 1. 启动 RenderDoc。
 2. 进 **File** > **Attach to Running Instance**。
@@ -87,7 +87,7 @@ vvvv 带着 `--renderdoc` 标志跑起来之后，打开任意一份引用了 **
 
 ![](https://thegraybook.vvvv.org/images/libraries/3d/attach.png)
 
-## 在 RenderDoc 里调试抓到的帧 {#debugging-captured-frames-in-renderdoc}
+## Debugging Captured Frames in RenderDoc / 在 RenderDoc 里调试抓到的帧 {#debugging-captured-frames-in-renderdoc}
 
 帧抓到并在 RenderDoc 里加载好之后：
 
@@ -105,11 +105,11 @@ vvvv 带着 `--renderdoc` 标志跑起来之后，打开任意一份引用了 **
 
 ![](https://thegraybook.vvvv.org/images/libraries/3d/renderdoc.png)
 
-## 用 RenderDoc 做性能分析 {#performance-profiling-with-renderdoc}
+## Performance Profiling with RenderDoc / 用 RenderDoc 做性能分析 {#performance-profiling-with-renderdoc}
 
 RenderDoc 也提供性能计数器，用来评估某一帧的 GPU 性能指标，看清哪些 GPU 调用最吃性能。
 
-### 1. 打开性能计数器查看器 {#1-enabling-the-performance-counter-viewer}
+### 1. Enabling the Performance Counter Viewer / 1. 打开性能计数器查看器 {#1-enabling-the-performance-counter-viewer}
 
 * 在 RenderDoc 里进 **Window > Performance Counter Viewer**。
 * 在这个视图里，你可以访问各种 GPU 计数器，包括通用计数器和 **Nvidia 专有计数器**。
@@ -124,7 +124,7 @@ RenderDoc 也提供性能计数器，用来评估某一帧的 GPU 性能指标�
 
 启用之后，你就可以对抓到的帧执行 **Sample Counters**。它会生成一份详细列表，显示各种性能指标，比如特定 GPU 调用耗费的毫秒数。
 
-### 2. 分析性能计数器 {#2-analyzing-performance-counters}
+### 2. Analyzing Performance Counters / 2. 分析性能计数器 {#2-analyzing-performance-counters}
 
 * 性能计数器查看器会显示耗时、内存占用等与性能相关的数据。
 * 点击列表里的 **EID**（事件 ID），可以跳到时间轴或绘制调用列表中相应的那次调用，做更深入的查看。
@@ -135,7 +135,7 @@ RenderDoc 也提供性能计数器，用来评估某一帧的 GPU 性能指标�
 
 关于使用 RenderDoc 的更多细节，包括着色器调试和性能计数器这些进阶功能，见官方的 [RenderDoc 文档（英文）](https://renderdoc.org/docs/)。
 
-## 启用 D3D11 调试层 {#enabling-the-d3d11-debug-layer}
+## Enabling the D3D11 debug layer / 启用 D3D11 调试层 {#enabling-the-d3d11-debug-layer}
 
 你也可以启用 [D3D11 调试层（英文）](https://learn.microsoft.com/en-us/windows/win32/direct3d11/overviews-direct3d-11-devices-layers)，并用 [DebugView](https://learn.microsoft.com/en-us/sysinternals/downloads/debugview) 这类工具捕获它的输出。
 

@@ -13,7 +13,7 @@ last_synced: '2026-08-12'
 
 vvvv 不自带着色器编辑器，你可以用任何自己喜欢的文本编辑器 —— 只要把 `.sdsl` 这个文件后缀关联到它就行。之后你在某个着色器节点上右键 → Open，代码就会在指定的编辑器里打开。每当你保存这个文件，这个着色器节点就会更新。
 
-## 推荐：Visual Studio Code 加 Stride Shader Tools {#recommended-visual-studio-code-with-stride-shader-tools}
+## Recommended: Visual Studio Code with Stride Shader Tools / 推荐：Visual Studio Code 加 Stride Shader Tools {#recommended-visual-studio-code-with-stride-shader-tools}
 
 [Visual Studio Code](https://code.visualstudio.com/) 或 [VSCodium](https://vscodium.com/) 装上 **[Stride Shader Tools](https://marketplace.visualstudio.com/items?itemName=stride.sdsl)** 扩展（[OpenVSX](https://open-vsx.org/extension/tebjan/sdsl)），能提供：
 
@@ -26,14 +26,14 @@ vvvv 不自带着色器编辑器，你可以用任何自己喜欢的文本编辑
 * 类型、方法和语义的悬停文档
 * 结合 RenderDoc 的 SDSL 层面调试 *（即将推出）*
 
-## 备选：其他文本编辑器 {#alternative-other-text-editors}
+## Alternative: Other Text Editors / 备选：其他文本编辑器 {#alternative-other-text-editors}
 
 如果你更喜欢别的编辑器，那么任何带 HLSL 语法高亮的编辑器都能用：
 
 * [Sublime Text](https://www.sublimetext.com/) 加 “HLSL Syntax” 包
 * 任何支持 HLSL 高亮的文本编辑器
 
-## 用 Visual Studio 做错误报告（备选） {#error-reporting-with-visual-studio-alternative}
+## Error Reporting with Visual Studio (Alternative) / 用 Visual Studio 做错误报告（备选） {#error-reporting-with-visual-studio-alternative}
 
 上面推荐的 **Visual Studio Code 加 Stride Shader Tools** 已经提供了实时错误报告。
 
@@ -43,7 +43,7 @@ vvvv 不自带着色器编辑器，你可以用任何自己喜欢的文本编辑
 * Visual Studio 的 Stride 扩展，它随 [Stride 安装程序](https://stride3d.net/download/)一起提供
 * Stride 本身也必须装上。你的 vvvv 版本具体需要哪个版本的 Stride，可以在 vvvv 的 “About” 对话框里查
 
-### 其他工具 {#additional-tools}
+### Additional Tools / 其他工具 {#additional-tools}
 
 * **[Stride Shader Explorer](https://github.com/tebjan/Stride.ShaderExplorer/releases)**：一个独立工具，用来浏览内置着色器及其继承层级。它现在已经整合进了 VS Code 扩展，但作为独立的浏览器仍然好用。
 * **Visual Studio 增强**（如果你用 VS）：

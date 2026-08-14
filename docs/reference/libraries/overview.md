@@ -15,7 +15,7 @@ VL NuGet 的在线浏览器：**http://vvvv.org/packs**
 
 想了解怎么在 vvvv 里使用 NuGet，参阅[管理 NuGet](/develop-environment/managing-nugets) 这篇文档，或者看 [HowTo Use NuGets（英文）](https://youtu.be/-U_kUQ3VDog) 这个视频。
 
-## VL.CoreLib {#the-vlcorelib}
+## The VL.CoreLib / VL.CoreLib {#the-vlcorelib}
 
 VL 的默认节点库叫 VL.CoreLib，它为最基本的打草图需求提供节点和类型。下面纵览它会给引用了它的文档添加哪些目录。
 
@@ -35,7 +35,7 @@ VL 的默认节点库叫 VL.CoreLib，它为最基本的打草图需求提供节
 | System | [XML](/libraries/xml)、[JSON](/libraries/json)、DateTime、[序列化](/libraries/serialization)…… |
 | Text | TypeWriter |
 
-## 缺什么吗？{#anything-missing}
+## Anything missing? / 缺什么吗？ {#anything-missing}
 
 万一你发现缺了什么，有这么几个选择：
 

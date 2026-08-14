@@ -13,7 +13,7 @@ last_synced: '2026-08-12'
 
 VL 提供了几种不同风味的节点。我们来看看：
 
-## Operation 应用 {#operation-applications}
+## Operation Applications / Operation 应用 {#operation-applications}
 
 一个 Operation 应用，应用的是一个 Operation。
 
@@ -27,7 +27,7 @@ Operation 是很原始的东西。它是一次临时的计算：需要数据，�
 
 *（上游此处待补图）*
 
-## 过程应用 {#process-applications}
+## Process Applications / 过程应用 {#process-applications}
 
 一个过程应用，应用的是一个过程。
 

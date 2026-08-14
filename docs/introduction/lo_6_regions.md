@@ -41,7 +41,7 @@ Repeat 区块由 `Iteration Count` 针脚决定主体执行多少次。
 
 *（上游此处待补图）*
 
-## Operation 区块 {#operation-region}
+## Operation Region / Operation 区块 {#operation-region}
 
 Operation 区块把「一个需要 Delegate 的 Operation」和「这个 Delegate 的定义」合在了一起。
 

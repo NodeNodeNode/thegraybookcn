@@ -13,7 +13,7 @@ TextureFX 是一套规范，规定了那些基于 GPU／着色器做纹理运算
 
 要写自己的 TextureFX，你需要知道这些：
 
-## 创建一个新的 TextureFX {#creating-a-new-texturefx}
+## Creating a new TextureFX / 创建一个新的 TextureFX {#creating-a-new-texturefx}
 
 首先，关于怎样配好一个外部着色器编辑程序，见[编辑着色器](/libraries/3d/editing-shaders)。
 
@@ -24,7 +24,7 @@ TextureFX 是一套规范，规定了那些基于 GPU／着色器做纹理运算
 * 着色器名字必须以 **_TextureFX** 结尾
 * 文件名必须是：**[着色器名]_TextureFX.sdsl**
 
-## 目录与 Aspect {#category-and-aspects}
+## Category and Aspects / 目录与 Aspect {#category-and-aspects}
 
 默认情况下，每个 TextureFX 节点都会出现在 `Stride\Textures` 目录下。想把节点挪进某个子目录，用[节点特性](#node-attributes)。
 
@@ -33,14 +33,14 @@ TextureFX 是一套规范，规定了那些基于 GPU／着色器做纹理运算
 * 要么写进着色器的文件名里 —— 这种情况下别忘了着色器名字本身必须与文件名一致
 * 要么写进目录[节点特性](#node-attributes)里
 
-## 可继承的基础着色器 {#base-shaders-to-inherit-from}
+## Base Shaders to inherit from / 可继承的基础着色器 {#base-shaders-to-inherit-from}
 
 有一批着色器，可以从中[继承](/libraries/3d/shaders#inheritance)有用的功能。多重继承也行！
 
 * 随 Stride 发布的：用 [Shader Explorer](https://github.com/tebjan/Stride.ShaderExplorer) 来浏览可继承的着色器（还需要装上 [Stride](https://stride3d.net/download/)）
 * 随 VL.Stride 发布的：去这个位置翻 .sdsl 文件：`C:\Program Files\vvvv\vvvv_gamma_...\lib\packs\VL.Stride.Runtime...\stride\Assets\Effects`
 
-### 推荐的基础着色器 {#recommended-base-shaders}
+### Recommended base shaders / 推荐的基础着色器 {#recommended-base-shaders}
 
 #### TextureFX {#texturefx}
 
@@ -87,11 +87,11 @@ shader Mix_TextureFX : MixerBase
 
 [ShaderUtils](https://github.com/vvvv/VL.Stride/blob/preview/gamma-2021.4/packages/VL.Stride.Runtime/src/Effects/Common/ShaderUtils.sdsl) 定义了 PI 这类常量，并提供了许多常用的着色器代码片段。
 
-## include 文件 {#include-files}
+## Include Files / include 文件 {#include-files}
 
 见 [include 与静态调用](/libraries/3d/shaders#includes-and-static-calls)。
 
-## 节点特性 {#node-attributes}
+## Node Attributes / 节点特性 {#node-attributes}
 
 特性让你能配置自己的 TextureFX 节点。下面是给一个着色器加上若干特性的例子：
 
@@ -121,7 +121,7 @@ shader MyFX_TextureFX : TextureFX
 | DontConvertToLinearOnRead | 你多半用不着这个标志！设上它会关掉「从 sRGB 输入纹理读取（采样）时自动做的 sRGB 转线性」。只有当输入纹理格式带 `_SRgb` 后缀、且管线设为线性色彩空间（这是默认）时才有意义。见下文 [sRGB 与线性色彩空间](#srgb-and-linear-color-space)。 |
 | DontConvertToSRgbOnWrite | 你多半用不着这个标志！设上它会关掉「把着色器结果写进 sRGB 纹理时自动做的线性转 sRGB」。只有当 OutputFormat 带 `_SRgb` 后缀、且管线设为线性色彩空间（两者都是默认）时才有意义。见下文 [sRGB 与线性色彩空间](#srgb-and-linear-color-space)。 |
 
-## Source 节点特性 {#source-node-attributes}
+## Source Node Attributes / Source 节点特性 {#source-node-attributes}
 
 下面这个特性专供 Source 类 TextureFX 使用：
 
@@ -134,7 +134,7 @@ shader Foo_TextureFX : TextureFX
 |---|---|
 | TextureSource | 指定一个着色器表现为 [TextureFX Source](#sources)。此外：任何纹理输入针脚都会保留声明时的名字（Filter 和 Mixer 则不然 —— 那里针脚会被改名，以便所有节点之间有一套简洁一致的命名）。 |
 
-## 针脚特性 {#pin-attributes}
+## Pin Attributes / 针脚特性 {#pin-attributes}
 
 每个针脚定义都可以带下列特性：
 
@@ -161,11 +161,11 @@ int Type;
 compose ComputeFloat4 Control;
 ```
 
-## 输入 {#inputs}
+## Inputs / 输入 {#inputs}
 
 每个 TextureFX 节点都恰好有一个纹理输出，以及默认的若干输入：
 
-### Source {#sources}
+### Sources / Source {#sources}
 
 | 名字 | 类型 | 可选 | 说明 |
 |---|---|---|---|
@@ -175,7 +175,7 @@ compose ComputeFloat4 Control;
 
 要把一个 TextureFX 变成 “Source”，指定 [“TextureSource” 特性](#source-node-attributes)。
 
-### Filter、Mixer 和 Util {#filter-mixer-and-utils}
+### Filter, Mixer and Utils / Filter、Mixer 和 Util {#filter-mixer-and-utils}
 
 | 名字 | 类型 | 可选 | 说明 |
 |---|---|---|---|
@@ -187,13 +187,13 @@ compose ComputeFloat4 Control;
 | Output Texture | Texture | x | 用来把输出渲染到给定的纹理里，而不是用节点自己的纹理 |
 | Apply | Boolean | | 这个效果是作用到输入纹理上，还是被绕过、直接把输入原样返回 |
 
-## 多趟渲染 {#multiple-passes}
+## Multiple passes / 多趟渲染 {#multiple-passes}
 
 目前着色器代码里还不支持多趟。话虽如此，你仍然可以做出多趟的 TextureFX：把每一趟各自做成一个独立的 TextureFX，再在草图里把它们串起来。例子可以看 Glow 滤镜是怎么做的。
 
 注意这种情况下，把各趟标上 “Internal” 这个 [Aspect](#category-and-aspects) 是有道理的 —— 它们多半不该被单独使用，因此不该出现在节点浏览器里。
 
-## Mipmap {#mipmaps}
+## Mipmaps / Mipmap {#mipmaps}
 
 有些效果需要输入纹理带 mipmap。这可以通过 `[WantsMips("")]` 特性来表明，它接受一串用逗号分隔的、需要 mipmap 的纹理变量名。之后 TextureFX 的包装层会替你生成 mipmap —— 如果这个纹理还没有的话。为了省性能，会额外生成一个输入针脚，用来控制 mipmap 是每一帧都生成，还是只在纹理实例变化时才生成，默认是 `true`。
 
@@ -202,7 +202,7 @@ compose ComputeFloat4 Control;
 shader Foo_TextureFX : TextureFX
 ```
 
-## sRGB 与线性色彩空间 {#srgb-and-linear-color-space}
+## sRGB and Linear Color Space / sRGB 与线性色彩空间 {#srgb-and-linear-color-space}
 
 渲染管线默认设为线性色彩空间。做颜色运算（比如混合和光照）时，这才是正确的色彩空间。但几乎所有图像都以非线性的 sRGB 色彩空间存储 —— 因为那样能用更低的位深，文件也就更小。为了解决这个矛盾，图形 API 提供了[带 `_SRgb` 后缀的低位深像素格式](https://github.com/stride3d/stride/blob/7e836297cb5930c01e6dfa0183e7f3cc64748fb6/sources/engine/Stride/Graphics/PixelFormatExtensions.cs#L590)，用来表明这些像素值处在 sRGB 色彩空间里。
 
@@ -238,13 +238,13 @@ shader MySRgbFX_TextureFX : FilterBase
 shader MySRgbFX_TextureFX : FilterBase
 ```
 
-## 系统值与着色器语义 {#system-values-and-shader-semantics}
+## System Values and Shader Semantics / 系统值与着色器语义 {#system-values-and-shader-semantics}
 
 需要的话，可以使用 [HLSL 着色器语义（英文）](https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-semantics#system-value-semantics)。
 
 其中许多已经通过继承 [ShaderBase](https://github.com/stride3d/stride/blob/master/sources/engine/Stride.Graphics/Shaders/ShaderBaseStream.sdsl) 以更好读的形式提供了。
 
-### 渲染目标尺寸 {#render-target-size}
+### Render Target Size / 渲染目标尺寸 {#render-target-size}
 
 一个常见需求是渲染目标的尺寸，它由 `ViewSize` 变量提供。它描述的是当前视口的尺寸 —— 对 TextureFX 来说，那就是渲染目标的完整尺寸：
 
@@ -252,7 +252,7 @@ shader MySRgbFX_TextureFX : FilterBase
 float2 targetSize = ViewSize;
 ```
 
-### 时间 {#time}
+### Time / 时间 {#time}
 
 当前时间和帧时间差，可以通过继承 [Global 着色器](https://github.com/stride3d/stride/blob/master/sources/engine/Stride.Rendering/Rendering/Shaders/Global.sdsl)、并使用 `Time` 和 `TimeStep` 变量来取得。这些值由运行时自动设置。
 

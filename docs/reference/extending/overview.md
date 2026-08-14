@@ -11,14 +11,14 @@ last_synced: '2026-08-12'
 
 vvvv 很容易用你自己的节点和节点库来扩展。方法如下：
 
-## 自定义节点 {#custom-nodes}
+## Custom nodes / 自定义节点 {#custom-nodes}
 
 * [使用 .NET 库](/extending/using-net-libraries)
 * [选一个代码编辑器](/extending/code-editors)
 * [用 C# 编写节点](/extending/writing-nodes)
 * [自定义区块](/extending/custom-regions)
 
-## 开发节点库 {#developing-libraries}
+## Developing libraries / 开发节点库 {#developing-libraries}
 
 * [为已有的节点库贡献代码](/extending/contributing)
 * [创建一个新的节点库](/extending/creating)
@@ -29,11 +29,11 @@ vvvv 很容易用你自己的节点和节点库来扩展。方法如下：
 * [提供帮助文档](/extending/providing-help)
 * [发布 NuGet](/extending/publishing)
 
-## 扩展 vvvv 编辑器 {#extending-the-vvvv-editor}
+## Extending the vvvv editor / 扩展 vvvv 编辑器 {#extending-the-vvvv-editor}
 
 * [创建编辑器扩展](/extending/editor-extensions)
 
-## 相关线上讲座 {#related-webinars}
+## Related Webinars / 相关线上讲座 {#related-webinars}
 
 * [使用 .NET NuGet（英文）](https://vimeo.com/showcase/9462001/video/467351841)
 * [把一个 .NET 库变成 VL 节点库（英文）](https://vimeo.com/showcase/9462001/video/467350999)

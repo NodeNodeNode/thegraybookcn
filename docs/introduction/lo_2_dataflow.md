@@ -19,7 +19,7 @@ last_synced: '2026-08-12'
 
 关于打草图的体验和工作流，更多内容见[「开发环境」（英文）](https://thegraybook.vvvv.org/reference/hde/gui.html)。
 
-## 这些连接意味着什么 {#meaning}
+## Meaning? / 这些连接意味着什么 {#meaning}
 
 用数据流做可视化编程时，你可以把数据从一个节点连到另一个。这些节点各做各的事，合起来就形成了新的东西、新的功能。
 

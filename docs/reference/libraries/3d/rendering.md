@@ -16,7 +16,7 @@ VL.Stride 提供两套渲染工作流：
 
 两套工作流可以混着用，没有任何代价，而且都能渲染到纹理或者输出窗口，也都能写着色器。
 
-## 高层（场景图）{#high-level-scene-graph}
+## High-level (scene graph) / 高层（场景图） {#high-level-scene-graph}
 
 也就是常说的实体－组件－系统（ECS）。场景图是一棵树，树上是一个个装着实体的场景。
 
@@ -32,29 +32,29 @@ VL.Stride 提供两套渲染工作流：
 
 搭场景图用 `[Stride]` 目录下的 `Group` 或 `Group (Spectral)` 节点。Group 节点技术上就是一个实体，只不过把输入的那些实体设成了自己的子实体。
 
-### 根节点 {#root-nodes}
+### Root nodes / 根节点 {#root-nodes}
 
 `SceneWindow` 和 `SceneTexture` 都会把场景系统搭起来。往其中任何一个上连一个 `RootScene`，就可以从这儿开始搭场景图了。
 
 参考这几份帮助草图：`Overview Scene Graph Basics`、`Overview Scene Graph Advanced`、`Work with Children`。
 
-### 摄像机 {#camera}
+### Camera / 摄像机 {#camera}
 
 `SceneWindow` 节点自带一个默认摄像机，可以用鼠标在场景里四处看。往 *Camera* 输入针脚上连一个摄像机，就把默认的覆盖掉了。
 
 要自己搭摄像机，可以用 Entity 节点连一个 `CameraComponent`，或者直接用 `Camera` 节点 —— 它把这两样合在一起了。帮助面板里有摄像机专门的一节，附了好几份帮助草图。
 
-### 模型 {#models}
+### Models / 模型 {#models}
 
 见[模型与网格](/libraries/3d/models)。
 
-### 灯光 {#lights}
+### Lights / 灯光 {#lights}
 
 灯光组件可以挂到任何实体上，挂上之后就用这个实体的变换作为灯光的变换。帮助面板里有灯光专门的一节，帮助草图很多。
 
 另见：[Stride 灯光与阴影文档（英文）](https://doc.stride3d.net/latest/en/manual/graphics/lights-and-shadows/index.html)
 
-## 后期效果 {#post-effects}
+## Post Effects / 后期效果 {#post-effects}
 
 Stride 的渲染管线带一批后期处理效果，可以加到渲染好的 3D 场景上，比如环境光遮蔽、Bloom，以及其他屏幕空间或基于图像的效果。
 
@@ -62,7 +62,7 @@ Stride 的渲染管线带一批后期处理效果，可以加到渲染好的 3D 
 
 另见：[Stride 后期效果文档（英文）](https://doc.stride3d.net/latest/en/manual/graphics/post-effects/index.html)
 
-## 底层（自定义渲染）{#low-level-custom-rendering}
+## Low-level (custom rendering) / 底层（自定义渲染） {#low-level-custom-rendering}
 
 这套工作流让你直接用图形 API 管自己的绘制调用。用起来更费劲，因为你得懂着色器、缓冲区、管线状态这些图形 API 的东西。
 
@@ -70,7 +70,7 @@ Stride 的渲染管线带一批后期处理效果，可以加到渲染好的 3D 
 
 绘制调用的顺序用 `[Stride.Rendering]` 目录下的 `Group` 和 `Group (Spectral)` 节点来安排。这些 Group 节点也是 `IRenderer` 的实现，会把绘制调用传给连在输入上的那些渲染器。
 
-### 渲染汇点 {#renderer-sinks}
+### Renderer sinks / 渲染汇点 {#renderer-sinks}
 
 `IRenderer` 可以连到好几种汇点上。具体连哪个，取决于用途和你想在哪个时机渲染。
 

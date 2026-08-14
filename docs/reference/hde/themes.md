@@ -11,7 +11,7 @@ vvvv 编辑器支持主题。点右上角的汉堡菜单，可以在深色和亮
 
 ![](https://thegraybook.vvvv.org/images/hde/themes.png)
 
-## 自定义主题 {#custom-themes}
+## Custom Themes / 自定义主题 {#custom-themes}
 
 自定义主题用 [CSS](https://zh.wikipedia.org/wiki/%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8)（只支持其中一部分）来写：
 

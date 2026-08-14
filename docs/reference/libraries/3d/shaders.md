@@ -13,11 +13,11 @@ last_synced: '2026-08-12'
 
 下面是一份带你上手的分步指南：
 
-## 准备编辑器 {#prepare-an-editor}
+## Prepare an editor / 准备编辑器 {#prepare-an-editor}
 
 vvvv 不自带着色器编辑器。要获得最好的体验，我们推荐 **Visual Studio Code** 加 **Stride Shader Tools** 扩展。配置方法和其他选择见[编辑着色器](/libraries/3d/editing-shaders)。
 
-## 从模板开始 {#start-from-a-template}
+## Start from a Template / 从模板开始 {#start-from-a-template}
 
 ![](https://thegraybook.vvvv.org/images/libraries/3d/shaderwizard.png)
 
@@ -33,15 +33,15 @@ vvvv 不自带着色器编辑器。要获得最好的体验，我们推荐 **Vis
 * 按 `Create`
   * 这会在磁盘上创建新的着色器文件，把 VL.Stride 包引用进你的当前文档（如果还没引用的话），并打开这个着色器
 
-## 创建着色器节点 {#create-the-shader-node}
+## Create the shader node / 创建着色器节点 {#create-the-shader-node}
 
 打开[节点浏览器](/develop-environment/the-node-browser)，按你起的名字找到这个着色器。
 
 从此以后，每当你在着色器文件里保存一处改动，这个节点都会相应更新。
 
-## 更多细节 {#further-details}
+## Further details / 更多细节 {#further-details}
 
-### 代码范围 {#scope}
+### Scope / 代码范围 {#scope}
 
 任何把 VL.Stride 设为依赖的 .vl 文档，都会拾取放在它旁边、名为 “shaders” 的特殊文件夹里的着色器文件。多个 .vl 文档可以共用同一个 shaders 文件夹。
 
@@ -49,7 +49,7 @@ vvvv 不自带着色器编辑器。要获得最好的体验，我们推荐 **Vis
 着色器文件共享一个全局范围，所以不能有两个同名文件 —— 哪怕分属两个不同的 .vl 文档。
 :::
 
-### 特殊后缀 {#special-suffixes}
+### Special Suffixes / 特殊后缀 {#special-suffixes}
 
 如果一个着色器文件以下面某个预定义后缀结尾，这个着色器就会被转换成一个 VL 节点。
 
@@ -69,9 +69,9 @@ vvvv 不自带着色器编辑器。要获得最好的体验，我们推荐 **Vis
 
 处理纹理的专用节点。更多内容见 [TextureFX](/libraries/3d/texturefx) 一章。
 
-## 核心概念 {#core-concepts}
+## Core Concepts / 核心概念 {#core-concepts}
 
-### include 与静态调用 {#includes-and-static-calls}
+### Includes and Static Calls / include 与静态调用 {#includes-and-static-calls}
 
 你可以像在 HLSL 里那样使用 [`#include` 指令（英文）](https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-appendix-pre-include)。不过你往往用不着它 —— 因为只要另一个着色器在[代码范围](#scope)之内（比如在同一个目录里，或者两者都在某个已加载 .vl 文档旁边的 /shaders 文件夹里），你就能直接调用它的静态函数。静态函数是指那些不使用任何 stream 变量或类变量（比如着色器输入）的函数。另见 Stride 文档里的 [Static Calls（英文）](https://doc.stride3d.net/latest/en/manual/graphics/effects-and-shaders/shading-language/shader-classes-mixins-and-inheritance.html#static-calls)。
 
@@ -100,7 +100,7 @@ shader MyFx_TextureFX : FilterBase
 };
 ```
 
-### 继承 {#inheritance}
+### Inheritance / 继承 {#inheritance}
 
 继承主要用来复用已有的着色器代码，可以理解成把另一个着色器的代码导入或包含进自己的着色器。
 
@@ -117,7 +117,7 @@ Composition 让着色器 A 能把另一个着色器 B 当成一个变量来用�
 
 例子见 Stride 文档里的 [Composition（英文）](https://doc.stride3d.net/latest/en/manual/graphics/effects-and-shaders/shading-language/composition.html)。
 
-### Stream {#streams}
+### Streams / Stream {#streams}
 
 在着色器的不同阶段之间传参，SDSL 提供了一个方便的办法：把变量声明成 stream 变量，任何着色器阶段都能读写。SDSL 编译器会为每个阶段生成对应的输入输出结构体。
 

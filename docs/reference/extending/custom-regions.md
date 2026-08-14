@@ -13,7 +13,7 @@ last_synced: '2026-08-12'
 
 笼统地说，区块就是带*callback*（回调）机制的节点：一种回头调用区块内部那张小草图的办法 —— 那张草图由用户自己打。
 
-## 区块的几种风味 {#region-flavors}
+## Region flavors / 区块的几种风味 {#region-flavors}
 
 VL 为区块开发者提供了好几种这样的回调机制。
 
@@ -26,7 +26,7 @@ VL 为区块开发者提供了好几种这样的回调机制。
 * 用 `CustomRegion` API 构建的区块
   * 长期运行，并支持边界控制点
 
-## 基于 Delegate 的区块 {#delegate-based-regions}
+## Delegate-based Regions / 基于 Delegate 的区块 {#delegate-based-regions}
 
 基于 Delegate 的区块，设计者可以把任意数据送进内部，再要回别的数据。做法只有一步：
 
@@ -44,7 +44,7 @@ VL 为区块开发者提供了好几种这样的回调机制。
 
 什么时候回调那张草图，由你说了算：可以回调好几次，也可以只在某个条件成立时才回调。这件事上你有完全的自由。
 
-### 自定义 Delegate 类型 {#custom-delegate-types}
+### Custom delegate types / 自定义 Delegate 类型 {#custom-delegate-types}
 
 有了它，你能定义出针脚名字很漂亮的区块。不怕 C# 的话一定试试。
 
@@ -53,7 +53,7 @@ VL 为区块开发者提供了好几种这样的回调机制。
 
 细节见：https://github.com/vvvv/VL-Language/issues/5
 
-### 有状态的 —— 基于 Delegate {#stateful---delegate-based}
+### Stateful - delegate-based / 有状态的 —— 基于 Delegate {#stateful---delegate-based}
 
 这里的基本想法是：把区块构建成允许在内部放置过程节点的样子。
 
@@ -134,7 +134,7 @@ VL 为区块开发者提供了好几种这样的回调机制。
 
 接下来就要靠你的想象力了……
 
-#### 配置选项 {#configuration-options}
+#### Configuration options / 配置选项 {#configuration-options}
 
 * **Node Or Region** —— 这个区块能不能也被创建成节点。在组合区块时有用。
 * **Supported Control Points** —— 选择你的区块支持哪一类控制点：
@@ -144,11 +144,11 @@ VL 为区块开发者提供了好几种这样的回调机制。
   * `Splicer` —— 三角形，穿过边界时输入数据应当被拆开、输出数据应当被拼回去。拆和拼需要由区块自己处理，不过系统会在控制点内外两侧的类型上帮上一把（如果指定了类型约束的话）。
 * **Control Point Type Constraint** —— 定义系统施加在每个控制点上的类型约束。举例来说，如果你指定 `Spread`，那么用户就只能往这个区块上连 Spread。对 Splicer，系统会尝试把内层的类型参数与控制点的内侧对齐。
 
-#### 用户的预期 {#user-expectations}
+#### User Expectations / 用户的预期 {#user-expectations}
 
 设计区块时，你多半盯着某个特定数据类型的 BCP。但注意：数据类型不同时，用户仍希望有某种标准行为。不妨给这样的 BCP 做一套兜底 —— 把数据原封不动地从外面接到里面、或反过来，像 `Do [Control]` 那样。
 
-#### 目前的限制 {#current-limitiations}
+#### Current Limitations / 目前的限制 {#current-limitiations}
 
 注意，你的想法目前还是会撞上一些约束 :(
 
@@ -182,7 +182,7 @@ VL 7.0 引入了更通用的区块 API `IRegion<TInlay>`，不再有 `ICustomReg
 * 加上 Operation `RetrieveInput` —— 系统会从内嵌草图内部调用它，为某个控制点或连线取回数据。
 * 加上 Operation `AcknowledgeOutput` —— 系统会从内嵌草图内部调用它，把某个控制点的数据交给区块。
 
-### 配置选项 {#configuration-options-1}
+### Configuration options / 配置选项 {#configuration-options-1}
 
 * ~~**Node Or Region** —— 这个区块能不能也被创建成节点。在组合区块时有用。~~ —— 尚未实现
 * **Supported Control Points** —— 选择你的区块支持哪一类控制点：
@@ -192,7 +192,7 @@ VL 7.0 引入了更通用的区块 API `IRegion<TInlay>`，不再有 `ICustomReg
   * `Splicer` —— 三角形，穿过边界时输入数据应当被拆开、输出数据应当被拼回去。拆和拼需要由区块自己处理，不过系统会在控制点内外两侧的类型上帮上一把（如果指定了类型约束的话）。
 * **Control Point Type Constraint** —— 定义系统施加在每个控制点上的类型约束。举例来说，如果你指定 `Spread`，那么用户就只能往这个区块上连 Spread。对 Splicer，系统会尝试把内层的类型参数与控制点的内侧对齐。
 
-### 目前的限制 {#current-limitations}
+### Current limitations / 目前的限制 {#current-limitations}
 
 这套 API 我们认为状态不错（是这些年多份提案演化来的，比如 https://github.com/vvvv/VL-Language/issues/53 ），但当前实现仍带着一些假设和限制：
 

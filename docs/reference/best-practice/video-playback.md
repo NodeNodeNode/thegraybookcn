@@ -14,7 +14,7 @@ vvvv 提供了两条截然不同的视频播放路子：
 * 视频文件
 * 图像序列
 
-## 视频文件 {#video-files}
+## Video files / 视频文件 {#video-files}
 
 * 引用 VL.Video 这个 NuGet（随 vvvv 发布），就会带来 **VideoPlayer** [Video] 节点
 * 这个节点开箱即可播放相当广泛的[视频容器和编解码器（英文）](https://docs.microsoft.com/en-us/windows/win32/medfound/supported-media-formats-in-media-foundation)
@@ -37,7 +37,7 @@ vvvv 提供了两条截然不同的视频播放路子：
 要播放 [HAP 视频文件](http://hap.video)，需要第三方的 [VL.HapPlayer](https://www.nuget.org/packages/VL.HapPlayer/) NuGet。
 :::
 
-## 图像序列 {#image-sequences}
+## Image sequences / 图像序列 {#image-sequences}
 
 * 取决于你用的渲染引擎，随 vvvv 发布的是下面这些节点：
   * VL.Stride（3D 引擎）：**ImagePlayer (Stride)** [Video] 或 **ImagePlayer (FrameBased Stride)** [Video]
@@ -53,27 +53,27 @@ vvvv 提供了两条截然不同的视频播放路子：
 * 可以实现源之间的无缝切换
 * 局域网内多台 PC 上的图像序列播放可以做[同步](/best-practice/video-synchronization)
 
-### 缺点 {#disadvantage}
+### Disadvantage / 缺点 {#disadvantage}
 
 * 媒体素材管理起来没那么舒服（也就是成千上万个图像文件）
 * 音轨需要另外用 [VL.Audio](https://www.nuget.org/packages/VL.Audio/) 单独播放
 
-### 基于时间 vs. 逐帧 {#timebased-vs-framebased}
+### Timebased vs. Framebased / 基于时间 vs. 逐帧 {#timebased-vs-framebased}
 
-#### 基于时间 {#time-based}
+#### Time based / 基于时间 {#time-based}
 
 * 默认的、更好上手的选择
 * 用在视频不是全屏播放、而是作为场景一部分的场合
 * 对不稳定的渲染帧率比较宽容 —— 必要时会丢帧
 * 可能出现微抖动，全屏播放时最明显 —— 因为时序没有与垂直同步耦合
 
-#### 逐帧 {#frame-based}
+#### Frame based / 逐帧 {#frame-based}
 
 * 用在视频全屏播放的场合
 * 能做到帧级精确、与垂直同步耦合的播放
 * 要求渲染帧率完全稳定
 
-### DDS 转换工具 {#dds-conversion-tools}
+### DDS conversion tools / DDS 转换工具 {#dds-conversion-tools}
 
 * [Texconv](https://github.com/Microsoft/DirectXTex/wiki/Texconv)：命令行工具
 * [TexconvGUI](https://github.com/bj-rn/texconvgui/releases)：上面那个的图形界面

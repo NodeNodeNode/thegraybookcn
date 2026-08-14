@@ -33,7 +33,7 @@ VL 里处理 XML 数据的数据类型叫 *XElement*。
 </entries>
 ```
 
-## 用 XPath 查询从 XElement 里提取数据 {#extracting-data-from-an-xelement-using-xpath-queries}
+## Extracting data from an XElement using XPath queries / 用 XPath 查询从 XElement 里提取数据 {#extracting-data-from-an-xelement-using-xpath-queries}
 
 关于 XPath 的一般性介绍可以在 W3Schools 找到：[XML and XPath（英文）](https://www.w3schools.com/xml/xml_xpath.asp)
 
@@ -49,7 +49,7 @@ VL 里处理 XML 数据的数据类型叫 *XElement*。
 * “entry” 元素有一个名为 “visible” 的属性，第一个 entry 的 “visible” 属性值是 “true”
 * “entry” 元素的子元素是：“id”、“label”、“description” 和 “speed”
 
-### 访问一个元素的值 {#accessing-an-elements-value}
+### Accessing an element's value / 访问一个元素的值 {#accessing-an-elements-value}
 
 只想访问某个元素第一次出现时的值，用 *XPathGetValue [System.XML]* 节点：
 
@@ -61,7 +61,7 @@ VL 里处理 XML 数据的数据类型叫 *XElement*。
 ![](https://thegraybook.vvvv.org/images/libraries/xml-a7e85.png)
 XPathGetValues 把查询到的所有元素的值，以一个 Spread 返回，类型取决于接了什么
 
-### 访问一个元素的属性 {#accessing-an-elements-attributes}
+### Accessing an element's attributes / 访问一个元素的属性 {#accessing-an-elements-attributes}
 
 只想访问某个元素第一次出现时的某个属性，用 *XPathGetAttributeValue [System.XML]* 节点：
 

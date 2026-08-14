@@ -13,7 +13,7 @@ last_synced: '2026-08-12'
 
 用 C# 给 VL 写节点，不需要任何 VL 相关的知识或准备 —— 你写的就是普通 C# 代码，VL 再把它变成节点。下面是一份上手指南，也有对应的 [vvvvTv 视频（英文）](https://www.youtube.com/live/LZ-y5FOrdh0?si=76lNgMwPNrN1MgaO)。
 
-## 从模板开始 {#start-from-a-template}
+## Start from a Template / 从模板开始 {#start-from-a-template}
 
 ![](https://thegraybook.vvvv.org/images/reference/extending/csharp-wizard.png)
 
@@ -45,7 +45,7 @@ last_synced: '2026-08-12'
 如果你正在做的节点库将来要以 NuGet 的形式发布，就不要用引用 .csproj 文件这一招！那会强制整个包、以及所有依赖它的包变成可编辑的，于是你就失去了[只读包](/language/compilation#read-only-packages)带来的好处。
 :::
 
-## 创建节点 {#create-the-node}
+## Create the node / 创建节点 {#create-the-node}
 
 打开[节点浏览器](/develop-environment/the-node-browser)，按名字找到你的 C# 文件里的方法和类。
 
@@ -54,11 +54,11 @@ last_synced: '2026-08-12'
 ![](https://thegraybook.vvvv.org/images/reference/extending/DemoNode.png)
 在 VL 里生成的节点
 
-## 编译与热替换 {#compilation-and-hotswap}
+## Compilation and Hotswap / 编译与热替换 {#compilation-and-hotswap}
 
 每当你改动一个 .cs 文件并保存，就会触发一次代码编译，正在运行的代码会立刻被「热替换」。
 
-### 静态方法 {#static-methods}
+### Static methods / 静态方法 {#static-methods}
 
 只要用的都是静态方法，这套机制毫无瑕疵 —— 静态方法可以在运行中替换掉，不带副作用。
 
@@ -66,17 +66,17 @@ C# 代码里有错误时，同一个项目的所有节点都会变红。提示�
 
 ![](https://thegraybook.vvvv.org/images/reference/extending/csharp-error.png)
 
-### 类 {#classes}
+### Classes / 类 {#classes}
 
 如果你处理的是带状态的代码，事情就要棘手一些。这里是两种典型情形：
 
-#### 过程节点 {#process-node}
+#### Process node / 过程节点 {#process-node}
 
 想把自己的 C# 类当作 VL 的[过程节点](/language/nodes#process-nodes)来用 —— 一个节点一个实例，不动态生成和销毁 —— 就给它加上 [`ProcessNode`](https://github.com/vvvv/VL.StandardLibs/blob/main/VL.Core/src/Import/ProcessNodeAttribute.cs) 特性。例子[见下文](#process-nodes)。
 
 这样一来，每当你改动 C# 代码，vvvv 都能按需正确地创建和销毁你这个类的实例。
 
-#### 动态实例 {#dynamic-instances}
+#### Dynamic instances / 动态实例 {#dynamic-instances}
 
 如果你的 C# 类更像「粒子」—— 也就是会动态生成和销毁实例 —— 上面那招帮不了你，销毁的麻烦还在。有件事你必须知道：
 
@@ -86,7 +86,7 @@ C# 代码里有错误时，同一个项目的所有节点都会变红。提示�
 
 一旦 C# 代码依赖非托管代码（WinForms、设备库等等），事情就麻烦了：那些资源要手动释放，而 vvvv 根本不知道它们存在，清理不了。于是每次保存 .cs 文件都会留下没释放的资源，往往导致不确定的行为 —— 比如某个设备再也访问不了。碰上这种局面，只有彻底重启 vvvv。
 
-## 调试 {#debugging}
+## Debugging / 调试 {#debugging}
 
 用 Visual Studio 编辑代码时可以设断点。断点若显示「……当前不会命中」这类警告，去改一个设置：“Debug” 菜单选 “Options...”，找到并关掉 “Require source files to exactly match the original version”。
 
@@ -99,11 +99,11 @@ https://github.com/vvvv/VL.DemoLib
 
 更多通盘的考量另见：[设计指南](/extending/design-guidelines)
 
-### 命名空间 {#namespaces}
+### Namespaces / 命名空间 {#namespaces}
 
 C# 里的命名空间会成为 VL 里的目录，嵌套的命名空间（用点号语法）相应变成嵌套的目录。[`ImportAsIs`](https://github.com/vvvv/VL.StandardLibs/blob/main/VL.Core/src/Import/ImportAsIsAttribute.cs) 特性允许只导入某一个命名空间，从而把它从最终的 VL 目录里剥掉。
 
-### 针脚名 {#pin-names}
+### Pin Names / 针脚名 {#pin-names}
 
 为了在 VL 里更好读，Operation 的参数会按驼峰式大小写拆开：C# 里的 “firstInput” 到 VL 里就是 “First Input”。默认的 “return” 返回值在 VL 里叫 “Output”。
 
@@ -117,7 +117,7 @@ public static float PinNames(float firstInput, float secondInput)
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-writingNodes-PinNames.png)
 提示框里显示的针脚名
 
-### 默认值 {#default-values}
+### Default Values / 默认值 {#default-values}
 
 直接用 C# 的默认值写法，就能给 VL 里的输入定义默认值。
 
@@ -131,7 +131,7 @@ public static float Defaults(float firstInput = 44f, float secondInput = 0.44f)
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-writingNodes-Defaults.png)
 输入上的默认值
 
-### 多个输出 {#multiple-outputs}
+### Multiple Outputs / 多个输出 {#multiple-outputs}
 
 除了返回单个值，你也可以用一个甚至多个 `out` 参数，它们会在 VL 节点上显示为输出针脚：
 
@@ -146,7 +146,7 @@ public static void MultipleOutputs(float firstInput, float secondInput, out floa
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-writingNodes-MultipleOutputs.png)
 一个有多个输出的节点
 
-### 函数重载 {#function-overloading}
+### Function Overloading / 函数重载 {#function-overloading}
 
 你可以写多个同名的 Operation，它们只在输入参数的个数上有差别：
 
@@ -166,7 +166,7 @@ public static float MyAddition(float input, float input2, float input3)
 
 *（上游此处待补图：节点浏览器里显示出两个节点）*
 
-### 使用枚举 {#using-enums}
+### Using Enums / 使用枚举 {#using-enums}
 
 你可以把自定义的 C# 枚举用作 Operation 的输入或输出类型：
 
@@ -184,7 +184,7 @@ VL 草图里的枚举 IOBox
 
 动态枚举（也就是条目会在运行时变化的枚举）的例子见下文。
 
-### 使用 Generic {#using-generics}
+### Using Generics / 使用 Generic {#using-generics}
 
 VL 拥抱 Generic，所以你当然可以轻松写出泛化的节点：
 
@@ -198,7 +198,7 @@ public static string Generic<T>(T input)
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-writingNodes-Generic.png)
 节点上引出的 Generic 针脚
 
-### 对 Spread 做运算 {#operating-on-spreads}
+### Operating on Spreads / 对 Spread 做运算 {#operating-on-spreads}
 
 C# 的 `IEnumerable<>` 在 VL 里表现为 `Sequence<>`：
 
@@ -212,7 +212,7 @@ public static IEnumerable<float> ReverseSequence(IEnumerable<float> input)
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-writingNodes-Spreads.png)
 Spread 节点
 
-### 文档 {#documentation}
+### Documentation / 文档 {#documentation}
 
 用 C# 的 XML 文档来给你的节点提供说明：
 
@@ -239,7 +239,7 @@ public static int HTMLDocuTest(int a)
 只有当项目把 `GenerateDocumentationFile` 属性设为 `true` 时，xml 文档才会被生成。vvvv 创建的 C# 项目默认就带这一项；如果你引用的是一个已有的项目，可能得自己加上！
 :::
 
-### C# 的 ref 参数 {#c-ref-paramters}
+### C# Ref Paramters / C# 的 ref 参数 {#c-ref-paramters}
 
 你可以用 C# 的 *ref* 参数，但要当心：给这个参数赋值会导致 VL 里出现不确定的行为（目前如此），所以永远不要写 *ref* 参数，只读它！
 
@@ -253,7 +253,7 @@ public static int RefParams(ref int firstInput)
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-writingNodes-RefParam.png)
 一个把 *ref* 参数用作输入的节点
 
-### 数据类型 {#datatypes}
+### Datatypes / 数据类型 {#datatypes}
 
 任何你在 C# 里定义为 `class` 或 `struct` 的数据类型，都能在 VL 里使用：
 
@@ -285,7 +285,7 @@ public class MyDataType
 ![](https://thegraybook.vvvv.org/images/libraries/vl-libraries-writingNodes-Datatypes.png)
 对应生成的节点
 
-### 过程节点 {#process-nodes}
+### Process nodes / 过程节点 {#process-nodes}
 
 给任何一个类加上 [`ProcessNode`](https://github.com/vvvv/VL.StandardLibs/blob/main/VL.Core/src/Import/ProcessNodeAttribute.cs) 特性，就能把它变成一个过程节点。默认情况下，它的所有公开成员都会被用作这个过程的片段。这个特性提供了多种方式来调整这一行为。
 
@@ -306,7 +306,7 @@ public class Counter
 }
 ```
 
-### 事件与 Observable {#eventsobservables}
+### Events/Observables / 事件与 Observable {#eventsobservables}
 
 符合 [.NET Core 事件模式（英文）](https://docs.microsoft.com/en-us/dotnet/csharp/modern-events)的 .NET 事件，VL 会自动把它们转换成 Observable。所以你在代码里照常用事件就行，然后在 VL 里通过 Observable 模式来访问它们。
 
@@ -363,7 +363,7 @@ public float AddValue(float value)
 
 关于使用 Observable 的一般性说明，见[响应式编程](/libraries/reactive)那一章。
 
-### 动态枚举 {#dynamic-enums}
+### Dynamic Enums / 动态枚举 {#dynamic-enums}
 
 动态枚举用在这种场景：给用户一个列表挑选，而列表的条目会在运行时变化。典型例子是访问硬件设备的节点 —— 设备随时可能插上或拔掉。
 
@@ -388,7 +388,7 @@ public static string EnumDemo(MyEnum e)
 }
 ```
 
-#### 为 VL 实现动态枚举 {#implementing-dynamic-enums-for-vl}
+#### Implementing dynamic Enums for VL / 为 VL 实现动态枚举 {#implementing-dynamic-enums-for-vl}
 
 要为 VL 造一个动态枚举，我们同样需要那两个要素：类型和定义。两者都得在 C# 里实现为类：
 
@@ -407,7 +407,7 @@ public static string EnumDemo(MyEnum e)
 
 用上面这两个基类，你自己的动态枚举实现大概长这样：
 
-##### 1. 创建一个枚举类型 {#1-create-an-enum-type}
+##### 1. Create an enum type / 1. 创建一个枚举类型 {#1-create-an-enum-type}
 
 先从 `DynamicEnumBase` 派生，造出你自己的枚举类型。
 
@@ -433,7 +433,7 @@ public class MyEnum: DynamicEnumBase<MyEnum, MyEnumDefinition>
 * 给它起个像样的名字，别叫 “MyEnum”，比如叫 “MidiInputDevice”。注意名字用的是单数：这个类型代表枚举中的**一个**条目。
 * 注意第二个类型参数 `MyEnumDefinition`，它把你的枚举与它的定义连起来，同理应该叫 “MidiInputDeviceDefinition”
 
-##### 2. 提供可选条目 {#2-provide-available-entries}
+##### 2. Provide available entries / 2. 提供可选条目 {#2-provide-available-entries}
 
 从 `DynamicEnumDefinitionBase` 派生，实现那个「向系统提供当前可选条目」的类。只需覆写两个函数：一个返回当前条目的字符串列表，另一个告诉系统条目什么时候变了。
 

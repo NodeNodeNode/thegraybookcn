@@ -22,7 +22,7 @@ last_synced: '2026-08-12'
 
 作为备选的 VR 后端，同样通过随 vvvv 发布的 VL.Stride 获得支持。
 
-## Vive Tracker {#vive-trackers}
+## Vive Trackers / Vive Tracker {#vive-trackers}
 
 不用头显也能使用 [Vive Tracker](https://www.vive.com/au/support/tracker3/category_howto/tracker.html)。
 NuGet：[VL.IO.OpenVR](https://www.nuget.org/packages/VL.IO.OpenVR)

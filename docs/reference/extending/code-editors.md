@@ -31,6 +31,6 @@ vvvv 自己不带编辑 C# 代码的编辑器，你可以自己选一个。这�
 
 [JetBrains Rider](https://www.jetbrains.com/rider/)
 
-## 文本编辑器 {#text-editors}
+## Text Editors / 文本编辑器 {#text-editors}
 
 如果上面这些编辑器你一个都没有，那么其实随便哪个文本编辑器都能用来改 C# 代码。显然你会少掉一些便利，但对简单的情形来说，这也许就够了。

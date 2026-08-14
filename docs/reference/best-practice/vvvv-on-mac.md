@@ -39,6 +39,6 @@ vvvv 没有 macOS 的原生版本！
 
 遗憾的是有些节点库在 Arm 版 vvvv 上没法用，细节见：[在 Arm CPU 上运行 vvvv](/best-practice/vvvv-on-arm)。
 
-## 其他选择 {#other-options}
+## Other Options / 其他选择 {#other-options}
 
 其他一些（截至本文写作时还更偏实验性的）路子，见[这个论坛帖子](https://forum.vvvv.org/t/vvvv-on-macos-and-linux/24159)。

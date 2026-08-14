@@ -18,7 +18,7 @@ last_synced: '2026-08-12'
 * 一定要用文字把你的改动讲清楚
 * 考虑在 pull request 里附上改动前后的截图
 
-## 源码包仓库 {#source-package-repositories}
+## Source package-repositories / 源码包仓库 {#source-package-repositories}
 
 要在仓库的本地副本上干活，建议你建一个这样的目录：
 
@@ -53,6 +53,6 @@ vl-libs\VL.Devices.Kinect2\
 --editable-packages VL.Audio;VL.Devices*
 ```
 
-## 在源码包和二进制包之间切换 {#switching-between-source-and-binary-packages}
+## Switching between source and binary packages / 在源码包和二进制包之间切换 {#switching-between-source-and-binary-packages}
 
 比如你一开始把 VL.Audio 当 NuGet 装了，后来想 fork 它、克隆源码下来改。只要把源码放进包仓库路径、并把路径告诉 vvvv，vvvv 就会优先用源码包而不是同名的二进制 NuGet。于是「设不设包仓库路径」这一个开关，就能让你在版本管理下的源码和同名二进制包之间来回切换。

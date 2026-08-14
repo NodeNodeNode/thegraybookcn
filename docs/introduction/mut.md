@@ -17,7 +17,7 @@ last_synced: '2026-08-12'
 
 颜色不可变。数字不可变。字符串（文本）不可变。你自己定义的数据类型，默认也不可变。
 
-## 不可变是我们的默认 {#immutability-is-our-default}
+## Immutability is our default / 不可变是我们的默认 {#immutability-is-our-default}
 
 本书后面谈到数据，你都可以当它不可变 —— 我们大部分基本数据类型都是。真遇到可变类型时，我们会同时用上 *reference*（引用，指向内存里的某个位置）或「（共享）内存」这样的说法，好凸显它跟默认情形不一样。
 

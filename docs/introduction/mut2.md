@@ -11,13 +11,13 @@ last_synced: '2026-08-12'
 
 *（上游此处待补图：与「数据流」那页相同的示例草图）*
 
-## 不可变数据与数据流 {#immutable-data-and-data-flow}
+## Immutable Data and Data flow / 不可变数据与数据流 {#immutable-data-and-data-flow}
 
 看 HSV 节点那个输出针脚 —— 它是另外两个节点的*data source*（数据源）。两条连线从这里出发，所以两个接收方拿到的是同一个颜色。记住：只有数据源才是数据的来源。这件事没办法搞乱，也不该有办法搞乱。
 
 这一点决定了一张草图能不能看懂。数据从上面来，只从那个数据源（HSV 节点的输出针脚）来 —— 要紧的就这一条。任何例外都会摧毁数据流最基本的想法：**数据只从源流向汇点**。
 
-## 可变数据与引用流 {#mutable-data-and-reference-flow}
+## Mutable Data and Reference flow / 可变数据与引用流 {#mutable-data-and-reference-flow}
 
 可变数据同样向下流，但这次更贴切的说法是：向下游流的是**指向数据的引用**。接收方节点可以就地改动这份数据 —— 于是凡是拿到这个引用的其他*data sink*（数据汇点），看到的都是改过的对象。
 

@@ -17,7 +17,7 @@ last_synced: '2026-08-13'
 * Boygrouping —— 客户端／服务端渲染集群
 * 包管理器：取代用命令行安装 NuGet
 
-## 即将到来（待定）{#upcoming-tbd}
+## Upcoming (tbd) / 即将到来（待定） {#upcoming-tbd}
 
 * 支持 [Rive](https://rive.app/)
 * 支持激光设备

@@ -20,7 +20,7 @@ last_synced: '2026-08-12'
 
 `Quad > Extensions`
 
-## 创建一个扩展 {#creating-an-extension}
+## Creating an extension / 创建一个扩展 {#creating-an-extension}
 
 扩展就是普通的 VL 草图，唯一的显著特征是：它们保存在以 `.HDE.vl` 结尾的文件里，比如：
 
@@ -30,7 +30,7 @@ last_synced: '2026-08-12'
 
 或者干脆从模板开始：
 
-## 从模板创建一个扩展 {#creating-an-extension-from-the-template}
+## Creating an extension from the template / 从模板创建一个扩展 {#creating-an-extension-from-the-template}
 
 在主菜单里选：
 
@@ -56,24 +56,24 @@ last_synced: '2026-08-12'
 
 从这儿开始就交给你了。一个经典用例是：反复执行这个命令来显示／隐藏扩展窗口。不过跟别的草图一样，你在这儿甚至可以跑 `format c:` —— 所以一如往常，小心行事……
 
-## 一个 .HDE.vl 文件里放多个扩展 {#multiple-extensions-per-hdevl-file}
+## Multiple extensions per .HDE.vl file / 一个 .HDE.vl 文件里放多个扩展 {#multiple-extensions-per-hdevl-file}
 
 如果你需要这样，那么可以：在你的文档里注册多个命令，各自触发不同的扩展即可。
 
 但要注意，万一你其中一个扩展出了运行时错误，同一文档里运行的其他扩展也可能被牵连。
 
-## 窗口 {#windows}
+## Windows / 窗口 {#windows}
 
 一个扩展并不一定非得有窗口（比如它可以只是对一堆选中的节点跑个 Operation……）。它也可以有自己一套完全不同的窗口思路。但很多情况下，你只想用 `VL.HDE` 自带的现成窗口。目前有这两个：
 
 * SkiaWindow：Renderer [Skia] 的精简版
 * SkiaWindowTopMost：同上，只是它不获取焦点、并且总在最前（比如 Key/Mouse Display 扩展就用它）
 
-### 停靠 {#docking}
+### Docking / 停靠 {#docking}
 
 窗口要参与停靠机制和自动的窗口恢复管理，就得注册到窗口管理器：用 `WindowFactory` 节点把它包起来，再连上 `WindowContext` 和 `Window` 两个针脚。例子见 `VL.HDE/Template.HDE.vl`。
 
-## 与 vvvv 交互 {#interfacing-with-vvvv}
+## Interfacing with vvvv / 与 vvvv 交互 {#interfacing-with-vvvv}
 
 vvvv 的 API 让你能访问悬停中的和选中的节点，并允许你读写针脚。
 
@@ -84,9 +84,9 @@ vvvv 的 API 让你能访问悬停中的和选中的节点，并允许你读写�
 
 有些扩展会希望能通过[设置](/develop-environment/settings)来配置，不过目前还做不到。
 
-## 把扩展打进 NuGet {#packaging-extensions-in-a-nuget}
+## Packaging extensions in a NuGet / 把扩展打进 NuGet {#packaging-extensions-in-a-nuget}
 
-### 只含扩展的 NuGet {#extension-only-nuget}
+### Extension-only NuGet / 只含扩展的 NuGet {#extension-only-nuget}
 
 如果你想发布一个只含扩展的 NuGet，它的 ID 必须以 `.HDE` 结尾，比如：
 
@@ -96,7 +96,7 @@ vvvv 的 API 让你能访问悬停中的和选中的节点，并允许你读写�
 
 `VL.MyExtension.HDE.vl`
 
-### 作为 NuGet 一部分的扩展 {#extension-as-part-of-a-nuget}
+### Extension as part of a NuGet / 作为 NuGet 一部分的扩展 {#extension-as-part-of-a-nuget}
 
 扩展也可以随任何「主要提供其他功能」的 NuGet 一起发布。这时扩展文档的名字必须与包 ID 完全一致，只是加上 `.HDE` 后缀。比如一个叫 `VL.MyPackage` 的 NuGet 至少会含这两个文档：
 
@@ -105,6 +105,6 @@ VL.MyPackage.vl      // 主文档
 VL.MyPackage.HDE.vl  // 扩展文档
 ```
 
-## 重启所有扩展 {#restarting-all-extensions}
+## Restarting all extensions / 重启所有扩展 {#restarting-all-extensions}
 
 尤其是在开发过程中，你可能会把某个扩展搞崩、需要重启它。用快捷键 <span class="keyseq"><kbd>Shift</kbd><kbd>F9</kbd></span> 可以一次性重启所有扩展。

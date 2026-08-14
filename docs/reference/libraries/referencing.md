@@ -17,13 +17,13 @@ VL 文档可以引用 3 种不同类型的依赖：
 
 当一个文档引用了某个依赖，就意味着那个依赖里所有公开的节点都能通过[节点浏览器](/develop-environment/the-node-browser)在这个文档里用上。
 
-## NuGet {#nugets}
+## Nugets / NuGet {#nugets}
 
 [NuGet](https://www.nuget.org) 是 .NET 的包管理系统。一个 NuGet 就是一个包，里面可以装很多 .dll 和／或 .vl 文件，为引用这个包的文档提供节点。
 
 安装 NuGet 的方法见[管理 NuGet](/develop-environment/managing-nugets)。
 
-### VL NuGet 与 .NET NuGet {#vl-vs-net-nugets}
+### VL vs. .NET Nugets / VL NuGet 与 .NET NuGet {#vl-vs-net-nugets}
 
 VL NuGet 是专为 vl 做的 NuGet，别的 [.NET 语言](https://en.wikipedia.org/wiki/List_of_CLI_languages)用不了。按 NuGet 原本的定义，这仍是一个合法的 NuGet，只是里面装着 .vl 文档，出了 vl 就没用。
 
@@ -34,7 +34,7 @@ VL NuGet 是专为 vl 做的 NuGet，别的 [.NET 语言](https://en.wikipedia.o
 ![](https://thegraybook.vvvv.org/images/libraries/vl-Dependencies-Nuget.png)
 右键切换添加／移除一个 NuGet 引用
 
-### 找不到的 NuGet {#missing-nugets}
+### Missing Nugets / 找不到的 NuGet {#missing-nugets}
 
 文档引用的 NuGet 如果找不到，会在 Dependencies 菜单里标成红色。右键点这条红色条目，你可以：
 
@@ -46,7 +46,7 @@ VL NuGet 是专为 vl 做的 NuGet，别的 [.NET 语言](https://en.wikipedia.o
 ![](https://thegraybook.vvvv.org/images/libraries/vl-Dependencies-MissingNuget.png)
 找不到的 NuGet 的几个选项
 
-### 非托管／原生依赖 {#unmanagednative-dependencies}
+### Unmanaged/Native dependencies / 非托管／原生依赖 {#unmanagednative-dependencies}
 
 有些 NuGet 自带或依赖非托管／原生 .dll，vl 认不出来 —— NuGet 规范压根没规定这类文件该怎么处理。眼下要让这类非托管依赖被认出来，得写个批处理文件给 vl 加一条搜索路径，像这样：
 
@@ -55,11 +55,11 @@ SET PATH=%PATH%;c:\path\to\nugets\nativelibs;
 vvvv.exe
 ```
 
-## 文件 {#files}
+## Files / 文件 {#files}
 
 一个 vl 文档可以引用别的 .vl 文档和托管的 .dll 文件。
 
-### 来自磁盘 {#from-disk}
+### From Disk / 来自磁盘 {#from-disk}
 
 引用本地文件有 3 种方式：
 
@@ -70,18 +70,18 @@ vvvv.exe
 ![](https://thegraybook.vvvv.org/images/libraries/vl-Dependencies-File.png)
 把一个已有文件添加为依赖
 
-#### 找不到的文件 {#missing-files}
+#### Missing Files / 找不到的文件 {#missing-files}
 
 标成红色的文件在磁盘上找不到。右键可以移除或替换这条引用。
 
-#### 移除或替换文件 {#removing-or-replacing-files}
+#### Removing or Replacing Files / 移除或替换文件 {#removing-or-replacing-files}
 
 右键点一条文件引用，可以移除或替换。也可以用右键连着选中多个文件，一次性全部 `Remove`。
 
 ![](https://thegraybook.vvvv.org/images/libraries/vl-Dependencies-File-Remove.png)
 移除文件
 
-#### 重复引用警告 {#duplicate-reference-warning}
+#### Duplicate reference warning / 重复引用警告 {#duplicate-reference-warning}
 
 引用一个 .dll 时，你可能会遇到类似下面这样的警告：
 
@@ -98,7 +98,7 @@ vvvv.exe
 
 否则，情况 1 重启 vvvv 应该能解决；但情况 2 你其实没有机会解决 —— vvvv 加载过的 .dll 完全没法更换。如果出于某些原因你需要用比 vvvv 当前所用更新版本的某个 .dll，请到[论坛](https://forum.vvvv.org)上开一贴说说，我们看看能做点什么。
 
-### 来自 GAC（全局程序集缓存）的库 {#libraries-from-the-gac-global-assembly-cache}
+### Libraries from the GAC (Global Assembly Cache) / 来自 GAC（全局程序集缓存）的库 {#libraries-from-the-gac-global-assembly-cache}
 
 .NET 默认自带大量可以引用的程序集。装了 .NET 的机器上，这些程序集都在 [GAC](https://docs.microsoft.com/en-us/dotnet/framework/app-domains/gac) 里，可以这样引用：
 

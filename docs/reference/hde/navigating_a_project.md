@@ -14,11 +14,11 @@ VL 里的一个项目通常就是一份 .vl 文档，里面装着一张或多张
 ![](https://thegraybook.vvvv.org/images/hde/gamma-active_document.png)
 主菜单栏，当前文档是 “callmenames.vl”
 
-## 当前文档菜单 {#active-document-menu}
+## Active Document Menu / 当前文档菜单 {#active-document-menu}
 
 点当前文档，打开它的菜单。
 
-### 依赖 {#dependencies}
+### Dependencies / 依赖 {#dependencies}
 
 一份文档可以引用三类依赖：
 
@@ -29,7 +29,7 @@ VL 里的一个项目通常就是一份 .vl 文档，里面装着一张或多张
 ![](https://thegraybook.vvvv.org/images/hde/gamma-active_document_menu_dependencies.png)
 文档的依赖
 
-#### VL NuGet {#vl-nugets}
+#### VL Nugets / VL NuGet {#vl-nugets}
 
 进 `VL Nugets`，可以看到所有为 VL 提供节点的 NuGet。每个 NuGet 是一批文档（.vl、.dll 等等）的集合，这些文档为你的文档提供节点。
 
@@ -40,11 +40,11 @@ NuGet 旁边带括号的版本号，表示当前加载的版本与最初引用�
 
 右键点一个 NuGet 就选中它。选中之后，在这份文档里可以通过节点浏览器用到它的全部节点。
 
-#### .NET NuGet {#net-nugets}
+#### .NET Nugets / .NET NuGet {#net-nugets}
 
 `.NET Nugets` 一栏里是所有并非为 VL 定制的 NuGet。它们照样能用，只是取决于库本身有多复杂，用起来可能会稍微进阶一些。
 
-#### 文件 {#files}
+#### Files / 文件 {#files}
 
 除了 NuGet，你也可以引用单个文件，支持这几种：
 
@@ -57,7 +57,7 @@ NuGet 旁边带括号的版本号，表示当前加载的版本与最初引用�
 
 选 `Add Existing...`，用文件浏览器挑一个文件。这些文件暴露出来的节点，都能在当前文档里通过节点浏览器用到。
 
-#### 转发依赖 {#forward-dependencies}
+#### Forward Dependencies / 转发依赖 {#forward-dependencies}
 
 这一栏把所有 NuGet 和文件合在一起列出来，你可以逐个指定它的节点要不要转发出去。
 
@@ -73,7 +73,7 @@ NuGet 旁边带括号的版本号，表示当前加载的版本与最初引用�
 
 见 [Definitions 草图](/language/patches#definitions-patch)。
 
-## 最后保存时的版本 {#last-saved-with-version}
+## Last saved with version / 最后保存时的版本 {#last-saved-with-version}
 
 菜单底部显示这份文档最后一次保存时用的 VL 版本。如果文档名前面有个绿色或红色的小图标，说明保存它时用的版本和你现在运行的版本不是同一个。
 

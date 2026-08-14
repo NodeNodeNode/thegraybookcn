@@ -58,7 +58,7 @@ vvvvc.exe MyApp.vl
 
 导出成功后，输出目录里会有一个以你的应用命名的文件夹，可执行文件就在里面。**要在另一台电脑上运行，需要把这个文件夹的全部内容都拷过去。**
 
-### 命令行示例 {#commandline-example}
+### Commandline example: / 命令行示例 {#commandline-example}
 
 ```
 vvvvc.exe MyApp.vl --output-directory C:\temp
@@ -68,7 +68,7 @@ vvvvc.exe MyApp.vl --output-directory C:\temp
 
 指定一个 .ico 文件作为生成的可执行文件的图标。
 
-### 命令行示例 {#commandline-example-1}
+### Commandline example: / 命令行示例 {#commandline-example-1}
 
 ```
 vvvvc.exe MyApp.vl --app-icon C:\temp\my.ico
@@ -81,7 +81,7 @@ vvvvc.exe MyApp.vl --app-icon C:\temp\my.ico
 * **Relative to document（相对于文档）**：开发期最好用。资源在哪就从哪引用，你不必操心搬动资源的事，可以快速试导出。
 * **Relative to output（相对于输出）**：正式导出用这个。它要求你手动把资源摆到相对于可执行文件的位置上，和开发时它们相对于根文档的位置一致。这样整个输出目录就可以整体搬走、部署到别的电脑。
 
-### 命令行示例 {#commandline-example-2}
+### Commandline example: / 命令行示例 {#commandline-example-2}
 
 ```
 vvvvc.exe MyApp.vl --asset-behavior RelativeToDocument
@@ -91,7 +91,7 @@ vvvvc.exe MyApp.vl --asset-behavior RelativeToDocument
 
 选择生成 Windows 图形程序（WinExe）还是控制台程序（Exe）。
 
-### 命令行示例 {#commandline-example-3}
+### Commandline example: / 命令行示例 {#commandline-example-3}
 
 ```
 vvvvc.exe MyApp.vl --output-type Exe
@@ -103,7 +103,7 @@ vvvvc.exe MyApp.vl --output-type Exe
 
 选择为哪个操作系统和架构构建。目前支持：win-x64 | win-x86 | win-arm64 | osx-x64 | osx-arm64 | linux-x64 | linux-arm | linux-arm64
 
-### 命令行示例 {#commandline-example-4}
+### Commandline example: / 命令行示例 {#commandline-example-4}
 
 ```
 vvvvc.exe MyApp.vl --rid linux-arm64
@@ -115,7 +115,7 @@ vvvvc.exe MyApp.vl --rid linux-arm64
 
 有时候你清楚草图里有错误、但暂时就想放着不管，同时还要能导出。
 
-#### 命令行示例 {#commandline-example-5}
+#### Commandline example: / 命令行示例 {#commandline-example-5}
 
 ```
 vvvvc.exe MyApp.vl --ignore-errors true
@@ -131,7 +131,7 @@ vvvvc.exe MyApp.vl --ignore-errors true
 
 打开之后，导出前会先清掉上次导出的产物（也就是删掉 `\src` 文件夹）。这会让导出变慢，但能确保旧产物不会干扰这次导出。
 
-### 命令行示例 {#commandline-example-6}
+### Commandline example: / 命令行示例 {#commandline-example-6}
 
 ```
 vvvvc.exe MyApp.vl --clean false
@@ -213,7 +213,7 @@ vvvvc.exe MyApp.vl --clean false
 ![](https://thegraybook.vvvv.org/images/hde/exporting-74bc1.png)
 导出界面报告出了问题
 
-#### 报错 MSB3073 {#export-fails-with-error-msb3073}
+#### Export fails with error MSB3073 / 报错 MSB3073 {#export-fails-with-error-msb3073}
 
 这个错误[来自 Stride](https://github.com/stride3d/stride/issues/2232)。遇到的话可以试试这个绕行办法：
 
@@ -223,7 +223,7 @@ vvvvc.exe MyApp.vl --clean false
   - `copy System.Security.Cryptography.Pkcs.6.0.4\lib\net6.0\System.Security.Cryptography.Pkcs.dll %userprofile%\.nuget\packages\stride.core.assets.compilerapp\4.2.0.2121\lib\net8.0`
 - 然后重新导出
 
-#### 报错「Found multiple publish output files with the same relative path」 {#export-fails-with-found-multiple-publish-output-files-with-the-same-relative-path}
+#### Export fails with "..Found multiple publish output files with the same relative path.." / 报错「Found multiple publish output files with the same relative path」 {#export-fails-with-found-multiple-publish-output-files-with-the-same-relative-path}
 
 如果涉及的文件是 `ijwhost.dll`，在[进阶构建配置](#advanced-build-configuration)的 `.props` 文件里加上这一行可能就好了：
 
@@ -233,7 +233,7 @@ vvvvc.exe MyApp.vl --clean false
 
 原理见[这里的说明](https://stackoverflow.com/questions/69919664/publish-error-found-multiple-publish-output-files-with-the-same-relative-path)。
 
-#### 报 NuGet 依赖问题 {#export-fails-with-nuget-dependency-issues}
+#### Export fails with NuGet dependency issues / 报 NuGet 依赖问题 {#export-fails-with-nuget-dependency-issues}
 
 仔细读那段红色的错误信息，里面会说明原因。如果原因指向「包不兼容」，那可能是你的 NuGet 文件夹里日积月累攒了太多包，把导出挡住了。这种情况可以试试从一个干净的 NuGet 文件夹重新开始：
 
@@ -245,7 +245,7 @@ vvvvc.exe MyApp.vl --clean false
 - 点 `文档菜单 -> Dependencies`，右键全选所有缺失的依赖，选 “Install exact referenced version”
 - 等所有包重新装完，再试导出
 
-#### 报错「could not copy file」 {#export-fails-with-could-not-copy-file}
+#### Export fails with "..could not copy file.." / 报错「could not copy file」 {#export-fails-with-could-not-copy-file}
 
 当你把某些包作为源码仓库引用时可能会遇到。想办法把导出跑通的话可以试试：
 
@@ -254,13 +254,13 @@ vvvvc.exe MyApp.vl --clean false
 - 打开命令行（cmd.exe）
 - 粘贴并执行这条命令
 
-#### vvvv gamma 2021.4.x 上导出失败 {#export-fails-with-vvvv-gamma-20214x}
+#### Export fails With vvvv gamma 2021.4.x / vvvv gamma 2021.4.x 上导出失败 {#export-fails-with-vvvv-gamma-20214x}
 
 已知问题：MSBuild 工具的版本比 vvvv 预期的更新时会不兼容。要确保装的是对的版本，按下面做：
 
 - 把机器上能找到的所有 Visual Studio 和 Build Tools 全部卸载
 - 然后重新运行 vvvv 2021.4.x 的安装程序，并勾上 “Build Tools” 这一项
 
-#### 以上都不是 {#none-of-the-above}
+#### None of the above / 以上都不是 {#none-of-the-above}
 
 请按 “Copy To Clipboard” 复制控制台的输出，然后通过[论坛](https://forum.vvvv.org/c/vvvv-gamma/bug/31)发给我们。

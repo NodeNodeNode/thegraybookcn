@@ -23,11 +23,11 @@ last_synced: '2026-08-12'
 * 聊天：由 [HelpbrowserContentX.xml](https://github.com/vvvv/PublicContent/blob/master/HelpBrowser/) 指定
 * 赞助！：由 [HelpbrowserContentX.xml](https://github.com/vvvv/PublicContent/blob/master/HelpBrowser/) 指定
 
-## 教程与课程 {#tutorials-and-courses}
+## Tutorials and Courses / 教程与课程 {#tutorials-and-courses}
 
 想链接的教程或课程不一定绑定到某个具体的包时，把这些信息写进 [TutorialsAndCourses.xml](https://github.com/vvvv/PublicContent/blob/master/HelpBrowser/TutorialsAndCourses.xml) —— 每个帮助面板都会自动下载并显示它。
 
-## 帮助文档 {#help-patches}
+## Help Patches / 帮助文档 {#help-patches}
 
 节点库的开发者可以提供草图，演示这个库的各个方面。
 
@@ -77,7 +77,7 @@ last_synced: '2026-08-12'
 
 搜索会覆盖条目标题里的所有词。如果你想加入更多塞不进标题的搜索词，用 “tags” 属性写一串空格分隔的搜索词。
 
-## 帮助标记 {#help-flags}
+## Help Flags / 帮助标记 {#help-flags}
 
 *help flag*（帮助标记）用来指定：当用户选中某个节点并按 <span class="keyseq"><kbd>F1</kbd></span> 时，该打开哪一份 HowTo 草图。
 
@@ -86,7 +86,7 @@ last_synced: '2026-08-12'
 ![](https://thegraybook.vvvv.org/images/libraries/helpflags-a2c55.png)
 FileReader 带一个高优先级帮助标记，SplitToLines 带一个低优先级的
 
-### 高优先级与低优先级 {#high-vs-low-priority}
+### High vs. Low Priority / 高优先级与低优先级 {#high-vs-low-priority}
 
 在某个节点上按 <span class="keyseq"><kbd>F1</kbd></span> 时，系统会遍历这个库所有 HowTo 草图里的帮助标记。一旦遇到针对该节点的高优先级标记，就把那份草图作为帮助文档显示出来。所以一个节点的高优先级帮助标记只设一次才讲得通。
 
@@ -95,7 +95,7 @@ FileReader 带一个高优先级帮助标记，SplitToLines 带一个低优先�
 
 按下 <span class="keyseq"><kbd>F1</kbd></span> 之后，用户若还想看这个节点的节点信息，帮助面板会列出所有「为它设了低优先级帮助标记」的 HowTo 草图。所以在不同 HowTo 草图里为同一个节点设多个低优先级标记是有意义的 —— 那表示找这个节点的用例时，这几份草图也值得一看。
 
-### 帮助标记指示器 {#help-flag-indicator}
+### Help flag indicator / 帮助标记指示器 {#help-flag-indicator}
 
 最终用户不需要看到帮助标记，所以打开帮助文档时它们默认隐藏。用帮助标记指示器可以把它们显示出来。
 

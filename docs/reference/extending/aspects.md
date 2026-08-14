@@ -38,7 +38,7 @@ Advanced 大概是最重要的一个 Aspect。想法是：节点库开发者会�
 
 *Internal* 让节点和类型只在定义它们的那个 .vl 文档内部可用。适合那些换个语境就毫无意义的小工具和辅助节点 —— 文档被别人引用时，它们不该露出去。
 
-## Obsolete 与 Experimental {#obsolete-and-experimental}
+## Obsolete and Experimental / Obsolete 与 Experimental {#obsolete-and-experimental}
 
 这两个分别留给过去和未来的节点。
 
@@ -52,7 +52,7 @@ Advanced 大概是最重要的一个 Aspect。想法是：节点库开发者会�
 
 给节点施加 Aspect 有几种不同的方式：
 
-## 给一组节点指定 Aspect {#specifying-aspects-for-groups-of-nodes}
+## Specifying aspects for groups of nodes / 给一组节点指定 Aspect {#specifying-aspects-for-groups-of-nodes}
 
 用上面任意一个关键字作为名字建[目录](/language/categories)，就能把 Aspect 施加到这个目录内定义的所有节点上。
 
@@ -62,13 +62,13 @@ Advanced 大概是最重要的一个 Aspect。想法是：节点库开发者会�
 
 ![](https://thegraybook.vvvv.org/images/libraries/aspect_tooltip.PNG)
 
-## 给单个数据类型定义指定 Aspect {#specifying-an-aspect-for-a-single-datatype-definition}
+## Specifying an aspect for a single datatype definition / 给单个数据类型定义指定 Aspect {#specifying-an-aspect-for-a-single-datatype-definition}
 
 对 Process、Record 或 Class，可以通过[草图浏览器](/language/patch-explorer#datatype-patch-explorer)设定 Aspect。
 
 给某个类型指定的 Aspect，同样作用于它内部的所有元素！
 
-## 给单个 Operation 指定 Aspect {#specifying-an-aspect-for-a-single-operation}
+## Specifying an aspect for a single operation / 给单个 Operation 指定 Aspect {#specifying-an-aspect-for-a-single-operation}
 
 要给单个 [Operation](/language/operations) 指定 Aspect，只要把关键字写进 Operation 名字的版本部分，比如：
 

@@ -25,7 +25,7 @@ last_synced: '2026-08-12'
 
 尽管拿它们作为你自己节点库的起点。
 
-## GitHub Actions 简介 {#a-brief-introduction-to-github-actions}
+## A brief introduction to GitHub Actions / GitHub Actions 简介 {#a-brief-introduction-to-github-actions}
 
 GitHub Action 是一些用途明确的小脚本，用来把仓库上的任务自动化。它们是*工作流*的构件：把若干 action 一个接一个串进自己的小脚本，再决定这个工作流在什么条件下触发（`main` 上有新提交、打了新标签等等）。
 
@@ -53,23 +53,23 @@ GitHub Action 是一些用途明确的小脚本，用来把仓库上的任务自
 
 关于 GitHub Actions 的更多信息，见[官方文档（英文）](https://docs.github.com/en/free-pro-team@latest/actions)。
 
-## 若干预备说明 {#preliminary-notes}
+## Preliminary notes / 若干预备说明 {#preliminary-notes}
 
-### nuspec 文件 {#nuspec-file}
+### nuspec file / nuspec 文件 {#nuspec-file}
 
 nuspec 文件装着这个 NuGet 的元数据：版本、作者、依赖，同时指定最终的包里该含哪些文件。建议放在仓库根目录的 `deployment` 文件夹里，不过放哪儿都行。
 
 关于 `nuspec` 文件格式的更多信息，见 Microsoft 的[文档（英文）](https://docs.microsoft.com/en-us/nuget/reference/nuspec)。
 
-#### 依赖 {#dependencies}
+#### Dependencies / 依赖 {#dependencies}
 
 在 nuspec 文件里，确认你把这个节点库／项目需要的 NuGet 都列在了 `dependencies` 一节下。
 
-#### 资源、二进制文件、帮助文档等等 {#assets-binaries-help-files-etc}
+#### Assets, binaries, help files, etc. / 资源、二进制文件、帮助文档等等 {#assets-binaries-help-files-etc}
 
 在 nuspec 文件里，确认你把所有资源、dll、帮助文档等等都列在了 `files` 一节下。
 
-#### 版本 {#version}
+#### Version / 版本 {#version}
 
 你的包版本应该遵循 [semver](https://semver.org/) 规范。
 
@@ -87,7 +87,7 @@ nuspec 文件装着这个 NuGet 的元数据：版本、作者、依赖，同时
 
 如果你打算这么用，只要把这个 GitHub Action 的 `nuspec` 输入省掉即可。
 
-### 包图标 {#package-icon}
+### Package icon / 包图标 {#package-icon}
 
 我们这个 GitHub Action 可以用 `icon-src` 和 `icon-dst` 两个输入参数从外部指定包图标，这样就不必把图标提交进仓库 —— 每次工作流运行都会下载它并放进包里。
 
@@ -162,9 +162,9 @@ nuspec 文件里的路径，相对的是这个文件自己所在的位置。
 ![](https://thegraybook.vvvv.org/images/libraries/publishing_icon_in_visualstudio.png)
 Visual Studio
 
-## 使用这个 Action {#using-the-action}
+## Using the Action / 使用这个 Action {#using-the-action}
 
-### 取得 nuget.org 的 API key {#getting-a-nugetorg-api-key}
+### Getting a nuget.org API key / 取得 nuget.org 的 API key {#getting-a-nugetorg-api-key}
 
 下面这几步带你走完 nuget.org 的配置。开始之前，请确认你有一个可用的账号并已登录 nuget.org。
 
@@ -182,7 +182,7 @@ Visual Studio
 
 点包描述下面的 `Copy`，把它加进你仓库的 secrets。做法请参阅 GitHub 文档的[这一页（英文）](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)。记住你这个 secret 的名字，下一步创建工作流文件时会用到。我们建议就叫它 `NUGET_KEY`。
 
-### 创建工作流文件 {#creating-the-workflow-file}
+### Creating the workflow file / 创建工作流文件 {#creating-the-workflow-file}
 
 在你仓库的 `.github/workflows` 目录里新建一个 `main.yml` 文件。你的仓库结构应该长这样：
 
@@ -260,7 +260,7 @@ jobs:
 
 想知道 `{{ secrets.NUGET_KEY }}` 是什么？见[取得 nuget.org 的 API key](#getting-a-nugetorg-api-key)。
 
-### 推送！{#push}
+### Push! / 推送！ {#push}
 
 现在推到 `main` 分支就能触发一次新部署。记得先把 `nuspec` 或 `csproj` 里的版本号往上抬 —— 否则 nuget.org（或你用的任何源）会拒收。
 
@@ -269,7 +269,7 @@ jobs:
 ![](https://thegraybook.vvvv.org/images/libraries/publishing_workflow_run_report.png)
 工作流运行报告
 
-### 给包归类 {#categorize-the-pack}
+### Categorize the pack / 给包归类 {#categorize-the-pack}
 
 想让你在 nuget.org 上公开的包出现在[包浏览器](http://vvvv.org/packs)里，请确认：
 

@@ -21,7 +21,7 @@ IOBox 是 “Input/Output boxes”（输入输出盒子）的简称：既可以�
 
 每种基本数据类型都有相应的 IOBox，而且各自都有一些特别的用法，下面逐个来看。
 
-## 设置 IOBox {#configuring-ioboxes}
+## Configuring IOBoxes / 设置 IOBox {#configuring-ioboxes}
 
 所有 IOBox 的设置方式都是一样的，都通过 inspector 来改：
 
@@ -31,7 +31,7 @@ IOBox 是 “Input/Output boxes”（输入输出盒子）的简称：既可以�
 ![](https://thegraybook.vvvv.org/images/language/ioboxes-e0989.png)
 设置一个数值 IOBox
 
-## 数值 {#numbers}
+## Numbers / 数值 {#numbers}
 
 不管是整数（integer32、byte 等）还是实数（float32 等），数值 IOBox 的用法都一样：
 
@@ -55,7 +55,7 @@ IOBox 是 “Input/Output boxes”（输入输出盒子）的简称：既可以�
 * 是否显示单位。单位只影响显示，不会影响数值本身
 * 显示成横向还是纵向的滑块
 
-## 向量 {#vectors}
+## Vectors / 向量 {#vectors}
 
 向量 IOBox 最主要的设置项，是它的各个分量要横着排还是竖着排。
 
@@ -64,7 +64,7 @@ IOBox 是 “Input/Output boxes”（输入输出盒子）的简称：既可以�
 
 另外，把鼠标悬停在 IOBox 上时，上方会浮出一个数值，改它就能一次性改变所有分量。
 
-## 布尔值 {#booleans}
+## Booleans / 布尔值 {#booleans}
 
 布尔 IOBox 有三种按钮模式：
 
@@ -75,7 +75,7 @@ IOBox 是 “Input/Output boxes”（输入输出盒子）的简称：既可以�
 * Bang：右键单击，只在一帧内返回 TRUE，其余时候返回 FALSE
 * Press：只要右键按住就返回 TRUE，松开就是 FALSE
 
-## 字符串 {#strings}
+## Strings / 字符串 {#strings}
 
 字符串 IOBox 这样改值：
 
@@ -95,7 +95,7 @@ IOBox 是 “Input/Output boxes”（输入输出盒子）的简称：既可以�
 ![](https://thegraybook.vvvv.org/images/language/ioboxes-4e18c.png)
 三种不同类型的字符串 IOBox
 
-## 颜色 {#colors}
+## Colors / 颜色 {#colors}
 
 颜色 IOBox 支持多种输入颜色的方式：
 
@@ -114,7 +114,7 @@ IOBox 是 “Input/Output boxes”（输入输出盒子）的简称：既可以�
 | 改变饱和度 | `Ctrl` `+` 右键上下拖动 |
 | 改变透明度通道 | `Shift` `+` 右键上下拖动 |
 
-## 路径 {#paths}
+## Paths / 路径 {#paths}
 
 路径 IOBox 用来输入文件名或目录。注意它默认总是假设你要选的是文件。
 
@@ -131,7 +131,7 @@ IOBox 是 “Input/Output boxes”（输入输出盒子）的简称：既可以�
 
 * 路径类型选 *File* 还是 *Directory*。这只决定右键单击 IOBox 时弹出哪种对话框
 
-## 集合 {#collections}
+## Collections / 集合 {#collections}
 
 上面所有的数据类型都能用集合 IOBox 来承载。最常见的做法是：从一个集合类型（比如 Spread、Sequence 等）的针脚上引出连线，然后按鼠标中键，自动创建出对应的 IOBox。
 

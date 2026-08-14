@@ -15,7 +15,7 @@ last_synced: '2026-08-12'
 
 ![](https://user-images.githubusercontent.com/575557/179545040-f7dcc439-8edf-4b6e-ac1c-21dfe42a4c17.png)
 
-## 基本组件 {#basic-components}
+## Basic Components / 基本组件 {#basic-components}
 
 用来把节点列进节点浏览器的：
 
