@@ -19,7 +19,7 @@ const navbarSections = require('./translation/navbar-sections.json').map((s) =>
 const config = {
   title: '灰皮书',
   tagline: 'vvvv gamma 中文文档',
-  url: 'https://docs.nodenodenode.net',
+  url: 'https://thegraybook.nodenodenode.net',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   // 译文标题全部钉死上游英文锚点（## 中文标题 {#english-slug}），锚点正确性

@@ -1,6 +1,6 @@
 # 灰皮书中文版 · thegraybookcn
 
-**[docs.nodenodenode.net](https://docs.nodenodenode.net)** —— vvvv gamma 官方文档 [the gray book](https://thegraybook.vvvv.org/) 的社区中文翻译。
+**[thegraybook.nodenodenode.net](https://thegraybook.nodenodenode.net)** —— vvvv gamma 官方文档 [the gray book](https://thegraybook.vvvv.org/) 的社区中文翻译。
 
 由 vvvv 中文社区维护，非官方站点。上游导航里的每一页，这里都有对应的中文。
 
@@ -30,7 +30,7 @@
 
 每一页正文最上面都有「源文档地址」，一点就能对照英文原文。**拿不准时以原文为准。**
 
-完整贡献流程见站上的[如何加入](https://docs.nodenodenode.net/about-translation/how-to-join)。
+完整贡献流程见站上的[如何加入](https://thegraybook.nodenodenode.net/about-translation/how-to-join)。
 
 ---
 
@@ -52,7 +52,7 @@ npm start              # 本地预览；npm run start:lan 可在局域网访问
 | [`MAINTENANCE.md`](MAINTENANCE.md) | **上游更新之后怎么跟进**。日常维护看这份 |
 | [`TRANSLATION-STYLE.md`](TRANSLATION-STYLE.md) | 文风、排版、标点、链接规范 |
 | [`translation/terms.yml`](translation/terms.yml) | 术语唯一真源（[`TERMINOLOGY.md`](TERMINOLOGY.md) 是它的产物，不要手改） |
-| 站上的[协作规范](https://docs.nodenodenode.net/about-translation/translation-standard) | 给校对者看的精简版 |
+| 站上的[协作规范](https://thegraybook.nodenodenode.net/about-translation/translation-standard) | 给校对者看的精简版 |
 
 ### 提交前跑这三条
 
@@ -112,7 +112,15 @@ npm run build     # 输出到 build/
 npm run serve     # 本地预览构建产物
 ```
 
-仓库里唯一的 CI 是上游漂移巡检（不参与部署）。`docs.nodenodenode.net` 的托管方式不在本仓库内描述。`package.json` 里保留了 Docusaurus 自带的 `npm run deploy`（推 `gh-pages` 分支），但当前部署未走这条路径。
+```bash
+npm run serve:lan # 局域网预览，手机上开 http://<本机IP>:3000
+```
+
+**搜索只在构建产物上工作。** 它的 Worker 里判断了 `NODE_ENV === 'production'`，所以 `npm start`（dev）下搜索框能打开、能输入，但永远返回空结果 —— 要测搜索必须走 `build` + `serve`。
+
+**部署：Vercel，push 到 `main` 自动构建。** 站点是 `thegraybook.nodenodenode.net`（DNS 指向 `cname.vercel-dns.com`）。仓库里没有部署 workflow，也不需要 —— 关联关系在 Vercel 后台。唯一的 CI 是上游漂移巡检，不参与部署。
+
+`package.json` 里保留着 Docusaurus 自带的 `npm run deploy`（推 `gh-pages` 分支），**不要用** —— 当前部署不走这条路径。
 
 ---
 
