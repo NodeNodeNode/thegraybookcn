@@ -68,6 +68,15 @@ reference/hde/exporting.md
 
 照 [`TRANSLATION-STYLE.md`](TRANSLATION-STYLE.md)。新术语记得同一个提交进 [`translation/terms.yml`](translation/terms.yml)（棘轮规则）。
 
+`terms.yml` 一改，**两个产物都要重新生成并一起提交**：
+
+```bash
+npm run gb:terms-doc        # → TERMINOLOGY.md
+npm run gb:gen-searchdict   # → translation/search-dict.txt（搜索分词词典）
+```
+
+漏了后者不会报错，只会让新术语在搜索里被切碎、排序变差 —— 是那种半年后才被发现的退化。
+
 ### 4. 记：回填账本
 
 ```bash
@@ -182,4 +191,5 @@ npm run build
 | `npm run gb:check-anchors` | 锚点 |
 | `npm run gb:gen-sidebar` | 目录变了 / 新翻了页面 |
 | `npm run gb:terms-doc` | 改过 `terms.yml` 之后 |
+| `npm run gb:gen-searchdict` | 改过 `terms.yml` 之后（同上，两个都要跑） |
 | `npm run build` | 提交前，双 throw 门槛 |

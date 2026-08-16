@@ -26,11 +26,13 @@
     "gb:diff": "node scripts/gb-diff.mjs",
     "gb:touch": "node scripts/gb-touch.mjs",
     "gb:check-rewrite": "node scripts/gb-check-rewrite.mjs",
-    "gb:prose-smell": "node scripts/gb-prose-smell.mjs"
+    "gb:prose-smell": "node scripts/gb-prose-smell.mjs",
+    "gb:gen-searchdict": "node scripts/gb-gen-searchdict.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",
     "@docusaurus/preset-classic": "3.10.2",
+    "@easyops-cn/docusaurus-search-local": "^0.55.3",
     "@mdx-js/react": "3.1.1",
     "clsx": "2.1.1",
     "prism-react-renderer": "2.4.1",

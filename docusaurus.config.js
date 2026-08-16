@@ -1,6 +1,7 @@
 // @ts-nocheck
 // Note: type annotations allow type checking and IDEs autocompletion
 
+const path = require('path');
 const {themes} = require('prism-react-renderer');
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
@@ -82,6 +83,29 @@ const config = {
           customCss: [require.resolve('./src/css/custom.css')],
         },
       }),
+    ],
+  ],
+
+  // 本地搜索。选它而不是 Algolia 有三条硬理由：主站 CSP 是 connect-src 'self'，
+  // Algolia 的 XHR 会被浏览器直接拦掉；Algolia 要求先有可爬取的线上站再申请审批；
+  // 读者主要在国内，本地索引不引入任何额外跨境请求。137 页也远在 lunr 的舒适区内。
+  // 索引在 Web Worker 里懒加载，不进初始 bundle。
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        // 正文中英混排（术语保留英文、标题双语），两个分词器都得挂上
+        language: ['en', 'zh'],
+        // 必须与 preset 里的 routeBasePath 一致 —— 插件默认值是 /docs，不改则一页都索引不到
+        docsRouteBasePath: '/',
+        indexBlog: false, // blog: false
+        indexPages: false, // '/' 是 src/pages/index.js 落地页，没有可搜的正文
+        hashed: true, // 索引文件名带 hash，发新版不会吃到陈缓存
+        highlightSearchTermsOnTargetPage: true,
+        // jieba 默认词典不认识本书的复合术语，「数据枢纽」会被切成「数据」+「枢纽」。
+        // 这份词典由 `npm run gb:gen-searchdict` 从 terms.yml 生成。
+        zhUserDictPath: path.resolve(__dirname, 'translation/search-dict.txt'),
+      },
     ],
   ],
 

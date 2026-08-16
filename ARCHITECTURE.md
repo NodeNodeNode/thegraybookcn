@@ -261,6 +261,26 @@ frontmatter 里的 SHA 没加引号，YAML 会把纯数字的值解析成 number
 
 `VideoSourceTo*`、`File*` 里的星号是字面意思，但裸写会被 CommonMark 漏成裸星号。按 §6 当作代码名加反引号。
 
+### 6.14 jieba 词典里一行注释都不能写（构建直接 abort）
+
+`translation/search-dict.txt` 是生成物，但**不能带出处注释**。jieba 在 Rust 侧逐行按 `词 频次 词性` 三列解析，`#` 开头的行会 parse int 失败然后 `unwrap()` panic —— 而且是 non-unwinding panic，整个 node 进程 abort，构建只吐一段 Rust backtrace，看不出跟词典有关：
+
+```
+thread '<unnamed>' panicked at packages/jieba/src/lib.rs:35:8:
+called `Result::unwrap()` on an `Err` value: ()
+thread caused non-unwinding panic. aborting.
+```
+
+所以「本文件由脚本生成」这句话只能写在 `scripts/gb-gen-searchdict.mjs` 和本文里。
+
+### 6.15 搜索插件的类名，有的带 hash 有的不带
+
+`@easyops-cn/docusaurus-search-local` 的样式走 CSS Modules，类名构建后带 hash（`hitTitle_vyVt`），要用 `[class*='hitTitle_']` 匹配。
+
+但 `.suggestions`、`.empty`、`.dataset` 三条在它的 module css 里是**空规则**，CSS Modules 因此原样输出了不带 hash 的类名。这三条只能用裸类名写，且必须限定在 `.navbar__search` 内 —— 它们是全站范围的通用词，不限定容易撞。
+
+（autocomplete.js 没有用 `appendTo`，下拉面板留在 `.navbar__search` 里面，后代选择器成立。）
+
 ---
 
 ## 七、上游本身的错漏

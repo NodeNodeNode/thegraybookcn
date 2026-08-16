@@ -458,3 +458,121 @@ button:focus-visible {
   vertical-align: -0.18em;
   margin: 0 0.2em;
 }
+
+/* ── 搜索 ─────────────────────────────────────────────
+   零圆角、1px 硬线、8px 刻度、signal 只出现在焦点态，与全站一致。
+
+   刻意不用像素字体：那是 33KB 子集，只覆盖现有界面文案，而搜索结果里会出现
+   任意正文汉字，必然缺字回退 —— 一行里两种字体比全用系统字更难看。所以搜索
+   相关的一切都走 --font-body。（同理见上面像素字那节关于「警/危/险」的注释。）
+
+   插件的类名走 CSS Modules，构建后会带 hash，只能用 [class*=] 匹配前缀；
+   .navbar__search 与 .navbar__search-input 是 Infima 全局类，可以直接写。 */
+.navbar__search {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.navbar__search-input {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  height: 32px;
+  width: 200px;
+  padding: 0 var(--s1) 0 var(--s4);
+  border: var(--line);
+  border-radius: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  transition: none;
+}
+
+.navbar__search-input::placeholder {
+  color: var(--grey-500);
+}
+
+/* 焦点态是全站唯一用彩色的地方。这里不用 outline 而是换边框色 + 内阴影描边，
+   因为输入框自带 1px 边框，再叠一圈 outline 会变成两道线。 */
+.navbar__search-input:focus {
+  outline: none;
+  border-color: var(--signal);
+  box-shadow: inset 0 0 0 1px var(--signal);
+}
+
+[class*='searchIcon_'] {
+  color: var(--grey-500);
+  left: var(--s1);
+}
+
+/* ⌘K 提示。这个是固定短串，用像素字没有缺字风险，但为了和输入框内的文字
+   同一族，仍然跟着 --font-body 走，只把字号压小。 */
+[class*='searchHint_'] {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  border: var(--line-soft);
+  border-radius: 0;
+  box-shadow: none;
+  background: var(--grey-100);
+  color: var(--grey-500);
+}
+
+/* 下拉结果面板。全站没有阴影，这里也不给 —— 靠 1px 硬线和比页面更暗的底色
+   （--grey-200，与侧边栏同一处理）把层次做出来。 */
+/* .suggestions / .empty / .dataset 在插件的 module css 里是空规则，CSS Modules
+   因此原样输出了**不带 hash** 的类名（其余都带）。所以这几条只能用裸类名，
+   并且必须限定在 .navbar__search 内，否则是全站范围的通用词，容易撞。 */
+.navbar__search .suggestions {
+  font-family: var(--font-body);
+  border: var(--line);
+  border-radius: 0;
+  box-shadow: none;
+  background-color: var(--grey-200);
+}
+
+[class*='suggestion_'] {
+  border-radius: 0;
+  padding: var(--s1) var(--s2);
+}
+
+/* 选中行：不铺满背景，只在左侧立一道 signal 竖条 —— 与侧边栏的 pin 方块
+   同一套语言（用图形而非色块表示「当前」）。 */
+[class*='cursor_'] {
+  background-color: var(--grey-100);
+  box-shadow: inset 2px 0 0 var(--signal);
+}
+
+[class*='hitTitle_'] {
+  color: var(--ink);
+}
+
+[class*='hitPath_'] {
+  color: var(--grey-500);
+  font-size: 0.8125rem;
+}
+
+[class*='hitIcon_'],
+[class*='hitTree_'],
+[class*='hitAction_'] {
+  color: var(--grey-400);
+}
+
+/* 命中词高亮。用 signal 的文字色而不是黄底 —— 黄底在纸灰底上是异物。 */
+[class*='suggestion_'] mark {
+  background: transparent;
+  color: var(--signal);
+  font-weight: 600;
+  padding: 0;
+}
+
+[class*='noResults_'],
+.navbar__search .empty {
+  font-family: var(--font-body);
+  color: var(--grey-500);
+}
+
+/* 窄屏下搜索框会被挤掉；Docusaurus 把它移进汉堡菜单里，这里让它撑满宽度。 */
+@media (max-width: 996px) {
+  .navbar__search-input {
+    width: 100%;
+  }
+}
