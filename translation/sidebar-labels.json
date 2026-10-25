@@ -59,6 +59,7 @@
   "reference/hde/debugging-buildresult.md": "构建结果",
   "reference/hde/debugging-apphealth.md": "应用健康",
   "reference/hde/debugging-log.md": "日志",
+  "reference/hde/boygrouping.md": "Boygrouping",
   "reference/hde/documentation.md": "文档窗口",
   "reference/hde/solution-explorer.md": "方案浏览器",
   "reference/hde/managing-nugets.md": "管理 NuGet",

@@ -2,9 +2,9 @@
 title: Commandline Arguments / 命令行参数
 slug: /develop-environment/commandline-arguments
 source_path: reference/hde/commandline-arguments.md
-source_blob: ddd19dcf68c34f921641b8a5198cf4e9f03a992e
+source_blob: a0354cc90024df3c2d31bab972b7c48b61573b60
 status: translated
-last_synced: '2026-08-12'
+last_synced: '2026-10-25'
 ---
 
 [源文档地址](https://thegraybook.vvvv.org/reference/hde/commandline-arguments.html)
@@ -58,4 +58,6 @@ vvvv.exe -o "c:\myproject\foo.vl"
 
 比如要为 Linux x64 构建一个控制台程序：
 
-`vvvvc.exe --rid linux-x64 --output-type Exe`
+```
+vvvvc.exe --rid linux-x64 --output-type Exe
+```

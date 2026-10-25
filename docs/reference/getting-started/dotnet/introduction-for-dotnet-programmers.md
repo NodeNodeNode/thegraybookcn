@@ -2,17 +2,18 @@
 title: Introduction for .NET programmers / 写给 .NET 开发者
 slug: /getting-started/introduction-for-dotnet-programmers
 source_path: reference/getting-started/dotnet/introduction-for-dotnet-programmers.md
-source_blob: 3844bf2eb2a96fddb2bbff98e22bea98feb8f46f
+source_blob: 174e9934ed5c09f3ceeb9545c600a3c8e33b475c
 status: translated
-last_synced: '2026-08-12'
+last_synced: '2026-10-25'
 ---
 
 [源文档地址](https://thegraybook.vvvv.org/reference/getting-started/dotnet/introduction-for-dotnet-programmers.html)
 
 VL 是一门面向 [.NET](https://en.wikipedia.org/wiki/.NET) 的可视化编程语言。它把数据流编程和面向对象编程里的一些特性结合在一起。vvvv 则是 VL 的编辑环境。
 
-- vvvv 5.x 使用 .NET 6
+- vvvv 8.x 使用 .NET 10
 - vvvv 6.x 和 7.x 使用 .NET 8
+- vvvv 5.x 使用 .NET 6
 
 由于可以直接访问 .NET 的全部库，你基本上可以把它当作又一门 .NET 语言来用，和 C# 或 F# 一样。但那些库大多不是为数据流设计的，所以我们为你精选整理了一个用起来舒服得多的库 —— 新建 VL 文档时默认引用的就是它。
 

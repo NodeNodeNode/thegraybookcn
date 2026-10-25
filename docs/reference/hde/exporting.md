@@ -2,9 +2,9 @@
 title: Exporting Applications / 导出应用
 slug: /develop-environment/exporting
 source_path: reference/hde/exporting.md
-source_blob: 83a943fd1eca3f6d67f0037df6a37ae2b211f1b9
+source_blob: 537c5e8c818e28f23206a2fa1050c998c05e4f62
 status: translated
-last_synced: '2026-08-12'
+last_synced: '2026-10-25'
 ---
 
 [源文档地址](https://thegraybook.vvvv.org/reference/hde/exporting.html)
@@ -153,16 +153,22 @@ vvvvc.exe MyApp.vl --clean false
 
 ## Dependencies / 依赖 {#dependencies}
 
-如果你的程序引用了 VL.Stride，要确保目标电脑也装了这些：
+用 vvvv 导出的程序，默认要求目标电脑装有对应版本的 .NET 运行时：
 
-* Microsoft Visual C++ 可再发行组件包：[64 位](https://aka.ms/vs/17/release/vc_redist.x64.exe)或[32 位](https://aka.ms/vs/17/release/vc_redist.x86.exe)
-* [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)（FileTexture 和 FileModel 节点需要它）
+* vvvv 8.x：[.NET 10 运行时](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
+* vvvv 6.x 和 7.x：[.NET 8 运行时](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+* vvvv 5.x：[.NET 6 运行时](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
-### For versions prior to vvvv 5.0 / vvvv 5.0 之前的版本 {#for-versions-prior-to-vvvv-50}
+另外，如果程序引用了 VL.Stride，并且用到 FileTexture 或 FileModel 节点，还需要装：
 
-用更早版本的 vvvv 导出的程序，还需要装：
+* Microsoft Visual C++ 可再发行组件包：[64 位](https://aka.ms/vs/17/release/vc_redist.x64.exe)
+* vvvv 8.x：[.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
+* vvvv 6.x 和 7.x：[.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+* vvvv 5.x：[MSBuild Tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)
 
-* [MSBuild Tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)
+:::note
+你的程序还可能引用了其他[包](https://vvvv.org/packs)，所以目标电脑也许还要装别的依赖。具体需要哪些，一般会写在那个包的 readme 里。
+:::
 
 ## Advanced build configuration / 进阶构建配置 {#advanced-build-configuration}
 
