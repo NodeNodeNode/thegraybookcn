@@ -2,14 +2,50 @@
 title: Packman / 包管理器
 slug: /develop-environment/packman
 source_path: reference/hde/packman.md
-source_blob: ff424bf7e8de9ee90d10567955bd97864a16b8cd
+source_blob: cc72addd6488c4667888cf2bdb860e94f0e5314a
 status: translated
-last_synced: '2026-08-12'
+last_synced: '2026-10-25'
 ---
 
 [源文档地址](https://thegraybook.vvvv.org/reference/hde/packman.html)
 
 目前可在 **[vvvv gamma 8.0 预览版](https://vvvv.org/download)** 中试用。
+
+包管理器管两件事：
+
+- **管理引用**：引用的包、文件（.vl、.dll、.csproj）和 .NET Framework 程序集
+- **浏览** VL 包和 NuGet **包**：包就是一组 .vl 和 .dll 文件，点一下就能装上并引用，然后就能用它提供的所有节点
+
+## Managing References / 管理引用 {#managing-references}
+
+这里能看到所有引用的包、文件和 .NET Framework 程序集。
+
+点 Packs 区里的 “Browse” 按钮，切到[包浏览器](#browsing-packs)：
+
+![](https://thegraybook.vvvv.org/images/hde/addpacks.png)
+
+点 Files 区里的 “Add...” 按钮，可以添加对这几类文件的引用：
+
+- .vl 文档
+- .csproj 文件
+- .dll 文件
+
+![](https://thegraybook.vvvv.org/images/hde/addfiles.png)
+
+### .NET Framework Assemblies / .NET Framework 程序集 {#net-framework-assemblies}
+
+### .NET Framework Assemblies / .NET Framework 程序集 {#net-framework-assemblies-1}
+
+如果要引用某个 .NET Framework 里的程序集，请始终直接引用它，不要用同名的 .NET NuGet 来引用。
+
+### Node Factories / 节点工厂 {#node-factories}
+
+如果某个引用的包或文件带有 *Node Factory*（节点工厂），它还会出现在 “Node Factories” 区里。每个节点工厂都可以选：
+
+- Add/Remove：在当前文档里显示或隐藏这个节点工厂的节点
+- Forward：在引用了当前文档的其他文档里显示或隐藏这个节点工厂的节点
+
+## Browsing packs / 浏览包 {#browsing-packs}
 
 ![](https://thegraybook.vvvv.org/images/reference/hde/packman.png)
 
@@ -18,7 +54,7 @@ last_synced: '2026-08-12'
 日常使用需要知道的其实不多：
 
 - 按 `Ctrl` `+` `F3` 打开 Packman
-- 切到 “Browse…” 标签页
+- 切到 “Browse Packs” 标签页
 - 找到你想用的包
 - 点蓝色的 “Add” 按钮，下载并把它引用到当前文档
 - 完成
@@ -77,6 +113,46 @@ vvvv 自带一批它自己运行所必需的包，可以在 Built-in 区看到�
 
 另一个用得上的场景是大项目：多个 VL 文档引用同一个包。这个功能是「集中管理多文档包版本」的一半，另一半还在开发中。
 
+## Custom NuGet sources / 自定义 NuGet 源 {#custom-nuget-sources}
+
+[nuget.org](https://nuget.org) 只是默认的 NuGet 源。做内部开发时，你可能想要一个自己的 NuGet 源，除了公开的包，还能提供私有的包。
+
+指定自定义 NuGet 源有两种办法：
+
+### 用 `nuget.config` {#via-nugetconfig}
+
+在主 .vl 文档旁边放一个 [`nuget.config`](https://learn.microsoft.com/en-us/nuget/reference/nuget-config-file) 文件。
+
+打开 .vl 文档时，vvvv 会在同一个文件夹或它的上级文件夹里找 `nuget.config`。
+
+比如要访问托管在 GitHub 上的私有源，可以这样写：
+
+```xml
+<configuration>
+  <packageSources>
+    <add key="MyPrivateNuGetFeed" value="https://nuget.pkg.github.com/GITHUB_USERNAME/index.json" />
+  </packageSources>
+  <packageSourceCredentials>
+    <MyPrivateNuGetFeed>
+      <add key="Username" value="<GITHUB_USERNAME>" />
+      <add key="ClearTextPassword" value="<TOKEN>" />
+    </MyPrivateNuGetFeed>
+  </packageSourceCredentials>
+</configuration>
+```
+
+不想用 “ClearTextPassword” 的话，其他写法见 [packageSourceCredentials 的文档](https://learn.microsoft.com/en-us/nuget/reference/nuget-config-file#packagesourcecredentials)！
+
+### Via commandline argument / 用命令行参数 {#via-commandline-argument}
+
+也可以写成命令行参数：
+
+```
+vvvv.exe --package-repositories http://mynugetsource.com
+```
+
+但要注意：这种办法只适用于不需要登录凭据的源！
+
 ## Vulnerable packs / 有漏洞的包 {#vulnerable-packs}
 
 nuget.org（vvvv 默认的包仓库）维护着一份[已知漏洞](https://learn.microsoft.com/en-us/nuget/api/vulnerability-info)清单。
@@ -84,34 +160,6 @@ nuget.org（vvvv 默认的包仓库）维护着一份[已知漏洞](https://lear
 安装包时 vvvv 会对照这份清单，如果你选的版本有漏洞，它会告诉你。加包的时候留意一下[日志](debugging-log.md)，注意这类警告：
 
 ![](https://thegraybook.vvvv.org/images/reference/hde/packman-vulnerables.png)
-
-## Quick VL pack reference / 快速引用 VL 包 {#quick-vl-pack-reference}
-
-Packman 最好的地方在于：**到头来你其实不太需要它。** 如果你已经知道想引用的 VL 包叫什么名字，直接在节点浏览器里加就行。
-
-<video width="100%" controls autoPlay muted loop>
-  <source src="https://thegraybook.vvvv.org/images/reference/hde/packman-nfc.mp4" type="video/mp4" />
-</video>
-
-在节点浏览器里输入任意一个包的名字，选中，就完事了。凡是能在 Packman 或[线上包浏览器](https://vvvv.org/packs/)里找到的 VL 包，都能这样添加。
-
-这一步到底做了什么？两件事：
-
-- 下载这个包的**首选版本**（见下文）
-- 把这个版本引用到当前 VL 文档
-
-想把包移除？同样的办法。
-
-<video width="100%" controls autoPlay muted loop>
-  <source src="https://thegraybook.vvvv.org/images/reference/hde/packman-nfc2.mp4" type="video/mp4" />
-</video>
-
-那什么时候还需要 Packman 呢？
-
-- 搜索包
-- 了解某个 VL 包的更多信息
-- 调整已引用包的版本
-- 搜索并引用 .NET 的 NuGet（也就是并非专为 VL 制作的包）
 
 ## Preferred version of a pack / 包的首选版本 {#preferred-version-of-a-pack}
 
@@ -141,25 +189,8 @@ Packman 最好的地方在于：**到头来你其实不太需要它。** 如果�
 
 ## Support developers / 支持开发者 {#support-developers}
 
-也请特别留意这个列表：
+请特别留意这个列表：
 
 ![](https://thegraybook.vvvv.org/images/reference/hde/packman-support.png)
 
 包不是凭空冒出来的，是和你一样的 patcher 做出来、维护着的。**某个包帮到了你，就去支持它的作者。**
-
-## Install packs via Helpbrowser / 从帮助面板安装包 {#install-packs-via-helpbrowser}
-
-还有一点。以前想看一个包的帮助文档，得先找到它、装上。
-
-现在在帮助面板里搜索，还会顺带找出关键词可能匹配的包，列在最底部的 `More Packs` 区。看到合适的，一键下载，马上就能看它的帮助。
-
-![](https://thegraybook.vvvv.org/images/reference/hde/packman-helpbrowser.png)
-
-注意区别：**这里下载的包只是到了本地、帮助文档能翻了，还没有被你的任何文档引用。**
-
-你可能还会问：帮助面板到底显示哪些包的内容、显示哪个版本？
-
-在 vvvv gamma 7.x 及更早的版本里，帮助面板显示的永远是你 NuGet 文件夹里最新的那些包。而那个文件夹已经不存在了，所以现在的规则是：
-
-- 如果某个包有具体版本被加载了，帮助面板显示的就是那个版本的帮助内容
-- 否则，显示这个包的**首选版本**（见上文）的内容 —— 但前提是它已经在你的系统上（也就是你此前引用或下载过）

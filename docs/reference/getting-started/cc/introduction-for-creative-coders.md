@@ -2,9 +2,9 @@
 title: Introduction for Creative Coders / 写给 creative coders
 slug: /getting-started/introduction-for-creative-coders
 source_path: reference/getting-started/cc/introduction-for-creative-coders.md
-source_blob: db34b7f3c4a78d66fdcc0e55f51920cdf9dae2b6
+source_blob: b105c5ae7e41b6e24dff374d5fe7db9837e89cb2
 status: translated
-last_synced: '2026-08-12'
+last_synced: '2026-10-25'
 ---
 
 [源文档地址](https://thegraybook.vvvv.org/reference/getting-started/cc/introduction-for-creative-coders.html)
@@ -32,17 +32,18 @@ vvvv 用在很多领域：生成艺术、交互设计、数据可视化、计算
 
 ……那下面几点你大概会感兴趣。
 
-### Vast, modular, open-source library of nodes / 庞大、模块化、开源的节点库 {#vast-modular-open-source-library-of-nodes}
+### The Node Library / 节点库 {#the-node-library}
 
-到[节点库](../../libraries/overview.md)页面可以纵览 vvvv 的节点库，数量很大。大部分开源，少数因为组织上的原因没能开源。核心库 VL.CoreLib 之外，还有几个大块头：
+vvvv 的结构非常模块化。初始下载只有 100MB 左右（vvvv 8.0 时）。其他想用的功能，都可以在内置的[包管理器](../../hde/packman.md)里点一下装上。还有一个[线上包浏览器](https://vvvv.org/packs)，装 vvvv 之前就能先看看都有些什么。
+
+几乎所有节点库都开源，包括全部核心库，比如：
 
 - **VL.Stride**：用作 3D 渲染、着色器编程、VR 等，基于 [Stride 引擎](https://www.stride3d.net/)
 - **VL.Skia**：用作 2D 渲染、矢量图形输出等，基于 [Skia](https://skia.org/)
 - **VL.OpenCV**：用作计算机视觉等，基于 [OpenCV](https://opencv.org/)
 - **VL.Fuse**：一个用于 Stride 的 GPU 工具集
-- **VL.Elementa**：一个基于 Skia 的 UI 组件库
 
-此外还有一系列开箱即用的外接设备节点库和 IO 协议节点库。
+此外还很重视开箱即用，支持大量[外接设备](https://vvvv.org/packs/?c=Devices)和 [IO 协议](https://vvvv.org/packs/?c=IO)。
 
 ### Export Windows applications / 导出 Windows 应用程序 {#export-windows-applications}
 

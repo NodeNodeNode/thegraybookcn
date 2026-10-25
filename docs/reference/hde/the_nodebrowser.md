@@ -2,9 +2,9 @@
 title: The Node Browser / 节点浏览器
 slug: /develop-environment/the-node-browser
 source_path: reference/hde/the_nodebrowser.md
-source_blob: d00a894acbdffec5d105bac13f368f06f5211858
+source_blob: 7c055580659a269a205620e2c88e404c0438e14d
 status: translated
-last_synced: '2026-08-13'
+last_synced: '2026-10-25'
 ---
 
 在草图上任意位置左键双击打开节点浏览器，你会看到：
@@ -108,13 +108,33 @@ VL 里的节点按分类组织成一棵层级树。点任何一个分类就进�
 
 很多基元在节点浏览器里选好要创建之后，可以直接给它起名。针脚和 Pad 还能反过来用：先在节点浏览器里输入名字，再点 Pin／Pad，创建出来的元素就已经带着你要的名字了。
 
-## Available Nugets / 可用的 NuGet {#available-nugets}
+## Referencing packs / 引用包 {#referencing-packs}
 
-对 VL 可用、但当前文档还没引用的 NuGet 也会出现在节点浏览器里，点一下就能快速引用它。引用之后，它的所有节点都会出现在节点浏览器里。
+所有[可用的包](https://vvvv.org/packs/)都能直接在节点浏览器里引用，不用绕道 [Packman](packman.md)。
 
-<img src="https://thegraybook.vvvv.org/images/hde/vl-Nodebrowser-Nugets.png" height="460" />
+在节点浏览器里输入任意一个包的名字，选中，就完事了：
 
-要想再去掉某个 NuGet，得到文档的依赖列表里取消勾选。
+<video width="100%" controls autoPlay muted loop>
+  <source src="https://thegraybook.vvvv.org/images/reference/hde/packman-nfc.mp4" type="video/mp4" />
+</video>
+
+这一步到底做了什么？两件事：
+
+- 下载这个包的[首选版本](packman.md#preferred-version-of-a-pack)
+- 把这个版本引用到当前 VL 文档
+
+想把包移除？同样的办法：
+
+<video width="100%" controls autoPlay muted loop>
+  <source src="https://thegraybook.vvvv.org/images/reference/hde/packman-nfc2.mp4" type="video/mp4" />
+</video>
+
+那什么时候还需要 [Packman](packman.md) 呢？
+
+- 搜索包
+- 了解某个 VL 包的更多信息
+- 调整已引用包的版本
+- 搜索并引用 .NET 的 NuGet（也就是并非专为 VL 制作的包）
 
 ## Nodes that only differ by Signature / 只有签名不同的节点 {#nodes-that-only-differ-by-signature}
 

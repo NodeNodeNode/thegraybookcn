@@ -2,12 +2,12 @@
 title: Themes / 主题
 slug: /develop-environment/themes
 source_path: reference/hde/themes.md
-source_blob: 6a70004558d369531225e1915c66908589484f9b
+source_blob: 5650c3b75ea3793768512d54f86a536941d4bbf9
 status: translated
-last_synced: '2026-08-13'
+last_synced: '2026-10-25'
 ---
 
-vvvv 编辑器支持主题。点右上角的汉堡菜单，可以在深色和亮色主题之间快速切换：
+vvvv 编辑器支持主题。点右上角的 ![](https://thegraybook.vvvv.org/images/hde/settings-icon.png) 菜单（<span class="keyseq"><kbd>Ctrl</kbd><kbd>F1</kbd></span>），可以在深色和亮色主题之间快速切换：
 
 ![](https://thegraybook.vvvv.org/images/hde/themes.png)
 

@@ -2,9 +2,9 @@
 title: Keyboard Shortcuts / 快捷键
 slug: /develop-environment/keyboard-shortcuts
 source_path: reference/hde/keyboard-shortcuts.md
-source_blob: 4e275195dbd02e5bb8c6632bf0e59ecb9ae148fd
+source_blob: 784126e7c2ddf963b4a3b719528624430d60c279
 status: translated
-last_synced: '2026-08-12'
+last_synced: '2026-10-25'
 ---
 
 [源文档地址](https://thegraybook.vvvv.org/reference/hde/keyboard-shortcuts.html)
@@ -38,9 +38,10 @@ last_synced: '2026-08-12'
 |---|---|
 | 关于 | <span class="keyseq"><kbd>Shift</kbd><kbd>F1</kbd></span> |
 | 应用导出 | <span class="keyseq"><kbd>F10</kbd></span> |
+| 调试视图 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>F2</kbd></span> |
+| Packman | <span class="keyseq"><kbd>Ctrl</kbd><kbd>F3</kbd></span> |
 | 通道浏览器 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>F4</kbd></span> |
 | 控制台 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>F5</kbd></span> |
-| 调试视图 | <span class="keyseq"><kbd>Ctrl</kbd><kbd>F2</kbd></span> |
 | 帮助面板 | <span class="keyseq"><kbd>F1</kbd></span> |
 | Inspector | <span class="keyseq"><kbd>Ctrl</kbd><kbd>I</kbd></span> |
 | 按键与鼠标显示 | <span class="keyseq"><kbd>Shift</kbd><kbd>F2</kbd></span> |

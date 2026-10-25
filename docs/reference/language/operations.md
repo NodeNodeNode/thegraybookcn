@@ -2,9 +2,9 @@
 title: Operations
 slug: /language/operations
 source_path: reference/language/operations.md
-source_blob: cac772bdb08c7edddd79c5c2cff66661791b04de
+source_blob: 770f7ca90335702c72b21faaf2eecac7cf234e2d
 status: translated
-last_synced: '2026-08-12'
+last_synced: '2026-10-25'
 ---
 
 [源文档地址](https://thegraybook.vvvv.org/reference/language/operations.html)
@@ -48,6 +48,8 @@ VL 里有两种 Operation：
 
 用元素的右键菜单，把它指派给某个已有的 Operation，或者新建一个。
 
+![Assignment Menu](https://thegraybook.vvvv.org/images/reference/language/assignmentmenu.png)
+
 通常从输入或输出针脚开始指派比较合理。注意：**指派会自动在整个草图里传播**，只在 Pad 和*process node*（过程节点）那里停下 —— 这两者有点像 Operation 之间的桥：一个 Operation 写进去的值存在那里，另一个 Operation 可以取出来用。
 
 也有些情况下，某个 Operation 里根本没有输入或输出针脚。那就考虑把指派设在连线或者 Operation 节点上。
@@ -55,6 +57,21 @@ VL 里有两种 Operation：
 :::note
 过程节点本身不能被指派给某个 Operation。你会看到的是：它的各个针脚可以指派给不同的 Operation —— 也就是说，一个过程节点的不同部分（不同 Operation）可以在外层草图的不同 Operation 上执行。
 :::
+
+### Auto-propagation of assignments / 指派的自动传播 {#auto-propagation-of-assignments}
+
+把一个过程节点放进另一个过程节点（或者放进 Class、Record）里，会自动发生这些事：
+
+- `InnerProcessNode.Create()` 指派给外层草图的 `Create()`
+- `InnerProcessNode.Dispose()` 指派给外层草图的 `Dispose()`
+- `InnerProcessNode.Update()` 指派给外层草图的 `Update()`，**前提是它的输入没有连线！**
+- 自定义的 `InnerProcessNode.FooBar()` **不会**指派给外层草图的 `FooBar()`！
+
+如果你想让内层过程节点的某个自定义 Operation 自动指派给外层的 `Update()`，可以这样手动开启：
+
+![Default Assignment](https://thegraybook.vvvv.org/images/reference/language/DefaultAssignment.png)
+
+在内层过程节点定义的草图浏览器里，按住 `Ctrl` 点击这个 Operation，把它标成「默认 Operation」。这样它就会自动指派给外层的 `Update()`，同样前提是它的输入没有连线！
 
 ### Clearing Operation assignments / 清除指派 {#clearing-operation-assignments}
 
