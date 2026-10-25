@@ -7,7 +7,7 @@
 翻译时不需要通读本表 —— `gb:termcard` 会针对当前页面生成一份不超过 30 条的术语卡。
 本表用于查阅与审校。
 
-共 60 条，其中待拍板 0 条。
+共 61 条，其中待拍板 0 条。
 
 
 | 英文 | 中文 | 状态 | 规则 | 说明 |
@@ -60,6 +60,7 @@
 | `aspect` | （保留 Aspect / Aspects / aspect / aspects） | 保留英文 | — | 保留英文。两个现成的中译都会撞车：「切面」是 AOP 的 aspect，和这里 「标记节点面向哪类用户」完全是两回事；「特性」在 .NET 语境里已被 Attribute 占了，而本章正好同时在讲 .NET。Aspect 的取值本身 （Advanced / Internal / Experimental / Obsolete / Adaptive） 是 VL 里的目录名，必须原样保留 —— 词保留英文，读者反而对得上界面。 大小写放宽到四种：标题式与句中式上游都在用。 |
 | `adaptive` | 自适应 | 已拍板 | — | 指 VL 的 adaptive 节点体系（每个类型都能实现同一个节点签名）。 注意目录名 `Advanced`、`Math.Adaptive` 这类是界面上的字面值，保留英文。 |
 | `node factory` | 节点工厂 | 已拍板 | 首次出现用双语并列 | — |
+| `boygrouping` | （保留 Boygrouping / boygrouping / boygroup / Boygroup） | 保留英文 | — | vvvv 的分布式渲染功能。保留英文：beta 时代社区就这么叫，界面图标、论坛、 上游文档里也都是这个词。页面标题写「Boygrouping / 分布式渲染」，正文不译。 2026-10-25 翻 hde/boygrouping 页时由 RED 拍板。 |
 | `package repository` | 包仓库 | 已拍板 | — | 沿用 compilation.md 已有的译法。`--package-repositories` 是命令行参数， 保留英文原样。「源码包仓库」= source package-repository，同一套词。 |
 | `wrapper` | 包装器 | 已拍板 | 首次出现用双语并列 | 动词 wrap 译「包装」。指把第三方 .NET 库裹成 VL 友好形态的那一层。 |
 | `border control point` | 边界控制点 | 已拍板 | 首次出现用双语并列 | 区块边框上那些让数据进出的控制点。上游正文里大量简写为 BCP， 译文首次出现给出全称并标注 BCP，之后沿用 BCP —— 一页里出现几十次， 全写中文会把句子压垮。 |

@@ -388,6 +388,15 @@ terms:
     first_use: true
     decided_at: 2026-08-12
 
+  - en: boygrouping
+    status: keep-en
+    case: [Boygrouping, boygrouping, boygroup, Boygroup]
+    note: >-
+      vvvv 的分布式渲染功能。保留英文：beta 时代社区就这么叫，界面图标、论坛、
+      上游文档里也都是这个词。页面标题写「Boygrouping / 分布式渲染」，正文不译。
+      2026-10-25 翻 hde/boygrouping 页时由 RED 拍板。
+    decided_at: 2026-10-25
+
   - en: package repository
     zh: 包仓库
     status: decided

@@ -167,6 +167,11 @@ module.exports = {
         },
         {
           "type": "doc",
+          "id": "reference/hde/boygrouping",
+          "label": "Boygrouping"
+        },
+        {
+          "type": "doc",
           "id": "reference/hde/extensions",
           "label": "扩展"
         },
