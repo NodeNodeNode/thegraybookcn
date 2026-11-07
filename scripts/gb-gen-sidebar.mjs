@@ -39,6 +39,14 @@ const docId = (rel) => rel.replace(/\.mdx?$/, '');
 // 一文多挂时第二次要降级成 link，而 link 需要一个真实 URL —— 不能拿 docId（文件路径）
 // 顶替：本项目每页都有显式 frontmatter slug，文件路径从来就不是有效地址。
 // 这个坑一直潜伏着，直到 text-rendering 成为第一个真被挂两次的页面才引爆。
+// 上游英文原名挂在 customProps.en 上：侧边栏在中文下面用小字显示它，筛选框也拿它匹配。
+// 读者对照官网时认的是英文页名，只给中文就对不上号。中文与英文相同时不挂，免得重复。
+const withEn = (entry, item) => {
+  const en = item.label.trim();
+  if (en && en.toLowerCase() !== entry.label.toLowerCase()) entry.customProps = {en};
+  return entry;
+};
+
 const docUrl = (rel) => {
   const stem = resolveDoc(rel);
   if (!stem) return null;
@@ -99,14 +107,14 @@ function build(nodes) {
 
     if (kids.length === 0) {
       // 叶子
-      if (has && !isDup) out.push({type: 'doc', id: docId(rel), label: label(item)});
-      else if (has && isDup) out.push({type: 'link', label: label(item), href: docUrl(rel)});
+      if (has && !isDup) out.push(withEn({type: 'doc', id: docId(rel), label: label(item)}, item));
+      else if (has && isDup) out.push(withEn({type: 'link', label: label(item), href: docUrl(rel)}, item));
       else if (WITH_UNTRANSLATED && rel)
         out.push({type: 'link', label: label(item), href: upstreamUrl(rel), className: 'gb-en'});
       continue;
     }
     // 有子项：能落地就带 link，否则纯分组
-    const category = {type: 'category', label: label(item), items: kids};
+    const category = withEn({type: 'category', label: label(item), items: kids}, item);
     if (has && !isDup) category.link = {type: 'doc', id: docId(rel)};
     if (kids.length) out.push(category);
   }

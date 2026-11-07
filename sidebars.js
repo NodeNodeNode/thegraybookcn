@@ -13,7 +13,10 @@ module.exports = {
         {
           "type": "doc",
           "id": "reference/getting-started/cc/introduction-for-creative-coders",
-          "label": "写给 creative coders"
+          "label": "写给 creative coders",
+          "customProps": {
+            "en": "Introduction for Creative Coders"
+          }
         },
         {
           "type": "category",
@@ -22,34 +25,55 @@ module.exports = {
             {
               "type": "doc",
               "id": "reference/getting-started/beta/user-interface",
-              "label": "用户界面"
+              "label": "用户界面",
+              "customProps": {
+                "en": "User Interface"
+              }
             },
             {
               "type": "doc",
               "id": "reference/getting-started/beta/documentstructure",
-              "label": "文档结构"
+              "label": "文档结构",
+              "customProps": {
+                "en": "Document structure"
+              }
             },
             {
               "type": "doc",
               "id": "reference/getting-started/beta/language",
-              "label": "语言差异"
+              "label": "语言差异",
+              "customProps": {
+                "en": "Language"
+              }
             },
             {
               "type": "doc",
               "id": "reference/getting-started/beta/evaluation",
-              "label": "求值"
+              "label": "求值",
+              "customProps": {
+                "en": "Evaluation"
+              }
             },
             {
               "type": "doc",
               "id": "reference/getting-started/beta/nodes",
-              "label": "节点差异"
+              "label": "节点差异",
+              "customProps": {
+                "en": "Nodes"
+              }
             },
             {
               "type": "doc",
               "id": "reference/getting-started/beta/vl-templates",
-              "label": "VL 模板"
+              "label": "VL 模板",
+              "customProps": {
+                "en": "VL Templates"
+              }
             }
           ],
+          "customProps": {
+            "en": "Introduction for vvvv beta users"
+          },
           "link": {
             "type": "doc",
             "id": "reference/getting-started/beta/introduction-for-vvvv-beta-users"
@@ -62,25 +86,40 @@ module.exports = {
             {
               "type": "doc",
               "id": "reference/getting-started/dotnet/concepts",
-              "label": "C# 概念"
+              "label": "C# 概念",
+              "customProps": {
+                "en": "C# Concepts"
+              }
             },
             {
               "type": "doc",
               "id": "reference/getting-started/dotnet/keywords",
-              "label": "C# 关键字"
+              "label": "C# 关键字",
+              "customProps": {
+                "en": "C# Keywords"
+              }
             },
             {
               "type": "doc",
               "id": "reference/getting-started/dotnet/contextual-keywords",
-              "label": "C# 上下文关键字"
+              "label": "C# 上下文关键字",
+              "customProps": {
+                "en": "C# Contextual Keywords"
+              }
             }
           ],
+          "customProps": {
+            "en": "Introduction for .NET programmers"
+          },
           "link": {
             "type": "doc",
             "id": "reference/getting-started/dotnet/introduction-for-dotnet-programmers"
           }
         }
       ],
+      "customProps": {
+        "en": "Getting Started"
+      },
       "link": {
         "type": "doc",
         "id": "reference/getting-started/overview"
@@ -93,27 +132,42 @@ module.exports = {
         {
           "type": "doc",
           "id": "reference/hde/overview",
-          "label": "概览"
+          "label": "概览",
+          "customProps": {
+            "en": "Overview"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/project_structure",
-          "label": "文件结构"
+          "label": "文件结构",
+          "customProps": {
+            "en": "Project Structure"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/navigating_a_project",
-          "label": "文件导航"
+          "label": "文件导航",
+          "customProps": {
+            "en": "Navigating a Project"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/packman",
-          "label": "包管理器"
+          "label": "包管理器",
+          "customProps": {
+            "en": "Packman"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/the_nodebrowser",
-          "label": "节点浏览器"
+          "label": "节点浏览器",
+          "customProps": {
+            "en": "The NodeBrowser"
+          }
         },
         {
           "type": "category",
@@ -122,14 +176,23 @@ module.exports = {
             {
               "type": "doc",
               "id": "reference/hde/presets",
-              "label": "预设与过渡"
+              "label": "预设与过渡",
+              "customProps": {
+                "en": "Presets"
+              }
             },
             {
               "type": "doc",
               "id": "reference/hde/bindings",
-              "label": "绑定"
+              "label": "绑定",
+              "customProps": {
+                "en": "Bindings"
+              }
             }
           ],
+          "customProps": {
+            "en": "The ChannelBrowser"
+          },
           "link": {
             "type": "doc",
             "id": "reference/hde/the_channelbrowser"
@@ -138,7 +201,10 @@ module.exports = {
         {
           "type": "doc",
           "id": "reference/hde/finders",
-          "label": "查找"
+          "label": "查找",
+          "customProps": {
+            "en": "Finders"
+          }
         },
         {
           "type": "category",
@@ -147,19 +213,31 @@ module.exports = {
             {
               "type": "doc",
               "id": "reference/hde/debugging-buildresult",
-              "label": "构建结果"
+              "label": "构建结果",
+              "customProps": {
+                "en": "Build Result"
+              }
             },
             {
               "type": "doc",
               "id": "reference/hde/debugging-apphealth",
-              "label": "应用健康"
+              "label": "应用健康",
+              "customProps": {
+                "en": "App Health"
+              }
             },
             {
               "type": "doc",
               "id": "reference/hde/debugging-log",
-              "label": "日志"
+              "label": "日志",
+              "customProps": {
+                "en": "Log"
+              }
             }
           ],
+          "customProps": {
+            "en": "Debugging"
+          },
           "link": {
             "type": "doc",
             "id": "reference/hde/debugging"
@@ -173,59 +251,95 @@ module.exports = {
         {
           "type": "doc",
           "id": "reference/hde/extensions",
-          "label": "扩展"
+          "label": "扩展",
+          "customProps": {
+            "en": "Extensions"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/managing-nugets",
-          "label": "管理 NuGet"
+          "label": "管理 NuGet",
+          "customProps": {
+            "en": "Managing NuGets"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/showandtell",
-          "label": "分享作品"
+          "label": "分享作品",
+          "customProps": {
+            "en": "Show & Tell"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/exporting",
-          "label": "导出应用"
+          "label": "导出应用",
+          "customProps": {
+            "en": "Exporting Applications"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/documentation",
-          "label": "文档窗口"
+          "label": "文档窗口",
+          "customProps": {
+            "en": "Documentation Window"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/solution-explorer",
-          "label": "方案浏览器"
+          "label": "方案浏览器",
+          "customProps": {
+            "en": "Solution Explorer"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/settings",
-          "label": "设置"
+          "label": "设置",
+          "customProps": {
+            "en": "Settings"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/themes",
-          "label": "主题"
+          "label": "主题",
+          "customProps": {
+            "en": "Themes"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/findinghelp",
-          "label": "寻求帮助"
+          "label": "寻求帮助",
+          "customProps": {
+            "en": "Finding Help"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/keyboard-shortcuts",
-          "label": "快捷键"
+          "label": "快捷键",
+          "customProps": {
+            "en": "Keyboard Shortcuts"
+          }
         },
         {
           "type": "doc",
           "id": "reference/hde/commandline-arguments",
-          "label": "命令行参数"
+          "label": "命令行参数",
+          "customProps": {
+            "en": "Commandline Arguments"
+          }
         }
       ],
+      "customProps": {
+        "en": "Development Environment"
+      },
       "link": {
         "type": "doc",
         "id": "reference/hde/gui"
@@ -238,22 +352,34 @@ module.exports = {
         {
           "type": "doc",
           "id": "reference/language/patches",
-          "label": "草图"
+          "label": "草图",
+          "customProps": {
+            "en": "Patches"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/patch-explorer",
-          "label": "草图浏览器"
+          "label": "草图浏览器",
+          "customProps": {
+            "en": "Patch Explorer"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/nodes",
-          "label": "节点"
+          "label": "节点",
+          "customProps": {
+            "en": "Nodes"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/links",
-          "label": "连线"
+          "label": "连线",
+          "customProps": {
+            "en": "Links"
+          }
         },
         {
           "type": "doc",
@@ -263,74 +389,119 @@ module.exports = {
         {
           "type": "doc",
           "id": "reference/language/operations",
-          "label": "Operation"
+          "label": "Operation",
+          "customProps": {
+            "en": "Operations"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/properties",
-          "label": "参数"
+          "label": "参数",
+          "customProps": {
+            "en": "Properties"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/execution-order",
-          "label": "执行顺序"
+          "label": "执行顺序",
+          "customProps": {
+            "en": "Execution Order"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/categories",
-          "label": "目录"
+          "label": "目录",
+          "customProps": {
+            "en": "Categories"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/conditions",
-          "label": "条件"
+          "label": "条件",
+          "customProps": {
+            "en": "Conditions"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/loops",
-          "label": "循环"
+          "label": "循环",
+          "customProps": {
+            "en": "Loops"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/cache",
-          "label": "Cache 区块"
+          "label": "Cache 区块",
+          "customProps": {
+            "en": "Cache"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/exception-handling",
-          "label": "异常处理"
+          "label": "异常处理",
+          "customProps": {
+            "en": "Exception Handling"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/enumerations",
-          "label": "枚举"
+          "label": "枚举",
+          "customProps": {
+            "en": "Enumerations"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/delegates",
-          "label": "Delegate"
+          "label": "Delegate",
+          "customProps": {
+            "en": "Delegates"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/frames",
-          "label": "边框"
+          "label": "边框",
+          "customProps": {
+            "en": "Frames"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/groups",
-          "label": "group patch"
+          "label": "group patch",
+          "customProps": {
+            "en": "Groups"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/compilation",
-          "label": "编译"
+          "label": "编译",
+          "customProps": {
+            "en": "Compilation"
+          }
         },
         {
           "type": "doc",
           "id": "reference/language/namings",
-          "label": "命名约定"
+          "label": "命名约定",
+          "customProps": {
+            "en": "Identifier Naming Conventions"
+          }
         }
       ],
+      "customProps": {
+        "en": "Language"
+      },
       "link": {
         "type": "doc",
         "id": "reference/language/language"
@@ -343,7 +514,10 @@ module.exports = {
         {
           "type": "doc",
           "id": "reference/libraries/referencing",
-          "label": "引用节点库"
+          "label": "引用节点库",
+          "customProps": {
+            "en": "Referencing Libraries"
+          }
         },
         {
           "type": "category",
@@ -352,17 +526,26 @@ module.exports = {
             {
               "type": "doc",
               "id": "reference/libraries/collections",
-              "label": "集合"
+              "label": "集合",
+              "customProps": {
+                "en": "Collections"
+              }
             },
             {
               "type": "doc",
               "id": "reference/libraries/reactive",
-              "label": "响应式"
+              "label": "响应式",
+              "customProps": {
+                "en": "Reactive"
+              }
             },
             {
               "type": "doc",
               "id": "reference/libraries/serialization",
-              "label": "序列化"
+              "label": "序列化",
+              "customProps": {
+                "en": "Serialization"
+              }
             },
             {
               "type": "doc",
@@ -374,7 +557,10 @@ module.exports = {
               "id": "reference/libraries/xml",
               "label": "XML"
             }
-          ]
+          ],
+          "customProps": {
+            "en": "The Core Library"
+          }
         },
         {
           "type": "category",
@@ -383,32 +569,50 @@ module.exports = {
             {
               "type": "doc",
               "id": "reference/libraries/3d/rendering",
-              "label": "渲染"
+              "label": "渲染",
+              "customProps": {
+                "en": "Rendering"
+              }
             },
             {
               "type": "doc",
               "id": "reference/libraries/3d/models",
-              "label": "模型与网格"
+              "label": "模型与网格",
+              "customProps": {
+                "en": "Models and Meshes"
+              }
             },
             {
               "type": "doc",
               "id": "reference/libraries/3d/geometry",
-              "label": "几何"
+              "label": "几何",
+              "customProps": {
+                "en": "Geometry"
+              }
             },
             {
               "type": "doc",
               "id": "reference/best-practice/text-rendering",
-              "label": "文字渲染"
+              "label": "文字渲染",
+              "customProps": {
+                "en": "Text Rendering"
+              }
             },
             {
               "type": "doc",
               "id": "reference/libraries/3d/transparency",
-              "label": "透明"
+              "label": "透明",
+              "customProps": {
+                "en": "Transparency"
+              }
             },
             {
               "type": "doc",
               "id": "reference/libraries/3d/shaders",
-              "label": "着色器"
+              "label": "着色器",
+              "customProps": {
+                "en": "Shaders"
+              }
             },
             {
               "type": "doc",
@@ -418,24 +622,39 @@ module.exports = {
             {
               "type": "doc",
               "id": "reference/libraries/3d/editing-shaders",
-              "label": "编辑着色器"
+              "label": "编辑着色器",
+              "customProps": {
+                "en": "Editing Shaders"
+              }
             },
             {
               "type": "doc",
               "id": "reference/libraries/3d/virtual-reality",
-              "label": "虚拟现实"
+              "label": "虚拟现实",
+              "customProps": {
+                "en": "Virtual Reality"
+              }
             },
             {
               "type": "doc",
               "id": "reference/libraries/3d/graphics-cards",
-              "label": "显卡"
+              "label": "显卡",
+              "customProps": {
+                "en": "Graphics Cards"
+              }
             },
             {
               "type": "doc",
               "id": "reference/libraries/3d/gpu-debugging",
-              "label": "GPU 调试"
+              "label": "GPU 调试",
+              "customProps": {
+                "en": "GPU Debugging"
+              }
             }
           ],
+          "customProps": {
+            "en": "3d Graphics"
+          },
           "link": {
             "type": "doc",
             "id": "reference/libraries/graphics-3d"
@@ -444,9 +663,15 @@ module.exports = {
         {
           "type": "doc",
           "id": "reference/libraries/on-demand",
-          "label": "按需开发"
+          "label": "按需开发",
+          "customProps": {
+            "en": "On Demand"
+          }
         }
       ],
+      "customProps": {
+        "en": "Libraries"
+      },
       "link": {
         "type": "doc",
         "id": "reference/libraries/overview"
@@ -459,69 +684,111 @@ module.exports = {
         {
           "type": "doc",
           "id": "reference/extending/using-net-libraries",
-          "label": "使用 .NET 库"
+          "label": "使用 .NET 库",
+          "customProps": {
+            "en": "Using .NET Libraries"
+          }
         },
         {
           "type": "doc",
           "id": "reference/extending/code-editors",
-          "label": "选一个代码编辑器"
+          "label": "选一个代码编辑器",
+          "customProps": {
+            "en": "Choosing a Code Editor"
+          }
         },
         {
           "type": "doc",
           "id": "reference/extending/writing-nodes",
-          "label": "使用 C# 编写节点"
+          "label": "使用 C# 编写节点",
+          "customProps": {
+            "en": "Writing Nodes using C#"
+          }
         },
         {
           "type": "doc",
           "id": "reference/extending/custom-regions",
-          "label": "自定义区块"
+          "label": "自定义区块",
+          "customProps": {
+            "en": "Custom Regions"
+          }
         },
         {
           "type": "doc",
           "id": "reference/extending/contributing",
-          "label": "为已有节点库贡献"
+          "label": "为已有节点库贡献",
+          "customProps": {
+            "en": "Contributing to a Library"
+          }
         },
         {
           "type": "doc",
           "id": "reference/extending/creating",
-          "label": "创建新节点库"
+          "label": "创建新节点库",
+          "customProps": {
+            "en": "Creating a new Library"
+          }
         },
         {
           "type": "doc",
           "id": "reference/extending/forwarding",
-          "label": "转发 .NET 库"
+          "label": "转发 .NET 库",
+          "customProps": {
+            "en": "Forwarding .NET Libraries"
+          }
         },
         {
           "type": "doc",
           "id": "reference/extending/node-factories",
-          "label": "节点工厂"
+          "label": "节点工厂",
+          "customProps": {
+            "en": "Node Factories"
+          }
         },
         {
           "type": "doc",
           "id": "reference/extending/aspects",
-          "label": "Aspect"
+          "label": "Aspect",
+          "customProps": {
+            "en": "Aspects"
+          }
         },
         {
           "type": "doc",
           "id": "reference/extending/design-guidelines",
-          "label": "设计指南"
+          "label": "设计指南",
+          "customProps": {
+            "en": "Design Guidelines"
+          }
         },
         {
           "type": "doc",
           "id": "reference/extending/providing-help",
-          "label": "提供帮助文档"
+          "label": "提供帮助文档",
+          "customProps": {
+            "en": "Providing Help"
+          }
         },
         {
           "type": "doc",
           "id": "reference/extending/publishing",
-          "label": "发布 NuGet"
+          "label": "发布 NuGet",
+          "customProps": {
+            "en": "Publishing NuGets"
+          }
         },
         {
           "type": "doc",
           "id": "reference/extending/editor-extensions",
-          "label": "创建编辑器扩展"
+          "label": "创建编辑器扩展",
+          "customProps": {
+            "en": "Creating Editor Extensions"
+          }
         }
       ],
+      "customProps": {
+        "en": "Extending vvvv"
+      },
       "link": {
         "type": "doc",
         "id": "reference/extending/overview"
@@ -534,49 +801,79 @@ module.exports = {
         {
           "type": "doc",
           "id": "reference/best-practice/vvvv-on-arm",
-          "label": "在 Arm CPU 上运行"
+          "label": "在 Arm CPU 上运行",
+          "customProps": {
+            "en": "Running vvvv on an Arm CPU"
+          }
         },
         {
           "type": "doc",
           "id": "reference/best-practice/vvvv-on-mac",
-          "label": "在 Mac 上运行"
+          "label": "在 Mac 上运行",
+          "customProps": {
+            "en": "Running vvvv on a Mac"
+          }
         },
         {
           "type": "doc",
           "id": "reference/best-practice/video-playback",
-          "label": "播放视频"
+          "label": "播放视频",
+          "customProps": {
+            "en": "Playing back video"
+          }
         },
         {
           "type": "doc",
           "id": "reference/best-practice/video-capture",
-          "label": "采集视频输入"
+          "label": "采集视频输入",
+          "customProps": {
+            "en": "Capturing video input"
+          }
         },
         {
           "type": "doc",
           "id": "reference/best-practice/video-recording",
-          "label": "录成视频"
+          "label": "录成视频",
+          "customProps": {
+            "en": "Recording output as video"
+          }
         },
         {
           "type": "doc",
           "id": "reference/best-practice/video-synchronization",
-          "label": "视频同步"
+          "label": "视频同步",
+          "customProps": {
+            "en": "Video synchronization"
+          }
         },
         {
           "type": "link",
           "label": "文字渲染",
-          "href": "/best-practice/text-rendering"
+          "href": "/best-practice/text-rendering",
+          "customProps": {
+            "en": "Text Rendering"
+          }
         },
         {
           "type": "doc",
           "id": "reference/best-practice/raspberry-pi",
-          "label": "部署到树莓派"
+          "label": "部署到树莓派",
+          "customProps": {
+            "en": "Deploying to a Raspberry Pi"
+          }
         },
         {
           "type": "doc",
           "id": "reference/best-practice/version-control",
-          "label": "用 Git 做版本管理"
+          "label": "用 Git 做版本管理",
+          "customProps": {
+            "en": "Version Control using Git"
+          }
         }
       ],
+      "customProps": {
+        "en": "Best Practice"
+      },
       "link": {
         "type": "doc",
         "id": "reference/best-practice/overview"
@@ -587,7 +884,10 @@ module.exports = {
     {
       "type": "doc",
       "id": "introduction/language",
-      "label": "这门语言"
+      "label": "这门语言",
+      "customProps": {
+        "en": "The Language"
+      }
     },
     {
       "type": "category",
@@ -596,47 +896,74 @@ module.exports = {
         {
           "type": "doc",
           "id": "introduction/lo_0_dataHubs",
-          "label": "数据与数据枢纽"
+          "label": "数据与数据枢纽",
+          "customProps": {
+            "en": "Data And Data Hubs"
+          }
         },
         {
           "type": "doc",
           "id": "introduction/lo_1_data",
-          "label": "数据与数据类型"
+          "label": "数据与数据类型",
+          "customProps": {
+            "en": "Data And Data Types"
+          }
         },
         {
           "type": "doc",
           "id": "introduction/lo_2_dataflow",
-          "label": "数据流"
+          "label": "数据流",
+          "customProps": {
+            "en": "Data Flow"
+          }
         },
         {
           "type": "doc",
           "id": "introduction/lo_3_defAndUse",
-          "label": "定义与使用"
+          "label": "定义与使用",
+          "customProps": {
+            "en": "Defining Versus Using"
+          }
         },
         {
           "type": "doc",
           "id": "introduction/lo_4_lookingAtNodes",
-          "label": "节点"
+          "label": "节点",
+          "customProps": {
+            "en": "Nodes"
+          }
         },
         {
           "type": "doc",
           "id": "introduction/lo_5_Runtime",
-          "label": "运行中的系统"
+          "label": "运行中的系统",
+          "customProps": {
+            "en": "The Running System"
+          }
         },
         {
           "type": "doc",
           "id": "introduction/lo_6_regions",
-          "label": "区块"
+          "label": "区块",
+          "customProps": {
+            "en": "Regions"
+          }
         },
         {
           "type": "doc",
           "id": "introduction/lo_7_catAndVers",
-          "label": "目录与版本"
+          "label": "目录与版本",
+          "customProps": {
+            "en": "Categories And Versions"
+          }
         },
         {
           "type": "doc",
           "id": "introduction/lo_8_docAndscope",
-          "label": "文档、依赖与作用域"
+          "label": "文档、依赖与作用域",
+          "customProps": {
+            "en": "Documents, Dependencies And Scopes"
+          }
         },
         {
           "type": "category",
@@ -645,25 +972,40 @@ module.exports = {
             {
               "type": "doc",
               "id": "introduction/lo_9_0_numericValues",
-              "label": "数值"
+              "label": "数值",
+              "customProps": {
+                "en": "Numeric Values"
+              }
             },
             {
               "type": "doc",
               "id": "introduction/lo_9_1_text",
-              "label": "文本"
+              "label": "文本",
+              "customProps": {
+                "en": "Text"
+              }
             },
             {
               "type": "doc",
               "id": "introduction/lo_9_2_Spreads",
-              "label": "Spread 与其他集合"
+              "label": "Spread 与其他集合",
+              "customProps": {
+                "en": "Spreads And Other Collections"
+              }
             }
           ],
+          "customProps": {
+            "en": "Basic Nodes And Data Types"
+          },
           "link": {
             "type": "doc",
             "id": "introduction/lo_9__basictypes"
           }
         }
       ],
+      "customProps": {
+        "en": "Looking At Things"
+      },
       "link": {
         "type": "doc",
         "id": "introduction/looking-at-things"
@@ -676,29 +1018,47 @@ module.exports = {
         {
           "type": "doc",
           "id": "introduction/mut",
-          "label": "数据与可变性"
+          "label": "数据与可变性",
+          "customProps": {
+            "en": "Data And Mutability"
+          }
         },
         {
           "type": "doc",
           "id": "introduction/mut2",
-          "label": "数据流与可变性"
+          "label": "数据流与可变性",
+          "customProps": {
+            "en": "DataFlow And Mutability"
+          }
         },
         {
           "type": "doc",
           "id": "introduction/mut3",
-          "label": "检测变化"
+          "label": "检测变化",
+          "customProps": {
+            "en": "Detecting Changes"
+          }
         },
         {
           "type": "doc",
           "id": "introduction/mut4",
-          "label": "不可变数据的构建器"
+          "label": "不可变数据的构建器",
+          "customProps": {
+            "en": "Builders of Immutable Data"
+          }
         },
         {
           "type": "doc",
           "id": "introduction/subtypes",
-          "label": "子类型"
+          "label": "子类型",
+          "customProps": {
+            "en": "Sub Types"
+          }
         }
-      ]
+      ],
+      "customProps": {
+        "en": "More On Data"
+      }
     }
   ],
   "changelog": [
@@ -740,24 +1100,36 @@ module.exports = {
     {
       "type": "doc",
       "id": "changelog/nuget-compatibility-chart",
-      "label": "NuGet 兼容性对照表"
+      "label": "NuGet 兼容性对照表",
+      "customProps": {
+        "en": "NuGet Compatibility Chart"
+      }
     }
   ],
   "roadmap": [
     {
       "type": "doc",
       "id": "roadmap/planned",
-      "label": "计划中的版本"
+      "label": "计划中的版本",
+      "customProps": {
+        "en": "Planned Releases"
+      }
     },
     {
       "type": "doc",
       "id": "roadmap/further",
-      "label": "更远的议程"
+      "label": "更远的议程",
+      "customProps": {
+        "en": "Further Agenda"
+      }
     },
     {
       "type": "doc",
       "id": "roadmap/past",
-      "label": "过往版本与博客"
+      "label": "过往版本与博客",
+      "customProps": {
+        "en": "Past Releases and Blogs"
+      }
     }
   ]
 };
