@@ -1,0 +1,24 @@
+.wrap {
+  padding: var(--s1);
+}
+
+.input {
+  width: 100%;
+  padding: var(--s1);
+  border: var(--line);
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.input:focus {
+  outline: 2px solid var(--signal);
+  outline-offset: -2px;
+}
+
+.empty {
+  margin: var(--s1) 0 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 14px;
+}

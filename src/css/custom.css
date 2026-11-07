@@ -576,3 +576,25 @@ button:focus-visible {
     width: 100%;
   }
 }
+
+/* ── 侧边栏的英文原名 ───────────────────────────────
+   读者常拿着官网页面来对照，认的是英文页名。中文在上、英文小字在下，
+   与正文标题「English / 中文」同一个思路。data-en 由 DocSidebarItem 的 wrapper 写入。 */
+/* 不带落地页的纯分组用 ::after 画折叠箭头（Infima），这类不显示英文，免得抢位置。
+   .menu__link 默认是 flex，分类标签又带 flex: 1 + line-clamp，换行会把中文挤没；
+   改成块级最省事 —— 这些链接本来也只有一段文字。 */
+.menu__link[data-en]:not(.menu__link--sublist-caret) {
+  display: block;
+}
+
+.menu__link[data-en]:not(.menu__link--sublist-caret)::after {
+  content: attr(data-en);
+  display: block;
+  color: var(--ifm-color-emphasis-500);
+  /* Infima 会把折叠分类链接的 ::after 当箭头旋转 90°，这里不是箭头 */
+  transform: none;
+}
+
+.menu__link--active[data-en]::after {
+  color: inherit;
+}

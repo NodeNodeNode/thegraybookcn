@@ -165,6 +165,7 @@ npm run build
 | 术语表有没有「待拍板」积压 | `TERMINOLOGY.md` 末尾会列 `open` 条目，应为 0 |
 | 图片还可达吗 | 抽查上游图片 URL（上游偶尔会挪图） |
 | 依赖有没有安全告警 | `npm audit`；Docusaurus 大版本升级要单独排期 |
+| 升级 Docusaurus 后侧边栏还正常吗 | `src/theme/DocSidebar/Mobile` 是从 theme-classic 弹出的，要对照新版原文件；英文小字的 CSS 依赖 Infima 的 `.menu__link` 结构，升级后看一眼桌面端和手机端侧边栏 |
 
 ---
 

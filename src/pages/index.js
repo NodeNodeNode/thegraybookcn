@@ -1,41 +1,100 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import clsx from 'clsx';
 import Link from '@docusaurus/Link';
+import {useAllDocsData} from '@docusaurus/plugin-content-docs/client';
+import sidebars from '@site/sidebars';
 import sections from '@site/translation/navbar-sections.json';
 import styles from './index.module.css';
 
-// 四个板块的说明与英文副标题。板块本身（有译文走站内、无译文跳上游）
+// 四个板块的英文名与说明。说明只给名字看不出内容的板块 —— 参考手册有章节列表，其余两个顾名思义。
+//板块本身（有译文走站内、无译文跳上游）
 // 由 gb:gen-sidebar 生成的 navbar-sections.json 决定，这里只补文案。
 const BLURBS = {
-  reference: {
-    latin: 'reference',
-    note: 'vvvv gamma 的参考手册。涵盖编辑器的使用、VL 语言特性、第三方库以及扩展开发。',
-  },
+  reference: {en: 'Reference'},
   explanations: {
-    latin: 'explanations',
-    note: '概念讲解。数据流、看待事物的方式、可变性与泛型这些底层观念，适合入门时通读。',
+    en: 'Explanations',
+    note: '数据流、看待事物的方式、可变性与泛型这些底层观念，适合入门时通读。',
   },
-  changelog: {
-    latin: 'changelog',
-    note: '各版本的变更记录，以及 NuGet 兼容性对照。',
-  },
-  roadmap: {
-    latin: 'roadmap',
-    note: '已规划与设想中的方向。',
-  },
+  changelog: {en: 'Changelog'},
+  roadmap: {en: 'Roadmap'},
 };
 
-function SectionHead({num, latin, title}) {
+// 板块入口页。参考手册没有自己的封面，落在「开始」。
+const sectionHref = (key) => `/${key === 'reference' ? 'getting-started/' : key}`;
+
+const countDocs = (items) =>
+  items.reduce((n, i) => n + (i.type === 'doc' ? 1 : 0) + (i.link ? 1 : 0) + (i.items ? countDocs(i.items) : 0), 0);
+
+const firstDocId = (item) =>
+  item.link?.id ?? (item.type === 'doc' ? item.id : item.items?.map(firstDocId).find(Boolean));
+
+/** 参考手册的一级章节，直接取自侧边栏 —— 上游加了章节，首页自动跟上 */
+function useChapters() {
+  const docs = useAllDocsData().default.versions[0].docs;
+  const pathOf = new Map(docs.map((d) => [d.id, d.path]));
+  return (sidebars.reference ?? [])
+    .filter((i) => i.type === 'category')
+    .map((i) => ({label: i.label, en: i.customProps?.en, href: pathOf.get(firstDocId(i)), count: countDocs([i])}))
+    .filter((c) => c.href);
+}
+
+/** 站内走 Link，整块未翻的板块跳上游 */
+function EntryLink({section, className, children}) {
+  return section.type === 'docSidebar' ? (
+    <Link className={className} to={sectionHref(section.key)}>
+      {children}
+    </Link>
+  ) : (
+    <a className={className} href={section.href} rel="noopener noreferrer" target="_blank">
+      {children}
+    </a>
+  );
+}
+
+function CardHead({section, blurb}) {
   return (
     <>
-      <div className={styles.sectionWire}>
-        <span className={styles.pin} />
-        <span className={styles.sectionNum}>{num}</span>
-        <span className={styles.sectionRule} />
-        <span className={styles.sectionLatin}>{latin}</span>
-      </div>
-      <h2 className={styles.sectionTitle}>{title}</h2>
+      <span className={styles.cardTitle}>{section.label}</span>
+      <span className={styles.cardMeta}>
+        <span>{blurb.en}</span>
+        <span>{section.type === 'docSidebar' ? `${section.docCount} 页` : '原文'}</span>
+      </span>
+      {blurb.note && <span className={styles.cardNote}>{blurb.note}</span>}
     </>
+  );
+}
+
+/** 参考手册：大卡，里面列出章节直达。卡片本身不能整块做成链接，否则会嵌套 <a> */
+function ReferenceCard({section, blurb}) {
+  const chapters = useChapters();
+  return (
+    <div className={clsx(styles.card, styles.cardMain)}>
+      <EntryLink section={section} className={styles.cardHeadLink}>
+        <CardHead section={section} blurb={blurb} />
+      </EntryLink>
+      <ul className={styles.chapters}>
+        {chapters.map((c) => (
+          <li key={c.href}>
+            <Link className={styles.chapter} to={c.href}>
+              <span className={styles.chapterText}>
+                <span className={styles.chapterLabel}>{c.label}</span>
+                {c.en && <span className={styles.chapterEn}>{c.en}</span>}
+              </span>
+              <span className={styles.chapterCount}>{c.count}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function Card({section, blurb, small}) {
+  return (
+    <EntryLink section={section} className={clsx(styles.card, styles.cardLink, small && styles.cardSmall)}>
+      <CardHead section={section} blurb={blurb} />
+    </EntryLink>
   );
 }
 
@@ -61,61 +120,25 @@ export default function Home() {
             来。
           </p>
         </div>
-        <span className={styles.heroWire} />
       </header>
 
       <main className={styles.page}>
+        {/* 「关于」不单列区块：页脚已有「关于翻译」，那句话也在 /intro 里 */}
         <section className={styles.section}>
-          <SectionHead num="01" latin="documentation" title="文档" />
-          <div className={styles.sectionBody}>
-            <ul className={styles.entries}>
-              {sections.map((s) => {
-                const blurb = BLURBS[s.key] ?? {latin: s.key, note: ''};
-                const internal = s.type === 'docSidebar';
-                const body = (
-                  <>
-                    <span className={styles.pin} />
-                    <span>
-                      <span className={styles.entryTitle}>{s.label}</span>
-                      <div className={styles.entryNote}>{blurb.note}</div>
-                    </span>
-                    <span className={styles.entryCount}>
-                      {internal ? `${s.docCount} 页` : '原文'}
-                    </span>
-                  </>
-                );
-                return (
-                  <li key={s.key} className={styles.entry}>
-                    {internal ? (
-                      <Link className={styles.entryLink} to={`/${s.key === 'reference' ? 'getting-started/' : s.key}`}>
-                        {body}
-                      </Link>
-                    ) : (
-                      <a
-                        className={styles.entryLink}
-                        href={s.href}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        {body}
-                      </a>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </section>
-
-        <section className={styles.section}>
-          <SectionHead num="02" latin="about" title="关于" />
-          <div className={styles.sectionBody}>
-            <p className={styles.entryNote}>
-              翻译的过程往往也是信息丢失的过程，很难精确地传递原本的意思。但本着深入浅出与抛砖引玉的信念，多少是个好的开始。
-            </p>
-            <p>
-              <Link to="/intro">关于翻译</Link>
-            </p>
+          <div className={styles.cards}>
+            {sections.map((section) => {
+              const blurb = BLURBS[section.key] ?? {en: section.key};
+              const area = styles[`area_${section.key}`];
+              return (
+                <div key={section.key} className={area}>
+                  {section.key === 'reference' ? (
+                    <ReferenceCard section={section} blurb={blurb} />
+                  ) : (
+                    <Card section={section} blurb={blurb} small={section.docCount < 10} />
+                  )}
+                </div>
+              );
+            })}
           </div>
         </section>
       </main>

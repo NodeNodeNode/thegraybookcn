@@ -86,6 +86,9 @@ const config = {
     ],
   ],
 
+  // 官网路径（/reference/hde/exporting.html）→ 本站对应页，读者换个域名就能对照着看
+  plugins: [require.resolve('./plugins/upstream-redirects')],
+
   // 本地搜索。选它而不是 Algolia 有三条硬理由：主站 CSP 是 connect-src 'self'，
   // Algolia 的 XHR 会被浏览器直接拦掉；Algolia 要求先有可爬取的线上站再申请审批；
   // 读者主要在国内，本地索引不引入任何额外跨境请求。137 页也远在 lunr 的舒适区内。
@@ -143,12 +146,11 @@ const config = {
           {label: 'Discord', href: 'https://discord.com/invite/yBWCJQQ4Pq'},
           {label: 'nodenodenode.net', href: 'https://www.nodenodenode.net/'},
         ],
-        // 三句都不能省：非官方声明与 AI 翻译声明是对读者诚实
-        // （读者有权知道自己读的是机器初翻，好据此决定要不要核对原文），
-        // 字体署名是 OFL 的许可要求。
+        // 三样都不能省：非官方声明与 AI 翻译声明是对读者诚实
+        // （读者有权知道哪些可能是机器翻的，好据此决定要不要核对原文），
+        // 字体署名是 OFL 的许可要求。「帮我们改进」上面的链接行已经有了，这里不重复。
         copyright:
-          `© ${new Date().getFullYear()} vvvv community cn · 社区中文翻译，非官方站点 · ` +
-          'AI 翻译 + 人工校对，读着不顺请<a href="/about-translation/how-to-join">帮我们改进</a> · ' +
+          `© ${new Date().getFullYear()} vvvv community cn · 非官方译本，部分由 AI 翻译 · ` +
           '字体 Fusion Pixel Font (OFL)',
       },
       prism: {
