@@ -146,12 +146,11 @@ const config = {
           {label: 'Discord', href: 'https://discord.com/invite/yBWCJQQ4Pq'},
           {label: 'nodenodenode.net', href: 'https://www.nodenodenode.net/'},
         ],
-        // 三句都不能省：非官方声明与 AI 翻译声明是对读者诚实
-        // （读者有权知道自己读的是机器初翻，好据此决定要不要核对原文），
-        // 字体署名是 OFL 的许可要求。
+        // 三样都不能省：非官方声明与 AI 翻译声明是对读者诚实
+        // （读者有权知道哪些可能是机器翻的，好据此决定要不要核对原文），
+        // 字体署名是 OFL 的许可要求。「帮我们改进」上面的链接行已经有了，这里不重复。
         copyright:
-          `© ${new Date().getFullYear()} vvvv community cn · 社区中文翻译，非官方站点 · ` +
-          'AI 翻译 + 人工校对，读着不顺请<a href="/about-translation/how-to-join">帮我们改进</a> · ' +
+          `© ${new Date().getFullYear()} vvvv community cn · 非官方译本，部分由 AI 翻译 · ` +
           '字体 Fusion Pixel Font (OFL)',
       },
       prism: {
