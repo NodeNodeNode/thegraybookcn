@@ -86,6 +86,9 @@ const config = {
     ],
   ],
 
+  // 官网路径（/reference/hde/exporting.html）→ 本站对应页，读者换个域名就能对照着看
+  plugins: [require.resolve('./plugins/upstream-redirects')],
+
   // 本地搜索。选它而不是 Algolia 有三条硬理由：主站 CSP 是 connect-src 'self'，
   // Algolia 的 XHR 会被浏览器直接拦掉；Algolia 要求先有可爬取的线上站再申请审批；
   // 读者主要在国内，本地索引不引入任何额外跨境请求。137 页也远在 lunr 的舒适区内。
